@@ -102,9 +102,9 @@
 .org 0x080D2620
 	mov		r0,0h
 
-//reduce the input window for each DeltaRay extension to 6 frames
-.org 0x080D22D8
-	cmp		r0,10h
+//this controls the DeltaRay input window
+//.org 0x080D22D8
+//	cmp		r0,10h
 
 
 
