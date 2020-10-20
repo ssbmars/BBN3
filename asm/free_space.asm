@@ -319,6 +319,14 @@ writeFullLibrary:
 	;fills the player's library
 	push 	lr
 	
+
+	//fix for flashcarts- write 0xFF to [02001DC3]
+	mov		r0,0FFh
+	ldr		r1,=2001DC3h
+	strb	r0,[r1]
+	//end of flashcart fix
+
+
 	mov 	r0,7Fh
 	ldr 	r1,=2000330h
 	strb 	r0,[r1]
@@ -463,7 +471,7 @@ writeFriendlyVirusesCaptured:
 
 	mov		r2,6h
 
-	swi 0Bh
+	swi 	0Bh
 
 	mov		r15,r14
 
