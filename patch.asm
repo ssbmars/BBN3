@@ -653,6 +653,10 @@ Nothing that branches to any of this code uses hardcoded addresses, instead they
 
 
 
+
+
+
+
 ClosingCustScreen:
 	push	r14
 
@@ -717,18 +721,6 @@ CustSelectLoop:
 
 
 
-
-
-
-DisplacedByCustSkip:
-	mov		r0,0h
-	mov		r1,2h
-	mov		r2,3h
-	mov		r3,0h
-	mov		r4,4h
-	mov		r5,2h
-
-	mov		r15,r14
 
 
 
