@@ -1,3 +1,4 @@
+/.ignore/*
 /rom/backup/*
 *.exe
 *.dll
