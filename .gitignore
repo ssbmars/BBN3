@@ -1,0 +1,11 @@
+/rom/backup/*
+*.exe
+*.dll
+*.gba
+*.sav
+*.sym
+*.nlz
+*.lnk
+*.png
+/tp/indexes/
+/tp/plugins/
