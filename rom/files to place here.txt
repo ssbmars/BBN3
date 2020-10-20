@@ -1,9 +1,0 @@
-add the following files to this directory:
-
-(the file names must match exactly)
-
-bn3blue.gba (MegaMan Battle Network 3 Blue GBA ROM, English version)
-
-bn3white.gba (MegaMan Battle Network 3 White GBA ROM, English version)
-
-exe3black.gba (Rockman EXE 3 Black GBA ROM, Japanese version)
