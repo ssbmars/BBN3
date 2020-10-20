@@ -1,0 +1,6 @@
+add the following folders to this directory:
+
+(both of these folders are included in the TextPet download)
+
+"indexes"
+"plugins"
