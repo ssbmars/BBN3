@@ -506,6 +506,7 @@ bl HubHP
 
 
 
+.if IS_PVP
 
 //make ERROR codes accept blank entry
 .org 0x0803AC90
@@ -524,8 +525,6 @@ bl HubHP
 .dd 0x1717171717171717 :: .dd 0x1717171717171717
 .dd 0x1717171717171717 :: .dd 0x1717171717171717
 
-
-.if IS_PVP
 
 
 //overhaul EX codes
