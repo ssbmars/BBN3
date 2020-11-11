@@ -73,11 +73,15 @@ ALL_STAR_CODES	EQU 0
 
 //===============	Aesthetic changes
 
+
+.if IS_ENG
 //Prof.9's Colorful Internet hack	(for pve version)
-.org 0x0802A8B4
-ldr	r0,=ColorfulInternet|1b
-bx	r0
-.pool
+.org 0x0802A89C
+	ldr	r0,=ColorfulInternet|1b
+	bx	r0
+	.pool
+.else
+.endif
 
 
 
@@ -254,11 +258,13 @@ bx	r0
 	.db 0x3C		;flashing (invis) time (bosses)
 
 
+
+.if IS_PVP
+
 //hook to change boss flinch
 //tested on plantman
 .org BossFlinchHook
 	bl		BossFlinch
-
 
 
 //[experiemental] increase startup lag for boss movement, tested on plantman
@@ -270,6 +276,8 @@ bx	r0
 .org 0x080B95C4
 	bne		80B95F6h
 
+	.else
+	.endif
 
 
 .org TimeFreezeFadeTime
@@ -447,6 +455,23 @@ bl 		SetStyle
 
 
 .else
+
+//PVE: hook to make ElemBody NCPs set the next style element
+.org BatteryNCPRoutineHook + 4h
+	bl		StyleElemPVE
+.org OilBodyNCPRoutineHook + 4h
+	bl		StyleElemPVE
+.org FishNCPRoutineHook + 4h
+	bl		StyleElemPVE
+.org JungleNCPRoutineHook + 4h
+	bl		StyleElemPVE
+
+
+//hook to randomize next style element if no ElemBody NCP is installed
+.org 0x080473BC
+	bl		RandomizeNextStyle
+	nop
+
 .endif
 
 //Shield style heal 50HP from shield heal
@@ -1623,6 +1648,7 @@ ChipInvulnTime:
 	.pool
 
 
+
 //	lower boss flinch time, don't reset flinch time if already flinching
 BossFlinch:
 	push	r1
@@ -1637,17 +1663,16 @@ BossFlinch:
 
 @@NotAlreadyFlinching:
 
-	.if IS_PVP
 	mov		r0,1Eh		//mm's flinch duration is 18h
-	.else
-	mov		r0,3Ch		//higher flinch time for pve version
-	.endif
 
 	strh	r0,[r5,20h]
 	
 @@noreset:
 	pop		r1
 	mov		r15,r14
+
+
+
 
 
 //	this is the code for the pvp-ready progress setter that runs when continuing from an existing save file every time to keep stuff clean. It won't be compiled if the var is set to not compile pvp-only code
@@ -2013,6 +2038,23 @@ StyleElem:
 	pop 	r1-r3,r15
 	
 	.pool
+
+
+StyleElemPVE:
+	bl		8047304h	//og code, should be fine
+	//the correct element value is already loaded in r1 by vanilla code
+	ldr		r2,=2001DBBh
+	strb	r1,[r2]
+
+	pop		r15
+
+
+RandomizeNextStyle:
+	bl		8047304h	//og code, remove ElemBody effect
+
+	bl		8016040h	//routine to choose new random elem style
+
+	pop		r4,r7,r15
 
 
 // Cycle thru Styles in the menu 
