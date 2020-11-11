@@ -65,6 +65,7 @@ OpenModeRoutine:
 	bl writeProgress
 	bl writeFolders
 @@continuesave:
+	bl writeReadSpeed
 	bl writeNaviCust
 	bl writeFullLibrary
 	bl ValidateBackpackOnStartup
@@ -234,6 +235,19 @@ writeStyle:
 	pop r15					;return
 	
 	.pool
+
+
+
+writeReadSpeed:
+	//ensure that the opcode prefetching option is enabled
+	ldr		r2,=800020Ch
+	mov		r1,40h
+	lsl		r1,8h
+	ldrh	r0,[r2]
+	orr		r0,r1
+	strh	r0,[r2]
+
+	bx		lr
 
 
 writeNaviCust:
