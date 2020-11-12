@@ -15,7 +15,7 @@ lim		rarity value, sets folder chip limit, limit is <value>+1
 
 mb		the chip's megabyte
 
-type	attack/support value
+type	attack/support value, support chips do not display a damage value
 
 atk		attack value, as displayed on the chip. Can use decimal numbers instead of hex
 
@@ -2391,20 +2391,52 @@ set	BassGS
 //They're not in use, but their codes are removed
 //to prevent glitches from occuring
 
-set	130h
-	code	0FFh,0FFh,0FFh,0FFh,0FFh,0FFh
+set	130h	//	NavRcycl
+	lim		0
 
-set	131h
-	code	0FFh,0FFh,0FFh,0FFh,0FFh,0FFh
+	icon	icon_NavRcycl
+	img		img_NavRcycl
+	color	pal_NavRcycl
 
-set	132h
-	code	0FFh,0FFh,0FFh,0FFh,0FFh,0FFh
+set	131h	//	AlphArmS
+	code1	codeQ,0
+	lim		0
+	mb		9
+	type	60h
+	atk		50
 
-set	133h
-	code	0FFh,0FFh,0FFh,0FFh,0FFh,0FFh
+	icon	icon_AlphArmS
+	img		img_AlphArmS
+	color	pal_AlphArmS
 
-set	134h
-	code	0FFh,0FFh,0FFh,0FFh,0FFh,0FFh
+
+set	132h	//	Bass
+	code1	codeW,0
+	lim		0
+	mb		9
+	type	44h
+	atk		70
+
+	icon	icon_Bass
+	img		img_Bass
+	color	pal_Bass
+
+
+set	133h	//	Serenade
+	lim		0
+	mb		9
+	atk		60
+
+	icon	icon_Serenade
+	img		img_Serenade
+	color	pal_Serenade
+
+set	134h	//	Balance
+	lim		0
+
+	icon	icon_Balance
+	img		img_Balance
+	color	pal_Balance
 
 //back to the real chips
 
@@ -2500,83 +2532,53 @@ set	MetalMnV5
 
 
 
-.if IS_PVP
-
-set	Balance			//white
-	code	18h,0FFh,0FFh,0FFh,0FFh,0FFh
-	elem	null
-	fam		0Ch
-	sublv	48h
-	lim		0
-	mb		8
-	type	42h
-	atk		0
-
-	icon	icon_Balance
-	img		img_Balance
-	color	pal_Balance
-
-
-set	NavRcycl		//white
-	code	1Ah,0FFh,0FFh,0FFh,0FFh,0FFh
-	elem	null
-	fam		35h
-	sublv	0
-	lim		0
+set	BeastMnV5
+	code	0FFh,0FFh,0FFh,0FFh,0FFh,0FFh
+	pos		0
+	fam		0
 	mb		9
-	type	60h
-	atk		0
-
-	icon	icon_NavRcycl
-	img		img_NavRcycl
-	color	pal_NavRcycl
+	clss	G
+	color	black
 
 
-set	AlphArmS		//white
-	code	10h,0FFh,0FFh,0FFh,0FFh,0FFh
-	elem	null
-	fam		14h
-	sublv	54h
-	lim		0
+
+set	GutsManV5
+	code	0FFh,0FFh,0FFh,0FFh,0FFh,0FFh
+	pos		0
+	fam		0
 	mb		9
-	type	60h
-	atk		50
-
-	icon	icon_AlphArmS
-	img		img_AlphArmS
-	color	pal_AlphArmS
+	clss	G
+	color	black
 
 
-set	Bass			//white
-	code	16h,0FFh,0FFh,0FFh,0FFh,0FFh
-	elem	null
-	fam		14h
-	sublv	4Bh
-	lim		0
+
+set	BubblMnV5
+	code	0FFh,0FFh,0FFh,0FFh,0FFh,0FFh
+	pos		0
+	fam		0
 	mb		9
-	type	44h
-	atk		70
+	clss	G
+	color	black
 
 
-	icon	icon_Bass
-	img		img_Bass
-	color	pal_Bass
 
-
-set	Serenade		//white
-	code	12h,0FFh,0FFh,0FFh,0FFh,0FFh
-	elem	null
-	fam		14h
-	sublv	57h
-	lim		0
+set	ProtoMnV5
+	code	0FFh,0FFh,0FFh,0FFh,0FFh,0FFh
+	pos		0
+	fam		0
 	mb		9
-	type	44h
-	atk		60
-	pos		295
+	clss	G
+	color	black
 
-	icon	icon_Serenade
-	img		img_Serenade
-	color	pal_Serenade
+
+
+set	DesrtMnV5
+	code	0FFh,0FFh,0FFh,0FFh,0FFh,0FFh
+	pos		0
+	fam		0
+	mb		9
+	clss	G
+	color	black
 
 
 
@@ -2600,8 +2602,8 @@ set	PlantMnV5
 
 	icon	ico_plantman
 
-.else
-.endif
+
+
 
 
 set	ZCanon1
@@ -3240,7 +3242,10 @@ set	PlantMnV4
 
 
 
-//make sure the chips that trigger library anticheat don't get added
+
+//THIS PART DOES NOT APPLY TO PRODUCTION CODE
+
+//make sure the chips that trigger library anticheat don't get added 
 .if ALL_STAR_CODES
 
 set	BassGS
