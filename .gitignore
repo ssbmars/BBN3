@@ -8,6 +8,6 @@
 *.nlz
 *.lnk
 *.png
-/tp/indexes/
-/tp/plugins/
-!/*/bn3-utf8.tbl
+/tp/indexes/*
+/tp/plugins/*
+!/tp/plugins/cstm-bn3-utf8.tbl
