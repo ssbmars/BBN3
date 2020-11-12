@@ -334,57 +334,58 @@ writeFullLibrary:
 	push 	lr
 	
 
-	//fix for flashcarts- write 0xFF to [02001DC3]
+	//fix for flashcarts- write 0xFF to [02001DC3] (fixes library anticheat triggering)
 	mov		r0,0FFh
 	ldr		r1,=2001DC3h
 	strb	r0,[r1]
 	//end of flashcart fix
 
 
+	ldr 	r1,=2000330h
 	mov 	r0,7Fh
-	ldr 	r1,=2000330h
 	strb 	r0,[r1]
-	mov 	r0,7h
-	add 	r1,26h
-	strb 	r0,[r1]
+	mov 	r0,0FFh
+	mov		r2,26h
+	strb 	r0,[r1,r2]
 	mov 	r2,0h
-	ldr 	r1,=2000330h
 	mov 	r0,0FFh
 
 @@continueFullLibraryLoop:
-	cmp 	r2,24h
+	cmp 	r2,2Bh
 	beq 	@@endFullLibraryLoop
-	add 	r1,1h
+
+	cmp		r2,25h	//don't write anything to this byte
+	bne		.+4h
+	add		r2,2h
+
 	add 	r2,1h
-	strb 	r0,[r1]
+	strb 	r0,[r1,r2]
 	b 		@@continueFullLibraryLoop
 
 @@endFullLibraryLoop:
-	add 	r1,1h
-	strb 	r0,[r1]
-	add 	r1,3h
-	strb 	r0,[r1]
-	add 	r1,1h
-	strb 	r0,[r1]
-	mov 	r0,0FFh
-	add 	r1,1h
-	strb 	r0,[r1]
-	add 	r1,1h
-	strb 	r0,[r1]
+	mov		r2,0h
+	mov		r5,0h
+
+@@LibraryCountLoop:		//dynamically calculate the correct value that will avoid triggering an anticheat
+	ldrb	r0,[r1,r2]
+	add		r5,r0
+	add		r2,1h
+	cmp		r2,30h
+	blt		@@LibraryCountLoop
+
+	mov		r0,0FFh
+	add		r5,r0
+	neg		r5,r5
+	lsl		r5,10h
+	lsr		r5,10h
 
 	ldr 	r1,=20019B0h
-	mov 	r0,0A4h
-	strb 	r0,[r1]
-	mov 	r0,0D5h
-	add 	r1,1h
-	strb 	r0,[r1]
+	strh 	r5,[r1]
 	mov 	r0,0h
 	ldr		r5,=0x02009DB0
 	strb 	r0,[r5,6h]
 	strb 	r0,[r5,7h]
 	strb 	r0,[r5,3h]
-	mov 	r0,12h
-	mov 	r1,66h
 	
 	pop r15
 
