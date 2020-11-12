@@ -10,3 +10,4 @@
 *.png
 /tp/indexes/
 /tp/plugins/
+!/tp/plugins/bn3-utf8.tbl
