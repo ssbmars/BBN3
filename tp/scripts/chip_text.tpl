@@ -28,27 +28,6 @@ script 162 mmbn3s {
 	end
 }
 
-script 226 mmbn3s {
-	"NavRcycl"
-	end
-}
-script 231 mmbn3s {
-	"Bass"
-	end
-}
-script 251 mmbn3s {
-	"Serenade"
-	end
-}
-script 241 mmbn3s {
-	"Balance"
-	end
-}
-script 246 mmbn3s {
-	"AlphArmΣ"
-	end
-}
-
 
 
 //=============================================================================
@@ -621,80 +600,6 @@ script 243 mmbn3 {
 	end
 }
 
-//NavRecycle
-script 226 mmbn3 {
-	textSpeed
-		delay = 0
-	msgOpenQuick
-	"""
-	Recalls
-	last Navi
-	chip used
-	"""
-	keyWait
-	msgCloseQuick
-	end
-}
-
-//Bass
-script 231 mmbn3 {
-	textSpeed
-		delay = 0
-	msgOpenQuick
-	"""
-	[DC1][DC2][DC3] Fire
-	down rows
-	at random
-	"""
-	keyWait
-	msgCloseQuick
-	end
-}
-
-//Serenade
-script 251 mmbn3 {
-	textSpeed
-		delay = 0
-	msgOpenQuick
-	"""
-	[DC1][DC2][DC3] Holy
-	power to
-	rndm pnls
-	"""
-	keyWait
-	msgCloseQuick
-	end
-}
-
-//Balance
-script 241 mmbn3 {
-	textSpeed
-		delay = 0
-	msgOpenQuick
-	"""
-	Both HP
-	reduced
-	by 1/3!
-	"""
-	keyWait
-	msgCloseQuick
-	end
-}
-
-//AlphArmSigma
-script 246 mmbn3 {
-	textSpeed
-		delay = 0
-	msgOpenQuick
-	"""
-	Electric
-	attack!
-	Atk:50
-	"""
-	keyWait
-	msgCloseQuick
-	end
-}
 
 //Meteors
 script 212 mmbn3 {
@@ -811,6 +716,53 @@ script 37 mmbn3 {
 	end
 }
 
+//AlphArmSigma
+script 49 mmbn3 {
+	textSpeed
+		delay = 0
+	msgOpenQuick
+	"""
+	Electric
+	attack!
+	Atk:50
+	"""
+	keyWait
+	msgCloseQuick
+	end
+}
+
+
+//Bass
+script 50 mmbn3 {
+	textSpeed
+		delay = 0
+	msgOpenQuick
+	"""
+	[DC1][DC2][DC3] Fire
+	down rows
+	at random
+	"""
+	keyWait
+	msgCloseQuick
+	end
+}
+
+
+//Serenade
+script 51 mmbn3 {
+	textSpeed
+		delay = 0
+	msgOpenQuick
+	"""
+	[DC1][DC2][DC3] Holy
+	power to
+	rndm pnls
+	"""
+	keyWait
+	msgCloseQuick
+	end
+}
+
 
 //Balance
 script 52 mmbn3 {
@@ -826,6 +778,7 @@ script 52 mmbn3 {
 	msgCloseQuick
 	end
 }
+
 
 
 //Bass+
