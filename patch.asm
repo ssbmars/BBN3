@@ -67,7 +67,8 @@ ALL_STAR_CODES	EQU 0
 //.include "asm\bn3plus\bbn3plus.asm"
 
 
-
+.org EquipStoryNCPsHook
+bl 		EquipStoryNCPs
 
 
 
@@ -484,11 +485,18 @@ bl 		SetStyle
 // ------------ BN6 chip limit hook
 
 
+.if IS_PVP
+
 .org ChipLimitValHook
 	bl LoadRarity
 
 .org SetStandardChipLimitVal
 	nop ;prevents it from clearing the custom chip limit value
+
+.else
+.endif
+
+
 
 // ------ dynamic invuln chip duration
 
@@ -564,14 +572,6 @@ bl 		SetStyle
 	bl		BarrierRemoval
 	nop
 
-
-
-//make aura remove itself if its timer underflows
-//.org AuraTimeoutLogic
-//	bmi		80ADA48h
-
-//this makes auras last 1 extra frame, but it makes the check compatible with the change
-//to the new barr/aura removal code that sets the HP/timer to 0 
 
 
 
@@ -2108,9 +2108,18 @@ SetStyle:
 
 .align 4
 EquipStoryNCPs:
-	push r14
+	push r2,r3,r14
 
 // Press
+	mov		r2,2h
+	lsl		r2,18h		//r2 is loaded with the address for game flags
+	mov		r3,0D5h		//pointer for which flag to check
+	
+	ldrb	r0,[r2,r3]	//read the flag
+	mov		r1,80h
+	tst		r0,r1
+	beq		.+0Ah		//branch if r0 doesn't include r1's bit
+
 	mov 	r0,28h
 	mov 	r1,1h
 	bl 		8047304h
@@ -2121,19 +2130,19 @@ EquipStoryNCPs:
 	bl 		8047304h
 
 // Alpha
-	mov 	r0,25h
-	mov 	r1,1h
-	bl 		8047304h
+//	mov 	r0,25h
+//	mov 	r1,1h
+//	bl 		8047304h
 
 // BlackMind
-	mov 	r0,21h
-	mov 	r1,1h
-	bl 		8047304h
+//	mov 	r0,21h
+//	mov 	r1,1h
+//	bl 		8047304h
 
 //og code
 	mov 	r0,15h
 	mov 	r1,1h
-	pop 	r15
+	pop 	r2,r3,r15
 
 
 
