@@ -550,21 +550,19 @@ DarkManV2	EQU		0x0125
 JapanMan	EQU		0x0129 
 JapanMnV2	EQU		0x012A 
 
-DeltaRay	EQU		0x012E 
+DeltaRay	EQU		0x012E	//blue gigas
 FoldrBak	EQU		0x012F 
-DarkAura	EQU		0x0135
+DarkAura	EQU		0x0135	
 AlphArmO	EQU		0x0136
 Bassp		EQU		0x0137
+NavRcycl 	EQU		0x0130	//white gigas
+AlphArmS	EQU		0x0131
+Bass		EQU		0x0132
+Serenade	EQU		0x0133
+Balance		EQU		0x0134
+BassGS		EQU		0x0138	//banned bass
 
-BassGS		EQU		0x0138
-
-Balance		EQU		0xF1
-NavRcycl 	EQU		0xE2
-Serenade	EQU		0xFB 
-AlphArmS	EQU		0xF6
-Bass		EQU		0xE7
-
-KingManV5	EQU		0x0119 
+KingManV5	EQU		0x0119 	//unused gigas
 MistManV5	EQU		0x011E 
 BowlManV5	EQU		0x0123 
 FlamManV5	EQU		0x0105 
@@ -572,17 +570,16 @@ DarkManV5	EQU		0x0128
 DrillMnV5	EQU		0x010A 
 JapanMnV5	EQU		0x012D 
 MetalMnV5	EQU		0x010F 
-
-//BeastMnV5	EQU		0xF1 
-//GutsManV5	EQU		0xE2 
-//BubblMnV5	EQU		0xF6 
-//ProtoMnV5	EQU		0xE7 
-//DesrtMnV5	EQU		0xFB 
+BeastMnV5	EQU		0xF1
+GutsManV5	EQU		0xE2
+BubblMnV5	EQU		0xF6
+ProtoMnV5	EQU		0xE7
+DesrtMnV5	EQU		0xFB	//unused gigas
 
 FlashMnV5	EQU		0xEC
 PlantMnV5	EQU		0x0100 
 
-ZCanon1		EQU		0x0140 
+ZCanon1		EQU		0x0140	//PAs
 ZCanon2		EQU		0x0141 
 ZCanon3		EQU		0x0142 
 ZPunch		EQU		0x0143 
@@ -613,10 +610,10 @@ GtsShoot	EQU		0x015B
 DeuxHero	EQU		0x015C 
 MomQuake	EQU		0x015D 
 PrixPowr	EQU		0x015E 
-MstrStyl	EQU		0x015F
+MstrStyl	EQU		0x015F	//PAs
 
 
-RollV3		EQU		0xDD 
+RollV3		EQU		0xDD 	//unused megas
 MistManV3	EQU		0x011C 
 MistManV4	EQU		0x011D 
 BowlManV3	EQU		0x0121 
@@ -650,7 +647,7 @@ FlashmnV4	EQU		0xEB
 PlantMan	EQU		0xFC 
 PlantMnV2	EQU		0xFD 
 PlantMnV3	EQU		0xFE 
-PlantMnV4	EQU		0xFF 
+PlantMnV4	EQU		0xFF 	//unused megas
 
 
 
