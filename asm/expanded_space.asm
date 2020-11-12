@@ -75,67 +75,67 @@ pal_black:
 
 //Roll icon
 ico_roll:
-.import "icon/roll.bin"
+.import "art/icon/roll.bin"
 
 //Gutsman
 ico_gutsman:
-.import "icon/gutsman.bin"
+.import "art/icon/gutsman.bin"
 
 //Protoman
 ico_protoman:
-.import "icon/protoman.bin"
+.import "art/icon/protoman.bin"
 
 //Flashman
 ico_flashman:
-.import "icon/flashman.bin"
+.import "art/icon/flashman.bin"
 
 //Beastman
 ico_beastman:
-.import "icon/beastman.bin"
+.import "art/icon/beastman.bin"
 
 //Bubbleman
 ico_bubbleman:
-.import "icon/bubbleman.bin"
+.import "art/icon/bubbleman.bin"
 
 //Desertman
 ico_desertman:
-.import "icon/desertman.bin"
+.import "art/icon/desertman.bin"
 
 //Plantman
 ico_plantman:
-.import "icon/plantman.bin"
+.import "art/icon/plantman.bin"
 
 //Flameman
 ico_flameman:
-.import "icon/flameman.bin"
+.import "art/icon/flameman.bin"
 
 //Drillman
 ico_drillman:
-.import "icon/drillman.bin"
+.import "art/icon/drillman.bin"
 
 //Metalman
 ico_metalman:
-.import "icon/metalman.bin"
+.import "art/icon/metalman.bin"
 
 //Kingman
 ico_kingman:
-.import "icon/kingman.bin"
+.import "art/icon/kingman.bin"
 
 //Mistman
 ico_mistman:
-.import "icon/mistman.bin"
+.import "art/icon/mistman.bin"
 
 //Bowlman
 ico_bowlman:
-.import "icon/bowlman.bin"
+.import "art/icon/bowlman.bin"
 
 //Darkman
 ico_darkman:
-.import "icon/darkman.bin"
+.import "art/icon/darkman.bin"
 
 //Yamatoman
 ico_yamatoman:
-.import "icon/yamatoman.bin"
+.import "art/icon/yamatoman.bin"
 
 
 
