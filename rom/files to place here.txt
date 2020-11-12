@@ -3,7 +3,10 @@ add the following files to this directory:
 (the file names must match exactly)
 
 bn3blue.gba (MegaMan Battle Network 3 Blue GBA ROM, English version)
+md5 hash: 6fe31df0144759b34ad666badaacc442
 
 bn3white.gba (MegaMan Battle Network 3 White GBA ROM, English version)
+md5 hash: 68817204a691449e655cba739dbb0165
 
 exe3black.gba (Rockman EXE 3 Black GBA ROM, Japanese version)
+md5 hash: ce9f58d790acd6260bd45ca4346fac74
