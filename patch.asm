@@ -1,24 +1,10 @@
 
-//================================================================
-// Changes byte at 0x123456 to 0xAB
-//.org 0x8123456
-//    .db    0xAB
-
-// Changes halfword (2 bytes little endian) at 0x123456 to 0xABCD
-//.org 0x8123456
-//    .dh    0xABCD
-
-// Changes word (4 bytes little endian) at 0x123456 to 0xABCDEF00
-//.org 0x8123456
-//    .dw    0xABCDEF00
-//================================================================
-
 
 .gba
 
 
 AM_DEBUGGING	EQU	1
-ALL_STAR_CODES	EQU 0
+ALL_STAR_CODES	EQU	0
 
 
 
@@ -71,16 +57,6 @@ bl 		EquipStoryNCPs
 
 
 //===============	Aesthetic changes
-
-
-.if IS_ENG
-//Prof.9's Colorful Internet hack	(for pve version)
-.org 0x0802A89C
-	ldr	r0,=ColorfulInternet|1b
-	bx	r0
-	.pool
-.else
-.endif
 
 
 
@@ -165,6 +141,15 @@ bl 		EquipStoryNCPs
 
 .if IS_PVP
 .else
+
+	//Prof.9's Colorful Internet hack	(for pve version)
+	.org 0x0802A89C
+		ldr	r0,=ColorfulInternet|1b
+		bx	r0
+		.pool
+
+
+
 	//N1-FldrA with varsword PA
 	.org 0x0800CE02	//longsword R, VarSwrd B,D
 		.db	0x11,0x00,0x26,0x00,0x01,0x00,0x26,0x00,0x03,0x00
@@ -669,7 +654,7 @@ Nothing that branches to any of this code uses hardcoded addresses, instead they
 
 // =================
 // =======================
-// ============================= PUT NEW HOOKS HERE
+// ============================= PUT NEW HOOKED CODE HERE
 
 
 
