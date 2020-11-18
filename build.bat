@@ -1,4 +1,4 @@
 @echo off
-armips patch.asm -sym bbn3.sym
-textpet run-script writebn3.tpl
-timeout 4
+armips patch.asm -equ IS_PVP 1 -equ IS_ENG 1 -sym bbn3.sym 
+textpet run-script pvp_eng.tpl
+timeout 3
