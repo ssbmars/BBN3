@@ -22,12 +22,12 @@ ExpandedHitboxTable:
 
 
 // new table value wind-smallpush (65)
-.dw 0x80000144 	;a
-.dw 0x40000244 	;b
+.dw 0x80000140 	;a
+.dw 0x40000240 	;b
 
 //new table value windpull (66)
-.dw 0x80000844 	;a
-.dw 0x40001044 	;b
+.dw 0x80000840 	;a
+.dw 0x40001040 	;b
 
 //poison drain that doesn't pierce invis (67)
 .dw 0x80000020	;a
@@ -39,8 +39,8 @@ ExpandedHitboxTable:
 
 
 //new table value standard wind hit  (69)
-.dw 0x80000044	;a
-.dw 0x40000044	;b
+.dw 0x80000040	;a
+.dw 0x40000040	;b
 
 
 //new table value AirSword 	(6A)
