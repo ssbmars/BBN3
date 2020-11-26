@@ -142,12 +142,15 @@ bl 		EquipStoryNCPs
 .if IS_PVP
 .else
 
+
+/*  might be causing problems
+
 	//Prof.9's Colorful Internet hack	(for pve version)
 	.org 0x0802A89C
 		ldr	r0,=ColorfulInternet|1b
 		bx	r0
 		.pool
-
+*/
 
 
 	//N1-FldrA with varsword PA
@@ -1027,12 +1030,10 @@ CollisionCheckWind:
 	ldrh	r0,[r6,14h]		//damage from hitbox
 	strh	r0,[r7,18h]		//apply to mem area for damage to barriers
 
-
-
-
 @@popskip:
 	mov		r0,0h
 	pop		r1
+
 @@skip:
 	bic		r0,r2			//og code starts here
 	bic		r1,r2
