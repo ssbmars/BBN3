@@ -133,11 +133,20 @@ bl Hitboxtable
 
 
 
+
+
+//modify northwind's hitbox so it pierces shields
+.org (ExpandedHitboxTable + 128h) :: .db 0x54 ;a
+.org (ExpandedHitboxTable + 12Ch) :: .db 0x54 ;b
+
+
 //make windpush remove barr/aura
 	//this modifies bytes at a pre-existing location in the table,
 	//so the [.org] position is relative to where the table was written
-.org (ExpandedHitboxTable + 250h) :: .db 0x44 ;a
-.org (ExpandedHitboxTable + 254h) :: .db 0x44 ;b
+.org (ExpandedHitboxTable + 250h) :: .db 0x40 ;a
+.org (ExpandedHitboxTable + 254h) :: .db 0x40 ;b
+
+
 
 
 //pull is not modified because it is used by other non-wind hitboxes.
@@ -148,17 +157,15 @@ bl Hitboxtable
 	.db 0x66
 
 
-//modify northwind's hitbox so it pierces shields
-.org (ExpandedHitboxTable + 128h) :: .db 0x54 ;a
-.org (ExpandedHitboxTable + 12Ch) :: .db 0x54 ;b
-
 
 //give tornado the standard wind hitbox
 .org TornadoHitboxPointer
 	mov r1,69h
+
 //give airstorm's tornado the standard wind hitbox
 .org AirStormTornadoHitboxPointer
 	mov r1,69h
+
 
 
 //make airshot use wind-smallpush pointer
