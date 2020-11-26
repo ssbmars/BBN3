@@ -613,7 +613,9 @@ bl 		SetStyle
 
 
 
-
+//[EXPERIMENTAL] try to maintain value in memory area so you can apply damage to just barriers beforehand
+.org 0x080B4EE8
+	bl	KeepBarrierDmg
 
 
 
@@ -659,8 +661,13 @@ Nothing that branches to any of this code uses hardcoded addresses, instead they
 
 
 
+KeepBarrierDmg:
+	add		r0,r1
+	ldrh	r1,[r7,18h]
+	add		r0,r1
+	strh	r1,[r7,18h]
 
-
+	mov		r15,r14
 
 
 
@@ -901,7 +908,7 @@ AntiDmgBarrierCheck:
 
 @@skip:
 
-	//write here to apply damage to barriers
+	//write here to apply damage to barriers, but probably only relevant for when antidmg blocks the hit
 /*
 	mov		r0,24h
 	ldrb	r1,[r6,6h]
@@ -991,29 +998,42 @@ TFPCoolDownResetCheck:
 //allow windboxes to pierce intangibility by making an extra routine in the collision check
 CollisionCheckWind:
 
-	push	r0-r1
 
-	//skip if not the real collision check
-	lsl		r0,8h
-	lsr		r0,8h
-	cmp		r0,2h
-	beq		@@finish
+	//skip if entity is not intangible
+	tst		r0,r0
+	bne		@@skip
+
+
+
+
+	ldrb	r0,[r7,6h]		//character hurtbox, barr/aura value
+	tst		r0,r0
+	beq		@@skip
+	push	r1
 
 
 	//check for windbox
-	lsl		r1,18h
-	lsr		r1,18h
-
-	cmp		r1,44h
-	bne		@@finish
+	mov		r0,40h
+	and		r1,r0
+	beq		@@dmgcheck
 
 	ldr		r0,[r7,2Ch]
 	orr		r0,r1
 	str		r0,[r7,2Ch]	
+	b		@@popskip
 
-@@finish:
-	pop		r0-r1
 
+@@dmgcheck:
+	ldrh	r0,[r6,14h]		//damage from hitbox
+	strh	r0,[r7,18h]		//apply to mem area for damage to barriers
+
+
+
+
+@@popskip:
+	mov		r0,0h
+	pop		r1
+@@skip:
 	bic		r0,r2			//og code starts here
 	bic		r1,r2
 	ldr		r2,=0FE000000h
