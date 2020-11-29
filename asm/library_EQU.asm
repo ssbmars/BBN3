@@ -211,12 +211,17 @@ color	EQU		Palette
 //does NOT change chip image
 .macro Image,val
     SetChipOffset 0x18
+    .dw val
     .org .-0x10
 .endmacro
 
-//does NOT change chip palette
+//changes chip palette UNLESS the palette is black
 .macro Palette,val
     SetChipOffset 0x1C
+    	.if val == black
+    	.else
+			.dw val
+    	.endif
     .org .-0x10
 .endmacro
 
