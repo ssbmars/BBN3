@@ -48,15 +48,12 @@ ALL_STAR_CODES	EQU	0
 	.sym on
 
 
+//this symbol is only defined in the build script that generates the .bps files
 .ifdef IS_BN3PLUS
 	.include "asm\bn3plus\bbn3plus.asm"
 .else
 .endif
 
-
-
-.org EquipStoryNCPsHook
-bl 		EquipStoryNCPs
 
 
 
@@ -135,6 +132,11 @@ bl 		EquipStoryNCPs
 .org 0x0800935E
 	bl	ClosingCustScreen		//replaces the original branch address with a custom routine
 
+
+
+
+.org EquipStoryNCPsHook
+bl 		EquipStoryNCPs
 
 
 
@@ -267,8 +269,8 @@ bl 		EquipStoryNCPs
 .org 0x080B95C4
 	bne		80B95F6h
 
-	.else
-	.endif
+.else
+.endif
 
 
 .org TimeFreezeFadeTime
