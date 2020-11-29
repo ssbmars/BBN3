@@ -25,6 +25,8 @@ http://ngplus.net/index.php?/files/file/37-mega-man-battle-network-3-randomizer/
 Main differences in the BBN3 SinglePlayer version:
 
 
+Opposite-version giga chips are available in certain shops throughout the net.
+
 All standard chips are limited to 4 per folder (this is vanilla behavior).
 
 None of the chips or PAs are disabled.
