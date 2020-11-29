@@ -103,9 +103,6 @@ ALL_STAR_CODES	EQU	0
 	nop
 
 
-
-
-
 //===============	 Quality of Life Changes
 
 
@@ -157,6 +154,39 @@ bl 		EquipStoryNCPs
 		bx	r0
 		.pool
 */
+
+
+
+
+
+
+//allow white gigas to appear in shops (skip the ID check)
+.org 0x08001A66
+	b 	.+1Eh
+.org 0x08044B28
+	.dh 0x137,0x137,0x137,0x137,0x138,0x138
+
+//add white giga chips to various shops
+
+.org 0x0804503A		//navirecycle in higsby shop
+	.db 0x30,0x1,codeSTAR,0x0,0x88,0x13
+
+.org 0x08044D22		//balance in yoka square shop
+	.db 0x34,0x1,codeY,0x0,0x58,0x1B
+
+.org 0x08044E52		//serenade in undernet 2 bugfrag shop
+	.db	0x33,0x1,codeS,0x0,0x2C,0x1
+
+.org 0x08044ED0		//alpharm sigma in undernet 6 shop
+	.db 0x2,0x1,0x31,0x1,codeV,0x0,0xF4,0x1
+
+.org 0x08044F40		//bass in undernet square shop
+	.db	0x2,0x1,0x32,0x1,codeX,0x0,0xAC,0x26
+
+.org 0x08044F98		//meteors in secret area 2 shop
+	.db 0xD4,0x0,codeR,0x0,0xD2
+
+
 
 
 	//N1-FldrA with varsword PA
