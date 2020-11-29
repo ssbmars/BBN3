@@ -8,7 +8,7 @@
 
 
 script 105 mmbn3s {
-	"   BBN3\n prev 3\n"
+	"   preview 4.1"
 
 	end
 }
