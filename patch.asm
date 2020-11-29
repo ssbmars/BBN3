@@ -48,7 +48,11 @@ ALL_STAR_CODES	EQU	0
 	.sym on
 
 
-//.include "asm\bn3plus\bbn3plus.asm"
+.ifdef IS_BN3PLUS
+	.include "asm\bn3plus\bbn3plus.asm"
+.else
+.endif
+
 
 
 .org EquipStoryNCPsHook
