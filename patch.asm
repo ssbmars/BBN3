@@ -3,7 +3,7 @@
 .gba
 
 
-AM_DEBUGGING	EQU	1
+AM_DEBUGGING	EQU	0
 ALL_STAR_CODES	EQU	0
 
 
@@ -210,8 +210,26 @@ bl 		EquipStoryNCPs
 
 
 //next style change happens in 50 fights
-.org 8015C7Ah
+.org 0x8015C7A
 	mov r2,18h
+
+//allow unlocking ground style
+
+.org 0x08015D0A		//select random style?
+	nop
+	nop
+
+.org 0x08015EAC		//prevent clearing style points from ground
+	nop
+	nop
+
+.org 0x08015CE6		//prevent clearing style points from ground AGAIN
+	nop
+	nop
+
+.org 0x08015E2A		//place ground style points into stack
+	bl	CountGroundStyle
+
 
 
 //pve-friendly MB value scaling
@@ -700,6 +718,22 @@ Nothing that branches to any of this code uses hardcoded addresses, instead they
 
 
 
+
+
+CountGroundStyle:
+	ldrb	r0,[r3,13h]
+	mov		r1,46h
+	mul		r0,r1
+	ldrb	r1,[r3,12h]
+	mov		r2,46h
+	mul		r1,r2
+	add		r0,r0,r1
+	str		r0,[sp,10h]
+
+	mov		r15,r14
+
+
+
 KeepBarrierDmg:
 	add		r0,r1
 	ldrh	r1,[r7,18h]
@@ -707,9 +741,6 @@ KeepBarrierDmg:
 	strh	r1,[r7,18h]
 
 	mov		r15,r14
-
-
-
 
 
 
