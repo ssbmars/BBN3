@@ -3,8 +3,8 @@
 .gba
 
 
-AM_DEBUGGING	EQU	0
 ALL_STAR_CODES	EQU	0
+
 
 
 
