@@ -62,6 +62,45 @@ script 102 mmbn3 {
 	end
 }
 
+//win message
+script 113 mmbn3 {
+	end
+}
+//lose message
+script 115 mmbn3 {
+	end
+}
+
+//accept battle
+script 117 mmbn3 {
+	jump
+		target = 109
+}
+
+
+//escape message
+@archive 745488
+@size 255
+
+script 0 mmbn3 {
+	end
+}
+
+
+// fast escape message
+
+@archive 708ACC
+@size 51
+
+script 3 mmbn3 {
+	checkFlag
+		flag = 4714
+		jumpIfTrue = 50
+		jumpIfFalse = continue
+	end
+}
+
+
 
 
 //=============================================================================
