@@ -9,6 +9,20 @@
 
 
 
+
+//EXPERIMENTAL: make support NCPs work in pve battles
+	.org 0x080B0508		//load NCP
+		nop
+	.org 0x080B49A8		//check for NCP
+		nop
+
+//EXPERIMENTAL: allow pve battles to show if the opponent has an active trap
+	.org 0x0800FF48
+		nop
+
+
+
+
 //make Tamako's kiosk take you to Secret Area
 .org 0x0812B530
 	.import "rom/bn3blue.gba", 0x1321B0,0x10
@@ -141,7 +155,7 @@ bl 		EquipStoryNCPs
 
 
 //08002904	reads all the battle config settings, can be used to find any battle
-
+//08005A36	this is similarly helpful, works for pvp
 
 
 //Omega Navi Time Trial fights
