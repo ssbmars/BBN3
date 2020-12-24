@@ -1,4 +1,4 @@
-/.ignore/*
+*/.ignore/*
 /rom/backup/*
 *.exe
 *.dll
@@ -9,3 +9,5 @@
 *.lnk
 *.png
 *.bps
+*/*/SaveRam/*
+*/*/State/*
