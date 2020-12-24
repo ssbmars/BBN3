@@ -753,7 +753,7 @@ DelayBuffer:
 	bne		@@skipdefinitions
 
 	//p1 input lag value	(temporary code)
-	mov		r0,9h
+	mov		r0,7h
 	strb	r0,[r3]
 
 	//log size
