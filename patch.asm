@@ -720,6 +720,238 @@ Nothing that branches to any of this code uses hardcoded addresses, instead they
 
 
 
+
+
+ClearInputStack:
+	mov		r0,r5
+	mov		r1,90h
+	lsl		r1,4h
+	mov		r15,r14
+
+
+
+DelayBuffer:
+
+	push	r14
+	mov		r0,1h
+	strb	r0,[r5,3h]
+	bl		8008A44h
+	bl		8008C70h
+	tst		r0,r0
+	bne		@@tstskip
+	ldr		r0,[r5,20h]		//update frame timestamp
+	add		r0,1h
+	str		r0,[r5,20h]
+@@tstskip:
+
+	//define values for the buffer
+	push	r3,r6
+	mov		r3,0A0h
+	add		r3,r5
+	ldrb	r0,[r3]
+	tst		r0,r0
+	bne		@@skipdefinitions
+
+	//p1 input lag value	(temporary code)
+	mov		r0,3h
+	strb	r0,[r3]
+
+	//log size
+	mov		r0,0Ah
+	strb	r0,[r3,2h]
+
+@@skipdefinitions:
+
+	//normal operation
+	mov		r0,30h
+	add		r0,r5
+	mov		r4,r0
+	mov		r1,40h
+	add		r1,r5
+	mov		r2,10h
+	bl		8000B7Ch
+	mov		r0,r4
+	mov		r1,50h
+	add		r1,r5
+	mov		r2,10h
+	bl		8000B7Ch
+	mov		r0,r4
+	mov		r1,60h
+	add		r1,r5
+	mov		r2,10h
+	bl		8000B7Ch
+	mov		r0,r4
+	mov		r1,70h
+	add		r1,r5
+	mov		r2,10h
+	bl		8000B7Ch
+
+	//begin custom stuff
+@@preparememcopy:
+	push	r3
+	ldrb	r6,[r3,2h]
+	mov		r0,r6
+	lsl		r0,4h
+	add		r0,r3
+	mov		r3,0h
+	mov		r1,r0
+	add		r1,10h
+	
+@@memcopyloop:
+	ldr		r2,[r0]		//cycle p1's stack
+	str		r2,[r1]
+	add		r0,8h	
+	add		r1,8h
+	ldr		r2,[r0]		//cycle p2's stack
+	str		r2,[r1]
+	sub		r0,18h
+	sub		r1,18h
+
+	add		r3,1h
+	cmp		r3,r6
+	blt		@@memcopyloop
+	pop		r3
+
+
+
+	//write latest input to buffer
+@@writelatest:
+	mov		r0,r4
+	mov		r1,10h		//define destination address
+	add		r1,r3
+	ldr		r2,[r0]
+	str		r2,[r1]
+
+	//attach timestamp to latest input
+	mov		r0,20h
+	add		r0,r5
+	ldrb	r0,[r0]
+	strb	r0,[r1]
+	//bypass input lag if on the custom screen
+	mov		r4,r2
+	lsr		r4,1Ch
+	cmp		r4,5h
+	bne		@@player1input
+	mov		r1,60h
+	add		r1,r5
+	str		r2,[r1]
+	b		@@player2input
+
+	//apply input from <buffer> frames ago
+@@player1input:
+	mov		r4,r0	//move current timestamp into r4
+	ldrb	r6,[r3]
+	sub		r4,r6
+	lsl		r4,18h
+	lsr		r4,18h	//this is the timestamp from <buffer> frames ago, sanitized
+	mov		r0,r3
+	ldrb	r6,[r3,2h]
+	mov		r2,0h
+
+@@p1timestampcheckloop:
+	add		r0,10h
+	ldrb	r1,[r0]
+	cmp		r1,r4
+	beq		@@applyp1
+	add		r2,1h
+	cmp		r2,r6
+	ble		@@p1timestampcheckloop
+
+@@applyp1:
+	mov		r1,60h
+	add		r1,r5
+
+	ldr		r2,[r0]
+	str		r2,[r1]
+
+
+
+	//after overwriting, replace timestamp with the original byte value
+	mov		r0,42h
+	strb	r0,[r1]
+
+
+	//test for p2: apply input based off its timestamp
+@@player2input:
+
+	mov		r4,20h
+	add		r4,r5
+	ldrb	r4,[r4]		//fetch latest timestamp
+	ldrb	r6,[r3,1h]	//fetch buffer value
+	sub		r4,r6
+	lsl		r4,18h
+	lsr		r4,18h		//timestamp value to look for
+	ldrb	r6,[r3,2h]
+	mov		r0,8h
+	add		r0,r3	
+
+	mov		r2,0h
+
+@@p2timestampcheckloop:
+	add		r0,10h
+	ldrb	r1,[r0]
+	cmp		r1,r4
+	beq		@@applyp2
+	add		r2,1h
+	cmp		r2,r6
+	ble		@@p2timestampcheckloop
+	mov		r1,70h
+	add		r1,r5
+	b		@@p2thereisnoinput
+
+@@applyp2:
+	mov		r1,70h
+	add		r1,r5
+	ldr		r2,[r0]
+	str		r2,[r1]
+	b		@@applyp2end
+
+@@p2thereisnoinput:
+	mov		r0,0h
+	str		r0,[r1]
+
+@@applyp2end:
+	mov		r0,42h
+	strb	r0,[r1]
+
+
+/*
+@@p2memcopy:
+	mov		r4,0h
+	ldrb	r6,[r3,2h]	//read stack size
+	mov		r0,r6
+	lsl		r0,1h
+	add		r0,2h
+	lsl		r0,4h
+	add		r0,r3
+
+	mov		r1,r0
+	add		r1,10h
+
+@@p2memcopyloop:
+
+	ldr		r2,[r0]
+	str		r2,[r1]
+	sub		r0,10h
+	sub		r1,10h
+	add		r4,1h
+	cmp		r4,r6
+	ble		@@p2memcopyloop
+
+*/
+
+@@exitDelayBuffer:
+	pop		r3,r6,r15
+
+
+
+
+
+
+
+
+
+
 CountGroundStyle:
 	ldrb	r0,[r3,13h]
 	mov		r1,46h
