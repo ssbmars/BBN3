@@ -16,11 +16,6 @@
 	.org 0x080B49A8		//check for NCP
 		nop
 
-//EXPERIMENTAL: allow pve battles to show if the opponent has an active trap
-	.org 0x0800FF48
-		nop
-
-
 
 
 //make Tamako's kiosk take you to Secret Area
