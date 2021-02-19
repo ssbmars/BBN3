@@ -2096,10 +2096,6 @@ StyleElem:
 	beq 	@@cancel
 
 	// load style value and remove existing element
-//	lsr 	r1,3h
-//	lsl 	r1,3h
-//	add 	r1,r0
-
 	mov		r3,38h	//all the possible bits for style without elem
 	and		r1,r3
 	orr		r1,r0
