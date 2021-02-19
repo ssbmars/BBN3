@@ -2089,7 +2089,6 @@ HubHP:
 StyleElem:
 	push	r1-r3,r14
 	ldr 	r2,=2001881h
-	mov 	r3,13h
 
 	//check if normal style and skip if true
 	ldrb 	r1,[r2]
@@ -2097,12 +2096,15 @@ StyleElem:
 	beq 	@@cancel
 
 	// load style value and remove existing element
-	ldrb 	r1,[r2,r3]
-	lsr 	r1,3h
-	lsl 	r1,3h
+//	lsr 	r1,3h
+//	lsl 	r1,3h
+//	add 	r1,r0
 
-	add 	r1,r0
-	strb 	r1,[r2,r3]
+	mov		r3,38h	//all the possible bits for style without elem
+	and		r1,r3
+	orr		r1,r0
+
+	strb 	r1,[r2,13h]
 	strb 	r1,[r2]
 
 @@cancel:
