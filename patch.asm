@@ -1494,13 +1494,13 @@ BlockCooldown:
 	strb	r0,[r5,7h]
 
 
-	mov		r0,0Ah		//endlag value
+	mov		r0,0Ah		//endlag duration
 	mov		r1,22h
 	strh	r0,[r5,r1]
 
-	mov 	r0,2h
-	mov		r1,10h
-	strb	r0,[r5,r1]	
+	ldr		r7,[r5,68h]	//fetch correct idle animation for style
+	ldrb	r0,[r7,7h]
+	strb	r0,[r5,10h]
 
 	b		@@exit
 
