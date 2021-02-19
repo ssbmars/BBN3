@@ -261,7 +261,7 @@ backup of old values
 .org LavaCannonSL	:: .db 0x0C 	;SL
 
 // ------ Black Bomb
-.org BlackBombCL	:: .db 0x19 	;CL
+.org BlackBombCL	:: .db 0x1E 	;CL
 
 // ------ Burner & Burning
 .org BurnerSF1		//SF
@@ -296,7 +296,7 @@ backup of old values
 .org ArrowCL		:: .db 0x01 	;CL
 
 // ------ Shake
-.org ShakeCL		:: .db 0x01 	;CL
+.org ShakeCL		:: .db 0x1E 	;CL
 
 // ------ Guts Punches
 .org GutsPunchIW	:: .db 0x3C 	;IW
