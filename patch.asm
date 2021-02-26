@@ -998,14 +998,16 @@ AntiDmgBarrierCheck:
 
 AntiDmgQueue:
 	push	r14
-
-	push	r0
 	ldrb	r0,[r5,5h]
 
-	cmp		r0,7h
-	beq		@@activate
+	//activate on idle state and buster endlag (move cancel window)
+	mov		r1,3h
+	tst		r0,r1
+	bne		@@activate
 
-	cmp		r0,1h
+	//activate if using slasher chip
+	ldrb	r0,[r5,6h]
+	cmp		r0,28h
 	beq		@@activate
 
 //queue antidmg to fire later
@@ -1016,7 +1018,7 @@ AntiDmgQueue:
 	mov		r0,1h
 
 	tst		r0,r0
-	pop		r0,r15
+	pop		r15
 
 
 AntiDmgExtraSpace:
