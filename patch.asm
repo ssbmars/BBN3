@@ -2137,8 +2137,10 @@ SetStyle:
 
 	ldrb 	r0,[r2]
 
-	// remove element modifier with the power of math
-	lsr 	r0,3h
+	// remove element modifier
+	mov		r1,38h		//all style bits, no elem bits
+	and		r0,r1
+	lsr 	r0,3h		//will return 0-7
 
 	// load position of index
 	ldr 	r1,=@@StyleList
