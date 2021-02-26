@@ -261,7 +261,7 @@ backup of old values
 .org LavaCannonSL	:: .db 0x0C 	;SL
 
 // ------ Black Bomb
-.org BlackBombCL	:: .db 0x1E 	;CL
+.org BlackBombCL	:: .db 0x19 	;CL
 
 // ------ Burner & Burning
 .org BurnerSF1		//SF
@@ -296,7 +296,7 @@ backup of old values
 .org ArrowCL		:: .db 0x01 	;CL
 
 // ------ Shake
-.org ShakeCL		:: .db 0x1E 	;CL
+.org ShakeCL		:: .db 0x01 	;CL
 
 // ------ Guts Punches
 .org GutsPunchIW	:: .db 0x3C 	;IW
@@ -548,6 +548,10 @@ backup of old values
 // Balance HP reduction
 .org BalanceHPMath
 	bl	BalanceHPReduction	
+
+//Shake: fix damage override exploit
+.org 0x080E7B34
+	ldrh	r6,[r5,2Ch]
 
 
 
