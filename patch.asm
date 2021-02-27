@@ -135,6 +135,11 @@ ALL_STAR_CODES	EQU	0
 .org EquipStoryNCPsHook
 bl 		EquipStoryNCPs
 
+//turn the tiny road press check into a story flag check
+.org 0x0812D93A
+	bl		PressFlagCheck
+	nop
+
 
 
 
@@ -231,8 +236,7 @@ bl 		EquipStoryNCPs
 	bl	CountGroundStyle
 
 
-
-//pve-friendly MB value scaling
+//pve-friendly MB (RegMem) value scaling
 .org 0x0802B18A
 	mov		r6,64h
 	add		r6,r7
@@ -244,6 +248,7 @@ bl 		EquipStoryNCPs
 	add		r0,r2
 	add		r0,2h
 	nop
+//max: 0A 0C 04
 
 
 //skip tutorial
@@ -2177,6 +2182,22 @@ SetStyle:
 
 
 
+
+PressFlagCheck:
+//replace the NCP check for Press with a direct check for the story flag
+//
+	mov		r1,2h
+	lsl		r1,18h		//r1 is loaded with the address for game flags
+	mov		r0,0D5h		//pointer for which flag to check
+	ldrb	r0,[r1,r0]	//read the flag
+	mov		r1,80h
+	tst		r0,r1
+	beq		.+6
+	mov		r0,1h
+	b		.+4
+	mov		r0,0h
+	mov		r15,r14
+
 // Equip story NCPs whenever reseting navicust abilities
 
 .align 4
@@ -2184,18 +2205,16 @@ EquipStoryNCPs:
 	push r2,r3,r14
 
 // Press
-	mov		r2,2h
-	lsl		r2,18h		//r2 is loaded with the address for game flags
-	mov		r3,0D5h		//pointer for which flag to check
-	
-	ldrb	r0,[r2,r3]	//read the flag
-	mov		r1,80h
-	tst		r0,r1
-	beq		.+0Ah		//branch if r0 doesn't include r1's bit
-
-	mov 	r0,28h
-	mov 	r1,1h
-	bl 		8047304h
+//	mov		r2,2h
+//	lsl		r2,18h		//r2 is loaded with the address for game flags
+//	mov		r3,0D5h		//pointer for which flag to check	
+//	ldrb	r0,[r2,r3]	//read the flag
+//	mov		r1,80h
+//	tst		r0,r1
+//	beq		.+0Ah		//branch if r0 doesn't include r1's bit
+//	mov 	r0,28h
+//	mov 	r1,1h
+//	bl 		8047304h
 
 // EnergyChange
 	mov 	r0,24h
