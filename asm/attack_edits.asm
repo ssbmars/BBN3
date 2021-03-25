@@ -30,6 +30,10 @@
 //the main breakpoint that branches to all of these is 08008E90
 
 
+//Panic (aka Alt F4): fix crash on emulators not using BIOS
+.org 0x080B4354
+	nop
+
 
 //Change the unpowered dark chip effect to 1/4 damage instead of poofing
 .org 0x080474D6
