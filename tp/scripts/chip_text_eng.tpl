@@ -8,11 +8,6 @@
 
 
 
-script 41 mmbn3s {
-	"Alt F4"
-	end
-}
-
 script 161 mmbn3s {
 	"DarkHole"
 	end
@@ -27,20 +22,6 @@ script 161 mmbn3s {
 
 @archive 7052F4
 @size 256
-
-script 41 mmbn3 {
-	textSpeed
-		delay = 0
-	msgOpenQuick
-	"""
-	Shining
-	emulator
-	crasher!
-	"""
-	keyWait
-	msgCloseQuick
-	end
-}
 
 script 47 mmbn3 {
 	textSpeed
