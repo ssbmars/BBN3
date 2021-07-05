@@ -137,6 +137,10 @@ ico_darkman:
 ico_yamatoman:
 .import "art/icon/yamatoman.bin"
 
+//Punk
+ico_punk:
+.import "art/icon/punk.bin"
+
 
 
 //Sensorman

@@ -38,7 +38,7 @@ script 131 mmbn3 {
 	"""
 	Snake frm
 	holes!
-	Atk:35
+	Atk:40
 	"""
 	keyWait
 	msgCloseQuick

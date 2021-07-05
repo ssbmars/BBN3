@@ -381,8 +381,8 @@ set	VarSwrd
 	lim		0h
 	mb		9
 	atk		100
-	pos		200
-	clss 	M
+	//pos		200
+	//clss 	M
 
 
 set	StepSwrd
@@ -1230,7 +1230,7 @@ set	Snake
 
 	lim		2h
 	type	2h
-	atk		35
+	atk		40
 
 
 
@@ -1325,7 +1325,7 @@ set	RockCube
 	code	1Ah,0FFh,0FFh,0FFh,0FFh,0FFh
 	lim		3h
 
-	pos		141
+//	pos		141
 
 
 
@@ -1927,7 +1927,7 @@ set	HeroSwrd
 	code	01h,0Bh,0Dh,0Fh,0FFh,0FFh
 	lim		1
 	atk		200
-	pos		39
+	pos		200
 	clss 	Spa4
 
 
@@ -1981,7 +1981,7 @@ set	Meteors
 set	Poltrgst
 	code	1Ah,0FFh,0FFh,0FFh,0FFh,0FFh
 	lim		1
-	pos 	140
+	pos 	201
 	clss 	S
 
 
@@ -2045,7 +2045,7 @@ set	Roll
 set	RollV2
 
 	lim		0
-	atk		40
+	atk		50
 
 	icon	ico_roll
 
@@ -2082,7 +2082,7 @@ set	ProtomnV2
 
 	lim		0
 	mb		9
-	atk		160
+	atk		180
 
 	icon	ico_protoman
 
@@ -2154,7 +2154,7 @@ set	FlamManV2
 
 	lim		0
 	mb		6
-	atk		130
+	atk		150
 
 	icon	ico_flameman
 
@@ -2163,7 +2163,7 @@ set	DrillMan
 
 	lim		0
 	mb		9
-	atk		50
+	atk		60
 
 	icon	ico_drillman
 
@@ -2172,7 +2172,7 @@ set	DrillMnV2
 
 	lim		0
 	mb		9
-	atk		70
+	atk		90
 
 	icon	ico_drillman
 
@@ -2190,17 +2190,17 @@ set	MetalMnV2
 
 	lim		0
 	mb		7
-	atk		190
+	atk		200
 
 	icon	ico_metalman
 
 
 set	Punk
-	code	0FFh,0FFh,0FFh,0FFh,0FFh,0FFh
+	code	codeP,0FFh,0FFh,0FFh,0FFh,0FFh
 	lim		0
+	atk		150
 
-
-
+	icon	ico_punk
 
 
 
@@ -2269,7 +2269,7 @@ set	MistMan
 
 set	MistManV2
 
-
+	atk		130
 	lim		0
 	mb		9
 
@@ -2289,6 +2289,7 @@ set	BowlManV2
 
 	lim		0
 	mb		9
+	atk		140
 
 	icon	ico_bowlman
 
@@ -2327,7 +2328,7 @@ set	JapanMnV2
 
 	lim		0
 	mb		9
-
+	atk		50
 	icon	ico_yamatoman
 
 
@@ -2393,7 +2394,7 @@ set	BassGS
 
 set	130h	//	NavRcycl
 	lim		0
-
+	pos		298
 	icon	icon_NavRcycl
 	img		img_NavRcycl
 	color	pal_NavRcycl
@@ -2404,7 +2405,7 @@ set	131h	//	AlphArmS
 	mb		9
 	type	60h
 	atk		50
-
+	pos		302
 	icon	icon_AlphArmS
 	img		img_AlphArmS
 	color	pal_AlphArmS
@@ -2416,7 +2417,7 @@ set	132h	//	Bass
 	mb		9
 	type	44h
 	atk		70
-
+	pos		299
 	icon	icon_Bass
 	img		img_Bass
 	color	pal_Bass
@@ -2426,14 +2427,14 @@ set	133h	//	Serenade
 	lim		0
 	mb		9
 	atk		60
-
+	pos		300
 	icon	icon_Serenade
 	img		img_Serenade
 	color	pal_Serenade
 
 set	134h	//	Balance
 	lim		0
-
+	pos		301
 	icon	icon_Balance
 	img		img_Balance
 	color	pal_Balance
@@ -2587,7 +2588,7 @@ set	FlashMnV5
 	lim		0
 	mb		9
 	atk		120
-	pos		298
+	pos		303
 	icon	ico_flashman
 //	img		img_sensorman
 //	color	pal_sensorman
@@ -2599,7 +2600,7 @@ set	PlantMnV5
 	lim		0
 	mb		9
 	atk		40
-
+	pos		304
 	icon	ico_plantman
 
 

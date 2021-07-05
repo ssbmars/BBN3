@@ -544,6 +544,39 @@ backup of old values
 
 // -------------- Damage Changes ---------
 
+// disable Punk's 2x damage from having the wristband
+	//disable a weird thing it does with damage calculation
+	.org 0x080CA41E
+		nop
+
+.org 0x080C9FA0
+	mov		r6,0h	//use normal atk val (boostable)
+	nop
+//charge shot command (double hit)
+.org 0x080CA27C
+	mov		r6,1Eh	//first hit, weak
+	nop
+	nop
+	nop
+.org 0x080CA2D4
+	mov		r6,0h	//second hit, use normal atk val (boostable)
+	nop
+
+//extra wheels from the highest tier command code
+.org 0x080CA34A
+	mov		r6,28h
+	nop
+	nop
+.org 0x080CA356
+	mov		r6,28h
+	nop
+	nop
+// B + Left command
+.org 0x080CA0D6
+	mov		r6,32h	//this damage is added to the normal atk value (boostable)
+	nop
+
+
 
 //185 LavaStage 25
 .org LavaPanelAtk	:: .db 0x19
