@@ -109,6 +109,78 @@ ALL_STAR_CODES	EQU	0
 	nop
 
 
+// -------- Library chip organization
+.if IS_PVP
+
+
+// always treat the library list as if it has the max amount of each chip type
+	//mega
+	.org 0x080368E6
+		cmp		r0,r0
+	.org 0x08030512
+		cmp		r0,r0
+	//giga
+	.org 0x080369C2
+		cmp		r0,r0
+	.org 0x0803059A
+		cmp		r0,r0
+	//PA
+	.org 0x08030622
+		cmp		r0,r0
+	.org 0x08036A9E
+		cmp		r0,r0
+
+// Mega chips
+	// show and count only valid Megachips in the library
+	.org 0x080017BC
+		bl	LibraryMegaValid
+	// copy the value of the other megachip counting routine to limit the amount of slots
+	.org 0x08036686
+		bl	LibraryGetMegaCount
+
+// Standard chips
+	.org 0x0803657C
+		bl		LibraryStandardCheck
+	// remove blank spots in the standard library
+	.org 0x080365CA
+		bl		LibrarySortStandard
+	
+	.org 0x0800177E
+		bl		LibraryStndValid
+
+// Giga chips
+	// count only valid gigas
+	.org 0x08001800
+		bl		LibraryGigaValid
+	// fetch the # of valid gigas to use as max giga count
+	.org 0x0803675C
+		bl	LibraryGetGigaCount
+
+// Program Advances
+	// hide and don't count invalid PAs
+	.org 0x080367B8
+		bl	LibraryValidPA
+		nop
+		nop
+		nop
+		nop
+	
+	.org 0x0803682C
+		bl	LibraryGetPACount
+	
+	//disable an antiquated PA routine to free up some cycles
+	.org 0x08035FE0
+		nop
+		nop
+		nop
+
+
+
+.else
+.endif
+
+
+
 //===============	 Quality of Life Changes
 
 
@@ -317,6 +389,33 @@ bl 		EquipStoryNCPs
 
 
 .if IS_PVP
+
+
+
+//comm menu: open immediately to netbattle prompt
+.if IS_ROLLBACK
+	.org 0x0803E37A
+		mov		r0,24h
+	.org 0x0803E37E
+		mov		r0,66h
+	.org 0x0803E382
+		mov		r0,6Fh
+	//exit menu from lightweight netbattle prompt
+	.org 0x0803E6A0
+		bl	803E578h
+
+.else
+	.org 0x0803E37A
+		mov		r0,24h
+	.org 0x0803E37E
+		mov		r0,66h
+	.org 0x0803E382
+		mov		r0,6Fh
+	//exit menu from netbattle select
+	.org 0x0803E5F8
+		bl	803E578h
+.endif
+
 
 //hook: when pressing Start in battle, do not pause if it is pvp
 .org 0x08006B8A
@@ -1198,6 +1297,180 @@ Nothing that branches to any of this code uses hardcoded addresses, instead they
 // ========================================================== PUT NEW HOOKED CODE HERE
 
 
+LibraryValidPA:
+
+	ldr		r3,=140h
+	add		r0,r3,r4
+	//get chip manifest data without branching
+	mov		r1,20h
+	mul		r0,r1
+	ldr		r1,=chipmanifest
+	add		r0,r1
+
+	ldrb	r0,[r0,0Eh]
+	cmp		r0,0h
+	beq		@@exit
+	add		r5,1h
+	ldr		r3,=140h
+	add		r3,r4
+	strh	r3,[r6]
+	mov		r0,0h
+	strb	r0,[r6,2h]
+
+	@@exit:
+	mov		r15,r14
+	.pool
+
+LibraryGetPACount:
+	mov		r0,r5
+	pop		r4-r7
+	str		r0,[r5,54h]
+	pop		r15
+
+
+
+
+
+LibrarySortStandard:
+	mov		r4,0h
+	// r7 = base address of chip ram
+	// r6 = current chip address being looked at
+	// r4 = amount of address that have been checked
+	@@loopstart:
+	lsl		r6,r4,2h
+	add		r6,r7
+	ldrb	r0,[r6]
+	cmp		r0,0h
+	beq		@@moveup
+	b		@@checknext
+
+	@@moveup:
+	mov		r3,r4
+	mov		r2,4h
+	add		r2,r6
+	//check if there are multiple empty spaces in a row
+	mov		r0,0h
+	@@emptycheck:
+	ldrb	r0,[r2]
+	cmp		r0,0h
+	beq		@@isempty
+	b		@@moveloop
+
+	@@isempty:
+	add		r2,4h
+	add		r0,1h	//sanity check, make an easy exit condition
+	cmp		r0,9h
+	blt		@@emptycheck
+
+	@@moveloop:
+	ldrb	r0,[r2]
+	strb	r0,[r6]
+	add		r2,4h
+	add		r6,4h
+
+	add		r3,1h
+	ldr		r0,=13Fh
+	cmp		r3,r0
+	ble		@@moveloop
+
+
+	@@checknext:
+	add		r4,1h
+	ldr		r0,=13Fh
+	cmp		r4,r0
+	ble		@@loopstart
+
+	mov		r0,r5
+	pop		r4-r7,r15
+	.pool
+
+
+LibraryStandardCheck:
+	//statically increment the chip position (trying an alt method)
+	;mov		r6,r5
+	;lsl		r6,2h
+	;add		r6,r7
+
+	ldrh	r1,[r0,0Eh]
+	cmp		r1,0h
+	bne		@@seemsfine
+	mov		r0,1h
+	mov		r1,1h
+	b		@@exit
+
+	@@seemsfine:
+	//og code
+	ldrb	r0,[r0,13h]
+	mov		r1,3h
+
+	@@exit:
+	mov		r15,r14
+
+
+LibraryStndValid:
+	mov		r1,r0
+	ldrh	r0,[r1,0Eh]
+	cmp		r0,0h
+	bne		@@seemsfine
+	mov		r0,1h
+	mov		r1,1h
+	b		@@exit
+
+	@@seemsfine:
+	// og code
+	ldrb	r0,[r1,13h]
+	mov		r1,3h
+
+	@@exit:
+	mov		r15,r14
+
+
+LibraryGetMegaCount:
+	pop		r4-r7
+	mov		r0,4Ch
+	ldrb	r0,[r5,r0]
+
+	pop		r15
+
+LibraryMegaValid:
+	mov		r1,r0
+	ldrh	r0,[r1,0Eh]
+	cmp		r0,0h
+	bne		@@seemsfine
+	mov		r1,0h
+	b		@@exit
+
+	@@seemsfine:
+	// og code
+	ldrb	r0,[r1,13h]
+	mov		r1,1h
+
+	@@exit:
+	mov		r15,r14
+
+LibraryGigaValid:
+	mov		r1,r0
+	ldrh	r0,[r1,0Eh]
+	cmp		r0,0h
+	bne		@@seemsfine
+	mov		r1,0h
+	b		@@exit
+
+	@@seemsfine:
+	// og code
+	ldrb	r0,[r1,13h]
+	mov		r1,2h
+
+	@@exit:
+	mov		r15,r14
+
+LibraryGetGigaCount:
+	pop		r4-r7
+	mov		r0,50h
+	ldrb	r0,[r5,r0]
+
+	pop		r15
+
 
 
 pvpPauseCheck:
@@ -1642,7 +1915,10 @@ BarrierRemoval:
 	mov		r0,1h
 	cmp		r1,0Ch
 	ble		@@store
-
+	//check for bubblewrap
+	ldrb	r1,[r7,6h]
+	cmp		r1,14h
+	beq		@@notleafshield
 	mov		r0,0h
 @@store:
 	strh	r0,[r7,16h]
@@ -1654,7 +1930,9 @@ BarrierRemoval:
 	bne		@@notleafshield
 	mov		r0,0h
 	strb	r0,[r7,6h]
+	strb	r0,[r7,0Bh]
 	strh	r0,[r7,16h]
+	str		r0,[r7,18h]
 	pop		r15
 
 @@notleafshield:
