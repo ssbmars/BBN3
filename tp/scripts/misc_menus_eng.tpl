@@ -61,12 +61,12 @@ script 2 mmbn3 {
 
 //replace XtraFldr
 
-//"equipped <folder> text"
+//"equipped <folder>" text
 @archive 7EAEB0
 @size 27
 
 script 10 mmbn3s {
-	"BBBBBBBBBBBBBBBBBBB"
+	"BBBBBBBBBBBBB"
 	end
 }
 //folder name as it appears on the tab

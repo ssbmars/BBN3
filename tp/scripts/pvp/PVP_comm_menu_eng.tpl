@@ -8,7 +8,7 @@
 
 
 script 105 mmbn3s {
-	"   preview 4.1"
+	"  Alpha 1"
 
 	end
 }
@@ -168,6 +168,12 @@ script 52 mmbn3 {
 	waitHold
 }
 
+// remove the netbattle "Record" text
+
+script 106 mmbn3s {
+	"\n\n "
+	end
+}
 
 
 
