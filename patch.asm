@@ -416,6 +416,12 @@ bl 		EquipStoryNCPs
 		bl	803E578h
 .endif
 
+// fix the exit routine setting HP to zero by reading from uninitialized memory
+// (set HP by reading max HP value instead)
+.org 0x0803E452
+	nop
+	ldrh	r1,[r7,22h]
+
 
 //hook: when pressing Start in battle, do not pause if it is pvp
 .org 0x08006B8A
