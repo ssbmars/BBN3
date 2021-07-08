@@ -17,6 +17,61 @@
 //08002904	this routine reads the battle configuration. Breakpoint it to get the data for any battle.
 
 
+//enable online pvp through the comm menu
+
+.org 0x0803EA12		//disable "want to wait a little more?"
+//	nop
+
+// change which menu it returns to after battle
+.org 0x0803E396
+	mov		r0,0Ch
+	strb	r0,[r5,1h]
+	mov		r0,r10
+	ldr		r0,[r0,18h]
+	mov		r1,0h
+	str		r1,[r0]
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+
+// start online battles from the comm menu
+.org 0x0803EB26
+	bl		803E888h	//set r7 to the addr that needs to be initialized
+	mov		r0,2h
+	strb	r0,[r7,3h]
+	mov		r0,6h		//StartSearch() will hook into this opcode
+	strb	r0,[r7,4h]
+	@@waitloop:
+	ldrb	r0,[r7,3h]
+	tst		r0,r0
+	beq		@@waitloop
+	cmp		r0,2h
+	beq		803EB72h
+
+	//02006D53	this byte is used as the trigger in the script, 1 = start battle, 2 = exit menu
+
+// clear the existing scene transition data
+.org 0x0803EB5E
+	b 	exitcommmenu
+
+//exit the comm menu when a certain byte is set to 2
+.org 0x0803EB72
+	bl	803E578h		//exit the menu
+	nop
+	nop
+	exitcommmenu:
+	mov		r0,r10
+	ldr		r0,[r0,18h]
+	mov		r1,0h
+	str		r1,[r0]
+
+
+
 
 //strange music test
 ;.org 0x08004DC0
@@ -57,11 +112,13 @@
 
 
 //make the screen fade to black instead of white when starting a match 
-.org 0x0812C256
-	mov		r0,4h		//fade out
-.org 0x080066A0
-	cmp		r1,0Bh
-	beq		80066BCh	//fade in
+	//Tamako
+	.org 0x0812C256
+		mov		r0,4h		//fade out
+	.org 0x080066A0
+		cmp		r1,0Ch
+		beq		80066BCh	//fade in
+
 
 
 //attempt to stop it from flagging player2 as finished with customizing
@@ -86,7 +143,7 @@
 .org 0x0800685C	::	b	8006866h	//softlocks when the battle ends (tested w/ winning & running)
 
 //hardcode to influence certain features
-.org 0x08006912 ::	b	8006940h	//where it puts you after battle ends (currently returns to ow)
+//.org 0x08006912 ::	b	8006940h	//where it puts you after battle ends (currently returns to ow)
 //.org 0x0800735E	::	b	8007372h	//controls if you can run from battle
 
 

@@ -395,7 +395,7 @@ bl 		EquipStoryNCPs
 //comm menu: open immediately to netbattle prompt
 .if IS_ROLLBACK
 	.org 0x0803E37A
-		mov		r0,24h
+		mov		r0,30h
 	.org 0x0803E37E
 		mov		r0,66h
 	.org 0x0803E382
