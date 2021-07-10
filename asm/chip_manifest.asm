@@ -2198,6 +2198,7 @@ set	MetalMnV2
 set	Punk
 	code	codeP,0FFh,0FFh,0FFh,0FFh,0FFh
 	lim		0
+	mb		6
 	atk		150
 
 	icon	ico_punk
@@ -2389,8 +2390,6 @@ set	BassGS
 
 
 //These are the original opposite-version chips
-//They're not in use, but their codes are removed
-//to prevent glitches from occuring
 
 set	130h	//	NavRcycl
 	lim		0
@@ -2439,7 +2438,7 @@ set	134h	//	Balance
 	img		img_Balance
 	color	pal_Balance
 
-//back to the real chips
+//end of opposite-version gigas
 
 
 

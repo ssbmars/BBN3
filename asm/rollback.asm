@@ -128,7 +128,7 @@
 
 // allow the script to create an infinite loop while initializing battle
 // (shouldn't loop if the script is inactive)
-.org 0x0800761A
+.org 0x08007276
 	bl	StallBattleStart
 
 
@@ -194,8 +194,9 @@ scriptstopresim:
 scriptwaitloop:
 	nop
 	mov		r15,r14
-
-
+scriptsendstats:		//0x08008814
+	nop
+	mov		r15,r14
 
 
 

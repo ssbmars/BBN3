@@ -137,6 +137,15 @@ ALL_STAR_CODES	EQU	0
 	// copy the value of the other megachip counting routine to limit the amount of slots
 	.org 0x08036686
 		bl	LibraryGetMegaCount
+	//disable what may be a check to skip punk
+	.org 0x080017B0
+		nop
+		nop
+		nop
+	.org 0x080365F4
+		nop
+		nop
+		nop
 
 // Standard chips
 	.org 0x0803657C
@@ -917,12 +926,16 @@ Nothing that branches to any of this code uses hardcoded addresses, instead they
 	
 
 	StallBattleStart:
-	
-		sub		r1,22h
+		strb	r1,[r6,7h]	// og code
+
+		bl		scriptsendstats		// tell the script it's ok to send stats now
+
+		mov		r1,r6
+		sub		r1,12h
 		
 		//music test, plays sounds during the battle intro
 		push	r1
-		mov		r0,0F9h
+		mov		r0,0F9h		// crowd applause
 		bl		80005D8h
 		pop		r1
 		
@@ -942,8 +955,7 @@ Nothing that branches to any of this code uses hardcoded addresses, instead they
 		bne		@@loopstart
 		strh	r0,[r1,10h]
 		
-		add		sp,54h
-		pop		r4,r6,r7,r15
+		pop		r6,r7,r15
 
 	
 	
