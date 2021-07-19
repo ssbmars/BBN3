@@ -40,7 +40,7 @@ ALL_STAR_CODES	EQU	0
 //These files are always compiled
 
 //These 2 will define symbols that other files are dependent on, so they must be ran first
-.include "asm\free_space.asm"
+//.include "asm\free_space.asm"
 .include "asm\expanded_space.asm"
 
 
@@ -183,6 +183,11 @@ ALL_STAR_CODES	EQU	0
 		nop
 		nop
 
+
+// PA cleanup
+	// Spreader PA: only show the 1 PA combination
+	.org 0x08035E6D
+		.db 0x01
 
 
 .else
@@ -882,13 +887,14 @@ Nothing that branches to any of this code uses hardcoded addresses, instead they
 		//progress the background data
 		bl		800200Ch
 	
-		//progress the gamestate
-		bl		8006436h
-	
 		//fix desync scenario with fading out of timefreeze
 		bl		80052D4h
 	
+		//progress the gamestate
+		bl		8006436h
+		//note: it does not return to finish this routine after branching to progress the gamestate!
 	
+
 		//og code
 		@@og:
 		mov		r3,r10
