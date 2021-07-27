@@ -214,8 +214,8 @@ script 49 mmbn3 {
 		delay = 0
 	msgOpenQuick
 	"""
-	Electric
-	attack!
+	Coil atk
+	in rows!
 	Atk:50
 	"""
 	keyWait
