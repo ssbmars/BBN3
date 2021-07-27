@@ -57,7 +57,6 @@ ALL_STAR_CODES	EQU	0
 //this symbol is only defined in the build script that generates the .bps files
 .ifdef IS_BN3PLUS
 	.include "asm\bn3plus\bbn3plus.asm"
-.else
 .endif
 
 
@@ -188,6 +187,12 @@ ALL_STAR_CODES	EQU	0
 	// Spreader PA: only show the 1 PA combination
 	.org 0x08035E6D
 		.db 0x01
+	//	BigHeart PA: 2 combinations
+	.org 0x08035E7A
+		.db 0x02
+	//GutsShoot PA: 2 combinations
+	.org 0x08035E6D
+		.db 0x02
 
 
 .else
@@ -333,6 +338,39 @@ bl 		EquipStoryNCPs
 	bl	CountGroundStyle
 
 
+
+//	level up styles faster (100 battles to hit max level for each style)
+
+//	Guts, 3
+.org 0x0800D7B9
+	.db 0x1E, 0x1E, 0x28
+
+//	Custom, 3
+.org 0x0800D7BD
+	.db 0x1E, 0x1E, 0x28
+
+//	Team, 3
+.org 0x0800D7C1
+	.db 0x1E, 0x1E, 0x28
+
+//	Shield, 3
+.org 0x0800D7C5
+	.db 0x14, 0x1E, 0x32
+
+//	Ground, 4
+.org 0x0800D7C9
+	.db 0x14, 0x14, 0x1E, 0x1E
+
+//	Shadow, 3
+.org 0x0800D7CD
+	.db 0x14, 0x1E, 0x32
+
+//	Bug, 2
+.org 0x0800D7D1
+	.db 0x32, 0x32
+
+
+
 //pve-friendly MB (RegMem) value scaling
 .org 0x0802B18A
 	mov		r6,64h
@@ -383,10 +421,22 @@ bl 		EquipStoryNCPs
 	.dh 0x2A28
 
 
-
 //Time Freeze Parry length
 .org tfpWindow
 	mov		r0,6h
+
+
+//	use an expanded table for flinch properties
+//	this repoints to a table in free space, allowing for additional flinch combinations 
+.org 0x080AF18C
+	.dw MegaFlinchTable
+
+// new table for bosses and viruses
+.org 0x080AF188
+	.dw	BossFlinchTable
+
+
+
 
 
 
@@ -1729,10 +1779,9 @@ BigPushFlinch:
 
 NewArmorCheck:
 	push	r7,r14
-	cmp		r0,5h
-	beq		@@exit		//skip to the end if getting hit by a dragging hit
-	cmp		r0,0Dh
-	beq		@@exit		//check again for the new bigpush value
+	//	decide whether to skip to the end and return "true" to make drag pierce armor
+	cmp		r0,4h	//everything with the drag effect will have a value >= 4
+	bge		@@exit
 
 
 	//go to regular armor check but skip line for push r14
@@ -1740,6 +1789,7 @@ NewArmorCheck:
 	bl		OldArmorCheckSkipR14Push	
 
 @@exit:
+	cmp		r0,r0	//must return with the flag for equals = true, so that's what this does
 	pop		r7,r14
 
 
