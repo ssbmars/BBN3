@@ -15,6 +15,19 @@
 //============		EXPANDED HITBOX TABLE 	(wind hitboxes, bigpush, etc)
 //===========================================
 
+
+//	expanded flinch property tables for megaman and npcs
+
+.area 0x20, 0	//size must be in factors of 4 bytes because the data under this is read as words
+MegaFlinchTable:
+.db 0x00, 0x01, 0x03, 0x03, 0x05, 0x07, 0x0D, 0x0F, 0x7F
+
+//	the boss table is also used by viruses, but virusbody ignores flashing; bosses treat bigpush as smallpush
+BossFlinchTable:
+.db 0x00, 0x01, 0x03, 0x03, 0x05, 0x07, 0x0D, 0x0F, 0x7F
+.endarea
+
+
 ExpandedHitboxTable:
 .import "rom\bn3blue.gba",0x0AF60C,328h
 
