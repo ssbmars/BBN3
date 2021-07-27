@@ -244,6 +244,10 @@ bl 		EquipStoryNCPs
 
 
 
+//	add Punk's chip to his drop table
+.org 0x08018F88
+	.dh 0x0710
+
 
 //allow white gigas to appear in shops (skip the ID check)
 .org 0x08001A66
