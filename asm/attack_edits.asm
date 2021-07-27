@@ -30,7 +30,7 @@
 //the main breakpoint that branches to all of these is 08008E90
 
 
-//Panic (aka Alt F4): fix crash on emulators not using BIOS
+//Panic: fix crash on emulators not using BIOS
 .org 0x080B4354
 	nop
 
@@ -334,18 +334,6 @@ backup of old values
 //-------------------- Flinch and Status changes
 
 
-//change the last value on mega's flinch table from flinch/flash/drag to flinch/drag/unused bit
-//the unused bit will be used by a bigpush check
-.org 0x080AF4AB
-	.db 0x0D
-
-//same thing for bosses
-.org 0x080AF4A5
-		.db 0x0D	//bigpush
-.org 0x080AF4A2
-		.db 0x03	//flinch+flash
-
-
 // ------ ElecSword 	;stun
 .org ElecSwordFlinch :: .db 0x00 	;FL
 .org ElecSwordStun	:: .db 0x10 	;ST
@@ -360,17 +348,17 @@ backup of old values
 .org ShakeFlinch	:: .db 0x01 	;FL
 
 // ------ Grab Banish
-.org GrabBanishFlinch :: .db 0x05 ;bigpush
+.org GrabBanishFlinch :: .db 0x07 ;bigpush+flash
 
 // ------ AirSword
-.org 0x080D6703 :: .db 0x05 ;bigpush
+.org 0x080D6703 :: .db 0x06 ;bigpush
 
 // ------ Guts Punch
 //.org 0x080B295B
 //	.db	0x67		//bigpush on hitbox table
 
 .org 0x080B2964
-	.db 0x05		//use flinch value for bigpush
+	.db 0x06		//use flinch value for bigpush
 
 
 // ------ Guts Impact
@@ -378,7 +366,7 @@ backup of old values
 //	.db	0x67		//bigpush, applies for normal hit but not command code
 
 .org 0x080B296C
-	.db 0x05		//use flinch value for bigpush
+	.db 0x06		//use flinch value for bigpush
 
 
 // ---------- Chip Changes
@@ -412,7 +400,7 @@ backup of old values
 	mov		r0,64h
 	lsl		r0,2h
 
-// prevent prism from reseting its HP to max every frame
+// prevent prism from resetting its HP to max every frame
 .org 0x080DFCAA
 	nop
 	nop
@@ -483,10 +471,11 @@ backup of old values
 
 
 
-
+.if IS_PVP
 // Disable BeastMan command code
 .org BeastManInputCheck
 	mov		r0,0h
+.endif
 
 
 
