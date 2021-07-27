@@ -196,7 +196,7 @@ bl 		EquipStoryNCPs
 //protoman
 .org 0x0801A900
 //	.db 0xCF
-	.db	0xF3	//bass omega
+	.db	0xF2	//bass gs
 
 //metalman
 .org 0x0801A10C
