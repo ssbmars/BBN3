@@ -600,7 +600,7 @@ cmp r2,1h
 bge 80CBD96h
 
 //181 KillerEye
-	.org KllrEyeOmega :: .db 0x00 	;omega 0
+	.org KllrEye4Dmg :: .db 0x00 	;omega 0
 	.org KllrEyeElem :: .db 0x00 	;elem actually be null
 //speed values
 	.org KllrEyeStartSpd :: .db 0x1E	;first cycle delay
@@ -608,12 +608,12 @@ bge 80CBD96h
 	.org KllrEyeCursorSpd :: .db 0x1E ;laserdot timing
 
 //182 Scuttle
-	.org ScuttleBeamAtk :: .db 0x82 ;beam 130
-	.org ScuttleFireAtk :: .db 0x64 ;fire 100
-	.org ScuttleIceAtk 	:: .db 0x82 ;ice 130
-	.org ScuttleElecAtk :: .db 0x5A ;elec 90
-	.org ScuttleVineAtk :: .db 0x00 ;vine 0
-	.org ScuttleOmegaAtk :: .db 0x00 ;omega 0
+	.org ScuttleBeamDmg :: .db 100
+	.org ScuttleFireDmg :: .db 130
+	.org ScuttleIceDmg 	:: .db 130 
+	.org ScuttleElecDmg :: .db 100 
+	.org ScuttleVineDmg :: .db 0x00 ;vine
+	.org ScuttleOmegaDmg :: .db 0x00 ;omega
 //speed values
 	.org ScuttleCycleSpd :: .db 0x0C ;cycle speed
 	.org ScuttleStartSpd :: .db 0x0C ;stall speed at first
@@ -630,6 +630,46 @@ bge 80CBD96h
 
 .org CustSwordAtkLogic3
 	add 	r0,38h
+
+
+//	the rest of the Friendly Viruses
+//	(1 byte per value, so max 255 dmg)
+
+.org Mettaur1Dmg :: .db 40	//vanilla	40
+.org Mettaur2Dmg :: .db 80	//vanilla	80
+.org Mettaur3Dmg :: .db 140	//vanilla	120
+.org Mettaur4Dmg :: .db 220	//vanilla	150
+
+.org Bunny1Dmg	:: .db 30	//vanilla	60
+.org Bunny2Dmg	:: .db 40	//vanilla	90
+.org Bunny3Dmg	:: .db 150	//vanilla	140
+.org Bunny4Dmg	:: .db 170	//vanilla	160
+
+.org Swordy1Dmg	:: .db 80	//vanilla	120
+.org Swordy2Dmg	:: .db 150	//vanilla	120
+.org Swordy3Dmg	:: .db 150	//vanilla	120
+.org Swordy4Dmg	:: .db 200	//vanilla	120
+
+.org Spikey1Dmg	:: .db 40	//vanilla	50
+.org Spikey2Dmg	:: .db 60	//vanilla	80
+.org Spikey3Dmg	:: .db 130	//vanilla	120
+.org Spikey4Dmg	:: .db 180	//vanilla	170
+
+.org Mushy1Dmg	:: .db 50	//vanilla	60
+.org Mushy2Dmg	:: .db 60	//vanilla	80
+.org Mushy3Dmg	:: .db 140	//vanilla	100
+.org Mushy4Dmg	:: .db 180	//vanilla	120
+
+.org JellyAquaDmg	:: .db 50	//vanilla	50
+.org JellyFireDmg	:: .db 120	//vanilla	80
+.org JellyWoodDmg	:: .db 120	//vanilla	80
+.org JellyOmegaDmg	:: .db 150	//vanilla	150
+
+.org Momogra1Dmg	:: .db 70	//vanilla	90
+.org Momogra2Dmg	:: .db 100	//vanilla	120
+.org Momogra3Dmg	:: .db 180	//vanilla	150
+.org Momogra4Dmg	:: .db 240	//vanilla	200
+
 
 
 
