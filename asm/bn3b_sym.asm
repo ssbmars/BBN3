@@ -272,22 +272,63 @@
 
 .org 0x080CBD88 :: LoadFVLogic:
 
-.org 0x0800D77F :: KllrEyeOmega:
-.org 0x080CC50E :: KllrEyeElem:
+.org 0x0800D764 :: Mettaur1Dmg:
+.org 0x0800D765 :: Mettaur2Dmg:
+.org 0x0800D766 :: Mettaur3Dmg:
+.org 0x0800D767 :: Mettaur4Dmg:
 
+.org 0x0800D768 :: Bunny1Dmg:
+.org 0x0800D769 :: Bunny2Dmg:
+.org 0x0800D76A :: Bunny3Dmg:
+.org 0x0800D76B :: Bunny4Dmg:
+
+.org 0x0800D76C :: Swordy1Dmg:
+.org 0x0800D76D :: Swordy2Dmg:
+.org 0x0800D76E :: Swordy3Dmg:
+.org 0x0800D76F :: Swordy4Dmg:
+
+.org 0x0800D770 :: Spikey1Dmg:
+.org 0x0800D771 :: Spikey2Dmg:
+.org 0x0800D772 :: Spikey3Dmg:
+.org 0x0800D773 :: Spikey4Dmg:
+
+.org 0x0800D774 :: Mushy1Dmg:
+.org 0x0800D775 :: Mushy2Dmg:
+.org 0x0800D776 :: Mushy3Dmg:
+.org 0x0800D777 :: Mushy4Dmg:
+
+.org 0x0800D778 :: JellyAquaDmg:
+.org 0x0800D779 :: JellyFireDmg:
+.org 0x0800D77A :: JellyWoodDmg:
+.org 0x0800D77B :: JellyOmegaDmg:
+
+.org 0x0800D77C :: KllrEye1Dmg:
+.org 0x0800D77D :: KllrEye2Dmg:
+.org 0x0800D77E :: KllrEye3Dmg:
+.org 0x0800D77F :: KllrEye4Dmg:
+
+.org 0x0800D780 :: Momogra1Dmg:
+.org 0x0800D781 :: Momogra2Dmg:
+.org 0x0800D782 :: Momogra3Dmg:
+.org 0x0800D783 :: Momogra4Dmg:
+
+.org 0x0800D784 :: ScuttleBeamDmg:
+.org 0x0800D785 :: ScuttleFireDmg:
+.org 0x0800D786 :: ScuttleIceDmg:
+.org 0x0800D787 :: ScuttleElecDmg:
+.org 0x0800D788 :: ScuttleVineDmg:
+.org 0x0800D789 :: ScuttleOmegaDmg:
+
+
+.org 0x080CC50E :: KllrEyeElem:
 .org 0x080CC640 :: KllrEyeStartSpd:
 .org 0x080CC686 :: KllrEyeCycleSpd:
 .org 0x080CC8C8 :: KllrEyeCursorSpd:
 
-.org 0x0800D784 :: ScuttleBeamAtk:
-.org 0x0800D785 :: ScuttleFireAtk:
-.org 0x0800D786 :: ScuttleIceAtk:
-.org 0x0800D787 :: ScuttleElecAtk:
-.org 0x0800D788 :: ScuttleVineAtk:
-.org 0x0800D789 :: ScuttleOmegaAtk:
 
 .org 0x080D0216 :: ScuttleCycleSpd:
 .org 0x080D01D0 :: ScuttleStartSpd:
+
 
 .org 0x0801061A :: CustSwordAtkLogic1:
 .org 0x08010632 :: CustSwordAtkLogic2:
