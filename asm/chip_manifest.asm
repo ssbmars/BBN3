@@ -236,7 +236,7 @@ set	DublBomb
 	code1	0Bh,5h
 	lim		3h
 
-	atk		90
+	atk		100
 
 
 
@@ -245,7 +245,7 @@ set	TrplBomb
 
 	lim		2h
 
-	atk		70
+	atk		80
 
 
 
@@ -271,7 +271,7 @@ set	IceBall
 set	LavaBall
 	code1	0FFh,5h
 	lim		2h
-
+	atk		180
 
 
 
@@ -388,7 +388,7 @@ set	VarSwrd
 set	StepSwrd
 
 	lim		3h
-	atk		180
+	atk		200
 
 
 
@@ -527,7 +527,7 @@ set	Burner
 
 	lim		3h
 
-	atk		200
+	atk		250
 
 
 
@@ -939,7 +939,7 @@ set	Arrow3
 set	TimeBomb
 
 	lim		2h
-
+	atk		190
 
 
 
@@ -2366,7 +2366,7 @@ set	AlphArmO
 	code1	11h,0h
 	lim		0
 	mb		9
-	atk		300
+	atk		400
 
 
 
@@ -2375,7 +2375,7 @@ set	Bassp
 	code1	0Ah,0h
 	lim		0
 	mb		9
-	atk		440
+	atk		480
 
 
 
@@ -2385,7 +2385,7 @@ set	BassGS
 	code	0FFh,0FFh,0FFh,0FFh,0FFh,0FFh
 	lim		0
 
-	atk		0
+	atk		100
 
 
 
@@ -2714,11 +2714,11 @@ set	ZStep2
 
 
 
-set	TimeBom
+set	TimeBomp
 
 
 
-	atk		190
+	atk		600
 
 
 
@@ -2736,7 +2736,7 @@ set	BubSprd
 
 
 
-	atk		300
+
 
 
 
@@ -2745,7 +2745,7 @@ set	HeatSprd
 
 
 
-	atk		250
+
 
 
 
@@ -2762,7 +2762,7 @@ set	LifeSwrd
 set	ElemSwrd
 
 
-
+	atk		160
 
 
 
@@ -2826,7 +2826,7 @@ set	BodyGrd
 
 
 
-	atk		50
+	atk		100
 
 
 
