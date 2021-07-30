@@ -500,6 +500,16 @@ backup of old values
 .if IS_PVP
 
 
+
+// make bodyguard throw 9 kunais
+.org 0x080F0DAA
+	mov		r0,0Ah
+// make bodyguard kunais combo into themselves
+.org 0x080F0E1E
+	mov		r0,1Ch
+
+
+
 //make all versions of rope point to the lowest stun time
 //this was tested and the plantman navichip doesn't use this code
 .org RopeStunTime
