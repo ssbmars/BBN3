@@ -596,7 +596,7 @@ ZYoyo2		EQU		0x0148
 ZYoyo3		EQU		0x0149 
 ZStep1		EQU		0x014A 
 ZStep2		EQU		0x014B 
-TimeBom		EQU		0x014C 
+TimeBomp	EQU		0x014C 
 HBurst		EQU		0x014D 
 BubSprd		EQU		0x014E 
 HeatSprd	EQU		0x014F 
