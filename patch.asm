@@ -191,7 +191,7 @@ ALL_STAR_CODES	EQU	0
 	.org 0x08035E7A
 		.db 0x02
 	//GutsShoot PA: 2 combinations
-	.org 0x08035E6D
+	.org 0x08035E7B
 		.db 0x02
 
 
