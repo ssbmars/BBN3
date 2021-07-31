@@ -837,6 +837,8 @@ bl 		SetStyle
 .org 0x080AD90E
 	bl		ElemWeakness
 
+.endif
+
 
 //hook the elec + ice panel 2x damage code
 .org 0x080AF422
@@ -846,8 +848,6 @@ bl 		SetStyle
 //hook the fire + grass panel 2x damage code
 .org 0x080AF414
 	bl		GrassPanelBonus
-
-.endif
 
 
 
@@ -1744,7 +1744,9 @@ DragShoesCheck:
 
 
 IcePanelBonus:
+	.if IS_PVP
 	lsr		r1,1h
+	.endif
 	ldrh	r0,[r7,1Ah]
 	add		r1,r0
 	strh	r1,[r7,1Ah]
