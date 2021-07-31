@@ -727,7 +727,6 @@ bl 		SetStyle
 .org SetStandardChipLimitVal
 	nop ;prevents it from clearing the custom chip limit value
 
-.else
 .endif
 
 
@@ -831,6 +830,9 @@ bl 		SetStyle
 
 
 
+
+.if IS_PVP
+
 //hook the elemental weakness 2x damage code
 .org 0x080AD90E
 	bl		ElemWeakness
@@ -844,6 +846,9 @@ bl 		SetStyle
 //hook the fire + grass panel 2x damage code
 .org 0x080AF414
 	bl		GrassPanelBonus
+
+.endif
+
 
 
 
