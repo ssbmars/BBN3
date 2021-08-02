@@ -617,8 +617,20 @@ script 47 mmbn3 {
 	end
 }
 
-
-
+//BassGS
+script 56 mmbn3 {
+	textSpeed
+		delay = 0
+	msgOpenQuick
+	"""
+	Bass's
+	secret
+	weapon
+	"""
+	keyWait
+	msgCloseQuick
+	end
+}
 
 
 

@@ -2384,6 +2384,7 @@ set	Bassp
 set	BassGS
 	code	0FFh,0FFh,0FFh,0FFh,0FFh,0FFh
 	lim		0
+	mb		9
 
 	atk		100
 

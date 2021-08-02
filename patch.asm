@@ -833,19 +833,19 @@ bl 		SetStyle
 
 .if IS_PVP
 
-//hook the elemental weakness 2x damage code
+//hook the elemental weakness 2x damage code (reduce to x1.5)
 .org 0x080AD90E
 	bl		ElemWeakness
 
 .endif
 
 
-//hook the elec + ice panel 2x damage code
+//hook the elec + ice panel 2x damage code (reduce to x1.5 and make it null)
 .org 0x080AF422
 	bl		IcePanelBonus
 
 
-//hook the fire + grass panel 2x damage code
+//hook the fire + grass panel 2x damage code (make the bonus damage null)
 .org 0x080AF414
 	bl		GrassPanelBonus
 
@@ -1378,6 +1378,24 @@ Nothing that branches to any of this code uses hardcoded addresses, instead they
 // ==============================================
 // ====================================================
 // ========================================================== PUT NEW HOOKED CODE HERE
+
+
+
+
+
+
+
+offsetGS:
+	// horizontal
+	mov		r2,18h
+	lsl		r2,10h
+	mul		r2,r3
+	sub		r0,r0,r2
+	// vertical
+	mov		r2,5h
+	lsl		r2,10h
+	add		r1,r2
+	mov		r15,r14
 
 
 LibraryValidPA:
