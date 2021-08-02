@@ -500,6 +500,47 @@ backup of old values
 .if IS_PVP
 
 
+//	BassGS
+
+// stop the screen shake from bassgs, replace with visual glitch fix
+.org 0x080EA4D6
+	ldrb	r0,[r5]
+	mov		r1,2h
+	bic		r0,r1
+	strb	r0,[r5]
+
+// spawn hitbox routine, end loop early
+.org 0x080EA5D2
+	nop
+.org 0x080EA578		// flipped version (pvp)
+	nop
+
+// skip some parts of the attack
+.org 0x080EA490
+	mov		r0,4h
+	strh	r0,[r5,0Ah]
+	pop		r15
+
+// watergun animation
+.org 0x08024AB8
+	.dw 0x0830F158
+
+// disable animation flip
+.org 0x080EA400
+	mov		r1,0h
+
+// fix the anim position
+.org 0x080EA3CC 
+	bl		offsetGS
+	nop
+	nop
+
+// shorten end of attack anim
+.org 0x080EA0A2
+	mov		r0,32h
+.org 0x080EA4D2
+	mov		r0,1Eh
+
 
 // make bodyguard throw 9 kunais
 .org 0x080F0DAA
@@ -553,7 +594,7 @@ backup of old values
 	nop
 //charge shot command (double hit)
 .org 0x080CA27C
-	mov		r6,1Eh	//first hit, weak
+	mov		r6,32h	//first hit, weak
 	nop
 	nop
 	nop
@@ -572,7 +613,7 @@ backup of old values
 	nop
 // B + Left command
 .org 0x080CA0D6
-	mov		r6,32h	//this damage is added to the normal atk value (boostable)
+	mov		r6,46h	//this damage is added to the normal atk value (boostable)
 	nop
 
 
@@ -585,7 +626,7 @@ backup of old values
 .org BalanceHPMath
 	bl	BalanceHPReduction	
 
-//Shake: fix damage override exploit
+// Shake: fix damage override exploit
 .org 0x080E7B34
 	ldrh	r6,[r5,2Ch]
 
@@ -696,7 +737,8 @@ bge 80CBD96h
 .org LavaPanelFlinch :: .db 0x01 	;FL
 
 // ------ Guts Machinegun
-//.org GutsMachGunFlinch :: .db 0x00		;final hit
+.org GutsMachGunFlinch		:: .db 0x00		;rapid hits
+.org GutsMachGunFinalFlinch :: .db 0x00		;final hit
 
 
 
