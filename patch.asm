@@ -1891,17 +1891,19 @@ AntiDmgQueue:
 	push	r14
 	ldrb	r0,[r5,5h]
 
-	//activate on idle state and buster endlag (move cancel window)
+	// activate on idle state and buster endlag (move cancel window)
 	mov		r1,3h
 	tst		r0,r1
 	bne		@@activate
 
-	//activate if using slasher chip
+	// activate if using certain chips
 	ldrb	r0,[r5,6h]
-	cmp		r0,28h
+	cmp		r0,28h		// slasher
+	beq		@@activate
+	cmp		r0,2Ch		// poison mask/face
 	beq		@@activate
 
-//queue antidmg to fire later
+// queue antidmg to fire later
 	mov		r0,0h
 	b		.+4h
 
