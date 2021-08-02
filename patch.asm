@@ -164,6 +164,10 @@ ALL_STAR_CODES	EQU	0
 	.org 0x0803675C
 		bl	LibraryGetGigaCount
 
+	// disable a check to hide Bass+
+	.org 0x08001A4C
+		cmp		r1,1h
+
 // Program Advances
 	// hide and don't count invalid PAs
 	.org 0x080367B8
@@ -195,7 +199,6 @@ ALL_STAR_CODES	EQU	0
 		.db 0x02
 
 
-.else
 .endif
 
 

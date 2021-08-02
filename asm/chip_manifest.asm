@@ -2387,7 +2387,7 @@ set	BassGS
 	mb		9
 
 	atk		100
-
+	pos		305
 
 
 //These are the original opposite-version chips
@@ -2398,6 +2398,7 @@ set	130h	//	NavRcycl
 	icon	icon_NavRcycl
 	img		img_NavRcycl
 	color	pal_NavRcycl
+
 
 set	131h	//	AlphArmS
 	code1	codeQ,0
