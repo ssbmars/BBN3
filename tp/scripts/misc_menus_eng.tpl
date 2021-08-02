@@ -61,7 +61,7 @@ script 2 mmbn3 {
 
 //replace XtraFldr
 
-//"equipped <folder>" text
+//"equipped xtrafolder" text
 @archive 7EAEB0
 @size 27
 
@@ -108,5 +108,43 @@ script 166 mmbn3s {
 	end
 }
 
+
+
+
+//=============================================================================
+
+
+//	Fix typos in story dialog
+
+@archive 787160
+@size 19
+
+script 10 mmbn3 {
+	mugshotShow
+		mugshot = PurpleNavi
+	msgOpen
+	"""
+	Extraordinary! No
+	wonder they're
+	all saying you'll
+	"""
+	keyWait
+	clearMsg
+	"""
+	win tomorrow's Grand
+	Prix! Thank you for
+	saving us!
+	"""
+	keyWait
+	clearMsg
+	"""
+	Would you mind if we
+	interviewed you?
+	"""
+	keyWait
+	clearMsg
+	jump
+		target = 11
+}
 
 
