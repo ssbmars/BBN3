@@ -338,7 +338,8 @@
 
 .org 0x080AF376 :: LavaPanelFlinch:
 
-.org 0x080D5E12 :: GutsMachGunFlinch:
+.org 0x080D5DFE :: GutsMachGunFlinch:
+.org 0x080D5E12 :: GutsMachGunFinalFlinch:
 
 .org 0x080D616C :: BombThrowFlinch:
 
