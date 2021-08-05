@@ -209,7 +209,7 @@ script 20 mmbn3 {
 	clearMsg
 	"""
 	each time you are
-	hit, So you get a
+	hit, so you get a
 	fair chance to
 	"""
 	keyWait
@@ -248,26 +248,27 @@ script 24 mmbn3 {
 		delay = 0
 	"""
 	To fix an error in
-	the NaviCust, just
-	submit an empty
+	the NaviCust, press
+	SELECT and then
 	"""
 	keyWait
 	clearMsg
 	"""
+	submit an empty
 	ModCode. If you
 	didn't receive an
-	error, then you can
 	"""
 	keyWait
 	clearMsg
 	"""
+	error, then you can
 	use an EX Code!
 	Read the next email
-	to see a list of
 	"""
 	keyWait
 	clearMsg
 	"""
+	to see a list of
 	all the available
 	EX Codes!
 	"""
