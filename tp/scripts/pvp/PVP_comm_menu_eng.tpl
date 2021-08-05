@@ -6,14 +6,6 @@
 @size 170
 
 
-
-script 105 mmbn3s {
-	"  Alpha 1"
-
-	end
-}
-
-
 //=============================================================================
 
 //Dialog when you try to add more than the allowed amount of copies of a chip to your folder
@@ -167,14 +159,6 @@ script 52 mmbn3 {
 		frames = 0
 	waitHold
 }
-
-// remove the netbattle "Record" text
-
-script 106 mmbn3s {
-	"\n\n "
-	end
-}
-
 
 
 //=============================================================================
