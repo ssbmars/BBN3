@@ -167,7 +167,7 @@ script 49 mmbn3 {
 	"""
 	Ataca en
 	cada fila
-	Atq:50
+	Atq:40
 	"""
 	keyWait
 	msgCloseQuick

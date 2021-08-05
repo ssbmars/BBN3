@@ -2405,7 +2405,7 @@ set	131h	//	AlphArmS
 	lim		0
 	mb		9
 	type	60h
-	atk		50
+	atk		40
 	pos		302
 	icon	icon_AlphArmS
 	img		img_AlphArmS

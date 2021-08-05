@@ -216,7 +216,7 @@ script 49 mmbn3 {
 	"""
 	Coil atk
 	in rows!
-	Atk:50
+	Atk:40
 	"""
 	keyWait
 	msgCloseQuick
