@@ -8,38 +8,6 @@
 @size 172
 
 
-//	About ModCodes
-
-script 96 mmbn3s {
-	"Dev_____■"
-	end
-}
-script 97 mmbn3s {
-	"NetBttlr■"
-	end
-}
-script 98 mmbn3s {
-	"About ModCodes"
-	end
-}
-
-
-//	EX Code List
-
-script 92 mmbn3s {
-	"Dev_____■"
-	end
-}
-script 93 mmbn3s {
-	"NetBttlr■"
-	end
-}
-script 94 mmbn3s {
-	"EX Code List!"
-	end
-}
-
-
 //	About Parry
 
 //script 84 mmbn3s {
@@ -51,7 +19,7 @@ script 85 mmbn3s {
 	end
 }
 script 86 mmbn3s {
-	"About Parry"
+	"Sobre el Parry"
 	end
 }
 
@@ -67,29 +35,51 @@ script 81 mmbn3s {
 	end
 }
 script 82 mmbn3s {
-	"Parry Rules"
+	"Reglas Parry"
 	end
 }
 
 
+//	About ModCodes
 
-//	Customizing
-
-script 165 mmbn3s {
+script 96 mmbn3s {
+	"Dev_____■"
+	end
+}
+script 97 mmbn3s {
 	"NetBttlr■"
 	end
 }
+script 98 mmbn3s {
+	"Sobre ModCodes"
+	end
+}
 
 
-//	NCP position
+//	EX Code List
 
+script 92 mmbn3s {
+	"Dev_____■"
+	end
+}
+script 93 mmbn3s {
+	"NetBttlr■"
+	end
+}
+script 94 mmbn3s {
+	"Lista EX Code"
+	end
+}
+
+
+//	NaviCust Tip! (NCP position)
 
 script 29 mmbn3s {
 	"NetBttlr■"
 	end
 }
 script 30 mmbn3s {
-	"NaviCust Tip!"
+	"Truco NaviCust"
 	end
 }
 
@@ -101,15 +91,27 @@ script 53 mmbn3s {
 	end
 }
 script 54 mmbn3s {
-	"NCP Shapes"
+	"Formas de NCP"
 	end
 }
+
+
+//	Customizing
+
+script 165 mmbn3s {
+	"NetBttlr■"
+	end
+}
+
 
 
 //CONTENTS of emails
 @archive 7E8F98
 @size 65
 
+
+//	About Parry
+//	Sobre el Parry
 
 script 21 mmbn3 {
 	positionText
@@ -127,49 +129,57 @@ script 21 mmbn3 {
 	textSpeed
 		delay = 0
 	"""
-	When your opponent 
-	uses a Time Freeze
-	chip, you can press
+	Cuando tu oponente
+	usa un Time Freeze
+	Chip, puedes
 	"""
 	keyWait
 	clearMsg
 	"""
-	LEFT on the D-pad
-	right before you're
-	hit to halve the 
+	presionar IZQUIERDA
+	en el D-pad justo
+	antes de que seas
 	"""
 	keyWait
 	clearMsg
 	"""
-	damage you receive
-	from that hit!
-	This is called a
+	golpeado para acotar
+	el daño del ataque
+	recibiste a la 
 	"""
 	keyWait
 	clearMsg
 	"""
-	Time Freeze Parry!
-	(TFP) or parry for
-	short.
+	mitad! A esto se le
+	llama un Time Freeze
+	Parry (TFP) o Parry
 	"""
 	keyWait
 	clearMsg
 	"""
-	In my next email I
-	will explain the
-	exact frame data
+	para abreviar.
+	En el siguiente 
+	email explicaré la
 	"""
 	keyWait
 	clearMsg
 	"""
-	and rules for
-	making use of 
+	duración exacta
+	en Frames y las 
+	reglas de uso del
+	"""
+	keyWait
+	clearMsg
+	"""
 	Time Freeze Parry.
 	"""
 	keyWait
 	waitHold
 }
 
+
+//	Parry Rules
+//	Reglas Parry
 
 script 20 mmbn3 {
 	positionText
@@ -187,49 +197,70 @@ script 20 mmbn3 {
 	textSpeed
 		delay = 0
 	"""
-	The Parry window
-	is active for 6 
-	frames. After that,
+	El margen del Parry
+	está activo por 6
+	frames.
 	"""
 	keyWait
 	clearMsg
 	"""
-	you must wait 30
-	frames before
-	you can attempt
+	Después de eso,
+	debes esperar 30
+	frames antes de 
 	"""
 	keyWait
 	clearMsg
 	"""
-	another Parry input.
-	But this cooldown
-	resets immediately
+	poder intentar otro
+	input Parry. 
 	"""
 	keyWait
 	clearMsg
 	"""
-	each time you are
-	hit, So you get a
-	fair chance to
+	Pero, este 
+	enfriamiento
+	se reinicia de
 	"""
 	keyWait
 	clearMsg
 	"""
-	parry every single
-	hit! Remember to
-	time your inputs
+	inmediato cada vez
+	que eres golpeado,
+	de manera que
 	"""
 	keyWait
 	clearMsg
 	"""
-	carefully! It
-	takes practice
-	to get it right.
+	tienes una buena
+	oportunidad de
+	hacerle Parry
+	"""
+	keyWait
+	clearMsg
+	"""
+	a cada golpe!
+	"""
+	keyWait
+	clearMsg
+	"""
+	Recuerda calcular
+	tus inputs
+	cuidadosamente!
+	"""
+	keyWait
+	clearMsg
+	"""
+	Mientras más
+	practiques mejor
+	lo harás.
 	"""
 	keyWait
 	waitHold
 }
 
+
+//	About ModCodes
+//	Sobre ModCodes 
 
 script 24 mmbn3 {
 	positionText
@@ -247,34 +278,45 @@ script 24 mmbn3 {
 	textSpeed
 		delay = 0
 	"""
-	To fix an error in
-	the NaviCust, just
-	submit an empty
+	Para arreglar un 
+	error en el 
+	NaviCust,presiona
 	"""
 	keyWait
 	clearMsg
 	"""
-	ModCode. If you
-	didn't receive an
-	error, then you can
+	SELECT y después
+	ingresa un ModCode
+	vacío.
 	"""
 	keyWait
 	clearMsg
 	"""
-	use an EX Code!
-	Read the next email
-	to see a list of
+	Si no recibes un
+	error, ¡entonces
+	puedes usar un
 	"""
 	keyWait
 	clearMsg
 	"""
-	all the available
-	EX Codes!
+	EX Code!
+	¡Leé el siguiente
+	email para ver
+	"""
+	keyWait
+	clearMsg
+	"""
+	una lista de todos
+	los EX Codes
+	disponibles!
 	"""
 	keyWait
 	waitHold
 }
 
+
+//	EX Code List
+//	e
 
 script 23 mmbn3 {
 	positionText
@@ -366,8 +408,8 @@ script 23 mmbn3 {
 }
 
 
-
-
+//	NaviCust Tip! (NCP Positions)
+//	Truco NaviCust
 
 script 7 mmbn3 {
 	positionText
@@ -385,57 +427,71 @@ script 7 mmbn3 {
 	textSpeed
 		delay = 0
 	"""
-	Here's a tip that we
-	forgot to include in
-	the NaviCust manual.
+	Aquí un detalle que
+	olvidamos incluir
+	en el manual del
 	"""
 	keyWait
 	clearMsg
 	"""
-	The position of your
-	NaviCust Programs
-	(NCPs) can affect
+	NaviCust. 
+	La posición de tus
+	programas del
 	"""
 	keyWait
 	clearMsg
 	"""
-	the outcome of
-	MegaMan's abilities!
-	When there are NCPs
+	NaviCust (NCPs)
+	puede afectar en
+	cuales serán las
 	"""
 	keyWait
 	clearMsg
 	"""
-	that grant similar
-	abilities, such as
-	Shield and Reflect,
+	habilidades de
+	MegaMan! Cuando
+	hay NCPs que
 	"""
 	keyWait
 	clearMsg
 	"""
-	the NCP that is
-	placed farther to
-	the right on the
+	otorgan habilidades
+	similares, como
+	Shield y Reflect, 
 	"""
 	keyWait
 	clearMsg
 	"""
-	Command Line will
-	take priority over 
-	the other NCP.
+	el NCP que se
+	coloca más a la
+	derecha en la
 	"""
 	keyWait
 	clearMsg
 	"""
-	Remember that NCP
-	position can be
-	very important!
+	Línea de Comando
+	tomara prioridad
+	sobre el otro NCP.
+	"""
+	keyWait
+	clearMsg
+	"""
+	Recuerda que la
+	posición de un
+	NCP puede ser
+	"""
+	keyWait
+	clearMsg
+	"""
+	importante!
 	"""
 	keyWait
 	waitHold
 }
 
 
+//	NCP Shapes
+//	Formas de NCP
 
 script 13 mmbn3 {
 	positionText
@@ -453,30 +509,36 @@ script 13 mmbn3 {
 	textSpeed
 		delay = 0
 	"""
-	A few NCPs have
-	alternate shapes
-	that can be toggled
+	Algunos NCPs tienen
+	formas alternativas
+	entre las cuales
 	"""
 	keyWait
 	clearMsg
 	"""
-	between by pressing
-	SELECT!
-	These extra shapes
+	puedes cambiar
+	presionando SELECT!
+	Estas formas extras
 	"""
 	keyWait
 	clearMsg
 	"""
-	will allow you to
-	further optimize 
-	your programming!
+	te permitirán 
+	optimizar mucho 
+	mejor tu 
 	"""
 	keyWait
 	clearMsg
 	"""
-	The following NCPs
-	have alt shapes that
-	you can toggle:
+	programación! 
+	Los siguientes NCPs 
+	tienen una forma
+	"""
+	keyWait
+	clearMsg
+	"""
+	alternativa que
+	puedes alternar:
 	"""
 	keyWait
 	clearMsg
