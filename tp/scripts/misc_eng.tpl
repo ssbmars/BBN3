@@ -246,6 +246,8 @@ script 1 mmbn3 {
 	clearMsg
 	"At Hades Isle⋯"
 	keyWait
+	flagClear
+		flag = 2566
 	clearMsg
 	end
 }

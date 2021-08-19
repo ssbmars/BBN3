@@ -192,6 +192,8 @@ script 1 mmbn3 {
 	playerFinish
 	playerUnlock
 	keyWait
+	flagClear
+		flag = 2566
 	end
 }
 
