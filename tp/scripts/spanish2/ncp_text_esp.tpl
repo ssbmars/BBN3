@@ -16,8 +16,9 @@ script 1 mmbn3 {
 		left = 10
 		top = 1
 	"""
-	Won't be
-	flinched!
+	No te
+	provocan
+	retroceso!
 	"""
 	waitHold
 	end
@@ -35,9 +36,9 @@ script 14 mmbn3 {
 		left = 10
 		top = 1
 	"""
-	Halve dmg
-	w/ Guard
-	Button!
+	Mitad de
+	daño con
+	SELECT!
 	"""
 	waitHold
 	end
@@ -54,9 +55,9 @@ script 15 mmbn3 {
 		left = 10
 		top = 1
 	"""
-	Defend
-	w/ Guard
-	Button!
+	Defensa de
+	0 daño con
+	SELECT!
 	"""
 	waitHold
 	end
@@ -73,9 +74,9 @@ script 16 mmbn3 {
 		left = 10
 		top = 1
 	"""
-	Return dmg
-	w/ Guard
-	Button!
+	Refleja
+	daño con
+	SELECT!
 	"""
 	waitHold
 	end
@@ -92,9 +93,9 @@ script 19 mmbn3 {
 		left = 10
 		top = 1
 	"""
-	Hurl star
-	w/ Guard
-	Button!
+	Lanza shu-
+	riken con
+	SELECT!
 	"""
 	waitHold
 	end
@@ -111,8 +112,8 @@ script 35 mmbn3 {
 		left = 10
 		top = 1
 	"""
-	ChargeShot
-	atk lv +1.
+	+1 al nvl
+	de Pwr Atq
 	Max = 3
 	"""
 	waitHold
@@ -129,7 +130,8 @@ script 50 mmbn3 {
 		left = 10
 		top = 1
 	"""
-	Freely use
+	Utiliza
+	libremente
 	DarkChips!
 	"""
 	waitHold
@@ -202,7 +204,11 @@ script 40 mmbn3 {
 	positionText
 		left = 10
 		top = 1
-	"+1MB de\ncapacidad\nde chips."
+	"""
+	+1MB de
+	rango del
+	Reg Chip!
+	"""
 	waitHold
 	end
 }

@@ -17,9 +17,9 @@ script 24 mmbn3 {
 		left = 10
 		top = 1
 	"""
-	Change 
-	Style elem
-	to Heat!
+	Cambia de
+	elemento
+	a Fuego!
 	"""
 	waitHold
 	end
@@ -36,9 +36,9 @@ script 25 mmbn3 {
 		left = 10
 		top = 1
 	"""
-	Change 
-	Style elem
-	to Aqua!
+	Cambia de
+	elemento
+	a Aqua!
 	"""
 	waitHold
 	end
@@ -55,9 +55,9 @@ script 26 mmbn3 {
 		left = 10
 		top = 1
 	"""
-	Change
-	Style elem
-	to Elec!
+	Cambia de
+	elemento
+	a Elec!
 	"""
 	waitHold
 	end
@@ -74,9 +74,9 @@ script 27 mmbn3 {
 		left = 10
 		top = 1
 	"""
-	Change
-	Style elem
-	to Wood!
+	Cambia de
+	elemento
+	a Madera!
 	"""
 	waitHold
 	end
