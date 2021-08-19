@@ -2181,6 +2181,15 @@ TrapVisualCheck:
 
 
 FolderBack:
+
+// 1) Creates a list of chips in the folder that can be restored. Reads from the entire folder, not just the used or unused chips. The list contains the chip positions, rather than their raw IDs.
+
+// 2) Shuffles the list that it created, so it can then attempt to add up to 7 chips from that list back into the folder. The shuffle prevents topdecking the chips that get restored. Skips the shuffle step if the list is less than 2 (this avoids a softlock from bad math).
+
+// 3) Goes through the list of chips to restore and checks whether each chip is still in the folder. Does not restore a chip unless it's already been used. Since it's working with folder positions, it's able to check unique position values instead of needing to guess the context based on real chip IDs.
+
+// Extra) The list of invalid chips will need to be reviewed whenever new chips are created or significantly edited in order to ensure their eligibility for being restored still aligns with their chip behavior.
+
 	push	r0-r7,r14
 
 	ldr		r4,=2034100h	//free space to store the list of valid chips
@@ -2259,13 +2268,20 @@ FolderBack:
 	strb	r0,[r4]
 
 
-	//shuffle the results
-	sub		r4,1h
+	//	check whether any chips will be returned
+	//	skip the shuffle if there are less than 2 items in the list
 	ldr		r0,=2034100h
+	cmp		r4,r0
+	beq		@@nothingtoshuffle
+	sub		r4,1h
+	cmp		r4,r0
+	beq		@@nothingtoshuffle
+
+	//shuffle the results
 	sub		r1,r4,r0
 	mov		r2,r1
 	bl		8000C7Eh
-
+@@nothingtoshuffle:
 
 
 

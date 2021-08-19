@@ -1973,7 +1973,7 @@ set	Meteors
 	lim		0
 	mb		9
 	type	2h
-	atk		30
+	atk		50
 
 
 
