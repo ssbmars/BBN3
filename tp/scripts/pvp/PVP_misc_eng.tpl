@@ -90,7 +90,7 @@ script 0 mmbn3 {
 // fast escape message
 
 @archive 708ACC
-@size 51
+@size 52
 
 script 3 mmbn3 {
 	checkFlag

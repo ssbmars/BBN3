@@ -1071,3 +1071,65 @@ script 129 mmbn3 {
 
  */ 
 
+
+
+//=============================================================================
+
+//	avoid accidentally wasting a turn by trying to run in pvp
+@archive 708ACC
+@size 52
+
+script 2 mmbn3 {
+	checkFlag
+		flag = 4714
+		jumpIfTrue = 49
+		jumpIfFalse = continue
+	checkFlag
+		flag = 49916
+		jumpIfTrue = 51
+		jumpIfFalse = continue
+	mugshotShow
+		mugshot = MegaMan
+	msgOpen
+	"Lan,should we run?\n"
+	option
+		left = 0
+		right = 1
+		up = 0
+		down = 0
+	space
+		count = 2
+	"Yes "
+	option
+		left = 0
+		right = 1
+		up = 1
+		down = 1
+	space
+		count = 2
+	"No"
+	select
+		default = 0
+		disableB = false
+		clear = true
+		targets = [
+			jump = continue,
+			jump = continue,
+			jump = continue
+		]
+	end
+}
+
+script 51 mmbn3 {
+	mugshotShow
+		mugshot = MegaMan
+	textSpeed
+		delay = 0
+	msgOpen
+	"""
+	Lan,this is no time
+	to run away!
+	"""
+	keyWait
+	end
+}

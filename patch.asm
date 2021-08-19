@@ -440,6 +440,11 @@ bl 		EquipStoryNCPs
 	.dw	BossFlinchTable
 
 
+// don't waste a turn trying to run from fights you can't run from
+.org 0x0800E58C
+	bl		NoTimeToRun
+	tst		r0,r0
+	beq		.+08h
 
 
 
@@ -1381,8 +1386,28 @@ Nothing that branches to any of this code uses hardcoded addresses, instead they
 
 
 
+NoTimeToRun:
+	// return with r0 = 1 to not run, 
+	// or r0 = 0 to run
+	tst		r0,r0
+	beq		@@checkbattle	//false = not attempting to run
+	b		@@returnfalse
 
+	@@checkbattle:
+	ldr		r0,=200188Fh
+	ldrb	r0,[r0]
+	cmp		r0,7h
+	bgt		@@returnfalse
+	mov		r0,0h
+	mov		r15,r14
 
+	@@returnfalse:
+	ldrb	r0,[r5,0Eh]
+	strb	r0,[r5,1h]
+	mov		r0,1h
+	mov		r15,r14
+
+	.pool
 
 
 offsetGS:
@@ -2200,11 +2225,9 @@ FolderBack:
 	bl		80114A8h	;get chip ID from position
 
 //	get the ID of a chip based on its position, then check
-//	if it's a chip that folderback is allowed to restore
-
+//	if it's a chip that folderback is allowed to restore.
 //	this is a conservative list, friendly viruses are considered invalid
 			
-
 	cmp		r0,0CFh		//check if HeroSword, which was changed to Standard
 	beq		@@skipmegacheck
 
@@ -2282,7 +2305,6 @@ FolderBack:
 	mov		r2,r1
 	bl		8000C7Eh
 @@nothingtoshuffle:
-
 
 
 //	=================
