@@ -397,7 +397,7 @@ backup of old values
 
 // Prism 400 HP
 .org 0x080DFC38
-	mov		r0,64h
+	mov		r0,7Dh
 	lsl		r0,2h
 
 // prevent prism from resetting its HP to max every frame
@@ -423,16 +423,19 @@ backup of old values
 
 // -------------- Damage Changes ---------
 
-// Poltergeist
-.org PoltergeistAtk
-	.db 0x46	//70 dmg
-
-// Muramasa cap at 500
-.org MuramasAtk1
-	lsl r1,r1,1h
-.org MuramasAtk2
-	nop
-
+.if IS_PVP
+	
+	// Poltergeist
+	.org PoltergeistAtk
+		.db 0x46	//70 dmg
+	
+	// Muramasa cap at 500
+	.org MuramasAtk1
+		lsl r1,r1,1h
+	.org MuramasAtk2
+		nop
+	
+.endif
 
 // Hook GaiaSword's routine for consuming atk from other chips
 
