@@ -192,12 +192,16 @@ ALL_STAR_CODES	EQU	0
 	// Spreader PA: only show the 1 PA combination
 	.org 0x08035E6D
 		.db 0x01
-	//	BigHeart PA: 2 combinations
+	// BigHeart PA: 2 combinations
 	.org 0x08035E7A
 		.db 0x02
-	//GutsShoot PA: 2 combinations
+	// GutsShoot PA: 2 combinations
 	.org 0x08035E7B
 		.db 0x02
+	// ZStepCros PA: 2 combinations
+	.org 0x08035E6B
+		.db 0x02
+
 
 
 .endif

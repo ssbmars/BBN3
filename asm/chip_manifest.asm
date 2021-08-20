@@ -58,7 +58,8 @@ set	Hicannon
 
 
 set	Mcannon
-
+	code1	codeSTAR,5
+	
 	lim		2h
 
 	atk		180
@@ -233,7 +234,7 @@ set	SnglBomb
 
 
 set	DublBomb
-	code1	0Bh,5h
+	code	1Ah,0FFh,0FFh,0FFh,0FFh,0FFh
 	lim		3h
 
 	atk		100
@@ -287,7 +288,7 @@ set	BlkBomb1
 
 
 set	BlkBomb2
-
+	code1	codeR,3
 	lim		2h
 //	mb		9
 	atk		160
@@ -395,7 +396,7 @@ set	StepSwrd
 
 
 set	StepCros
-
+	code1	codeK,4
 	lim		3h
 //	mb		9
 	atk		150
@@ -632,7 +633,8 @@ set	Tornado
 
 
 set	Zapring1
-	code1	0FFh,5h
+	code1	0xFF,5
+	code1	codeK,3
 
 	lim		3h
 	atk		30
@@ -910,7 +912,7 @@ set	Plasma3
 
 
 set	Arrow1
-
+	code	codeSTAR,0xFF,0xFF,0xFF,0xFF,0xFF
 	lim		3h
 
 	atk		140
@@ -955,18 +957,19 @@ set	Mine
 
 
 set	Sensor1
-	code1	0FFh,4h
+//	code1	0FFh,4h
 	lim		2h
 //	mb		8
-	atk		130
+	atk		160
 	elem	null
 
 
 
 set	Sensor2
-	code1	0FFh,3h
+//	code1	0FFh,3h
 	lim		2h
 	mb		4
+	atk		160
 	elem	null
 
 
@@ -1695,7 +1698,7 @@ set	GrassStg
 
 
 set	SandStge
-	code1	0FFh,5h
+	code1	codeP,5h
 	lim		1h
 
 
@@ -2618,7 +2621,7 @@ set	ZCanon1
 
 
 set	ZCanon2
-
+	atk		70
 
 
 
@@ -2627,7 +2630,7 @@ set	ZCanon2
 
 
 set	ZCanon3
-
+	atk		90
 
 
 
@@ -2699,7 +2702,7 @@ set	ZYoyo3
 
 
 set	ZStep1
-
+	atk		200
 
 
 
