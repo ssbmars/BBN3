@@ -228,8 +228,8 @@ script 51 mmbn3 {
 		delay = 0
 	msgOpen
 	"""
-	Lan,this is no time
-	to run away!
+	¡Lan,no es momento 
+	para huir!
 	"""
 	keyWait
 	end
