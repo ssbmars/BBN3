@@ -122,7 +122,11 @@ writeEmails:
 	mov r1,25h				;r1 = # of emails
 	strb r1,[r0]			;write r1 in the r0 addr
 
-
+	//	make the BBN3 explanation mail unread
+	ldr r0,=unreadmail
+	ldr r1,=2000260h
+	mov r2,3h
+	swi 0Bh
 
 
 	bx lr					;return
@@ -544,6 +548,8 @@ emails:
 
 //0x1C marks the end of the email list
 
+unreadmail:
+.db 0x1,0x4,0x0D,0x84,0x0,0x40
 
 
 
