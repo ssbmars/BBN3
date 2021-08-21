@@ -338,6 +338,9 @@ backup of old values
 .org ElecSwordFlinch :: .db 0x00 	;FL
 .org ElecSwordStun	:: .db 0x10 	;ST
 
+// ------ Bomb Throw
+.org BombThrowFlinch :: .db 0x01 	;FL
+
 // ------ Needler 	;no flinch
 .org NeedlerFinch	:: .db 0x00 	;FL
 
@@ -395,7 +398,7 @@ backup of old values
 .org PoisonMaskHP	:: .db 0x28
 
 
-// Prism 400 HP
+// Prism 500 HP
 .org 0x080DFC38
 	mov		r0,7Dh
 	lsl		r0,2h
@@ -747,10 +750,6 @@ bge 80CBD96h
 
 .else
 .endif
-
-// ------ Bomb Throw
-.org BombThrowFlinch :: .db 0x01 	;FL
-
 
 
 
