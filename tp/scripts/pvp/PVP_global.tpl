@@ -7,7 +7,7 @@
 
 
 script 105 mmbn3s {
-	"  Alpha 1"
+	"  Alpha 0.1"
 
 	end
 }
