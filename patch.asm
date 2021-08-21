@@ -697,6 +697,10 @@ bl 		SetStyle
 .org MegaFolderValStyleCheckHook
 	mov		r1,7h
 
+//Shield style heal 50HP from shield heal
+.org ShieldHealPercentVal
+	mov		r1,14h
+
 
 .else
 
@@ -717,10 +721,6 @@ bl 		SetStyle
 	nop
 
 .endif
-
-//Shield style heal 50HP from shield heal
-.org ShieldHealPercentVal
-	mov		r1,14h
 
 
 
