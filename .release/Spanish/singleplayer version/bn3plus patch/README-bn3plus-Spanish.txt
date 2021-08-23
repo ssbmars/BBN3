@@ -1,10 +1,10 @@
 
-This patch is optional. 
-Be aware that it will cause certain menus and animations to take longer to load.
+Este parche es opcional.
+Estate atento que este parche hará que ciertos menus y animaciones tomen más tiempo en cargar.
 
-This is a modified version of Prof9's BN3Plus patch, which was not natively compatible with BBN3.
+Esta es una versión modificada del parche BN3Plus, hecha por Prof9, la cual no era nativamente compatible con BBN3.
 
-This patch contains the extra Navi Customizer and Jack In animations from the EXE version.
-This patch is not compatible with the PVP version or the BN3 Randomizer.
+Este parche contiene las animaciones del Navi Customizer y de Jack In de la versión EXE.
+Este parche no es compatible con la versión PVP o el Aleatorizador de BN3.
 
-Apply this patch over a rom that has already had BBN3_pve_Spanish.bps applied.
+Aplica este parche a cualquier rom que tenga aplicado el parche BBN3_pve_Spanish.bps aplicado.
