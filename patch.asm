@@ -75,6 +75,23 @@ ALL_STAR_CODES	EQU	0
 	.import "rom/bn3white.gba", 0x7CB628, 0x40
 */
 
+// Boot into a black screen
+.org 0x0800043E
+	mov r1,40h
+.org 0x0802B36C
+	mov r1,40h
+	// logo fade in
+.org 0x08005351
+	.db 0xFF
+	.db 0xFF
+	// first few frames before anything is drawn
+.org 0x08000104
+	.arm
+	ldr		r0,=DarkBoot
+	bx		r0
+	.pool
+	.thumb
+
 
 //new font injections
 
@@ -210,6 +227,10 @@ ALL_STAR_CODES	EQU	0
 
 //===============	 Quality of Life Changes
 
+
+// Make it accept the A button at the start screen
+.org 0x08022250
+	mov		r1,9h
 
 //Make HP visually drain faster, from tutorial
 .org HPspeed
@@ -1053,6 +1074,7 @@ Nothing that branches to any of this code uses hardcoded addresses, instead they
 		ldr		r0,[r5,20h]		//update frame timestamp
 		add		r0,1h
 		str		r0,[r5,20h]
+
 	@@checkdefinitions:
 	
 		//define values for the buffer
@@ -1061,7 +1083,7 @@ Nothing that branches to any of this code uses hardcoded addresses, instead they
 		add		r3,r5
 		ldrb	r0,[r3,5h]
 		tst		r0,r0
-		bne		@@vanillafunction	//skip if the values are already defined
+		bne		@@incrementpointer	//skip if the values are already defined
 	
 		//p1 input lag value	(temporary code)
 	;	mov		r0,04h
@@ -1069,8 +1091,13 @@ Nothing that branches to any of this code uses hardcoded addresses, instead they
 	;	strb	r0,[r3,2h]		//TEMP, write p2 input lag
 	
 		//log size
-		mov		r0,28h
+		mov		r0,78h
 		strb	r0,[r3,5h]
+		strb	r0,[r3,8h]
+
+		//test- attempt a separate "ExtraBuffer" value
+	;	mov		r0,1h
+	;	strb	r0,[r3,9h]
 	
 		//test- set self as player 2
 			//seems like it works if done at this stage
@@ -1082,7 +1109,19 @@ Nothing that branches to any of this code uses hardcoded addresses, instead they
 	;	strb	r0,[r3]
 		//everything that's commented out here is handled by the netplay script
 	
-	
+	@@incrementpointer:
+		//	increment input stack pointer even during rollback
+		ldrb	r2,[r3,8h]
+		ldrb	r0,[r3,5h]
+		add		r2,1h
+		cmp		r2,r0
+		bge		@@resetpointer
+		strb	r2,[r3,8h]
+		b		@@vanillafunction
+		@@resetpointer:
+		mov		r0,0h
+		strb	r0,[r3,8h]
+
 	@@vanillafunction:
 		push	r7
 		ldrb	r7,[r3]
@@ -1117,7 +1156,7 @@ Nothing that branches to any of this code uses hardcoded addresses, instead they
 	@@rollbackcheck:
 		ldrb	r0,[r3,7h]
 		tst		r0,r0
-		beq		@@preparememcopy
+		beq		@@writelatest
 	
 		ldrb	r0,[r3,6h]
 		sub		r0,1h
@@ -1132,40 +1171,40 @@ Nothing that branches to any of this code uses hardcoded addresses, instead they
 		strb	r0,[r3,7h]
 		b		@@rollbackframe
 	
-	@@preparememcopy:
-		push	r3
-		ldrb	r6,[r3,5h]
-		mov		r0,r6
-			//lsl		r6,2h
-		lsl		r0,4h
-		add		r0,r3
-		mov		r3,0h
-		mov		r1,r0
-		add		r1,10h	//part of temp ver
-	
-			//add		r1,1Ch
-			//add		r0,0Ch
-		
-	@@memcopyloop:
-	
-		//temporary version, just for 2 player mode
-		ldr		r2,[r0]		//cycle p1's stack
-		str		r2,[r1]
-		ldr		r2,[r0,4h]		//cycle p2's stack
-		str		r2,[r1,4h]
-		sub		r0,10h
-		sub		r1,10h
-		//end of temp version
-	
-			//ldr		r2,[r0]
-			//str		r2,[r1]
-			//sub		r0,4h
-			//sub		r1,4h
-	
-		add		r3,1h
-		cmp		r3,r6
-		blt		@@memcopyloop
-		pop		r3
+;	@@preparememcopy:
+;		push	r3
+;		ldrb	r6,[r3,5h]
+;		mov		r0,r6
+;			//lsl		r6,2h
+;		lsl		r0,4h
+;		add		r0,r3
+;		mov		r3,0h
+;		mov		r1,r0
+;		add		r1,10h	//part of temp ver
+;	
+;			//add		r1,1Ch
+;			//add		r0,0Ch
+;		
+;	@@memcopyloop:
+;	
+;		//temporary version, just for 2 player mode
+;		ldr		r2,[r0]		//cycle p1's stack
+;		str		r2,[r1]
+;		ldr		r2,[r0,4h]		//cycle p2's stack
+;		str		r2,[r1,4h]
+;		sub		r0,10h
+;		sub		r1,10h
+;		//end of temp version
+;	
+;			//ldr		r2,[r0]
+;			//str		r2,[r1]
+;			//sub		r0,4h
+;			//sub		r1,4h
+;	
+;		add		r3,1h
+;		cmp		r3,r6
+;		blt		@@memcopyloop
+;		pop		r3
 	
 	
 	
@@ -1174,7 +1213,10 @@ Nothing that branches to any of this code uses hardcoded addresses, instead they
 		mov		r0,r4
 		lsl		r1,r7,2h	//use port # as pointer
 		add		r1,10h
-		add		r1,r3		//finish setting the local stack position
+		ldrb	r2,[r3,8h]	//load the current input stack position
+		lsl		r2,4h
+		add		r1,r3
+		add		r1,r2		//finish setting the local stack position
 		ldr		r2,[r0]
 		str		r2,[r1]
 	
@@ -1185,13 +1227,20 @@ Nothing that branches to any of this code uses hardcoded addresses, instead they
 			//reset stack pointer to leftmost, then iterate forward
 		//write the timestamp for this frame at the top of all the input stacks
 		push 	r1
-		mov		r1,10h
+
+		ldrb	r1,[r3,8h]
+		lsl		r1,4h
+		add		r1,10h
 		add		r1,r3
 		strb	r0,[r1]
 		strb	r0,[r1,4h]
 		strb	r0,[r1,8h]
 		strb	r0,[r1,0Ch]
+
+		ldrb	r1,[r3,9h]	// fetch ExtraBuffer
+		add		r0,r1		// add it to the timestamp
 		pop		r1
+		strb	r0,[r1]		// write the adjusted timestamp for just the local input stack
 	
 		//bypass input lag if on the custom screen
 		mov		r4,r2
@@ -1216,22 +1265,43 @@ Nothing that branches to any of this code uses hardcoded addresses, instead they
 		mov		r6,1h		//locate input buffer based on player #
 		add		r6,r7
 		ldrb	r6,[r3,r6]	//read input buffer
-		sub		r4,r6
+		ldrb	r1,[r3,9h]
+		add		r1,r6
+		sub		r4,r1
 		lsl		r4,18h
 		lsr		r4,18h		//this is the timestamp from <buffer> frames ago, sanitized
 		lsl		r0,r7,2h	//set input stack pointer
 		add		r0,r3
-		ldrb	r6,[r3,5h]
-		mov		r2,0h
-	
-	@@localinputsearch:
 		add		r0,10h
+		// read the input stack pointer 
+		ldrb	r2,[r3,8h]
+		ldrb	r1,[r3,9h]
+		add		r1,r6
+		sub		r2,r1
+		blt		@@needtoneg
+		b		@@noneg
+		@@needtoneg:
+		neg		r2,r2
+		ldrb	r1,[r3,5h]
+		sub		r2,r1,r2
+		@@noneg:
+		lsl		r2,4h
+		add		r0,r2
+
 		ldrb	r1,[r0]
 		cmp		r1,r4
 		beq		@@applylocal
-		add		r2,1h
-		cmp		r2,r6
-		ble		@@localinputsearch
+;		mov		r2,0h
+;		ldrb	r6,[r3,5h]
+
+;	@@localinputsearch:
+;		add		r0,10h
+;		ldrb	r1,[r0]
+;		cmp		r1,r4
+;		beq		@@applylocal
+;		add		r2,1h
+;		cmp		r2,r6
+;		ble		@@localinputsearch
 	
 	@@applylocal:
 		lsl		r1,r7,4h
@@ -1277,29 +1347,43 @@ Nothing that branches to any of this code uses hardcoded addresses, instead they
 		sub		r4,r6
 		lsl		r4,18h
 		lsr		r4,18h		//timestamp value to look for
-		ldrb	r6,[r3,5h]
 		
 		//define the stack pointer in r0 then set it to the stack address
 		lsl		r0,r2,2h
 		add		r0,r3
-		mov		r2,0h
-	
-	
-	@@p2timestampcheckloop:
 		add		r0,10h
+
+		// read the input stack pointer 
+		ldrb	r2,[r3,8h]
+		sub		r2,r6
+		blt		@@p2needtoneg
+		b		@@p2noneg
+		@@p2needtoneg:
+		neg		r2,r2
+		ldrb	r1,[r3,5h]
+		sub		r2,r1,r2
+		@@p2noneg:
+		lsl		r2,4h
+		add		r0,r2
 		ldrb	r1,[r0]
-		cmp		r1,r4
-		beq		@@applyp2
-		add		r2,1h
-		cmp		r2,r6
-		ble		@@p2timestampcheckloop
-		//run this section only if there wasn't a valid input in the entire stack
-		pop		r2
-		push	r2
-		lsl		r1,r2,4h
-		add		r1,60h
-		add		r1,r5
-		b		@@noremoteinput
+
+;		ldrb	r6,[r3,5h]
+;		mov		r2,0h
+;	@@p2timestampcheckloop:
+;		add		r0,10h
+;		ldrb	r1,[r0]
+;		cmp		r1,r4
+;		beq		@@applyp2
+;		add		r2,1h
+;		cmp		r2,r6
+;		ble		@@p2timestampcheckloop
+;		//run this section only if there wasn't a valid input in the entire stack
+;		pop		r2
+;		push	r2
+;		lsl		r1,r2,4h
+;		add		r1,60h
+;		add		r1,r5
+;		b		@@noremoteinput
 	
 	@@applyp2:
 		/* disabled now because there's a new method handled by the script that seems to work really well
@@ -1384,10 +1468,40 @@ Nothing that branches to any of this code uses hardcoded addresses, instead they
 .endif
 
 
+
+
+
+
 // ==============================================
 // ====================================================
 // ========================================================== PUT NEW HOOKED CODE HERE
 
+
+
+
+//	changes the color of the screen on the first few frames after the rom is opened
+.align
+DarkBoot:
+	.arm
+	ldr		r13,=3007C00h
+	ldr		r0,=4000204h
+	ldr		r1,=45B4h
+	str		r1,[r0]
+	//new code
+	ldr		r0,=4000000h
+	mov		r1,40h
+	strb	r1,[r0]
+	add		r0,50h
+	mov		r1,0FFh
+	strb	r1,[r0]
+	mov		r1,10h
+	strb	r1,[r0,4h]
+
+	//return
+	ldr		r0,=8000114h
+	bx		r0
+	.pool
+	.thumb
 
 
 NoTimeToRun:
