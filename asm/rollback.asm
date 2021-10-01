@@ -24,7 +24,8 @@
 
 // change which menu it returns to after battle
 .org 0x0803E396
-	mov		r0,0Ch
+;	mov		r0,0Ch		// this exits to the overworld with the menu open
+	mov		r0,30h		// exits to the comm menu
 	strb	r0,[r5,1h]
 	mov		r0,r10
 	ldr		r0,[r0,18h]
