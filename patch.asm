@@ -1040,8 +1040,12 @@ Nothing that branches to any of this code uses hardcoded addresses, instead they
 		ldrh	r0,[r1,10h]
 		sub		r0,1h
 		beq		@@branch
-		b		@@skipbranch	
+		b		@@skipbranch
 	@@branch:
+		// this is a loop that waits for the script to do things, and the script needs to run roughly once a frame.
+		// when it activates the script function every 0x1900 loops, this ends up making the function run about once a frame
+		mov		r0,19h
+		lsl		r0,8h
 		bl		scriptwaitloop
 	@@skipbranch:
 		strh	r0,[r1,10h]
