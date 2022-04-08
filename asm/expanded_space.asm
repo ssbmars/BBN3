@@ -29,7 +29,7 @@ BossFlinchTable:
 
 
 ExpandedHitboxTable:
-.import "rom\bn3blue.gba",0x0AF60C,328h
+.import "rom\bn3blue.gba",0x0AF60C,0x328
 
 
 // new table value wind-smallpush (65)
