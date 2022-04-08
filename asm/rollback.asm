@@ -180,21 +180,27 @@
 // this does nothing, but it's a consistent offset for the script to check for, the input routine
 // will branch here to signify that it's finished cycling the stack but hasn't applied p2's inputs yet
 .org 0x08008800
+	nop
 scriptinjectinputs:
 	nop
 	mov		r15,r14
+	nop
 scriptsetport:
 	nop
 	mov		r15,r14
+	nop
 scriptbeginresim:
 	nop
 	mov		r15,r14
+	nop
 scriptstopresim:
 	nop
 	mov		r15,r14
+	nop
 scriptwaitloop:
 	nop
 	mov		r15,r14
+	nop
 scriptsendstats:		//0x08008814
 	nop
 	mov		r15,r14
