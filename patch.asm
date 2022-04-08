@@ -1043,7 +1043,7 @@ Nothing that branches to any of this code uses hardcoded addresses, instead they
 		b		@@skipbranch
 	@@branch:
 		// this is a loop that waits for the script to do things, and the script needs to run roughly once a frame.
-		// when it activates the script function every 0x1900 loops, this ends up making the function run about once a frame
+		// 0x1900 loops of this code equals out to roughly one frame, so it's close enough 
 		mov		r0,19h
 		lsl		r0,8h
 		bl		scriptwaitloop
@@ -1292,9 +1292,9 @@ Nothing that branches to any of this code uses hardcoded addresses, instead they
 		lsl		r2,4h
 		add		r0,r2
 
-		ldrb	r1,[r0]
-		cmp		r1,r4
-		beq		@@applylocal
+;		ldrb	r1,[r0]
+;		cmp		r1,r4
+;		beq		@@applylocal
 ;		mov		r2,0h
 ;		ldrb	r6,[r3,5h]
 
