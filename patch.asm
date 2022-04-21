@@ -75,7 +75,17 @@ ALL_STAR_CODES	EQU	0
 	.import "rom/bn3white.gba", 0x7CB628, 0x40
 */
 
+
 // Boot into a black screen
+.org 0x080000C0
+	.arm
+	ldr		r0,=DarkBoot1
+	bx		r0
+	.pool
+	DarkBoot1Return:
+	.thumb
+
+// maintain the black screen 
 .org 0x0800043E
 	mov r1,40h
 .org 0x0802B36C
@@ -87,9 +97,11 @@ ALL_STAR_CODES	EQU	0
 	// first few frames before anything is drawn
 .org 0x08000104
 	.arm
-	ldr		r0,=DarkBoot
+	ldr		r0,=DarkBoot2
 	bx		r0
 	.pool
+	nop
+	DarkBoot2Return:
 	.thumb
 
 
@@ -548,7 +560,7 @@ bl 		EquipStoryNCPs
 .org TimeFreezeFadeTime
 	mov r0,1Eh 	;reduced fade-in time on timefreeze
 
-.org CapcomScreenWaitTime
+.org CapcomScreenWaitTime	//logo boot start
 	mov	r0,6h
 
 
@@ -1482,10 +1494,31 @@ Nothing that branches to any of this code uses hardcoded addresses, instead they
 
 
 
+DarkBoot1:
+	.arm	// this whole thing is running in ARM mode
+	mov		r0,12h
+	mov		cpsr,r0
+	ldr		r13,=0x3007EA0
+	// custom code part
+	ldr		r0,=0x04000000
+	mov		r1,40h
+	strb	r1,[r0]
+	add		r0,50h
+	mov		r1,0FFh
+	strb	r1,[r0]
+	mov		r1,10h
+	strb	r1,[r0,4h]
+
+	ldr		r0,=DarkBoot1Return
+	bx		r0
+	.pool
+	.thumb
+
+
 
 //	changes the color of the screen on the first few frames after the rom is opened
 .align
-DarkBoot:
+DarkBoot2:
 	.arm
 	ldr		r13,=3007C00h
 	ldr		r0,=4000204h
@@ -1502,7 +1535,8 @@ DarkBoot:
 	strb	r1,[r0,4h]
 
 	//return
-	ldr		r0,=8000114h
+	ldr		r0,=DarkBoot2Return
+	//ldr	r0,=8000114h
 	bx		r0
 	.pool
 	.thumb
