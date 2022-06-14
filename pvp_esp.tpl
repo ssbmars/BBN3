@@ -20,4 +20,4 @@ read-text-archives "tp\scripts\spanish2\pvp\PVP_ncp_text_esp.tpl" -p
 read-text-archives "tp\scripts\pvp\PVP_global.tpl" -p
 
 
-write-text-archives "BBN3_esp.gba"
+write-text-archives "out\BBN3_esp.gba"

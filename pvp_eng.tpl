@@ -17,4 +17,4 @@ read-text-archives "tp\scripts\pvp\PVP_ncp_text_eng.tpl" -p
 read-text-archives "tp\scripts\pvp\PVP_global.tpl" -p
 
 
-write-text-archives "BBN3.gba"
+write-text-archives "out\BBN3.gba"

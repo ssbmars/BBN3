@@ -12,4 +12,4 @@ read-text-archives "tp\scripts\ncp_text_eng.tpl" -p
 read-text-archives "tp\scripts\pve\PVE_ncp_text_eng.tpl" -p
 
 
-write-text-archives "BBN3_pve_bn3plus.gba"
+write-text-archives "out\BBN3_pve_bn3plus.gba"

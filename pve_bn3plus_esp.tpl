@@ -13,4 +13,4 @@ read-text-archives "tp\scripts\spanish2\misc_esp.tpl" -p
 read-text-archives "tp\scripts\spanish2\ncp_text_esp.tpl" -p
 
 
-write-text-archives "BBN3_pve_bn3plus_esp.gba"
+write-text-archives "out\BBN3_pve_bn3plus_esp.gba"
