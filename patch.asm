@@ -2297,7 +2297,7 @@ ContinueFromSave:
 	strb 	r0,[r5,7h]
 	strb 	r0,[r5,3h]	//og code end
 
-	ldr r0,=OpenModeFromSave|1
+	ldr r0,=OpenModeFromSave|1	// in expanded_space.asm
 	bx r0
 	.pool
 

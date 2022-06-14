@@ -52,13 +52,13 @@
 
 //continue
 .org ContinueFromSaveHook
-	bl	ContinueFromSave
+	bl	ContinueFromSave	// in patch.asm
 	nop
 	nop
 
 .org OpenModeHook
 	;Set main hook that triggers when you press new game
-	ldr r0,=OpenModeRoutine|1
+	ldr r0,=OpenModeRoutine|1	// in expanded_space.asm
 	bx r0
 	
 .align 4
