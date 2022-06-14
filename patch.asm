@@ -40,7 +40,6 @@ ALL_STAR_CODES	EQU	0
 //These files are always compiled
 
 //These 2 will define symbols that other files are dependent on, so they must be ran first
-//.include "asm\free_space.asm"
 .include "asm\expanded_space.asm"
 
 
@@ -75,8 +74,8 @@ ALL_STAR_CODES	EQU	0
 	.import "rom/bn3white.gba", 0x7CB628, 0x40
 */
 
-
-// Boot into a black screen
+/*
+// Boot into a black screen (this is one of the earliest opcodes ran by the game)
 .org 0x080000C0
 	.arm
 	ldr		r0,=DarkBoot1
@@ -84,6 +83,23 @@ ALL_STAR_CODES	EQU	0
 	.pool
 	DarkBoot1Return:
 	.thumb
+
+// skip the capcom logo
+.org 0x080002AC
+//	mov		r1,0h
+
+// EXPERIMENTAL TEST: skip the title screen
+.org 0x08047176
+//	bl		SkipTitle
+
+// 
+.org 0x08032DBC
+//	bl		FastComm
+
+
+.org 0x08032DB4 :: ClearSubmenu:
+.org 0x080046A4 :: OverWorldControl:
+
 
 // maintain the black screen 
 .org 0x0800043E
@@ -103,6 +119,7 @@ ALL_STAR_CODES	EQU	0
 	nop
 	DarkBoot2Return:
 	.thumb
+*/
 
 
 //new font injections
@@ -515,15 +532,15 @@ bl 		EquipStoryNCPs
 		bl	803E578h
 
 .else
-	.org 0x0803E37A
-		mov		r0,24h
-	.org 0x0803E37E
-		mov		r0,66h
-	.org 0x0803E382
-		mov		r0,6Fh
-	//exit menu from netbattle select
-	.org 0x0803E5F8
-		bl	803E578h
+ ;	.org 0x0803E37A
+ ;		mov		r0,24h
+ ;	.org 0x0803E37E
+ ;		mov		r0,66h
+ ;	.org 0x0803E382
+ ;		mov		r0,6Fh
+ ;	//exit menu from netbattle select
+ ;	.org 0x0803E5F8
+ ;		bl	803E578h
 .endif
 
 // fix the exit routine setting HP to zero by reading from uninitialized memory
@@ -1187,40 +1204,40 @@ Nothing that branches to any of this code uses hardcoded addresses, instead they
 		strb	r0,[r3,7h]
 		b		@@rollbackframe
 	
-;	@@preparememcopy:
-;		push	r3
-;		ldrb	r6,[r3,5h]
-;		mov		r0,r6
-;			//lsl		r6,2h
-;		lsl		r0,4h
-;		add		r0,r3
-;		mov		r3,0h
-;		mov		r1,r0
-;		add		r1,10h	//part of temp ver
-;	
-;			//add		r1,1Ch
-;			//add		r0,0Ch
-;		
-;	@@memcopyloop:
-;	
-;		//temporary version, just for 2 player mode
-;		ldr		r2,[r0]		//cycle p1's stack
-;		str		r2,[r1]
-;		ldr		r2,[r0,4h]		//cycle p2's stack
-;		str		r2,[r1,4h]
-;		sub		r0,10h
-;		sub		r1,10h
-;		//end of temp version
-;	
-;			//ldr		r2,[r0]
-;			//str		r2,[r1]
-;			//sub		r0,4h
-;			//sub		r1,4h
-;	
-;		add		r3,1h
-;		cmp		r3,r6
-;		blt		@@memcopyloop
-;		pop		r3
+ ;	@@preparememcopy:
+ ;		push	r3
+ ;		ldrb	r6,[r3,5h]
+ ;		mov		r0,r6
+ ;			//lsl		r6,2h
+ ;		lsl		r0,4h
+ ;		add		r0,r3
+ ;		mov		r3,0h
+ ;		mov		r1,r0
+ ;		add		r1,10h	//part of temp ver
+ ;	
+ ;			//add		r1,1Ch
+ ;			//add		r0,0Ch
+ ;		
+ ;	@@memcopyloop:
+ ;	
+ ;		//temporary version, just for 2 player mode
+ ;		ldr		r2,[r0]		//cycle p1's stack
+ ;		str		r2,[r1]
+ ;		ldr		r2,[r0,4h]		//cycle p2's stack
+ ;		str		r2,[r1,4h]
+ ;		sub		r0,10h
+ ;		sub		r1,10h
+ ;		//end of temp version
+ ;	
+ ;			//ldr		r2,[r0]
+ ;			//str		r2,[r1]
+ ;			//sub		r0,4h
+ ;			//sub		r1,4h
+ ;	
+ ;		add		r3,1h
+ ;		cmp		r3,r6
+ ;		blt		@@memcopyloop
+ ;		pop		r3
 	
 	
 	
@@ -1304,20 +1321,20 @@ Nothing that branches to any of this code uses hardcoded addresses, instead they
 		lsl		r2,4h
 		add		r0,r2
 
-;		ldrb	r1,[r0]
-;		cmp		r1,r4
-;		beq		@@applylocal
-;		mov		r2,0h
-;		ldrb	r6,[r3,5h]
-
-;	@@localinputsearch:
-;		add		r0,10h
-;		ldrb	r1,[r0]
-;		cmp		r1,r4
-;		beq		@@applylocal
-;		add		r2,1h
-;		cmp		r2,r6
-;		ble		@@localinputsearch
+ ;		ldrb	r1,[r0]
+ ;		cmp		r1,r4
+ ;		beq		@@applylocal
+ ;		mov		r2,0h
+ ;		ldrb	r6,[r3,5h]
+ 
+ ;	@@localinputsearch:
+ ;		add		r0,10h
+ ;		ldrb	r1,[r0]
+ ;		cmp		r1,r4
+ ;		beq		@@applylocal
+ ;		add		r2,1h
+ ;		cmp		r2,r6
+ ;		ble		@@localinputsearch
 	
 	@@applylocal:
 		lsl		r1,r7,4h
@@ -1383,23 +1400,23 @@ Nothing that branches to any of this code uses hardcoded addresses, instead they
 		add		r0,r2
 		ldrb	r1,[r0]
 
-;		ldrb	r6,[r3,5h]
-;		mov		r2,0h
-;	@@p2timestampcheckloop:
-;		add		r0,10h
-;		ldrb	r1,[r0]
-;		cmp		r1,r4
-;		beq		@@applyp2
-;		add		r2,1h
-;		cmp		r2,r6
-;		ble		@@p2timestampcheckloop
-;		//run this section only if there wasn't a valid input in the entire stack
-;		pop		r2
-;		push	r2
-;		lsl		r1,r2,4h
-;		add		r1,60h
-;		add		r1,r5
-;		b		@@noremoteinput
+ ;		ldrb	r6,[r3,5h]
+ ;		mov		r2,0h
+ ;	@@p2timestampcheckloop:
+ ;		add		r0,10h
+ ;		ldrb	r1,[r0]
+ ;		cmp		r1,r4
+ ;		beq		@@applyp2
+ ;		add		r2,1h
+ ;		cmp		r2,r6
+ ;		ble		@@p2timestampcheckloop
+ ;		//run this section only if there wasn't a valid input in the entire stack
+ ;		pop		r2
+ ;		push	r2
+ ;		lsl		r1,r2,4h
+ ;		add		r1,60h
+ ;		add		r1,r5
+ ;		b		@@noremoteinput
 	
 	@@applyp2:
 		/* disabled now because there's a new method handled by the script that seems to work really well
@@ -1492,8 +1509,42 @@ Nothing that branches to any of this code uses hardcoded addresses, instead they
 // ====================================================
 // ========================================================== PUT NEW HOOKED CODE HERE
 
+FastComm:
+	push	r1
+	// open comm menu
+	ldr		r1,=20093D0h
+	mov		r0,18h
+	strb	r0,[r1]
+	// og code
+	mov		r7,r10
+	ldr		r7,[r7,8h]
+	@@exit:
+	pop		r1
+	mov		r15,r14
 
 
+SkipTitle:
+	// og code
+	mov		r7,r10
+	ldr		r7,[r7,78h]
+	
+	// r0-r3 are safe to use
+
+	// just a dirty safety check since I don't know what else branches here
+	ldr		r1,=8021FF3h
+	ldr		r0,[sp,0x10]
+	cmp		r0,r1
+	bne		@@exit
+
+	// skip directly to the overworld
+	ldr		r1,=20097F8h
+	mov		r0,4h
+	strb	r0,[r1]
+	// at this point it's too early to set the submenu
+	@@exit:
+	mov		r15,r14
+	.pool
+/*
 DarkBoot1:
 	.arm	// this whole thing is running in ARM mode
 	mov		r0,12h
@@ -1540,6 +1591,7 @@ DarkBoot2:
 	bx		r0
 	.pool
 	.thumb
+*/
 
 
 NoTimeToRun:
@@ -2845,16 +2897,16 @@ BossFlinch:
 .if IS_PVP
 
 ContinueFromSave:
-	push 	r1-r7,r14
-
+	push	r14
 	mov 	r0,0h		//og code start
 	strb 	r0,[r5,6h]
 	strb 	r0,[r5,7h]
 	strb 	r0,[r5,3h]	//og code end
 
-	mov		r1,45h
+	ldr r0,=OpenModeFromSave|1
+	bx r0
+	.pool
 
-	bl		OpenModeHook
 
 	//it returns to the root branch without going back through this custom code
 .else
