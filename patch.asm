@@ -74,7 +74,8 @@ ALL_STAR_CODES	EQU	0
 	.import "rom/bn3white.gba", 0x7CB628, 0x40
 */
 
-/*
+
+
 // Boot into a black screen (this is one of the earliest opcodes ran by the game)
 .org 0x080000C0
 	.arm
@@ -84,21 +85,6 @@ ALL_STAR_CODES	EQU	0
 	DarkBoot1Return:
 	.thumb
 
-// skip the capcom logo
-.org 0x080002AC
-//	mov		r1,0h
-
-// EXPERIMENTAL TEST: skip the title screen
-.org 0x08047176
-//	bl		SkipTitle
-
-// 
-.org 0x08032DBC
-//	bl		FastComm
-
-
-.org 0x08032DB4 :: ClearSubmenu:
-.org 0x080046A4 :: OverWorldControl:
 
 
 // maintain the black screen 
@@ -119,7 +105,7 @@ ALL_STAR_CODES	EQU	0
 	nop
 	DarkBoot2Return:
 	.thumb
-*/
+
 
 
 //new font injections
@@ -1509,42 +1495,6 @@ Nothing that branches to any of this code uses hardcoded addresses, instead they
 // ====================================================
 // ========================================================== PUT NEW HOOKED CODE HERE
 
-FastComm:
-	push	r1
-	// open comm menu
-	ldr		r1,=20093D0h
-	mov		r0,18h
-	strb	r0,[r1]
-	// og code
-	mov		r7,r10
-	ldr		r7,[r7,8h]
-	@@exit:
-	pop		r1
-	mov		r15,r14
-
-
-SkipTitle:
-	// og code
-	mov		r7,r10
-	ldr		r7,[r7,78h]
-	
-	// r0-r3 are safe to use
-
-	// just a dirty safety check since I don't know what else branches here
-	ldr		r1,=8021FF3h
-	ldr		r0,[sp,0x10]
-	cmp		r0,r1
-	bne		@@exit
-
-	// skip directly to the overworld
-	ldr		r1,=20097F8h
-	mov		r0,4h
-	strb	r0,[r1]
-	// at this point it's too early to set the submenu
-	@@exit:
-	mov		r15,r14
-	.pool
-/*
 DarkBoot1:
 	.arm	// this whole thing is running in ARM mode
 	mov		r0,12h
@@ -1591,7 +1541,7 @@ DarkBoot2:
 	bx		r0
 	.pool
 	.thumb
-*/
+
 
 
 NoTimeToRun:
