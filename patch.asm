@@ -31,16 +31,10 @@ ALL_STAR_CODES	EQU	0
 	.else
 .endif
 
-.if IS_ROLLBACK
-	.include "asm\rollback.asm"
-	.else
-.endif
 
-
-//These files are always compiled
+//These files are always included
 
 //These 2 will define symbols that other files are dependent on, so they must be ran first
-//.include "asm\free_space.asm"
 .include "asm\expanded_space.asm"
 
 
@@ -76,7 +70,8 @@ ALL_STAR_CODES	EQU	0
 */
 
 
-// Boot into a black screen
+
+// Boot into a black screen (this is one of the earliest opcodes ran by the game)
 .org 0x080000C0
 	.arm
 	ldr		r0,=DarkBoot1
@@ -84,6 +79,7 @@ ALL_STAR_CODES	EQU	0
 	.pool
 	DarkBoot1Return:
 	.thumb
+
 
 // maintain the black screen 
 .org 0x0800043E
@@ -103,6 +99,7 @@ ALL_STAR_CODES	EQU	0
 	nop
 	DarkBoot2Return:
 	.thumb
+
 
 
 //new font injections
@@ -503,18 +500,7 @@ bl 		EquipStoryNCPs
 
 
 //comm menu: open immediately to netbattle prompt
-.if IS_ROLLBACK
-	.org 0x0803E37A
-		mov		r0,30h
-	.org 0x0803E37E
-		mov		r0,66h
-	.org 0x0803E382
-		mov		r0,6Fh
-	//exit menu from lightweight netbattle prompt
-	.org 0x0803E6A0
-		bl	803E578h
-
-.else
+.if IS_PVP
 	.org 0x0803E37A
 		mov		r0,24h
 	.org 0x0803E37E
@@ -949,550 +935,9 @@ Nothing that branches to any of this code uses hardcoded addresses, instead they
 
 
 
-
-
-
-// ===========
-// =================
-// ======================= ROLLBACK-ONLY CODE
-
-
-.if IS_ROLLBACK
-
-	RollbackLoop:
-		//start by branching to a consistent address, to use as a script trigger
-		//it must be a branch that leaves no trace in r14, so we'll use bx
-		ldr		r0,=0x08014944|1
-		bx		r0
-	
-		rbl_returnaddr:
-		ldr		r1,=0x0203B406
-	
-		//check if the rollback countdown is set
-		ldrb	r0,[r1]
-		tst		r0,r0
-		beq		@@og
-	
-		//check if the resimulating flag is set
-		ldrb	r0,[r1,1h]
-		tst		r0,r0
-		beq		@@og
-	
-	
-		//audio routine
-		bl		81329B8h
-	
-		//progress the background layer
-		bl		8001E90h
-	
-		//progress the background data
-		bl		800200Ch
-	
-		//fix desync scenario with fading out of timefreeze
-		bl		80052D4h
-	
-		//progress the gamestate
-		bl		8006436h
-		//note: it does not return to finish this routine after branching to progress the gamestate!
-	
-
-		//og code
-		@@og:
-		mov		r3,r10
-		ldr		r3,[r3,8h]
-		ldrb	r0,[r3,0Fh]
-		cmp		r0,0Bh
-		bge		@@exit
-		mov		r3,r10
-		ldr		r3,[r3,78h]
-		ldr		r0,[r3,24h]
-		add		r0,1h
-		ldr		r1,=14996C4h
-		cmp		r0,r1
-		ble		@@write
-		mov		r0,r1
-		@@write:
-		str		r0,[r3,24h]
-		@@exit:
-		mov		r15,r14
-	
-		.pool
-	
-	
-	//this is a test that may be fine to delete
-	;waitmusictest:
-	;	push	r14
-	;
-	;	mov		r0,0Ch
-	;	strb	r0,[r5]
-	;
-	;	mov		r0,25h
-	;	bl		80005D8h
-	;	pop		r15
-	
-	
-
-	StallBattleStart:
-		strb	r1,[r6,7h]	// og code
-
-		bl		scriptsendstats		// tell the script it's ok to send stats now
-
-		mov		r1,r6
-		sub		r1,12h
-		
-		//music test, plays sounds during the battle intro
-		push	r1
-		mov		r0,0F9h		// crowd applause
-		bl		80005D8h
-		pop		r1
-		
-		mov		r0,1h
-		strh	r0,[r1,10h]
-	@@loopstart:
-		ldrh	r0,[r1,10h]
-		sub		r0,1h
-		beq		@@branch
-		b		@@skipbranch
-	@@branch:
-		// this is a loop that waits for the script to do things, and the script needs to run roughly once a frame.
-		// 0x1900 loops of this code equals out to roughly one frame, so it's close enough 
-		mov		r0,19h
-		lsl		r0,8h
-		bl		scriptwaitloop
-	@@skipbranch:
-		strh	r0,[r1,10h]
-		ldrb	r0,[r1,1]
-		tst		r0,r0
-		bne		@@loopstart
-		strh	r0,[r1,10h]
-		
-		pop		r6,r7,r15
-
-	
-	
-	ClearInputStack:
-		mov		r0,r5
-		mov		r1,90h
-		lsl		r1,4h
-		mov		r15,r14
-	
-	
-	
-	DelayBuffer:
-	
-		push	r14
-		mov		r0,1h
-		strb	r0,[r5,3h]
-		bl		8008A44h
-		bl		8008C70h
-		tst		r0,r0
-		bne		@@checkdefinitions
-		ldr		r0,[r5,20h]		//update frame timestamp
-		add		r0,1h
-		str		r0,[r5,20h]
-
-	@@checkdefinitions:
-	
-		//define values for the buffer
-		push	r3,r6
-		mov		r3,0A0h
-		add		r3,r5
-		ldrb	r0,[r3,5h]
-		tst		r0,r0
-		bne		@@incrementpointer	//skip if the values are already defined
-	
-		//p1 input lag value	(temporary code)
-	;	mov		r0,04h
-	;	strb	r0,[r3,1h]
-	;	strb	r0,[r3,2h]		//TEMP, write p2 input lag
-	
-		//log size
-		mov		r0,78h
-		strb	r0,[r3,5h]
-		strb	r0,[r3,8h]
-
-		//test- attempt a separate "ExtraBuffer" value
-	;	mov		r0,1h
-	;	strb	r0,[r3,9h]
-	
-		//test- set self as player 2
-			//seems like it works if done at this stage
-	;	mov		r0,1h
-	;	strb	r0,[r5,2h]
-		bl		scriptsetport
-	
-	;	mov		r0,1h	//port number pointer, goes 0-3
-	;	strb	r0,[r3]
-		//everything that's commented out here is handled by the netplay script
-	
-	@@incrementpointer:
-		//	increment input stack pointer even during rollback
-		ldrb	r2,[r3,8h]
-		ldrb	r0,[r3,5h]
-		add		r2,1h
-		cmp		r2,r0
-		bge		@@resetpointer
-		strb	r2,[r3,8h]
-		b		@@vanillafunction
-		@@resetpointer:
-		mov		r0,0h
-		strb	r0,[r3,8h]
-
-	@@vanillafunction:
-		push	r7
-		ldrb	r7,[r3]
-		cmp		r7,4h
-		blt		.+4h
-		mov		r7,3h
-		//normal operation
-		mov		r0,30h
-		add		r0,r5
-		mov		r4,r0
-		mov		r1,40h
-		add		r1,r5
-		mov		r2,10h
-		bl		8000B7Ch
-		mov		r0,r4
-		mov		r1,50h
-		add		r1,r5
-		mov		r2,10h
-		bl		8000B7Ch
-		mov		r0,r4
-		mov		r1,60h
-		add		r1,r5
-		mov		r2,10h
-		bl		8000B7Ch
-		mov		r0,r4
-		mov		r1,70h
-		add		r1,r5
-		mov		r2,10h
-		bl		8000B7Ch
-	
-		//begin custom stuff
-	@@rollbackcheck:
-		ldrb	r0,[r3,7h]
-		tst		r0,r0
-		beq		@@writelatest
-	
-		ldrb	r0,[r3,6h]
-		sub		r0,1h
-		bmi		@@stopresim
-		strb	r0,[r3,6h]
-	
-		b 		@@rollbackframe
-	
-		@@stopresim:
-	;	bl		scriptstopresim
-		mov		r0,0h
-		strb	r0,[r3,7h]
-		b		@@rollbackframe
-	
-;	@@preparememcopy:
-;		push	r3
-;		ldrb	r6,[r3,5h]
-;		mov		r0,r6
-;			//lsl		r6,2h
-;		lsl		r0,4h
-;		add		r0,r3
-;		mov		r3,0h
-;		mov		r1,r0
-;		add		r1,10h	//part of temp ver
-;	
-;			//add		r1,1Ch
-;			//add		r0,0Ch
-;		
-;	@@memcopyloop:
-;	
-;		//temporary version, just for 2 player mode
-;		ldr		r2,[r0]		//cycle p1's stack
-;		str		r2,[r1]
-;		ldr		r2,[r0,4h]		//cycle p2's stack
-;		str		r2,[r1,4h]
-;		sub		r0,10h
-;		sub		r1,10h
-;		//end of temp version
-;	
-;			//ldr		r2,[r0]
-;			//str		r2,[r1]
-;			//sub		r0,4h
-;			//sub		r1,4h
-;	
-;		add		r3,1h
-;		cmp		r3,r6
-;		blt		@@memcopyloop
-;		pop		r3
-	
-	
-	
-		//write latest input to buffer
-	@@writelatest:
-		mov		r0,r4
-		lsl		r1,r7,2h	//use port # as pointer
-		add		r1,10h
-		ldrb	r2,[r3,8h]	//load the current input stack position
-		lsl		r2,4h
-		add		r1,r3
-		add		r1,r2		//finish setting the local stack position
-		ldr		r2,[r0]
-		str		r2,[r1]
-	
-		//attach timestamp to latest input
-		mov		r0,20h
-		add		r0,r5
-		ldrb	r0,[r0]
-			//reset stack pointer to leftmost, then iterate forward
-		//write the timestamp for this frame at the top of all the input stacks
-		push 	r1
-
-		ldrb	r1,[r3,8h]
-		lsl		r1,4h
-		add		r1,10h
-		add		r1,r3
-		strb	r0,[r1]
-		strb	r0,[r1,4h]
-		strb	r0,[r1,8h]
-		strb	r0,[r1,0Ch]
-
-		ldrb	r1,[r3,9h]	// fetch ExtraBuffer
-		add		r0,r1		// add it to the timestamp
-		pop		r1
-		strb	r0,[r1]		// write the adjusted timestamp for just the local input stack
-	
-		//bypass input lag if on the custom screen
-		mov		r4,r2
-		lsr		r4,1Ch
-		cmp		r4,5h		//note: for this part it's fine to only check for 5h
-		bne		@@localinput
-		lsl		r1,r7,4h
-		add		r1,60h
-		add		r1,r5
-		str		r2,[r1]
-		b		@@scriptupdatep2
-	
-	
-	@@rollbackframe:
-		mov		r0,20h
-		add		r0,r5
-		ldrb	r0,[r0]
-	
-		//local player: apply input based off its timestamp
-	@@localinput:
-		mov		r4,r0		//move current timestamp into r4
-		mov		r6,1h		//locate input buffer based on player #
-		add		r6,r7
-		ldrb	r6,[r3,r6]	//read input buffer
-		ldrb	r1,[r3,9h]
-		add		r1,r6
-		sub		r4,r1
-		lsl		r4,18h
-		lsr		r4,18h		//this is the timestamp from <buffer> frames ago, sanitized
-		lsl		r0,r7,2h	//set input stack pointer
-		add		r0,r3
-		add		r0,10h
-		// read the input stack pointer 
-		ldrb	r2,[r3,8h]
-		ldrb	r1,[r3,9h]
-		add		r1,r6
-		sub		r2,r1
-		blt		@@needtoneg
-		b		@@noneg
-		@@needtoneg:
-		neg		r2,r2
-		ldrb	r1,[r3,5h]
-		sub		r2,r1,r2
-		@@noneg:
-		lsl		r2,4h
-		add		r0,r2
-
-;		ldrb	r1,[r0]
-;		cmp		r1,r4
-;		beq		@@applylocal
-;		mov		r2,0h
-;		ldrb	r6,[r3,5h]
-
-;	@@localinputsearch:
-;		add		r0,10h
-;		ldrb	r1,[r0]
-;		cmp		r1,r4
-;		beq		@@applylocal
-;		add		r2,1h
-;		cmp		r2,r6
-;		ble		@@localinputsearch
-	
-	@@applylocal:
-		lsl		r1,r7,4h
-		add		r1,60h
-		add		r1,r5
-		ldr		r2,[r0]
-		str		r2,[r1]
-		//after overwriting, replace timestamp with the original byte value
-		mov		r0,42h
-		strb	r0,[r1]
-	
-	
-	//signal to the script that we're about to apply p2's input for this frame
-	@@scriptupdatep2:
-		bl		scriptinjectinputs
-		//p2: apply input based off its timestamp
-	@@player2input:
-		mov		r4,20h
-		add		r4,r5
-		ldrb	r4,[r4]		//fetch latest timestamp
-		mov		r2,0h		//set r2 to the first port
-	
-	@@loopforeachport:
-	//loop might begin here
-		cmp		r2,r7	//if current port # == local port, skip it
-		bne		.+4h
-		add		r2,1h
-		cmp		r2,3h	//exit loop if pointer exceeds the 4th port
-		bgt		@@exitDelayBuffer
-		push	r2
-		mov		r6,1h
-		add		r6,r2
-		ldrb	r6,[r3,r6]	//read buffer for current port
-		tst		r6,r6		//skip most of the loop if buffer == 0 (port not in use by a player)
-		beq		.+4h
-		b		@@continue
-		lsl		r1,r2,4h
-		add		r1,60h
-		add		r1,r5
-		b		@@noremoteinput
-	
-	@@continue:	
-		sub		r4,r6
-		lsl		r4,18h
-		lsr		r4,18h		//timestamp value to look for
-		
-		//define the stack pointer in r0 then set it to the stack address
-		lsl		r0,r2,2h
-		add		r0,r3
-		add		r0,10h
-
-		// read the input stack pointer 
-		ldrb	r2,[r3,8h]
-		sub		r2,r6
-		blt		@@p2needtoneg
-		b		@@p2noneg
-		@@p2needtoneg:
-		neg		r2,r2
-		ldrb	r1,[r3,5h]
-		sub		r2,r1,r2
-		@@p2noneg:
-		lsl		r2,4h
-		add		r0,r2
-		ldrb	r1,[r0]
-
-;		ldrb	r6,[r3,5h]
-;		mov		r2,0h
-;	@@p2timestampcheckloop:
-;		add		r0,10h
-;		ldrb	r1,[r0]
-;		cmp		r1,r4
-;		beq		@@applyp2
-;		add		r2,1h
-;		cmp		r2,r6
-;		ble		@@p2timestampcheckloop
-;		//run this section only if there wasn't a valid input in the entire stack
-;		pop		r2
-;		push	r2
-;		lsl		r1,r2,4h
-;		add		r1,60h
-;		add		r1,r5
-;		b		@@noremoteinput
-	
-	@@applyp2:
-		/* disabled now because there's a new method handled by the script that seems to work really well
-	
-		//if remote player is on the cust screen, skip the guess check
-		ldr		r2,[r0]
-		lsr		r2,1Ch
-		tst		r2,r2
-		bne		@@skipguessflag
-		//also skip the guess check if the local player has been in the custscreen recently
-		ldrb	r2,[r3]
-		lsl		r2,2h
-		push	r6
-		lsl		r6,r6,4h
-		add		r2,r6
-		pop		r6
-		add		r2,10h
-		ldr		r2,[r3,r2]
-		lsr		r2,1Ch
-		tst		r2,r2
-		bne		@@skipguessflag
-		*/
-	
-		//check if it's a guess
-		ldrb	r2,[r0,1h]
-		tst		r2,r2
-		beq		@@skipguessflag
-	
-		mov		r2,2h
-		strb	r2,[r0,1h]
-	
-		@@skipguessflag:
-		//apply
-		pop		r2
-		push	r2
-		lsl		r1,r2,4h
-		add		r1,60h
-		add		r1,r5
-		ldr		r2,[r0]
-		str		r2,[r1]
-		b		@@applyp2end
-	
-	@@noremoteinput:
-		mov		r0,0h
-		str		r0,[r1]
-	
-	@@applyp2end:
-		mov		r0,42h
-		strh	r0,[r1]
-	
-	
-		//iterate and loop back for the next port
-		pop		r2
-		add		r2,1h
-		cmp		r2,3h
-		bgt		@@exitDelayBuffer
-		b		@@loopforeachport
-	
-	
-	@@exitDelayBuffer:
-	
-		//check if a rollback has been queued
-		ldrb	r0,[r3,6h]
-		tst		r0,r0
-		beq		@@realexit
-		ldrb	r0,[r3,7h]
-		tst		r0,r0
-		bne		@@realexit
-		mov		r0,1h
-		strb	r0,[r3,7h]
-		bl		scriptbeginresim
-	
-		@@realexit:
-		pop		r3,r6,r7,r15
-	
-	
-	
-	
-	//---- end of the delaybuffer routine ----//
-
-	.else
-.endif
-
-
-
-
-
-
 // ==============================================
 // ====================================================
 // ========================================================== PUT NEW HOOKED CODE HERE
-
-
 
 DarkBoot1:
 	.arm	// this whole thing is running in ARM mode
@@ -1540,6 +985,7 @@ DarkBoot2:
 	bx		r0
 	.pool
 	.thumb
+
 
 
 NoTimeToRun:
@@ -2845,16 +2291,16 @@ BossFlinch:
 .if IS_PVP
 
 ContinueFromSave:
-	push 	r1-r7,r14
-
+	push	r14
 	mov 	r0,0h		//og code start
 	strb 	r0,[r5,6h]
 	strb 	r0,[r5,7h]
 	strb 	r0,[r5,3h]	//og code end
 
-	mov		r1,45h
+	ldr r0,=OpenModeFromSave|1	// in expanded_space.asm
+	bx r0
+	.pool
 
-	bl		OpenModeHook
 
 	//it returns to the root branch without going back through this custom code
 .else

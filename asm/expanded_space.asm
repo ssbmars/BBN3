@@ -63,10 +63,7 @@ ExpandedHitboxTable:
 
 
 OpenModeRoutine:
-	cmp		r1,45h
-	beq		@@continuesave
 	push 	r0-r3
-	
 	bl writeStoryFlags
 	bl writeEmails
 	bl writeJobs
@@ -75,7 +72,6 @@ OpenModeRoutine:
 	bl writeStyle
 	bl writeProgress
 	bl writeFolders
-@@continuesave:
 	bl writeReadSpeed
 	bl writeNaviCust
 	bl writeFullLibrary
@@ -84,6 +80,17 @@ OpenModeRoutine:
 	bl writeFriendlyVirusesCaptured
 	
 	pop r0-r7,r15
+
+
+OpenModeFromSave:
+	bl writeReadSpeed
+	bl writeNaviCust
+	bl writeFullLibrary
+	bl ValidateBackpackOnStartup
+	bl FriendlyVirus
+	bl writeFriendlyVirusesCaptured
+
+	pop r15
 
 
 

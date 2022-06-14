@@ -45,35 +45,6 @@
 
 
 
-
-//I disabled this code in case it was causing other problems. It is also probably not necessary
-//disable library anticheat
-/*
-.org LibraryAntiCheat1
-	nop :: nop :: nop
-	nop :: nop :: nop	
-	mov		r0,r6
-
-
-//conditionally branches if invalid library, makes folderbuilding unavailable
-.org LibraryAntiCheat2
-	nop
-
-
-//same deal but branches if valid library
-.org LibraryAntiCheat3
-	b		@@yeet
-	.skip 4
-	@@yeet:
-
-.org LibraryAntiCheat4
-	b		@@yeet
-	.skip 8
-	@@yeet:
-*/
-
-
-
 // 				run the modified openmode patch routines
 
 //	-------- hook game startup to run validation check on the backpack 
@@ -81,12 +52,13 @@
 
 //continue
 .org ContinueFromSaveHook
-	bl	ContinueFromSave
-
+	bl	ContinueFromSave	// in patch.asm
+	nop
+	nop
 
 .org OpenModeHook
 	;Set main hook that triggers when you press new game
-	ldr r0,=OpenModeRoutine|1
+	ldr r0,=OpenModeRoutine|1	// in expanded_space.asm
 	bx r0
 	
 .align 4
