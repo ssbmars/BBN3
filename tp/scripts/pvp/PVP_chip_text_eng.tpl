@@ -232,7 +232,7 @@ script 49 mmbn3 {
 
 
 
-//Program Advance notes
+// Program Advance notes
 
 @archive 7EA2C8
 @size 160
@@ -266,15 +266,6 @@ script 126 mmbn3s {
 }
 
 
-//GutsShoot - remove last 2 notes
-script 137 mmbn3s {
-	end
-}
-script 138 mmbn3s {
-	end
-}
-
-
 //BigHeart - remove last note, "HolyPanl *"
 script 130 mmbn3s {
 	"""
@@ -293,6 +284,15 @@ script 131 mmbn3s {
 	end
 }
 script 132 mmbn3s {
+	end
+}
+
+
+//GutsShoot - remove last 2 notes
+script 137 mmbn3s {
+	end
+}
+script 138 mmbn3s {
 	end
 }
 

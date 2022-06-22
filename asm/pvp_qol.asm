@@ -1,25 +1,9 @@
 
-
 //modify internal ROM name
 .org 0x080471C8
 .area 0x0C,0x20
 	.ascii "BBN3 v0.5.0"
 .endarea
-
-
-
-
-
-//EXPERIMENTAL: make support NCPs work in pve battles
-//	.org 0x080B0508		//load NCP
-//		nop
-//	.org 0x080B49A8		//check for NCP
-//		nop
-
-//EXPERIMENTAL: allow pve battles to show if the opponent has an active trap
-//	.org 0x0800FF48
-//		nop
-
 
 
 
@@ -45,12 +29,12 @@
 
 
 
-// 				run the modified openmode patch routines
+// 			 run the modified openmode patch routines
 
 //	-------- hook game startup to run validation check on the backpack 
 
 
-//continue
+// run when loading an existing save file
 .org ContinueFromSaveHook
 	bl	ContinueFromSave	// in patch.asm
 	nop

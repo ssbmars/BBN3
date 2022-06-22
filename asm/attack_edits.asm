@@ -129,11 +129,11 @@ bl Hitboxtable
 
 //the following new hitbox values are defined in free_space.asm
 
-//new table value wind-smallpush 	(65)
-//new table value windpull 			(66)
-//poison hitbox w/o invis pierce	(67)
-//grab revenge w/o guard break	 	(68)
-//new standard wind hitbox			(69)
+//new table value wind-smallpush 	(0x65)
+//new table value windpull 			(0x66)
+//poison hitbox w/o invis pierce	(0x67)
+//grab revenge w/o guard break	 	(0x68)
+//new standard wind hitbox			(0x69)
 
 
 

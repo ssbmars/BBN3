@@ -1,10 +1,10 @@
 @echo off
 
-armips patch.asm -equ IS_PVP 1 -equ IS_ENG 1 -equ AM_DEBUGGING 0 -sym bbn3.sym 
+armips patch.asm -equ IS_PVP 1 -equ IS_ENG 1 -equ AM_DEBUGGING 0 -sym out/bbn3.sym 
 textpet run-script pvp_eng.tpl
 textpet run-script pvp_esp.tpl
 
-armips patch.asm -equ IS_PVP 0 -equ IS_ENG 1 -equ AM_DEBUGGING 0 -sym bbn3_pve.sym
+armips patch.asm -equ IS_PVP 0 -equ IS_ENG 1 -equ AM_DEBUGGING 0 -sym out/bbn3_pve.sym
 textpet run-script pve_eng.tpl
 textpet run-script pve_esp.tpl
 

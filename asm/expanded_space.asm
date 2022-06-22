@@ -32,29 +32,29 @@ ExpandedHitboxTable:
 .import "rom\bn3blue.gba",0x0AF60C,0x328
 
 
-// new table value wind-smallpush (65)
+// new table value wind-smallpush (0x65)
 .dw 0x80000140 	;a
 .dw 0x40000240 	;b
 
-//new table value windpull (66)
+//new table value windpull (0x66)
 .dw 0x80000840 	;a
 .dw 0x40001040 	;b
 
-//poison drain that doesn't pierce invis (67)
+//poison drain that doesn't pierce invis (0x67)
 .dw 0x80000020	;a
 .dw 0x40000020	;b
 
-//new table value revenge w/o break (68)
+//new table value revenge w/o break (0x68)
 .dw 0x80000085	;a
 .dw 0x40000085	;b
 
 
-//new table value standard wind hit  (69)
+//new table value standard wind hit  (0x69)
 .dw 0x80000040	;a
 .dw 0x40000040	;b
 
 
-//new table value AirSword 	(6A)
+//new table value AirSword 	(0x6A)
 .dw 0x80000108	;a
 .dw 0x40000208	;b
 
@@ -79,10 +79,11 @@ OpenModeRoutine:
 	bl FriendlyVirus
 	bl writeFriendlyVirusesCaptured
 	
-	pop r0-r7,r15
+	pop 	r0-r7,r15	// the og we hooked from pops r4-r7
 
 
 OpenModeFromSave:
+	push	r7
 	bl writeReadSpeed
 	bl writeNaviCust
 	bl writeFullLibrary
@@ -90,7 +91,7 @@ OpenModeFromSave:
 	bl FriendlyVirus
 	bl writeFriendlyVirusesCaptured
 
-	pop r15
+	pop 	r7,r15		// it only seems important to preserve r7, no og pops were avoided
 
 
 
