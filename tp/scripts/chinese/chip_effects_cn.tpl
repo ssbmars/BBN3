@@ -2754,9 +2754,9 @@ script 212 mmbn3 {
 		delay = 0
 	msgOpenQuick
 	"""
-	Drop many
-	meteors
-	on enemy
+	Rain down
+	meteors!
+	Atk:50
 	"""
 	keyWait
 	msgCloseQuick
@@ -3146,7 +3146,6 @@ script 242 mmbn3 {
 	"""
 	前方一列连续
 	发射六只鱼枪
-	
 	"""
 	keyWait
 	msgCloseQuick
@@ -3159,7 +3158,6 @@ script 243 mmbn3 {
 	"""
 	前方一列连续
 	发射七只鱼枪
-	
 	"""
 	keyWait
 	msgCloseQuick
@@ -3172,7 +3170,6 @@ script 244 mmbn3 {
 	"""
 	前方一列连续
 	发射八只鱼枪
-	
 	"""
 	keyWait
 	msgCloseQuick
@@ -3185,7 +3182,6 @@ script 245 mmbn3 {
 	"""
 	前方一列连续
 	发射九只鱼枪
-	
 	"""
 	keyWait
 	msgCloseQuick
@@ -3198,7 +3194,6 @@ script 246 mmbn3 {
 	"""
 	前方一列连续
 	发射十只鱼枪
-	
 	"""
 	keyWait
 	msgCloseQuick
@@ -3801,9 +3796,9 @@ script 36 mmbn3 {
 		delay = 0
 	msgOpenQuick
 	"""
-	Creates 3
-	caves in
-	enmy area
+	Dark bats
+	in colmn!
+	Atk:30
 	"""
 	keyWait
 	msgCloseQuick
@@ -3814,9 +3809,9 @@ script 37 mmbn3 {
 		delay = 0
 	msgOpenQuick
 	"""
-	Creates 3
-	caves in
-	enmy area
+	Dark bats
+	in colmn!
+	Atk:30
 	"""
 	keyWait
 	msgCloseQuick
@@ -3827,9 +3822,9 @@ script 38 mmbn3 {
 		delay = 0
 	msgOpenQuick
 	"""
-	Creates 3
-	caves in
-	enmy area
+	Dark bats
+	in colmn!
+	Atk:30
 	"""
 	keyWait
 	msgCloseQuick
@@ -3840,9 +3835,9 @@ script 39 mmbn3 {
 		delay = 0
 	msgOpenQuick
 	"""
-	Creates 3
-	caves in
-	enmy area
+	Dark bats
+	in colmn!
+	Atk:30
 	"""
 	keyWait
 	msgCloseQuick
@@ -3853,9 +3848,9 @@ script 40 mmbn3 {
 		delay = 0
 	msgOpenQuick
 	"""
-	Creates 3
-	caves in
-	enmy area
+	Dark bats
+	in colmn!
+	Atk:30
 	"""
 	keyWait
 	msgCloseQuick
@@ -3970,9 +3965,9 @@ script 49 mmbn3 {
 		delay = 0
 	msgOpenQuick
 	"""
-	3-stage
-	electric
-	attack!
+	Coil atk
+	in rows!
+	Atk:40
 	"""
 	keyWait
 	msgCloseQuick
