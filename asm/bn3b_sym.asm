@@ -30,8 +30,11 @@
 
 .org 0x080AE660 :: BossFlinchHook:
 
+.org 0x0800EB66 :: CustomSizeCheckHook:
 
-
+.org 0x0800DAAC :: CursorRightHook:
+.org 0x0800DB20 :: CursorDownHook:
+.org 0x0800DB4A :: CursorUpHook:
 
 .org 0x080F9F00 :: TimeFreezeFadeTime:
 

@@ -574,12 +574,21 @@ bl 		EquipStoryNCPs
 //cust+1
 .org Cust1Hook
 	bl 		cust1
-
-
 //cust+2
 .org Cust2Hook
 	bl 		cust2
 
+// validate cust+ whenever opening the custom screen
+.org CustomSizeCheckHook
+	bl		CustomSizeCheck
+
+// replace the routine that moves the cursor
+.org CursorRightHook
+	bl	CursorMove
+.org CursorDownHook
+	bl	CursorMove
+.org CursorUpHook
+	bl	CursorMove
 
 
 // hook to replace object deletion with 10 extra dmg when hit by breaking
@@ -939,6 +948,45 @@ Nothing that branches to any of this code uses hardcoded addresses, instead they
 // ====================================================
 // ========================================================== PUT NEW HOOKED CODE HERE
 
+
+
+CursorMove:
+	push	r14
+	ldr		r7,=2034040h
+	ldrb	r1,[r7,r0]
+	cmp		r1,0xFF
+	beq		@@invalid
+	ldrb	r1,[r5,9h]
+	cmp		r0,r1		// check if greater than current cust size
+	bge		@@invalid
+	cmp		r0,0Ah		// check if cursor is in farthest position
+	bge		@@invalid
+
+	// other parts of the game use the og ver of this routine and evaluate the return from this read,
+	// but the instance I'm modifying discards this value after checking if it's 0xFF
+	mov		r1,48h
+	add		r1,r0
+	ldrb	r0,[r5,r1]
+	b		@@exit
+
+	@@invalid:
+	mov		r0,0xFF
+	@@exit:
+	pop		r15
+	.pool
+
+CustomSizeCheck:
+	ldrb	r0,[r6,0Eh]
+	cmp		r0,0Bh
+	blt		@@valid
+	mov		r0,0Ah
+	@@valid:
+	strb	r0,[r6,0Eh]
+	strb	r0,[r7,9h]
+	mov		r15,r14
+
+
+.align
 DarkBoot1:
 	.arm	// this whole thing is running in ARM mode
 	mov		r0,12h
@@ -2300,10 +2348,7 @@ ContinueFromSave:
 	ldr r0,=OpenModeFromSave|1	// in expanded_space.asm
 	bx r0
 	.pool
-
-
-	//it returns to the root branch without going back through this custom code
-.else
+	//it returns to the root branch without going back through this code
 .endif
 
 
