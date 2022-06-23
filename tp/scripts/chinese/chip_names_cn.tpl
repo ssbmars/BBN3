@@ -122,47 +122,47 @@ script 29 mmbn3s {
 	end
 }
 script 30 mmbn3s {
-	"Sword"
+	"剑"
 	end
 }
 script 31 mmbn3s {
-	"WideSwrd"
+	"阔剑"
 	end
 }
 script 32 mmbn3s {
-	"LongSwrd"
+	"长剑"
 	end
 }
 script 33 mmbn3s {
-	"FireSwrd"
+	"火焰剑"
 	end
 }
 script 34 mmbn3s {
-	"AquaSwrd"
+	"碧水剑"
 	end
 }
 script 35 mmbn3s {
-	"ElecSwrd"
+	"雷击剑"
 	end
 }
 script 36 mmbn3s {
-	"BambSwrd"
+	"青竹剑"
 	end
 }
 script 37 mmbn3s {
-	"CustSwrd"
+	"自定剑"
 	end
 }
 script 38 mmbn3s {
-	"VarSwrd"
+	"变幻剑"
 	end
 }
 script 39 mmbn3s {
-	"StepSwrd"
+	"踏前斩"
 	end
 }
 script 40 mmbn3s {
-	"StepCros"
+	"踏前连斩"
 	end
 }
 script 41 mmbn3s {
@@ -170,35 +170,35 @@ script 41 mmbn3s {
 	end
 }
 script 42 mmbn3s {
-	"AirSwrd"
+	"疾风剑"
 	end
 }
 script 43 mmbn3s {
-	"Slasher"
+	"居合斩"
 	end
 }
 script 44 mmbn3s {
-	"ShockWav"
+	"冲击波"
 	end
 }
 script 45 mmbn3s {
-	"SonicWav"
+	"音速波"
 	end
 }
 script 46 mmbn3s {
-	"DynaWave"
+	"光速波"
 	end
 }
 script 47 mmbn3s {
-	"GutPunch"
+	"气力拳"
 	end
 }
 script 48 mmbn3s {
-	"GutStrgt"
+	"气力冲拳"
 	end
 }
 script 49 mmbn3s {
-	"GutImpct"
+	"气力重拳"
 	end
 }
 script 50 mmbn3s {
@@ -454,11 +454,11 @@ script 112 mmbn3s {
 	end
 }
 script 113 mmbn3s {
-	"BigWave"
+	"破坏波"
 	end
 }
 script 114 mmbn3s {
-	"Volcano"
+	"超岩浆炮"
 	end
 }
 script 115 mmbn3s {
