@@ -21,7 +21,6 @@ script 1 mmbn3 {
 	"""
 	向前发射
 	加农炮
-
 	"""
 	keyWait
 	msgCloseQuick
@@ -34,7 +33,6 @@ script 2 mmbn3 {
 	"""
 	向前发射
 	加农炮
-
 	"""
 	keyWait
 	msgCloseQuick
@@ -47,7 +45,6 @@ script 3 mmbn3 {
 	"""
 	向前发射
 	加农炮
-
 	"""
 	keyWait
 	msgCloseQuick
@@ -58,9 +55,7 @@ script 4 mmbn3 {
 		delay = 0
 	msgOpenQuick
 	"""
-	Knocks
-	enemy
-	back 1
+	吹飞目标的空气炮
 	"""
 	keyWait
 	msgCloseQuick
@@ -71,9 +66,7 @@ script 5 mmbn3 {
 		delay = 0
 	msgOpenQuick
 	"""
-	Knocks
-	enemy
-	back 1
+	吹飞目标的空气炮
 	"""
 	keyWait
 	msgCloseQuick
@@ -84,9 +77,7 @@ script 6 mmbn3 {
 		delay = 0
 	msgOpenQuick
 	"""
-	Knocks
-	enemy
-	back 1
+	吹飞目标的空气炮
 	"""
 	keyWait
 	msgCloseQuick
@@ -97,9 +88,7 @@ script 7 mmbn3 {
 		delay = 0
 	msgOpenQuick
 	"""
-	Fires
-	lava
-	fr. area
+	吸收岩浆向前射击
 	"""
 	keyWait
 	msgCloseQuick
@@ -110,9 +99,7 @@ script 8 mmbn3 {
 		delay = 0
 	msgOpenQuick
 	"""
-	Fires
-	lava
-	fr. area
+	吸收岩浆向前射击
 	"""
 	keyWait
 	msgCloseQuick
@@ -123,9 +110,7 @@ script 9 mmbn3 {
 		delay = 0
 	msgOpenQuick
 	"""
-	Fires
-	lava
-	fr. area
+	吸收岩浆向前射击
 	"""
 	keyWait
 	msgCloseQuick
@@ -136,9 +121,7 @@ script 10 mmbn3 {
 		delay = 0
 	msgOpenQuick
 	"""
-	Explodes
-	1 square
-	behind
+	诱爆目标后方一格的霞弹
 	"""
 	keyWait
 	msgCloseQuick
@@ -149,9 +132,7 @@ script 11 mmbn3 {
 		delay = 0
 	msgOpenQuick
 	"""
-	Explodes
-	2 diag.
-	squares
+	诱爆目标后方两侧的霞弹
 	"""
 	keyWait
 	msgCloseQuick
@@ -162,9 +143,7 @@ script 12 mmbn3 {
 		delay = 0
 	msgOpenQuick
 	"""
-	Explodes
-	up,down
-	on hit
+	诱爆目标旁侧两格的霞弹
 	"""
 	keyWait
 	msgCloseQuick
@@ -175,9 +154,7 @@ script 13 mmbn3 {
 		delay = 0
 	msgOpenQuick
 	"""
-	Creates a
-	large
-	explosion
+	诱爆目标周围八格的霞弹
 	"""
 	keyWait
 	msgCloseQuick
@@ -188,9 +165,7 @@ script 14 mmbn3 {
 		delay = 0
 	msgOpenQuick
 	"""
-	Explodes
-	1 square
-	behind
+	诱爆目标后方一格的泡泡弹
 	"""
 	keyWait
 	msgCloseQuick
@@ -201,9 +176,7 @@ script 15 mmbn3 {
 		delay = 0
 	msgOpenQuick
 	"""
-	Explodes
-	2 diag.
-	squares
+	诱爆目标后方两侧的泡泡弹
 	"""
 	keyWait
 	msgCloseQuick
@@ -214,9 +187,7 @@ script 16 mmbn3 {
 		delay = 0
 	msgOpenQuick
 	"""
-	Explodes
-	up,down
-	on hit
+	诱爆目标旁侧两格的泡泡弹
 	"""
 	keyWait
 	msgCloseQuick
@@ -227,9 +198,7 @@ script 17 mmbn3 {
 		delay = 0
 	msgOpenQuick
 	"""
-	Explodes
-	1 square
-	behind
+	诱爆目标后方一格的火焰弹
 	"""
 	keyWait
 	msgCloseQuick
@@ -240,9 +209,7 @@ script 18 mmbn3 {
 		delay = 0
 	msgOpenQuick
 	"""
-	Explodes
-	2 diag.
-	squares
+	诱爆目标后方两侧的火焰弹
 	"""
 	keyWait
 	msgCloseQuick
@@ -253,9 +220,7 @@ script 19 mmbn3 {
 		delay = 0
 	msgOpenQuick
 	"""
-	Explodes
-	up,down
-	on hit
+	诱爆目标旁侧两格的火焰弹
 	"""
 	keyWait
 	msgCloseQuick
@@ -266,9 +231,7 @@ script 20 mmbn3 {
 		delay = 0
 	msgOpenQuick
 	"""
-	Throws a
-	bomb 3
-	squares
+	向前三个投出炸弹
 	"""
 	keyWait
 	msgCloseQuick
@@ -279,9 +242,7 @@ script 21 mmbn3 {
 		delay = 0
 	msgOpenQuick
 	"""
-	Throws a
-	big bomb
-	3 squares
+	向前三个投出一枚小型炸弹
 	"""
 	keyWait
 	msgCloseQuick
@@ -292,9 +253,7 @@ script 22 mmbn3 {
 		delay = 0
 	msgOpenQuick
 	"""
-	Throws 2
-	big bombs
-	3 squares
+	向前三个投出两枚小型炸弹
 	"""
 	keyWait
 	msgCloseQuick
@@ -305,9 +264,7 @@ script 23 mmbn3 {
 		delay = 0
 	msgOpenQuick
 	"""
-	Throws 3
-	big bombs
-	3 squares
+	向前三个投出三枚小型炸弹
 	"""
 	keyWait
 	msgCloseQuick
@@ -318,9 +275,7 @@ script 24 mmbn3 {
 		delay = 0
 	msgOpenQuick
 	"""
-	Breaks
-	3rd panel
-	ahead
+	向前三格，投出钢球破坏地板
 	"""
 	keyWait
 	msgCloseQuick
@@ -331,9 +286,7 @@ script 25 mmbn3 {
 		delay = 0
 	msgOpenQuick
 	"""
-	Freezes
-	3rd sqr.
-	ahead
+	向前三格，投出冰球冻结地板
 	"""
 	keyWait
 	msgCloseQuick
@@ -344,9 +297,7 @@ script 26 mmbn3 {
 		delay = 0
 	msgOpenQuick
 	"""
-	Shoot
-	lava 3rd
-	sq. ahead
+	向前三格，投出火球灼烧地板
 	"""
 	keyWait
 	msgCloseQuick
@@ -357,9 +308,7 @@ script 27 mmbn3 {
 		delay = 0
 	msgOpenQuick
 	"""
-	Firebomb
-	hits 3rd
-	sq ahead!
+	向前三个投出炸弹，点火引爆
 	"""
 	keyWait
 	msgCloseQuick
@@ -370,9 +319,7 @@ script 28 mmbn3 {
 		delay = 0
 	msgOpenQuick
 	"""
-	Firebomb
-	hits 3rd
-	sq ahead!
+	向前三个投出炸弹，点火引爆
 	"""
 	keyWait
 	msgCloseQuick
@@ -383,9 +330,7 @@ script 29 mmbn3 {
 		delay = 0
 	msgOpenQuick
 	"""
-	Firebomb
-	hits 3rd
-	sq ahead!
+	向前三个投出炸弹，点火引爆
 	"""
 	keyWait
 	msgCloseQuick
@@ -396,9 +341,7 @@ script 30 mmbn3 {
 		delay = 0
 	msgOpenQuick
 	"""
-	Cuts enmy
-	in front!
-	Range: 1
+	用剑斩击前方一格
 	"""
 	keyWait
 	msgCloseQuick
@@ -409,9 +352,7 @@ script 31 mmbn3 {
 		delay = 0
 	msgOpenQuick
 	"""
-	Cuts enmy
-	in front!
-	Range: 3
+	用剑斩击前方一排
 	"""
 	keyWait
 	msgCloseQuick
@@ -422,9 +363,7 @@ script 32 mmbn3 {
 		delay = 0
 	msgOpenQuick
 	"""
-	Cuts enmy
-	in front!
-	Range: 2
+	用剑斩击前方两格
 	"""
 	keyWait
 	msgCloseQuick
@@ -435,9 +374,7 @@ script 33 mmbn3 {
 		delay = 0
 	msgOpenQuick
 	"""
-	Fire:
-	Cuts fwd
-	3 squares
+	用火焰剑斩击前方一排
 	"""
 	keyWait
 	msgCloseQuick
@@ -448,9 +385,7 @@ script 34 mmbn3 {
 		delay = 0
 	msgOpenQuick
 	"""
-	Water:
-	Cuts fwd
-	3 squares
+	用碧水剑斩击前方一排
 	"""
 	keyWait
 	msgCloseQuick
@@ -461,9 +396,7 @@ script 35 mmbn3 {
 		delay = 0
 	msgOpenQuick
 	"""
-	Elec:
-	Cuts fwd
-	3 squares
+	用雷击剑斩击前方一排
 	"""
 	keyWait
 	msgCloseQuick
@@ -474,9 +407,7 @@ script 36 mmbn3 {
 		delay = 0
 	msgOpenQuick
 	"""
-	Wood:
-	Cuts fwd
-	3 squares
+	用青竹剑斩击前方一排
 	"""
 	keyWait
 	msgCloseQuick
@@ -487,9 +418,7 @@ script 37 mmbn3 {
 		delay = 0
 	msgOpenQuick
 	"""
-	Cust
-	Gauge=
-	Atk Str
+	攻击力随自定槽的增长上升
 	"""
 	keyWait
 	msgCloseQuick
@@ -500,9 +429,7 @@ script 38 mmbn3 {
 		delay = 0
 	msgOpenQuick
 	"""
-	A magical
-	shifting
-	sword
+	如梦如幻，千变万化的变幻剑
 	"""
 	keyWait
 	msgCloseQuick
@@ -513,9 +440,7 @@ script 39 mmbn3 {
 		delay = 0
 	msgOpenQuick
 	"""
-	2 steps,
-	then uses
-	wide swrd
+	踏前两格，斩击一排
 	"""
 	keyWait
 	msgCloseQuick
@@ -526,9 +451,7 @@ script 40 mmbn3 {
 		delay = 0
 	msgOpenQuick
 	"""
-	2 steps,
-	then uses
-	cross atk
+	踏前两格，使出两次斜向斩击
 	"""
 	keyWait
 	msgCloseQuick
@@ -552,9 +475,7 @@ script 42 mmbn3 {
 		delay = 0
 	msgOpenQuick
 	"""
-	Wide swrd
-	with air
-	attack!
+	用剑斩击前方一排，产生风压
 	"""
 	keyWait
 	msgCloseQuick
@@ -565,9 +486,7 @@ script 43 mmbn3 {
 		delay = 0
 	msgOpenQuick
 	"""
-	Cut while
-	A Button
-	is held!
+	按住A键，敌入侵则拔刀快斩
 	"""
 	keyWait
 	msgCloseQuick
@@ -578,9 +497,7 @@ script 44 mmbn3 {
 		delay = 0
 	msgOpenQuick
 	"""
-	Shock
-	through
-	enemies
+	贯穿目标的冲击波
 	"""
 	keyWait
 	msgCloseQuick
@@ -591,9 +508,7 @@ script 45 mmbn3 {
 		delay = 0
 	msgOpenQuick
 	"""
-	Shock
-	through
-	enemies
+	贯穿目标的冲击波
 	"""
 	keyWait
 	msgCloseQuick
@@ -604,9 +519,7 @@ script 46 mmbn3 {
 		delay = 0
 	msgOpenQuick
 	"""
-	Shock
-	through
-	enemies
+	贯穿目标的冲击波
 	"""
 	keyWait
 	msgCloseQuick
@@ -617,9 +530,7 @@ script 47 mmbn3 {
 		delay = 0
 	msgOpenQuick
 	"""
-	Punch
-	pushes 1
-	square
+	巨拳冲击前方一格
 	"""
 	keyWait
 	msgCloseQuick
@@ -630,9 +541,7 @@ script 48 mmbn3 {
 		delay = 0
 	msgOpenQuick
 	"""
-	Punch
-	2 square
-	range
+	巨拳冲击前方两格
 	"""
 	keyWait
 	msgCloseQuick
@@ -643,9 +552,7 @@ script 49 mmbn3 {
 		delay = 0
 	msgOpenQuick
 	"""
-	Punch
-	pushes 1
-	square
+	重拳冲击前方一格
 	"""
 	keyWait
 	msgCloseQuick
@@ -658,7 +565,6 @@ script 50 mmbn3 {
 	"""
 	Creates 3
 	whrlwinds
-	
 	"""
 	keyWait
 	msgCloseQuick
@@ -1475,9 +1381,7 @@ script 113 mmbn3 {
 		delay = 0
 	msgOpenQuick
 	"""
-	Shck wave
-	cracks
-	panels
+	贯穿目标的冲击波，破坏地板
 	"""
 	keyWait
 	msgCloseQuick
@@ -1488,9 +1392,7 @@ script 114 mmbn3 {
 		delay = 0
 	msgOpenQuick
 	"""
-	Fire lava
-	from your
-	area
+	吸收岩浆，喷射攻击前方三列
 	"""
 	keyWait
 	msgCloseQuick
