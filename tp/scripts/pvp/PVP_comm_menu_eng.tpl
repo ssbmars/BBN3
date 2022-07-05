@@ -176,6 +176,10 @@ script 2 mmbn3 {
 		flag = 49916
 		jumpIfTrue = 51
 		jumpIfFalse = continue
+	checkFlag
+		flag = 49915
+		jumpIfTrue = 51
+		jumpIfFalse = continue
 	mugshotShow
 		mugshot = MegaMan
 	msgOpen
