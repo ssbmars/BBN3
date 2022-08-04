@@ -149,8 +149,8 @@ bl HubHP
 
 .org 0x080B1262
 	bl	BlockCooldown
-	nop :: nop
-
+	nop
+	nop
 
 
 
@@ -160,32 +160,41 @@ bl HubHP
 //-------- Navi Customizer Changes
 
 
-//Toggle NCP compression
-
-.org 0x0803B830
-	bl		CompressionToggle
-
-.org 0x0803B834
-	b		803B84Ch
+//	Toggle NCP compression
 
 
-//	Single-press NCP compression
-
-.org 0x080380AE
-	ldrh	r0,[r7,2h]
-	.skip 6
+// Single-press NCP compression
+// run the compression function when Select is held
+.org 0x080380B6
 	nop
+
 
 .org 0x0803B80C :: nop
 .org 0x0803B81C :: nop
-.org 0x0803B82C :: nop
+
+// disable check for whether ncp is already compressed
+// toggle compression flag with xor instead of using orr
+.org 0x0803B828
+	nop
+	nop
+	nop
+	nop
+	bl		CompressionToggle
+
+.org 0x0803B830
+	bl		CompressionToggle
+.org 0x0803B830 + 0x8
+	bl		CompressionToggle
+.org 0x0803B830 + 0x10
+	bl		CompressionToggle
+.org 0x0803B830 + 0x18
+	bl		CompressionToggle
 
 
 
 
-//	Disable Compression
-
-
+//	Disable Compression for these programs
+/*
 // SuperArmor
 .org 0x0803A960 :: .db 0xFF
 
@@ -303,14 +312,14 @@ bl HubHP
 // RUN! button
 .org 0x0803AAF0 :: .db 0xFF
 
+*/
 
 
 
 
 
 
-
-
+/*
 
 //	Alternate Shape NCPs
 
@@ -492,7 +501,7 @@ bl HubHP
 .org 0x0803A4A7 :: .db 0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
 
 
-
+*/
 
 
 //==================

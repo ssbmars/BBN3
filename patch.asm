@@ -56,7 +56,7 @@ ALL_STAR_CODES	EQU	0
 
 
 
-//===============	Aesthetic changes
+//===============	Aesthetic/visual/sprite changes
 
 
 
@@ -2649,13 +2649,14 @@ CompressionToggle:
 	ldr 	r2,=2000030h
 	lsr 	r1,r0,3h
 	add 	r2,r2,r1
-	ldrb 	r0,[r2]
-	mov 	r1,0FFh
-	sub 	r0,r1,r0
-	strb 	r0,[r2]
-
-	mov 	r15,r14
-	
+	lsl		r0,r0,0x1D
+	lsr		r0,r0,0x1D
+	mov		r1,0x80
+	lsr		r1,r0
+	ldrb	r0,[r2]
+	xor		r0,r1
+	strb	r0,[r2]
+	mov		r15,r14
 	.pool
 
 
