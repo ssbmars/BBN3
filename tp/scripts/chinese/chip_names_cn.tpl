@@ -5,805 +5,805 @@ script 0 mmbn3s {
 	"MegaBstr"
 	end
 }
-script 1 mmbn3s {
-	"加农炮"
-	end
-}
-script 2 mmbn3s {
-	"高级加农"
-	end
-}
-script 3 mmbn3s {
-	"超级加农"
-	end
-}
-script 4 mmbn3s {
-	"空气炮1"
-	end
-}
-script 5 mmbn3s {
-	"空气炮2"
-	end
-}
-script 6 mmbn3s {
-	"空气炮3"
-	end
-}
-script 7 mmbn3s {
-	"岩浆炮1"
-	end
-}
-script 8 mmbn3s {
-	"岩浆炮2"
-	end
-}
-script 9 mmbn3s {
-	"岩浆炮3"
-	end
-}
-script 10 mmbn3s {
-	"贯穿炮"
-	end
-}
-script 11 mmbn3s {
-	"V型炮"
-	end
-}
-script 12 mmbn3s {
-	"横贯炮"
-	end
-}
-script 13 mmbn3s {
-	"霞弹炮"
-	end
-}
-script 14 mmbn3s {
-	"贯穿水泡"
-	end
-}
-script 15 mmbn3s {
-	"V型水炮"
-	end
-}
-script 16 mmbn3s {
-	"横贯水泡"
-	end
-}
-script 17 mmbn3s {
-	"贯穿火焰"
-	end
-}
-script 18 mmbn3s {
-	"V型火焰"
-	end
-}
-script 19 mmbn3s {
-	"横贯火焰"
-	end
-}
-script 20 mmbn3s {
-	"迷你炸弹"
-	end
-}
-script 21 mmbn3s {
-	"小爆弹"
-	end
-}
-script 22 mmbn3s {
-	"双爆弹"
-	end
-}
-script 23 mmbn3s {
-	"三爆弹"
-	end
-}
-script 24 mmbn3s {
-	"破地钢球"
-	end
-}
-script 25 mmbn3s {
-	"冻地冰球"
-	end
-}
-script 26 mmbn3s {
-	"灼地火球"
-	end
-}
-script 27 mmbn3s {
-	"黑炸弹1"
-	end
-}
-script 28 mmbn3s {
-	"黑炸弹2"
-	end
-}
-script 29 mmbn3s {
-	"黑炸弹3"
-	end
-}
-script 30 mmbn3s {
-	"剑"
-	end
-}
-script 31 mmbn3s {
-	"阔剑"
-	end
-}
-script 32 mmbn3s {
-	"长剑"
-	end
-}
-script 33 mmbn3s {
-	"火焰剑"
-	end
-}
-script 34 mmbn3s {
-	"碧水剑"
-	end
-}
-script 35 mmbn3s {
-	"雷击剑"
-	end
-}
-script 36 mmbn3s {
-	"青竹剑"
-	end
-}
-script 37 mmbn3s {
-	"自定剑"
-	end
-}
-script 38 mmbn3s {
-	"变幻剑"
-	end
-}
-script 39 mmbn3s {
-	"踏前斩"
-	end
-}
-script 40 mmbn3s {
-	"踏前连斩"
-	end
-}
-script 41 mmbn3s {
-	"Panic"
-	end
-}
-script 42 mmbn3s {
-	"疾风剑"
-	end
-}
-script 43 mmbn3s {
-	"居合斩"
-	end
-}
-script 44 mmbn3s {
-	"冲击波"
-	end
-}
-script 45 mmbn3s {
-	"音速波"
-	end
-}
-script 46 mmbn3s {
-	"光速波"
-	end
-}
-script 47 mmbn3s {
-	"气力拳"
-	end
-}
-script 48 mmbn3s {
-	"气力冲拳"
-	end
-}
-script 49 mmbn3s {
-	"气力重拳"
-	end
-}
-script 50 mmbn3s {
-	"AirStrm1"
-	end
-}
-script 51 mmbn3s {
-	"AirStrm2"
-	end
-}
-script 52 mmbn3s {
-	"AirStrm3"
-	end
-}
-script 53 mmbn3s {
-	"DashAtk"
-	end
-}
-script 54 mmbn3s {
-	"Burner"
-	end
-}
-script 55 mmbn3s {
-	"Totem1"
-	end
-}
-script 56 mmbn3s {
-	"Totem2"
-	end
-}
-script 57 mmbn3s {
-	"Totem3"
-	end
-}
-script 58 mmbn3s {
-	"Ratton1"
-	end
-}
-script 59 mmbn3s {
-	"Ratton2"
-	end
-}
-script 60 mmbn3s {
-	"Ratton3"
-	end
-}
-script 61 mmbn3s {
-	"Wave"
-	end
-}
-script 62 mmbn3s {
-	"RedWave"
-	end
-}
-script 63 mmbn3s {
-	"MudWave"
-	end
-}
-script 64 mmbn3s {
-	"Hammer"
-	end
-}
-script 65 mmbn3s {
-	"Tornado"
-	end
-}
-script 66 mmbn3s {
-	"ZapRing1"
-	end
-}
-script 67 mmbn3s {
-	"ZapRing2"
-	end
-}
-script 68 mmbn3s {
-	"ZapRing3"
-	end
-}
-script 69 mmbn3s {
-	"Yo-Yo1"
-	end
-}
-script 70 mmbn3s {
-	"Yo-Yo2"
-	end
-}
-script 71 mmbn3s {
-	"Yo-Yo3"
-	end
-}
-script 72 mmbn3s {
-	"Spice1"
-	end
-}
-script 73 mmbn3s {
-	"Spice2"
-	end
-}
-script 74 mmbn3s {
-	"Spice3"
-	end
-}
-script 75 mmbn3s {
-	"Lance"
-	end
-}
-script 76 mmbn3s {
-	"Scuttlst"
-	end
-}
-script 77 mmbn3s {
-	"Momogra"
-	end
-}
-script 78 mmbn3s {
-	"Rope1"
-	end
-}
-script 79 mmbn3s {
-	"Rope2"
-	end
-}
-script 80 mmbn3s {
-	"Rope3"
-	end
-}
-script 81 mmbn3s {
-	"Magnum1"
-	end
-}
-script 82 mmbn3s {
-	"Magnum2"
-	end
-}
-script 83 mmbn3s {
-	"Magnum3"
-	end
-}
-script 84 mmbn3s {
-	"Boomer1"
-	end
-}
-script 85 mmbn3s {
-	"Boomer2"
-	end
-}
-script 86 mmbn3s {
-	"Boomer3"
-	end
-}
-script 87 mmbn3s {
-	"RndmMetr"
-	end
-}
-script 88 mmbn3s {
-	"HoleMetr"
-	end
-}
-script 89 mmbn3s {
-	"ShotMetr"
-	end
-}
-script 90 mmbn3s {
-	"IceWave1"
-	end
-}
-script 91 mmbn3s {
-	"IceWave2"
-	end
-}
-script 92 mmbn3s {
-	"IceWave3"
-	end
-}
-script 93 mmbn3s {
-	"Plasma1"
-	end
-}
-script 94 mmbn3s {
-	"Plasma2"
-	end
-}
-script 95 mmbn3s {
-	"Plasma3"
-	end
-}
-script 96 mmbn3s {
-	"Arrow1"
-	end
-}
-script 97 mmbn3s {
-	"Arrow2"
-	end
-}
-script 98 mmbn3s {
-	"Arrow3"
-	end
-}
-script 99 mmbn3s {
-	"TimeBomb"
-	end
-}
-script 100 mmbn3s {
-	"Mine"
-	end
-}
-script 101 mmbn3s {
-	"Sensor1"
-	end
-}
-script 102 mmbn3s {
-	"Sensor2"
-	end
-}
-script 103 mmbn3s {
-	"Sensor3"
-	end
-}
-script 104 mmbn3s {
-	"CrsShld1"
-	end
-}
-script 105 mmbn3s {
-	"CrsShld2"
-	end
-}
-script 106 mmbn3s {
-	"CrsShld3"
-	end
-}
-script 107 mmbn3s {
-	"Geyser"
-	end
-}
-script 108 mmbn3s {
-	"PoisMask"
-	end
-}
-script 109 mmbn3s {
-	"PoisFace"
-	end
-}
-script 110 mmbn3s {
-	"Shake1"
-	end
-}
-script 111 mmbn3s {
-	"Shake2"
-	end
-}
-script 112 mmbn3s {
-	"Shake3"
-	end
-}
-script 113 mmbn3s {
-	"破坏波"
-	end
-}
-script 114 mmbn3s {
-	"超岩浆炮"
-	end
-}
-script 115 mmbn3s {
-	"Condor"
-	end
-}
-script 116 mmbn3s {
-	"Burning"
-	end
-}
-script 117 mmbn3s {
-	"FireRatn"
-	end
-}
-script 118 mmbn3s {
-	"Guard"
-	end
-}
-script 119 mmbn3s {
-	"PanlOut1"
-	end
-}
-script 120 mmbn3s {
-	"PanlOut3"
-	end
-}
-script 121 mmbn3s {
-	"Recov10"
-	end
-}
-script 122 mmbn3s {
-	"Recov30"
-	end
-}
-script 123 mmbn3s {
-	"Recov50"
-	end
-}
-script 124 mmbn3s {
-	"Recov80"
-	end
-}
-script 125 mmbn3s {
-	"Recov120"
-	end
-}
-script 126 mmbn3s {
-	"Recov150"
-	end
-}
-script 127 mmbn3s {
-	"Recov200"
-	end
-}
-script 128 mmbn3s {
-	"Recov300"
-	end
-}
-script 129 mmbn3s {
-	"PanlGrab"
-	end
-}
-script 130 mmbn3s {
-	"AreaGrab"
-	end
-}
-script 131 mmbn3s {
-	"Snake"
-	end
-}
-script 132 mmbn3s {
-	"Team1"
-	end
-}
-script 133 mmbn3s {
-	"MetaGel1"
-	end
-}
-script 134 mmbn3s {
-	"MetaGel2"
-	end
-}
-script 135 mmbn3s {
-	"MetaGel3"
-	end
-}
-script 136 mmbn3s {
-	"GrabBack"
-	end
-}
-script 137 mmbn3s {
-	"GrabRvng"
-	end
-}
-script 138 mmbn3s {
-	"Geddon1"
-	end
-}
-script 139 mmbn3s {
-	"Geddon2"
-	end
-}
-script 140 mmbn3s {
-	"Geddon3"
-	end
-}
-script 141 mmbn3s {
-	"RockCube"
-	end
-}
-script 142 mmbn3s {
-	"Prism"
-	end
-}
-script 143 mmbn3s {
-	"Wind"
-	end
-}
-script 144 mmbn3s {
-	"Fan"
-	end
-}
-script 145 mmbn3s {
-	"RockArm1"
-	end
-}
-script 146 mmbn3s {
-	"RockArm2"
-	end
-}
-script 147 mmbn3s {
-	"RockArm3"
-	end
-}
-script 148 mmbn3s {
-	"NoBeam1"
-	end
-}
-script 149 mmbn3s {
-	"NoBeam2"
-	end
-}
-script 150 mmbn3s {
-	"NoBeam3"
-	end
-}
-script 151 mmbn3s {
-	"Pawn"
-	end
-}
-script 152 mmbn3s {
-	"Knight"
-	end
-}
-script 153 mmbn3s {
-	"Rook"
-	end
-}
-script 154 mmbn3s {
-	"Needler1"
-	end
-}
-script 155 mmbn3s {
-	"Needler2"
-	end
-}
-script 156 mmbn3s {
-	"Needler3"
-	end
-}
-script 157 mmbn3s {
-	"SloGauge"
-	end
-}
-script 158 mmbn3s {
-	"FstGauge"
-	end
-}
-script 159 mmbn3s {
-	"Repair"
-	end
-}
-script 160 mmbn3s {
-	"Invis"
-	end
-}
-script 161 mmbn3s {
-	"Hole"
-	end
-}
-script 162 mmbn3s {
-	"Mole1"
-	end
-}
-script 163 mmbn3s {
-	"Mole2"
-	end
-}
-script 164 mmbn3s {
-	"Mole3"
-	end
-}
-script 165 mmbn3s {
-	"Shadow"
-	end
-}
-script 166 mmbn3s {
-	"Mettaur"
-	end
-}
-script 167 mmbn3s {
-	"Bunny"
-	end
-}
-script 168 mmbn3s {
-	"AirShoes"
-	end
-}
-script 169 mmbn3s {
-	"Team2"
-	end
-}
-script 170 mmbn3s {
-	"Fanfare"
-	end
-}
-script 171 mmbn3s {
-	"Discord"
-	end
-}
-script 172 mmbn3s {
-	"Timpani"
-	end
-}
-script 173 mmbn3s {
-	"Barrier"
-	end
-}
-script 174 mmbn3s {
-	"Barr100"
-	end
-}
-script 175 mmbn3s {
-	"Barr200"
-	end
-}
-script 176 mmbn3s {
-	"Aura"
-	end
-}
-script 177 mmbn3s {
-	"NrthWind"
-	end
-}
-script 178 mmbn3s {
-	"HolyPanl"
-	end
-}
-script 179 mmbn3s {
-	"LavaStge"
-	end
-}
-script 180 mmbn3s {
-	"IceStage"
-	end
-}
-script 181 mmbn3s {
-	"GrassStg"
-	end
-}
-script 182 mmbn3s {
-	"SandStge"
-	end
-}
-script 183 mmbn3s {
-	"MetlStge"
-	end
-}
-script 184 mmbn3s {
-	"Snctuary"
-	end
-}
-script 185 mmbn3s {
-	"Swordy"
-	end
-}
-script 186 mmbn3s {
-	"Spikey"
-	end
-}
-script 187 mmbn3s {
-	"Mushy"
-	end
-}
-script 188 mmbn3s {
-	"Jelly"
-	end
-}
-script 189 mmbn3s {
-	"KillrEye"
-	end
-}
-script 190 mmbn3s {
-	"AntiNavi"
-	end
-}
-script 191 mmbn3s {
-	"AntiDmg"
-	end
-}
-script 192 mmbn3s {
-	"AntiSwrd"
-	end
-}
-script 193 mmbn3s {
-	"AntiRecv"
-	end
-}
-script 194 mmbn3s {
-	"CopyDmg"
-	end
-}
-script 195 mmbn3s {
-	"Atk+10"
-	end
-}
-script 196 mmbn3s {
-	"Fire+30"
-	end
-}
-script 197 mmbn3s {
-	"Aqua+30"
-	end
-}
-script 198 mmbn3s {
-	"Elec+30"
-	end
-}
-script 199 mmbn3s {
-	"Wood+30"
-	end
-}
-script 200 mmbn3s {
-	"Navi+20"
-	end
+script 1 mmbn3s {	
+	"加农炮"	
+	end	
+}	
+script 2 mmbn3s {	
+	"高级加农"	
+	end	
+}	
+script 3 mmbn3s {	
+	"超级加农"	
+	end	
+}	
+script 4 mmbn3s {	
+	"空气炮1"	
+	end	
+}	
+script 5 mmbn3s {	
+	"空气炮2"	
+	end	
+}	
+script 6 mmbn3s {	
+	"空气炮3"	
+	end	
+}	
+script 7 mmbn3s {	
+	"岩浆炮1"	
+	end	
+}	
+script 8 mmbn3s {	
+	"岩浆炮2"	
+	end	
+}	
+script 9 mmbn3s {	
+	"岩浆炮3"	
+	end	
+}	
+script 114 mmbn3s {	
+	"超岩浆炮"	
+	end	
+}	
+script 10 mmbn3s {	
+	"贯穿炮"	
+	end	
+}	
+script 11 mmbn3s {	
+	"V型炮"	
+	end	
+}	
+script 12 mmbn3s {	
+	"横贯炮"	
+	end	
+}	
+script 13 mmbn3s {	
+	"霞弹炮"	
+	end	
+}	
+script 14 mmbn3s {	
+	"贯穿水泡"	
+	end	
+}	
+script 15 mmbn3s {	
+	"V型水炮"	
+	end	
+}	
+script 16 mmbn3s {	
+	"横贯水泡"	
+	end	
+}	
+script 17 mmbn3s {	
+	"贯穿火焰"	
+	end	
+}	
+script 18 mmbn3s {	
+	"V型火焰"	
+	end	
+}	
+script 19 mmbn3s {	
+	"横贯火焰"	
+	end	
+}	
+script 20 mmbn3s {	
+	"迷你炸弹"	
+	end	
+}	
+script 21 mmbn3s {	
+	"小爆弹"	
+	end	
+}	
+script 22 mmbn3s {	
+	"双爆弹"	
+	end	
+}	
+script 23 mmbn3s {	
+	"三爆弹"	
+	end	
+}	
+script 24 mmbn3s {	
+	"破地钢球"	
+	end	
+}	
+script 25 mmbn3s {	
+	"冻地冰球"	
+	end	
+}	
+script 26 mmbn3s {	
+	"灼地火球"	
+	end	
+}	
+script 27 mmbn3s {	
+	"黑炸弹1"	
+	end	
+}	
+script 28 mmbn3s {	
+	"黑炸弹2"	
+	end	
+}	
+script 29 mmbn3s {	
+	"黑炸弹3"	
+	end	
+}	
+script 30 mmbn3s {	
+	"剑"	
+	end	
+}	
+script 31 mmbn3s {	
+	"阔剑"	
+	end	
+}	
+script 32 mmbn3s {	
+	"长剑"	
+	end	
+}	
+script 33 mmbn3s {	
+	"火焰剑"	
+	end	
+}	
+script 34 mmbn3s {	
+	"碧水剑"	
+	end	
+}	
+script 35 mmbn3s {	
+	"雷击剑"	
+	end	
+}	
+script 36 mmbn3s {	
+	"青竹剑"	
+	end	
+}	
+script 37 mmbn3s {	
+	"自定剑"	
+	end	
+}	
+script 38 mmbn3s {	
+	"变幻剑"	
+	end	
+}	
+script 42 mmbn3s {	
+	"疾风剑"	
+	end	
+}	
+script 39 mmbn3s {	
+	"踏前斩"	
+	end	
+}	
+script 40 mmbn3s {	
+	"踏前连斩"	
+	end	
+}	
+script 43 mmbn3s {	
+	"居合斩"	
+	end	
+}	
+script 44 mmbn3s {	
+	"冲击波"	
+	end	
+}	
+script 45 mmbn3s {	
+	"音速波"	
+	end	
+}	
+script 46 mmbn3s {	
+	"光速波"	
+	end	
+}	
+script 113 mmbn3s {	
+	"破坏波"	
+	end	
+}	
+script 47 mmbn3s {	
+	"气力拳"	
+	end	
+}	
+script 48 mmbn3s {	
+	"气力冲拳"	
+	end	
+}	
+script 49 mmbn3s {	
+	"气力重拳"	
+	end	
+}	
+script 53 mmbn3s {	
+	"冲刺攻击"	
+	end	
+}	
+script 54 mmbn3s {	
+	"热焰环绕"	
+	end	
+}	
+script 115 mmbn3s {	
+	"热焰冲刺"	
+	end	
+}	
+script 116 mmbn3s {	
+	"热焰侧绕"	
+	end	
+}	
+script 66 mmbn3s {	
+	"电击环1"	
+	end	
+}	
+script 67 mmbn3s {	
+	"电击环2"	
+	end	
+}	
+script 68 mmbn3s {	
+	"电击环3"	
+	end	
+}	
+script 90 mmbn3s {	
+	"雪花1"	
+	end	
+}	
+script 91 mmbn3s {	
+	"雪花2"	
+	end	
+}	
+script 92 mmbn3s {	
+	"雪花3"	
+	end	
+}	
+script 69 mmbn3s {	
+	"摇摇1"	
+	end	
+}	
+script 70 mmbn3s {	
+	"摇摇2"	
+	end	
+}	
+script 71 mmbn3s {	
+	"摇摇3"	
+	end	
+}	
+script 50 mmbn3s {	
+	"风暴1"	
+	end	
+}	
+script 51 mmbn3s {	
+	"风暴2"	
+	end	
+}	
+script 52 mmbn3s {	
+	"风暴3"	
+	end	
+}	
+script 96 mmbn3s {	
+	"电蜂刺1"	
+	end	
+}	
+script 97 mmbn3s {	
+	"电蜂刺2"	
+	end	
+}	
+script 98 mmbn3s {	
+	"电蜂刺3"	
+	end	
+}	
+script 58 mmbn3s {	
+	"老鼠弹1"	
+	end	
+}	
+script 59 mmbn3s {	
+	"老鼠弹2"	
+	end	
+}	
+script 60 mmbn3s {	
+	"老鼠弹3"	
+	end	
+}	
+script 117 mmbn3s {	
+	"火焰鼠弹"	
+	end	
+}	
+script 61 mmbn3s {	
+	"海浪波"	
+	end	
+}	
+script 62 mmbn3s {	
+	"灼浪波"	
+	end	
+}	
+script 63 mmbn3s {	
+	"浊浪波"	
+	end	
+}	
+script 65 mmbn3s {	
+	"旋风"	
+	end	
+}	
+script 72 mmbn3s {	
+	"毒孢子1"	
+	end	
+}	
+script 73 mmbn3s {	
+	"毒孢子2"	
+	end	
+}	
+script 74 mmbn3s {	
+	"毒孢子3"	
+	end	
+}	
+script 110 mmbn3s {	
+	"哑铃摆1"	
+	end	
+}	
+script 111 mmbn3s {	
+	"哑铃摆2"	
+	end	
+}	
+script 112 mmbn3s {	
+	"哑铃摆3"	
+	end	
+}	
+script 148 mmbn3s {	
+	"NO光速1"	
+	end	
+}	
+script 149 mmbn3s {	
+	"NO光速2"	
+	end	
+}	
+script 150 mmbn3s {	
+	"NO光速3"	
+	end	
+}	
+script 64 mmbn3s {	
+	"钢锤"	
+	end	
+}	
+script 107 mmbn3s {	
+	"间歇泉"	
+	end	
+}	
+script 78 mmbn3s {	
+	"缠绕藤1"	
+	end	
+}	
+script 79 mmbn3s {	
+	"缠绕藤2"	
+	end	
+}	
+script 80 mmbn3s {	
+	"缠绕藤3"	
+	end	
+}	
+script 84 mmbn3s {	
+	"回旋镖1"	
+	end	
+}	
+script 85 mmbn3s {	
+	"回旋镖2"	
+	end	
+}	
+script 86 mmbn3s {	
+	"回旋镖3"	
+	end	
+}	
+script 108 mmbn3s {	
+	"毒面具"	
+	end	
+}	
+script 109 mmbn3s {	
+	"毒鬼脸"	
+	end	
+}	
+script 145 mmbn3s {	
+	"地震波1"	
+	end	
+}	
+script 146 mmbn3s {	
+	"地震波2"	
+	end	
+}	
+script 147 mmbn3s {	
+	"地震波3"	
+	end	
+}	
+script 104 mmbn3s {	
+	"诅咒盾1"	
+	end	
+}	
+script 105 mmbn3s {	
+	"诅咒盾2"	
+	end	
+}	
+script 106 mmbn3s {	
+	"诅咒盾3"	
+	end	
+}	
+script 81 mmbn3s {	
+	"密林炮1"	
+	end	
+}	
+script 82 mmbn3s {	
+	"密林炮2"	
+	end	
+}	
+script 83 mmbn3s {	
+	"密林炮3"	
+	end	
+}	
+script 93 mmbn3s {	
+	"交向电1"	
+	end	
+}	
+script 94 mmbn3s {	
+	"交向电2"	
+	end	
+}	
+script 95 mmbn3s {	
+	"交向电3"	
+	end	
+}	
+script 87 mmbn3s {	
+	"追击流星"	
+	end	
+}	
+script 88 mmbn3s {	
+	"撞地流星"	
+	end	
+}	
+script 89 mmbn3s {	
+	"射击流星"	
+	end	
+}	
+script 154 mmbn3s {	
+	"尖刺虫1"	
+	end	
+}	
+script 155 mmbn3s {	
+	"尖刺虫2"	
+	end	
+}	
+script 156 mmbn3s {	
+	"尖刺虫3"	
+	end	
+}	
+script 55 mmbn3s {	
+	"火图腾1"	
+	end	
+}	
+script 56 mmbn3s {	
+	"火图腾2"	
+	end	
+}	
+script 57 mmbn3s {	
+	"火图腾3"	
+	end	
+}	
+script 101 mmbn3s {	
+	"死神眼1"	
+	end	
+}	
+script 102 mmbn3s {	
+	"死神眼2"	
+	end	
+}	
+script 103 mmbn3s {	
+	"死神眼3"	
+	end	
+}	
+script 133 mmbn3s {	
+	"水灵灵"	
+	end	
+}	
+script 134 mmbn3s {	
+	"MetaGel2"	
+	end	
+}	
+script 135 mmbn3s {	
+	"MetaGel3"	
+	end	
+}	
+script 151 mmbn3s {	
+	"棋子卒"	
+	end	
+}	
+script 152 mmbn3s {	
+	"棋子马"	
+	end	
+}	
+script 153 mmbn3s {	
+	"棋子车"	
+	end	
+}	
+script 132 mmbn3s {	
+	"支援1"	
+	end	
+}	
+script 169 mmbn3s {	
+	"支援2"	
+	end	
+}	
+script 99 mmbn3s {	
+	"计时弹"	
+	end	
+}	
+script 100 mmbn3s {	
+	"地雷"	
+	end	
+}	
+script 75 mmbn3s {	
+	"背刺竹"	
+	end	
+}	
+script 131 mmbn3s {	
+	"家门蛇"	
+	end	
+}	
+script 118 mmbn3s {	
+	"反射盾"	
+	end	
+}	
+script 119 mmbn3s {	
+	"破地一格"	
+	end	
+}	
+script 120 mmbn3s {	
+	"破地一排"	
+	end	
+}	
+script 129 mmbn3s {	
+	"占地一格"	
+	end	
+}	
+script 130 mmbn3s {	
+	"占地一排"	
+	end	
+}	
+script 136 mmbn3s {	
+	"偷地惩罚"	
+	end	
+}	
+script 137 mmbn3s {	
+	"偷地复仇"	
+	end	
+}	
+script 141 mmbn3s {	
+	"石块"	
+	end	
+}	
+script 142 mmbn3s {	
+	"棱镜"	
+	end	
+}	
+script 143 mmbn3s {	
+	"吹风机"	
+	end	
+}	
+script 144 mmbn3s {	
+	"吸风机"	
+	end	
+}	
+script 170 mmbn3s {	
+	"冲锋号"	
+	end	
+}	
+script 171 mmbn3s {	
+	"不协号"	
+	end	
+}	
+script 172 mmbn3s {	
+	"定音号"	
+	end	
+}	
+script 121 mmbn3s {	
+	"回复10"	
+	end	
+}	
+script 122 mmbn3s {	
+	"回复30"	
+	end	
+}	
+script 123 mmbn3s {	
+	"回复50"	
+	end	
+}	
+script 124 mmbn3s {	
+	"回复80"	
+	end	
+}	
+script 125 mmbn3s {	
+	"回复120"	
+	end	
+}	
+script 126 mmbn3s {	
+	"回复150"	
+	end	
+}	
+script 127 mmbn3s {	
+	"回复200"	
+	end	
+}	
+script 128 mmbn3s {	
+	"回复300"	
+	end	
+}	
+script 159 mmbn3s {	
+	"地台修复"	
+	end	
+}	
+script 157 mmbn3s {	
+	"慢槽"	
+	end	
+}	
+script 158 mmbn3s {	
+	"快槽"	
+	end	
+}	
+script 41 mmbn3s {	
+	"Panic"	
+	end	
+}	
+script 138 mmbn3s {	
+	"全场裂地"	
+	end	
+}	
+script 139 mmbn3s {	
+	"全场破地"	
+	end	
+}	
+script 140 mmbn3s {	
+	"全场毒地"	
+	end	
+}	
+script 194 mmbn3s {	
+	"伤害复制"	
+	end	
+}	
+script 160 mmbn3s {	
+	"隐身"	
+	end	
+}	
+script 165 mmbn3s {	
+	"剑之影"	
+	end	
+}	
+script 162 mmbn3s {	
+	"掩护"	
+	end	
+}	
+script 163 mmbn3s {	
+	"Mole2"	
+	end	
+}	
+script 164 mmbn3s {	
+	"Mole3"	
+	end	
+}	
+script 168 mmbn3s {	
+	"空气鞋"	
+	end	
+}	
+script 173 mmbn3s {	
+	"防护罩"	
+	end	
+}	
+script 174 mmbn3s {	
+	"防护罩100"	
+	end	
+}	
+script 175 mmbn3s {	
+	"防护罩200"	
+	end	
+}	
+script 176 mmbn3s {	
+	"防护环"	
+	end	
+}	
+script 177 mmbn3s {	
+	"极地风"	
+	end	
+}	
+script 166 mmbn3s {	
+	"安全帽"	
+	end	
+}	
+script 167 mmbn3s {	
+	"电击兔"	
+	end	
+}	
+script 186 mmbn3s {	
+	"火焰狼"	
+	end	
+}	
+script 185 mmbn3s {	
+	"剑骑士"	
+	end	
+}	
+script 188 mmbn3s {	
+	"水浪母"	
+	end	
+}	
+script 187 mmbn3s {	
+	"毒蘑菇"	
+	end	
+}	
+script 77 mmbn3s {	
+	"挖地鼠"	
+	end	
+}	
+script 189 mmbn3s {	
+	"杀人眼"	
+	end	
+}	
+script 76 mmbn3s {	
+	"梦幻虫"	
+	end	
+}	
+script 161 mmbn3s {	
+	"黑洞"	
+	end	
+}	
+script 178 mmbn3s {	
+	"圣地一格"	
+	end	
+}	
+script 179 mmbn3s {	
+	"岩浆地台"	
+	end	
+}	
+script 180 mmbn3s {	
+	"冰冻地台"	
+	end	
+}	
+script 181 mmbn3s {	
+	"绿草地台"	
+	end	
+}	
+script 182 mmbn3s {	
+	"沙漠地台"	
+	end	
+}	
+script 183 mmbn3s {	
+	"金属地台"	
+	end	
+}	
+script 184 mmbn3s {	
+	"替身术"	
+	end	
+}	
+script 191 mmbn3s {	
+	"空手夺刃"	
+	end	
+}	
+script 192 mmbn3s {	
+	"机兵反叛"	
+	end	
+}	
+script 190 mmbn3s {	
+	"回复反扣"	
+	end	
+}	
+script 193 mmbn3s {	
+	"攻击+10"	
+	end	
+}	
+script 195 mmbn3s {	
+	"火攻+30"	
+	end	
+}	
+script 196 mmbn3s {	
+	"水攻+30"	
+	end	
+}	
+script 197 mmbn3s {	
+	"木攻+30"	
+	end	
+}	
+script 198 mmbn3s {	
+	"电攻+30"	
+	end	
+}	
+script 199 mmbn3s {	
+	"英雄剑"	
+	end	
+}	
+script 200 mmbn3s {	
+	"神来之力"	
+	end	
 }
 script 201 mmbn3s {
 	"LifeAura"
