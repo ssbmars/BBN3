@@ -19,7 +19,8 @@ script 1 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	向前发射加农炮	
+	向前发射
+	加农炮	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -30,7 +31,8 @@ script 2 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	向前发射加农炮	
+	向前发射
+	加农炮	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -41,7 +43,8 @@ script 3 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	向前发射加农炮	
+	向前发射
+	加农炮	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -52,7 +55,8 @@ script 4 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	吹飞目标的空气炮	
+	吹飞目标
+	的空气炮	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -63,7 +67,8 @@ script 5 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	吹飞目标的空气炮	
+	吹飞目标
+	的空气炮	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -74,7 +79,8 @@ script 6 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	吹飞目标的空气炮	
+	吹飞目标
+	的空气炮	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -85,7 +91,8 @@ script 7 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	吸收岩浆向前射击	
+	吸收岩浆
+	向前射击	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -96,7 +103,8 @@ script 8 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	吸收岩浆向前射击	
+	吸收岩浆
+	向前射击	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -107,7 +115,8 @@ script 9 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	吸收岩浆向前射击	
+	吸收岩浆
+	向前射击	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -118,7 +127,9 @@ script 114 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	吸收岩浆，喷射攻击前方三列	
+	吸收岩浆,
+	喷射攻击
+	前方三列	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -129,7 +140,9 @@ script 10 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	诱爆目标后方一格的霞弹	
+	诱爆目标
+	后方一格
+	的霞弹	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -140,7 +153,9 @@ script 11 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	诱爆目标后方两侧的霞弹	
+	诱爆目标
+	后方两侧
+	的霞弹	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -151,7 +166,9 @@ script 12 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	诱爆目标旁侧两格的霞弹	
+	诱爆目标
+	旁侧两格
+	的霞弹	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -162,7 +179,9 @@ script 13 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	诱爆目标周围八格的霞弹	
+	诱爆目标
+	周围八格
+	的霞弹	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -173,7 +192,9 @@ script 14 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	诱爆目标后方一格的泡泡弹	
+	诱爆目标
+	后方一格
+	的泡泡弹	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -184,7 +205,9 @@ script 15 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	诱爆目标后方两侧的泡泡弹	
+	诱爆目标
+	后方两侧
+	的泡泡弹	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -195,7 +218,9 @@ script 16 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	诱爆目标旁侧两格的泡泡弹	
+	诱爆目标
+	旁侧两格
+	的泡泡弹	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -206,7 +231,9 @@ script 17 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	诱爆目标后方一格的火焰弹	
+	诱爆目标
+	后方一格
+	的火焰弹	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -217,7 +244,9 @@ script 18 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	诱爆目标后方两侧的火焰弹	
+	诱爆目标
+	后方两侧
+	的火焰弹	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -228,7 +257,9 @@ script 19 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	诱爆目标旁侧两格的火焰弹	
+	诱爆目标
+	旁侧两格
+	的火焰弹	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -239,7 +270,8 @@ script 20 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	向前三个投出炸弹	
+	向前三个
+	投出炸弹
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -250,7 +282,9 @@ script 21 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	向前三个投出一枚小型炸弹	
+	向前三个
+	投出一枚
+	小型炸弹	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -261,7 +295,9 @@ script 22 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	向前三个投出两枚小型炸弹	
+	向前三个
+	投出两枚
+	小型炸弹	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -272,7 +308,9 @@ script 23 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	向前三个投出三枚小型炸弹	
+	向前三个
+	投出三枚
+	小型炸弹	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -283,7 +321,9 @@ script 24 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	向前三格，投出钢球破坏地板	
+	向前三格,
+	投出钢球
+	破坏地板	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -294,7 +334,9 @@ script 25 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	向前三格，投出冰球冻结地板	
+	向前三格,
+	投出冰球
+	冻结地板	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -305,7 +347,9 @@ script 26 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	向前三格，投出火球灼烧地板	
+	向前三格,
+	投出火球
+	灼烧地板	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -316,7 +360,9 @@ script 27 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	向前三个投出炸弹，点火引爆	
+	向前三个
+	投出炸弹,
+	点火引爆	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -327,7 +373,9 @@ script 28 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	向前三个投出炸弹，点火引爆	
+	向前三个
+	投出炸弹,
+	点火引爆	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -338,7 +386,9 @@ script 29 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	向前三个投出炸弹，点火引爆	
+	向前三个
+	投出炸弹,
+	点火引爆	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -349,7 +399,8 @@ script 30 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	用剑斩击前方一格	
+	用剑斩击
+	前方一格	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -360,7 +411,8 @@ script 31 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	用剑斩击前方一排	
+	用剑斩击
+	前方一排	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -371,7 +423,8 @@ script 32 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	用剑斩击前方两格	
+	用剑斩击
+	前方两格	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -382,7 +435,9 @@ script 33 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	用火焰剑斩击前方一排	
+	用火焰剑
+	斩击前方
+	一排	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -393,7 +448,9 @@ script 34 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	用碧水剑斩击前方一排	
+	用碧水剑
+	斩击前方
+	一排	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -404,7 +461,9 @@ script 35 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	用雷击剑斩击前方一排	
+	用雷击剑
+	斩击前方
+	一排	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -415,7 +474,9 @@ script 36 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	用青竹剑斩击前方一排	
+	用青竹剑
+	斩击前方
+	一排	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -426,7 +487,9 @@ script 37 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	攻击力随自定槽的增长上升	
+	攻击力随
+	自定槽的
+	增长上升	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -437,7 +500,9 @@ script 38 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	如梦如幻，千变万化的变幻剑	
+	如梦如幻,
+	千变万化
+	的变幻剑	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -448,7 +513,9 @@ script 42 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	用剑斩击前方一排，产生风压	
+	用剑斩击
+	前方一排,
+	产生风压	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -459,7 +526,8 @@ script 39 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	踏前两格，斩击一排	
+	踏前两格,
+	斩击一排	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -470,7 +538,9 @@ script 40 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	踏前两格，使出两次斜向斩击	
+	踏前两格,
+	使出两次
+	斜向斩击	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -481,7 +551,9 @@ script 43 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	按住A键，敌入侵则拔刀快斩	
+	按住A键,
+	敌入侵则
+	拔刀快斩	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -492,7 +564,8 @@ script 44 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	贯穿目标的冲击波	
+	贯穿目标
+	的冲击波	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -503,7 +576,8 @@ script 45 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	贯穿目标的冲击波	
+	贯穿目标
+	的冲击波	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -514,7 +588,8 @@ script 46 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	贯穿目标的冲击波	
+	贯穿目标
+	的冲击波	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -525,7 +600,9 @@ script 113 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	贯穿目标的冲击波，破坏地板	
+	贯穿目标
+	的冲击波,
+	破坏地板	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -536,7 +613,8 @@ script 47 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	巨拳冲击前方一格	
+	巨拳冲击
+	前方一格	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -547,7 +625,8 @@ script 48 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	巨拳冲击前方两格	
+	巨拳冲击
+	前方两格	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -558,7 +637,8 @@ script 49 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	重拳冲击前方一格	
+	重拳冲击
+	前方一格	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -569,7 +649,8 @@ script 53 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	向前冲刺，贯穿敌人	
+	向前冲刺,
+	贯穿敌人	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -580,7 +661,9 @@ script 54 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	火焰灼烧前后左右四格	
+	火焰灼烧
+	前后左右
+	四格	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -591,7 +674,8 @@ script 115 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	灼热冲刺，攻击一列	
+	灼热冲刺,
+	攻击一列	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -602,7 +686,9 @@ script 116 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	火焰灼烧自身周围斜向四格	
+	火焰灼烧
+	自身周围
+	斜向四格	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -613,7 +699,8 @@ script 66 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	麻痹敌人的电击环	
+	麻痹敌人
+	的电击环	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -624,7 +711,8 @@ script 67 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	麻痹敌人的电击环	
+	麻痹敌人
+	的电击环	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -635,7 +723,8 @@ script 68 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	麻痹敌人的电击环	
+	麻痹敌人
+	的电击环	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -646,7 +735,8 @@ script 90 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	摆动前进的雪结晶	
+	摆动前进
+	的雪结晶	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -657,7 +747,8 @@ script 91 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	摆动前进的雪结晶	
+	摆动前进
+	的雪结晶	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -668,7 +759,8 @@ script 92 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	摆动前进的雪结晶	
+	摆动前进
+	的雪结晶	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -679,7 +771,8 @@ script 69 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	向前甩出摇摇攻击	
+	向前甩出
+	摇摇攻击	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -690,7 +783,8 @@ script 70 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	向前甩出摇摇攻击	
+	向前甩出
+	摇摇攻击	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -701,7 +795,8 @@ script 71 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	向前甩出摇摇攻击	
+	向前甩出
+	摇摇攻击	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -712,7 +807,9 @@ script 50 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	吸引敌人，制造三枚旋风攻击	
+	吸引敌人,
+	制造三枚
+	旋风攻击	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -723,7 +820,9 @@ script 51 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	吸前敌人，制造三枚旋风攻击	
+	吸前敌人,
+	制造三枚
+	旋风攻击	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -734,7 +833,9 @@ script 52 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	吸前敌人，制造三枚旋风攻击	
+	吸前敌人,
+	制造三枚
+	旋风攻击	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -745,7 +846,9 @@ script 96 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	射入敌区，斜向攻击，贯穿敌人	
+	射入敌区,
+	斜向攻击,
+	贯穿敌人	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -756,7 +859,9 @@ script 97 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	射入敌区，斜向攻击，贯穿敌人	
+	射入敌区,
+	斜向攻击,
+	贯穿敌人	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -767,7 +872,9 @@ script 98 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	射入敌区，斜向攻击，贯穿敌人	
+	射入敌区,
+	斜向攻击,
+	贯穿敌人	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -778,7 +885,9 @@ script 58 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	贴地跟踪的老鼠弹，可拐一弯	
+	贴地跟踪
+	的老鼠弹,
+	可拐一弯	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -789,7 +898,9 @@ script 59 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	贴地跟踪的老鼠弹，可拐一弯	
+	贴地跟踪
+	的老鼠弹,
+	可拐一弯	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -800,7 +911,9 @@ script 60 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	贴地跟踪的老鼠弹，可拐一弯	
+	贴地跟踪
+	的老鼠弹,
+	可拐一弯	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -811,7 +924,9 @@ script 117 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	前方放置火焰鼠弹，点火启动	
+	前方放置
+	火焰鼠弹,
+	点火启动	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -822,7 +937,8 @@ script 61 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	制造水浪向前冲击	
+	制造水浪
+	向前冲击	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -833,7 +949,8 @@ script 62 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	制造灼浪向前冲击	
+	制造灼浪
+	向前冲击	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -844,7 +961,8 @@ script 63 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	制造浊浪向前冲击	
+	制造浊浪
+	向前冲击	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -855,7 +973,9 @@ script 65 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	前方两格八连击的旋风攻击	
+	前方两格
+	八连击的
+	旋风攻击	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -866,7 +986,8 @@ script 72 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	攻击草地上的单位	
+	攻击草地
+	上的单位	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -877,7 +998,8 @@ script 73 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	攻击草地上的单位	
+	攻击草地
+	上的单位	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -888,7 +1010,8 @@ script 74 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	攻击草地上的单位	
+	攻击草地
+	上的单位	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -899,7 +1022,9 @@ script 110 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	前方三格召唤哑铃攻击一排	
+	前方三格
+	召唤哑铃
+	攻击一排	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -910,7 +1035,9 @@ script 111 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	前方三格召唤哑铃攻击一排	
+	前方三格
+	召唤哑铃
+	攻击一排	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -921,7 +1048,9 @@ script 112 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	前方三格召唤哑铃攻击一排	
+	前方三格
+	召唤哑铃
+	攻击一排	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -932,7 +1061,9 @@ script 148 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	身后有置物时向前发射光速	
+	身后有置
+	物时向前
+	发射光速	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -943,7 +1074,9 @@ script 149 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	身后有置物时向前发射光速	
+	身后有置
+	物时向前
+	发射光速	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -954,7 +1087,9 @@ script 150 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	身后有置物时向前发射光速	
+	身后有置
+	物时向前
+	发射光速	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -965,7 +1100,8 @@ script 64 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	破坏一切的大锤子	
+	破坏一切
+	的大锤子	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -976,7 +1112,9 @@ script 107 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	前方三个空洞引出水柱攻击	
+	前方三个
+	空洞引出
+	水柱攻击	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -987,7 +1125,8 @@ script 78 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	藤条缠击附近单位	
+	藤条缠击
+	附近单位	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -998,7 +1137,8 @@ script 79 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	藤条缠击附近单位	
+	藤条缠击
+	附近单位	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1009,7 +1149,8 @@ script 80 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	藤条缠击附近单位	
+	藤条缠击
+	附近单位	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1020,7 +1161,8 @@ script 84 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	飞过战场的回旋镖	
+	飞过战场
+	的回旋镖	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1031,7 +1173,8 @@ script 85 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	飞过战场的回旋镖	
+	飞过战场
+	的回旋镖	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1042,7 +1185,8 @@ script 86 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	飞过战场的回旋镖	
+	飞过战场
+	的回旋镖	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1053,7 +1197,9 @@ script 108 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	按住A键放毒攻击前方一列	
+	按住A键
+	放毒攻击
+	前方一列	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1064,7 +1210,9 @@ script 109 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	按住A键防毒攻击周围敌人	
+	按住A键
+	防毒攻击
+	周围敌人	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1075,7 +1223,9 @@ script 145 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	震慑敌人，用地震波攻击	
+	震慑敌人,
+	用地震波
+	攻击	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1086,7 +1236,9 @@ script 146 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	震慑敌人，用地震波攻击	
+	震慑敌人,
+	用地震波
+	攻击	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1097,7 +1249,9 @@ script 147 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	震慑敌人，用地震波攻击	
+	震慑敌人,
+	用地震波
+	攻击	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1108,7 +1262,9 @@ script 104 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	防御后射出盾牌咬击敌人	
+	防御后射
+	出盾牌咬
+	击敌人	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1119,7 +1275,9 @@ script 105 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	防御后射出盾牌咬击敌人	
+	防御后射
+	出盾牌咬
+	击敌人	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1130,7 +1288,9 @@ script 106 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	防御后射出盾牌咬击敌人	
+	防御后射
+	出盾牌咬
+	击敌人	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1141,7 +1301,9 @@ script 81 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	强力火炮锁定攻击，破坏地板	
+	强力火炮
+	锁定攻击,
+	破坏地板	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1152,7 +1314,9 @@ script 82 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	强力火炮锁定攻击，破坏地板	
+	强力火炮
+	锁定攻击,
+	破坏地板	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1163,7 +1327,9 @@ script 83 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	强力火炮锁定攻击，破坏地板	
+	强力火炮
+	锁定攻击,
+	破坏地板	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1174,7 +1340,8 @@ script 93 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	前方放置，回环放电	
+	前方放置,
+	回环放电	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1185,7 +1352,8 @@ script 94 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	前方放置，回环放电	
+	前方放置,
+	回环放电	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1196,7 +1364,8 @@ script 95 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	前方放置，回环放电	
+	前方放置,
+	回环放电	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1207,7 +1376,8 @@ script 87 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	召唤流星追击敌人	
+	召唤流星
+	追击敌人	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1218,7 +1388,9 @@ script 88 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	召唤流行攻击地方所有地板	
+	召唤流行
+	攻击地方
+	所有地板	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1229,7 +1401,9 @@ script 89 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	召唤流行射击敌区中间一排	
+	召唤流行
+	射击敌区
+	中间一排	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1240,7 +1414,9 @@ script 154 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	三个方向投刺攻击。按A键前进	
+	三个方向
+	投刺攻击。
+	按A键前进	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1251,7 +1427,9 @@ script 155 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	三个方向投刺攻击。按A键前进	
+	三个方向
+	投刺攻击。
+	按A键前进	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1262,7 +1440,9 @@ script 156 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	三个方向投刺攻击。按A键前进	
+	三个方向
+	投刺攻击。
+	按A键前进	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1273,7 +1453,9 @@ script 55 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	前方放置喷火攻击，转身回复	
+	前方放置
+	喷火攻击,
+	转身回复	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1284,7 +1466,9 @@ script 56 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	前方放置喷火攻击，转身回复	
+	前方放置
+	喷火攻击,
+	转身回复	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1295,7 +1479,9 @@ script 57 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	前方放置喷火攻击，转身回复	
+	前方放置
+	喷火攻击,
+	转身回复	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1306,7 +1492,9 @@ script 101 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	前方放置，见到敌人持续电击	
+	前方放置,
+	见到敌人
+	持续电击	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1317,7 +1505,9 @@ script 102 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	前方放置，见到敌人持续电击	
+	前方放置,
+	见到敌人
+	持续电击	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1328,7 +1518,9 @@ script 103 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	前方放置，见到敌人持续电击	
+	前方放置,
+	见到敌人
+	持续电击	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1339,7 +1531,9 @@ script 133 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	占地或者攻击占地上的单位	
+	占地或者
+	攻击占地
+	上的单位	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1350,7 +1544,9 @@ script 134 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	placeholder	
+	占地或者
+	攻击占地
+	上的单位
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1361,7 +1557,9 @@ script 135 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	placeholder	
+	占地或者
+	攻击占地
+	上的单位
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1372,7 +1570,9 @@ script 151 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	前方放置，按A键使用长剑斩击	
+	前方放置,
+	按A键使用
+	长剑斩击	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1383,7 +1583,9 @@ script 152 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	前方放置，向前两格跳跃攻击	
+	前方放置,
+	向前两格
+	跳跃攻击	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1394,7 +1596,8 @@ script 153 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	前方放置，抵御攻击	
+	前方放置,
+	抵御攻击	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1405,7 +1608,9 @@ script 132 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	召唤支援攻击敌人攻击上升	
+	召唤支援
+	攻击敌人
+	攻击上升	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1416,7 +1621,9 @@ script 169 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	召唤支援，低HP受伤时回复HP	
+	召唤支援,
+	低HP受伤
+	时回复HP	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1427,7 +1634,9 @@ script 99 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	敌方阵地放置炸弹，三秒即爆	
+	敌方阵地
+	放置炸弹,
+	三秒即爆	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1438,7 +1647,8 @@ script 100 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	敌区随机埋放地雷	
+	敌区随机
+	埋放地雷	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1449,7 +1659,9 @@ script 75 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	攻击地方最后一排的刺竹	
+	攻击地方
+	最后一排
+	的刺竹	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1460,7 +1672,9 @@ script 131 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	召唤青蛇攻击敌人，攻击力40	
+	召唤青蛇
+	攻击敌人,
+	攻击力40	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1471,7 +1685,9 @@ script 118 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	防御同时以冲击波反射回击	
+	防御同时
+	以冲击波
+	反射回击	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1482,7 +1698,8 @@ script 119 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	破坏前方一格地板	
+	破坏前方
+	一格地板	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1493,7 +1710,8 @@ script 120 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	破坏前方一排地板	
+	破坏前方
+	一排地板	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1504,7 +1722,8 @@ script 129 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	偷取敌方战场一格	
+	偷取敌方
+	战场一格	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1515,7 +1734,8 @@ script 130 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	偷取敌方战场一排	
+	偷取敌方
+	战场一排	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1526,7 +1746,9 @@ script 136 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	惩罚占地的敌人，攻击力20	
+	惩罚占地
+	的敌人,
+	攻击力20	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1537,7 +1759,9 @@ script 137 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	惩戒占地的敌人，攻击力40	
+	惩戒占地
+	的敌人,
+	攻击力40	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1548,7 +1772,8 @@ script 141 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	前方放置一块石块	
+	前方放置
+	一块石块	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1559,7 +1784,9 @@ script 142 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	向前三格投掷，可以扩散伤害	
+	向前三格
+	投掷,可以
+	扩散伤害	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1570,7 +1797,9 @@ script 143 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	前方放置，产生持久的顺风	
+	前方放置,
+	产生持久
+	的顺风	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1581,7 +1810,9 @@ script 144 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	前方放置，制造持久的逆风	
+	前方放置,
+	制造持久
+	的逆风	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1592,7 +1823,9 @@ script 170 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	前方放置，奏乐时让己方无敌	
+	前方放置,
+	奏乐时让
+	己方无敌	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1603,7 +1836,9 @@ script 171 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	前方放置，奏乐时让敌方混乱	
+	前方放置,
+	奏乐时让
+	敌方混乱	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1614,7 +1849,9 @@ script 172 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	前方放置，奏乐时敌无法移动	
+	前方放置,
+	奏乐时敌
+	无法移动	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1713,7 +1950,8 @@ script 159 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	己方地板恢复正常	
+	己方地板
+	恢复正常	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1724,7 +1962,9 @@ script 157 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	自定槽的增长速度减半三回合	
+	自定槽的
+	增长速度
+	减半三回合	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1735,7 +1975,9 @@ script 158 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	自定槽的增长速度加倍三回合	
+	自定槽的
+	增长速度
+	加倍三回合	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1757,7 +1999,8 @@ script 138 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	击碎战场所有地板	
+	击碎战场
+	所有地板	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1768,7 +2011,8 @@ script 139 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	打控战场所有地板	
+	打控战场
+	所有地板	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1779,7 +2023,9 @@ script 140 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	战场所有地板换成毒沼地	
+	战场所有
+	地板换成
+	毒沼地	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1790,7 +2036,9 @@ script 194 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	标记后，伤害复制到该目标	
+	标记后,
+	伤害复制
+	到该目标	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1801,7 +2049,9 @@ script 160 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	一定时间保持隐形，不受伤害	
+	一定时间
+	保持隐形,
+	不受伤害	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1812,7 +2062,9 @@ script 165 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	变成剑影，只能受到刀剑伤害	
+	变成剑影,
+	只能受到
+	刀剑伤害	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1823,7 +2075,9 @@ script 162 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	躲进地下，只能受到贴地攻击	
+	躲进地下,
+	只能受到
+	贴地攻击	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1834,7 +2088,9 @@ script 163 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	躲进地下，只能受到贴地攻击	
+	躲进地下,
+	只能受到
+	贴地攻击	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1845,7 +2101,9 @@ script 164 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	躲进地下，只能受到贴地攻击	
+	躲进地下,
+	只能受到
+	贴地攻击	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1856,7 +2114,9 @@ script 168 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	可以站在破地板和空洞上	
+	可以站在
+	破地板和
+	空洞上	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1867,7 +2127,9 @@ script 173 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	代替承受10点伤害的防护罩	
+	代替承受
+	10点伤害
+	的防护罩	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1878,7 +2140,9 @@ script 174 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	代替承受100点伤害的防护罩	
+	代替承受
+	100点伤害
+	的防护罩	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1889,7 +2153,9 @@ script 175 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	代替承受200点伤害的防护罩	
+	代替承受
+	200点伤害
+	的防护罩	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1900,7 +2166,9 @@ script 176 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	无视伤害所有低于100的攻击	
+	无视伤害
+	所有低于
+	100的攻击	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1911,7 +2179,9 @@ script 177 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	吹飞敌人的防护罩或防护环	
+	吹飞敌人
+	的防护罩
+	或防护环	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1922,7 +2192,9 @@ script 166 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	召唤一只安全帽发动攻击	
+	召唤一只
+	安全帽发
+	动攻击	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1933,7 +2205,9 @@ script 167 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	召唤一只电击兔发动攻击	
+	召唤一只
+	电击兔发
+	动攻击	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1944,7 +2218,9 @@ script 186 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	召唤一只火焰狼发动攻击	
+	召唤一只
+	火焰狼发
+	动攻击	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1955,7 +2231,9 @@ script 185 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	召唤一只剑骑士发动攻击	
+	召唤一只
+	剑骑士发
+	动攻击	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1966,7 +2244,9 @@ script 188 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	召唤一只水浪母发动攻击	
+	召唤一只
+	水浪母发
+	动攻击	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1977,7 +2257,9 @@ script 187 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	召唤一只毒蘑菇发动攻击	
+	召唤一只
+	毒蘑菇发
+	动攻击	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1988,7 +2270,9 @@ script 77 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	召唤一只挖地鼠发动攻击	
+	召唤一只
+	挖地鼠发
+	动攻击	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -1999,7 +2283,9 @@ script 189 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	召唤一只杀人眼发动攻击	
+	召唤一只
+	杀人眼发
+	动攻击	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -2010,7 +2296,9 @@ script 76 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	召唤一只梦幻虫发动攻击	
+	召唤一只
+	梦幻虫发
+	动攻击	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -2021,7 +2309,9 @@ script 161 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	制造黑洞释放[DARK]芯片威力	
+	制造黑洞
+	释放[DARK]
+	芯片威力	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -2032,7 +2322,8 @@ script 178 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	脚下地板换成圣地	
+	脚下地板
+	换成圣地	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -2043,7 +2334,8 @@ script 179 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	所有地板换成岩浆	
+	所有地板
+	换成岩浆	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -2054,7 +2346,8 @@ script 180 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	所有地板换成冰地	
+	所有地板
+	换成冰地	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -2065,7 +2358,8 @@ script 181 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	所有地板换成草地	
+	所有地板
+	换成草地	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -2076,7 +2370,8 @@ script 182 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	所有地板换成沙地	
+	所有地板
+	换成沙地	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -2087,7 +2382,8 @@ script 183 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	所有地板换成金属	
+	所有地板
+	换成金属	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -2098,7 +2394,9 @@ script 184 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	回避攻击，掷手里剑反击敌人	
+	回避攻击,
+	掷手里剑
+	反击敌人	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -2109,7 +2407,9 @@ script 191 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	惩罚使用刀剑攻击的敌人	
+	惩罚使用
+	刀剑攻击
+	的敌人	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -2120,7 +2420,9 @@ script 192 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	对手用机兵芯片时夺为己用	
+	对手用机
+	兵芯片时
+	夺为己用	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -2131,7 +2433,9 @@ script 190 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	惩罚使用回复芯片的敌人	
+	惩罚使用
+	回复芯片
+	的敌人	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -2142,7 +2446,9 @@ script 193 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	前一枚的攻击芯片攻击力+10	
+	前一枚的
+	攻击芯片
+	攻击力+10	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -2153,7 +2459,9 @@ script 195 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	前一枚的[FIRE]芯片攻击力+30	
+	前一枚的
+	[FIRE]芯片攻
+	击力+30	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -2164,7 +2472,9 @@ script 196 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	前一枚的[AQUA]芯片攻击力+30	
+	前一枚的
+	[AQUA]芯片攻
+	击力+30	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -2175,7 +2485,9 @@ script 197 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	前一枚的[WOOD]芯片攻击力+30	
+	前一枚的
+	[WOOD]芯片攻
+	击力+30	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -2186,7 +2498,9 @@ script 198 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	前一枚的[ELEC]芯片攻击力+30	
+	前一枚的
+	[ELEC]芯片攻
+	击力+30	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -2197,7 +2511,9 @@ script 199 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	用剑砍击前方一列的三格	
+	用剑砍击
+	前方一列
+	的三格	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -2208,7 +2524,9 @@ script 200 mmbn3 {
 		delay = 0	
 	msgOpenQuick	
 	"""	
-	举起置物砸向敌人，伤害70	
+	举起置物
+	砸向敌人,
+	伤害70	
 	"""	
 	keyWait	
 	msgCloseQuick	
@@ -2232,7 +2550,7 @@ script 202 mmbn3 {
 		delay = 0
 	msgOpenQuick
 	"""
-	诅咒之剑，
+	诅咒之剑,
 	攻击力AP=
 	损失的HP
 	"""
@@ -2245,7 +2563,7 @@ script 203 mmbn3 {
 		delay = 0
 	msgOpenQuick
 	"""
-	前方放置，
+	前方放置,
 	被攻击时
 	降下天谴
 	"""
@@ -2258,7 +2576,7 @@ script 204 mmbn3 {
 		delay = 0
 	msgOpenQuick
 	"""
-	前方放置，
+	前方放置,
 	毒气攻击
 	敌方阵地
 	"""
