@@ -140,12 +140,28 @@ if exp0 or exp2:
 
 
 
-
 	except IOError:
 		print("ERROR: could not open rom/bn3blue.gba")
 		quit()
 
+	if True:
+		try:
+			with open("rom/exe3black.gba", 'rb') as file:
+				exe3 = file.read()
+				ii = 0
+				for offset in offsets:
+					print(hex(offset))
+					for match in re.finditer(values[ii],exe3):
+						print("	{}".format(hex(match.start())))
 
+					ii += 1
+					if ii > 10:
+						break
+
+
+		except IOError:
+			print("ERROR: could not open rom/exe3black.gba")
+			quit()
 
 
 print("finished")
