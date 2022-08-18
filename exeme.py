@@ -116,27 +116,27 @@ if exp0 or exp2:
 				match = findhalfbl.search(value)
 				if match and match.start() == 0:
 					file.seek(offset - lookback - 2)
-					value = file.read(readamount + 4)#.hex()
+					value = file.read(readamount + 4).hex()
 					#print(hex(int(value,16)))
-				#else:
-					#value = file.read(readamount).hex()
+				else:
+					value = file.read(readamount).hex()
 				values.append(value)
 
 		# file is now closed
-		for value in values:
-			yougoi = False
-			blip = bytearray(value)
-			for match in findbl.finditer(value):
-				yougoi = True
-				place = match.start()
-				print("{} {}".format(value[place:place+2].hex(),value[place+2:place+4].hex()))
-				#value = value
-				print(blip[place])
-				#print(blip[place+2])
-				#blip[place] = b"(.)"
+	#	for value in values:
+	#		yougoi = False
+	#		blip = bytearray(value)
+	#		for match in findbl.finditer(value):
+	#			yougoi = True
+	#			place = match.start()
+	#			print("{} {}".format(value[place:place+2].hex(),value[place+2:place+4].hex()))
+	#			#value = value
+	#			print(blip[place])
+	#			#print(blip[place+2])
+	#			#blip[place] = b"(.)"
 
-			if yougoi:
-				break
+	#		if yougoi:
+	#			break
 
 
 
@@ -147,15 +147,19 @@ if exp0 or exp2:
 	if True:
 		try:
 			with open("rom/exe3black.gba", 'rb') as file:
-				exe3 = file.read()
+				exe3 = file.read().hex()
 				ii = 0
 				for offset in offsets:
 					print(hex(offset))
+					uuu = 0
 					for match in re.finditer(values[ii],exe3):
 						print("	{}".format(hex(match.start())))
+						uuu += 1
+						if uuu > 10:
+							break
 
 					ii += 1
-					if ii > 10:
+					if ii > 20:
 						break
 
 
@@ -163,5 +167,11 @@ if exp0 or exp2:
 			print("ERROR: could not open rom/exe3black.gba")
 			quit()
 
+#hello = b"bogos"
+#print(type(hello))
+#print("{} binted".format(hello))
+#ii = 0
+#print(type(values[ii]))
+#print("{}".format(values[ii]))
 
 print("finished")
