@@ -146,14 +146,41 @@ def does_match(pattern, chunk):
 
 
 # halfword matching funcs
+def is_bl1(pattern):
+	a, b = pattern
+	return (
+		int(b) >= 0xf0 and int(b) <= 0xf7
+	)
+
+def is_bl2(pattern):
+	a, b = pattern
+	return (
+		int(b) >= 0xf8 and int(b) <= 0xff
+	)
 
 def hw_match(pattern, chunk):
-	if (
-		chunk[0] == pattern[0] and
-		chunk[1] == pattern[1]
-	):
-		return True
-	return False
+	if is_bl1(pattern):
+		if (
+			int(chunk[1]) >= 0xf0 and
+			int(chunk[1]) <= 0xf7
+
+		):
+			return True
+		return False
+	elif is_bl2(pattern):
+		if (
+			int(chunk[1]) >= 0xf8 and
+			int(chunk[1]) <= 0xff
+		):
+			return True
+		return False
+	else:
+		if (
+			chunk[0] == pattern[0] and
+			chunk[1] == pattern[1]
+		):
+			return True
+		return False
 
 
 # end of halfword funcs
@@ -195,23 +222,40 @@ if exp0 or exp2:
 
 
 	try:
-		#with open(newrom, 'rb') as file:
-		with open(srcrom, 'rb') as file:
+		with open(newrom, 'rb') as file:
+		#with open(srcrom, 'rb') as file:
 			exe3 = file.read()
 		# file is closed now
 		newstring = ""
 		ii = 0
 		for value in values:
-			completematchlimit = 15
+			completematchlimit = 10
 			completematches = 0
 			bookmark = 0
 			matches = 0		# number of contiguous bytes that match the desired pattern
 			shlice = 0
 			hwamnt = len(value)/2 # amount of halfwords that need to be correct in a row
 			#print("hwamnt = {}".format(hwamnt))
-			print(hex(offsets[ii]))
-			newstring += "{}".format(hex(offsets[ii] + 0x08000000))
-			for addr in range(0, len(exe3) - 4 + 1, 2):
+			offset = offsets[ii]
+			#if ii < 30:
+			#	ii += 1
+			#	continue
+			print(hex(offset))
+			newstring += "{}\n".format(hex(offset + 0x08000000))
+			# make an address range where you can reasonably expect to find the matching value
+			# instead of searching the entire rom
+			if (offset % 2) == 0:
+				fix = 0
+			else:
+				fix = 1
+			startrange = 0 + fix
+			endrange = len(exe3) - 4 + 1
+			if offset > 0x00200000:
+				startrange = offset - 0x00200000
+			if (offset + 0x00200000) < endrange:
+				endrange = offset + 0x00200000
+
+			for addr in range(startrange, endrange, 2):
 				chunk = exe3[addr:addr+2]
 				val = value[shlice:shlice+2]
 
@@ -222,7 +266,7 @@ if exp0 or exp2:
 					shlice += 2
 					if matches == hwamnt:
 						print("   {}".format(hex(bookmark)))
-						newstring += "	{}".format(hex(bookmark + 0x08000000))
+						newstring += "	{}\n".format(hex(bookmark + 0x08000000))
 						matches = 0
 						shlice = 0
 						completematches += 1
@@ -238,6 +282,8 @@ if exp0 or exp2:
 					shlice = 0
 
 			ii += 1
+			#if ii == 40:
+			#	break
 
 		# write the file with all address candidates
 		if not os.path.exists("snek"): # make sure output folder exists
@@ -251,25 +297,6 @@ if exp0 or exp2:
 		print("ERROR: could not open rom/exe3black.gba")
 		quit()
 
-#	try:
-#		with open(newrom, 'rb') as file:
-#			exe3 = file.read()
-#		# file is closed now
-#		ii = 0
-#		# the order of this function is totally wrong
-#		for value in values:
-#			#print(hex(offsets[ii]))
-#			for place in range(0, len(exe3) - 4 + 1, 2):
-#			    chunk = exe3[place:place+4]
-#			    for spot in range(0, len(value) - 4 + 1, 2):
-#			    	valchunk = value[spot:spot+4]
-#			    	if main_match(valchunk, chunk):
-#			        	print(i)
-#			#print(value)
-#			ii += 1
-#	except IOError:
-#		print("ERROR: could not open rom/exe3black.gba")
-#		quit()
 
 
 print("finished")
