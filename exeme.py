@@ -21,7 +21,8 @@ exp0 = step == "all"	# parse the asm files in bbn3 source
 exp1 = step == "1"
 exp2 = step == "2"
 
-# ,"asm/.asm"
+srcrom = "rom/bn3blue.gba"
+newrom = "rom/exe3black.gba"
 asmfiles = ["patch.asm","asm/attack_edits.asm","asm/expanded_space.asm","asm/NCP_edits.asm","asm/pvp_qol.asm"]
 
 # find any hardcoded rom address being used for .org, bl, b, ldr
@@ -37,6 +38,7 @@ if exp0 or exp1:
 		new = ""
 		clean = ""
 		try:
+			# get all hardcoded addresses from the asm files
 			with open(filename,'r', encoding = 'utf-8') as file:
 				txt = file.read()
 			# file is closed now
@@ -88,11 +90,82 @@ findhalfbl = re.compile(b"(.)[\xF8-\xFF]")
 # how to process a branch?
 # 
 
+
+# matching function that weenie gave me, try this instead of regex
+def is_bl(pattern):
+	a, b, c, d = pattern
+	return (
+		b >= 0xf0 and int(b) <= 0xf7 and
+		d >= 0xf8 and int(d) <= 0xff
+	)
+def match_bl(pattern, chunk):
+	fuz = 0x30
+	a, b, c, d = pattern
+	b1 = 0xf0; b2 = 0xf7; d1 = 0xf8; d2 = 0xff;
+	if (
+		(a-fuz)	<= chunk[0] <= (a+fuz)	and
+		b1		<= chunk[1] <= b2		and
+		(c-fuz)	<= chunk[2] <= (c+fuz)  and
+		d1		<= chunk[3] <= d2 
+	):
+		return True
+	return False
+
+def match_normal(pattern, chunk):
+	if (
+		chunk[0] == pattern[0] and
+		chunk[1] == pattern[1] and
+		chunk[2] == pattern[2] and
+		chunk[3] == pattern[3]
+	):
+		return True
+	return False
+
+
+# trying this
+def main_match(pattern, chunk):
+	#if is_bl(pattern):
+	if False:
+		# fuzzy match for branch&link
+		answer = match_bl(pattern, chunk)
+	else:
+		# normal match
+		answer = match_normal(pattern, chunk)
+	return answer
+
+# main matching func
+def does_match(pattern, chunk):
+	if (
+		chunk[0] == pattern[0] and	# first byte matches
+		chunk[1] == pattern[1] and	# second byte matches
+		chunk[2] == pattern[2] and	# third byte matches
+		chunk[3] >= pattern[3]		# fourth byte is greater than or equal
+	):
+		return True
+	return False
+
+
+# halfword matching funcs
+
+def hw_match(pattern, chunk):
+	if (
+		chunk[0] == pattern[0] and
+		chunk[1] == pattern[1]
+	):
+		return True
+	return False
+
+
+# end of halfword funcs
+
+lookback = 2*2
+readamount = 2*8
+
 if exp0 or exp2:
 	values = []
-
 	offsets = []
 	try:
+		# create 'offsets' list, it's all the addresses we want to find the equivalent of
 		with open("snek/clean_addr_list.txt",'r', encoding = 'utf-8') as file:
 			lines = file.readlines()
 			for line in lines:
@@ -102,76 +175,101 @@ if exp0 or exp2:
 		print("ERROR: could not open snek/clean_addr_list.txt")
 		quit()
 	try:
-		with open("rom/bn3blue.gba", 'rb') as file:
-			lookback = 2*2
-			readamount = 2*8
+		# read data from original ROM at the addresses we got earlier
+		# construct 'values' list
+		with open(srcrom, 'rb') as file:
 			for offset in offsets:
 				file.seek(offset-lookback)
 				value = file.read(readamount)
-				# value = struct.unpack_from(,bn3, offset-lookback)
-
-				# check if it read only half of a branch opcode,
-				# if true, reread file but farther back this time.
-					# Either way, read again as hex
-				match = findhalfbl.search(value)
-				if match and match.start() == 0:
-					file.seek(offset - lookback - 2)
-					value = file.read(readamount + 4).hex()
-					#print(hex(int(value,16)))
-				else:
-					value = file.read(readamount).hex()
 				values.append(value)
-
-		# file is now closed
-	#	for value in values:
-	#		yougoi = False
-	#		blip = bytearray(value)
-	#		for match in findbl.finditer(value):
-	#			yougoi = True
-	#			place = match.start()
-	#			print("{} {}".format(value[place:place+2].hex(),value[place+2:place+4].hex()))
-	#			#value = value
-	#			print(blip[place])
-	#			#print(blip[place+2])
-	#			#blip[place] = b"(.)"
-
-	#		if yougoi:
-	#			break
-
-
 
 	except IOError:
 		print("ERROR: could not open rom/bn3blue.gba")
 		quit()
 
-	if True:
-		try:
-			with open("rom/exe3black.gba", 'rb') as file:
-				exe3 = file.read().hex()
-				ii = 0
-				for offset in offsets:
-					print(hex(offset))
-					uuu = 0
-					for match in re.finditer(values[ii],exe3):
-						print("	{}".format(hex(match.start())))
-						uuu += 1
-						if uuu > 10:
+
+
+# 0x309c4
+# 
+
+
+
+	try:
+		#with open(newrom, 'rb') as file:
+		with open(srcrom, 'rb') as file:
+			exe3 = file.read()
+		# file is closed now
+		newstring = ""
+		ii = 0
+		for value in values:
+			completematchlimit = 15
+			completematches = 0
+			bookmark = 0
+			matches = 0		# number of contiguous bytes that match the desired pattern
+			shlice = 0
+			hwamnt = len(value)/2 # amount of halfwords that need to be correct in a row
+			#print("hwamnt = {}".format(hwamnt))
+			print(hex(offsets[ii]))
+			newstring += "{}".format(hex(offsets[ii] + 0x08000000))
+			for addr in range(0, len(exe3) - 4 + 1, 2):
+				chunk = exe3[addr:addr+2]
+				val = value[shlice:shlice+2]
+
+				if hw_match(val,chunk):
+					if matches == 0:
+						bookmark = addr + lookback
+					matches += 1
+					shlice += 2
+					if matches == hwamnt:
+						print("   {}".format(hex(bookmark)))
+						newstring += "	{}".format(hex(bookmark + 0x08000000))
+						matches = 0
+						shlice = 0
+						completematches += 1
+						if completematches == completematchlimit:
+							print("   limit reached")
 							break
+				elif hw_match(value[0:2],chunk):
+					bookmark = addr + lookback
+					matches = 1
+					shlice = 2
+				else:
+					matches = 0
+					shlice = 0
 
-					ii += 1
-					if ii > 20:
-						break
+			ii += 1
+
+		# write the file with all address candidates
+		if not os.path.exists("snek"): # make sure output folder exists
+			os.mkdir("snek",0o666)
+		newfile = open("snek/matches_list.txt",'w', encoding = 'utf-8')
+		newfile.write(newstring)
+		newfile.close()
 
 
-		except IOError:
-			print("ERROR: could not open rom/exe3black.gba")
-			quit()
+	except IOError:
+		print("ERROR: could not open rom/exe3black.gba")
+		quit()
 
-#hello = b"bogos"
-#print(type(hello))
-#print("{} binted".format(hello))
-#ii = 0
-#print(type(values[ii]))
-#print("{}".format(values[ii]))
+#	try:
+#		with open(newrom, 'rb') as file:
+#			exe3 = file.read()
+#		# file is closed now
+#		ii = 0
+#		# the order of this function is totally wrong
+#		for value in values:
+#			#print(hex(offsets[ii]))
+#			for place in range(0, len(exe3) - 4 + 1, 2):
+#			    chunk = exe3[place:place+4]
+#			    for spot in range(0, len(value) - 4 + 1, 2):
+#			    	valchunk = value[spot:spot+4]
+#			    	if main_match(valchunk, chunk):
+#			        	print(i)
+#			#print(value)
+#			ii += 1
+#	except IOError:
+#		print("ERROR: could not open rom/exe3black.gba")
+#		quit()
+
 
 print("finished")
