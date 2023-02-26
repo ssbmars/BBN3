@@ -50,6 +50,8 @@
 
 .org 0x080AFA56 :: ObjectBreakHook:
 
+.org 0x080AFB1A :: ObjectBreakHook2:
+
 .org 0x080B4C68 :: GuardButtonDefineCheck:
 
 .org 0x080B4802 :: GuardButtonComboCheck:

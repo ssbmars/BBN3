@@ -596,6 +596,10 @@ bl 		EquipStoryNCPs
 bl 		objectbreak
 strh 	r0,[r5,24h]
 
+// do it again for Guardian
+.org ObjectBreakHook2
+bl 		objectbreak
+strh 	r0,[r5,24h]
 
 
 // --- bind shield input to Select
@@ -2412,20 +2416,35 @@ LoadRarity:
 
 // Replace breaking hitbox object deletion with extra damage
 objectbreak:
+	// check whether the collision was with a body hitbox, branch if yes
 	lsr		r0,18h
 	cmp		r0,20h
-	ble		@@delete	;check whether the collision was with a body hitbox, branch if it was
-
+	ble		@@delete
+	// only reduce HP if there is already a source of damage
+	mov		r0,0h
+	ldrh	r1,[r7,1Ah]
+	add		r0,r1
+	ldrh	r1,[r7,1Ch]
+	add		r0,r1
+	ldrh	r1,[r7,1Eh]
+	add		r0,r1
+	ldrh	r1,[r7,20h]
+	add		r0,r1
+	// don't count the final element, hp drain
+	cmp		r0,0
+	bgt		@@damage
+	b		@@nosub
+	@@damage:
 	ldrh 	r0,[r5,24h]
 	sub 	r0,0Ah 		;dmg value here
 	bmi 	@@delete	;branch if the subtraction results in a negative val
-
 	mov 	r15,r14
-
 @@delete:
 	mov 	r0,0h
 	mov 	r15,r14
-
+@@nosub:
+	ldrh 	r0,[r5,24h]
+	mov 	r15,r14
 
 // 11th chip glitch fix
 cust1:
