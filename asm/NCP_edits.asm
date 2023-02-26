@@ -194,7 +194,7 @@ bl HubHP
 
 
 //	Disable Compression for these programs
-/*
+
 // SuperArmor
 .org 0x0803A960 :: .db 0xFF
 
@@ -312,14 +312,14 @@ bl HubHP
 // RUN! button
 .org 0x0803AAF0 :: .db 0xFF
 
-*/
 
 
 
 
 
 
-/*
+
+
 
 //	Alternate Shape NCPs
 
@@ -501,7 +501,7 @@ bl HubHP
 .org 0x0803A4A7 :: .db 0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
 
 
-*/
+
 
 
 //==================
