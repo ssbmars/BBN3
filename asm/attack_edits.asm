@@ -232,40 +232,43 @@ backup of old values
 // ---- Real Time Chips ----
 
 // ------ Heat Charge Shot
-.org HeatChrgSL		:: .db 0x01 	;SL
+.org HeatChrgSL		:: .db 01 		;SL
 
 // ------ Buster
-//.org 0x080B10D0	:: .db 0x02 	;CL
+//.org 0x080B10D0	:: .db 02 		;CL
 
 // ------ Ice Wave
-.org IceWaveEL		:: .db 0x1E 	;EL
-.org IceWaveCL		:: .db 0x01 	;CL
+.org IceWaveEL		:: mov r0,30 	;EL
+.org IceWaveCL		:: mov r0,01 	;CL
 
 // ------ Spreader
-.org SpreaderEL		:: .db 0x0A 	;EL
-.org SpreaderCL		:: .db 0x01 	;CL
+.org SpreaderEL		:: mov r0,10 	;EL
+.org SpreaderCL		:: mov r0,01 	;CL
 
 // ------ Bomb Throw
-.org BombThrowCL	:: .db 0x01 	;CL
+.org BombThrowCL	:: mov r0,01 	;CL
 
 // ------ Fishy
-.org FishySL		:: .db 0x0A 	;SL
-.org FishyCL		:: .db 0x08 	;CL
+.org FishySL		:: .db 10 		;SL
+.org FishyCL		:: mov r0,08 	;CL
 
 // ------ Condor
-.org CondorSL		:: .db 0x16 	;SL
+.org CondorSL		:: .db 20 		;SL
 
 // ------ Boomer
-.org BoomerCL		:: .db 0x14 	;CL
+.org BoomerCL		:: mov r0,20 	;CL
 
 // ------ Rock Arm
-.org RockArmCL		:: .db 0x0F 	;CL
+.org RockArmCL		:: mov r0,15 	;CL
 
 // ------ Lava Cannon
-.org LavaCannonSL	:: .db 0x0C 	;SL
+.org LavaCannonSL
+	bl	LavaCanLvlCheck
+	.definelabel LavaCanSL,10
+	.definelabel VolcanoSL,30
 
 // ------ Black Bomb
-.org BlackBombCL	:: .db 0x19 	;CL
+.org BlackBombCL	:: mov r0,25 	;CL
 
 // ------ Burner & Burning
 .org BurnerSF1		//SF
@@ -278,52 +281,51 @@ backup of old values
 	mov		r0,1h
 
 
-
 // ------ Shock Wave
-.org ShockWaveCL	:: .db 0x03 	;CL
+.org ShockWaveCL	:: mov r0,03 	;CL
 
 // ------ Air Storm
-.org AirStormV1SL		:: .db 0x09 	;v1 pull duration
-.org AirStormV2SL		:: .db 0x09 	;v2 pull duration
-.org AirStormV3SL		:: .db 0x09 	;v3 pull duration
-.org AirStormPullDelay 	:: .db 0x01		;time between wind pulls
-.org AirStormPause		:: .db 0x0C 	;pause duration between gusts and tornadoes
-.org AirStormAtkDelay 	:: .db 0x01 	;time between tornado spawns
-.org AirStormCL			:: .db 0x08 	;CL
+.org AirStormV1SL		:: .db 09 		;v1 pull duration
+.org AirStormV2SL		:: .db 09 		;v2 pull duration
+.org AirStormV3SL		:: .db 09 		;v3 pull duration
+.org AirStormPullDelay 	:: mov r0,01	;time between wind gusts
+.org AirStormPause		:: mov r0,12 	;pause time between gusts and tornadoes
+.org AirStormAtkDelay 	:: mov r0,01 	;time between tornado spawns
+.org AirStormCL			:: mov r0,08 	;CL
 
 // ------ Ratton
-.org RattonV1CL		:: .db 0x04 	;v1 CL
-.org RattonV2CL		:: .db 0x04 	;v2 CL
-.org RattonV3CL		:: .db 0x04 	;v3 CL
+.org RattonV1CL		:: .db 04 		;v1 CL
+.org RattonV2CL		:: .db 04 		;v2 CL
+.org RattonV3CL		:: .db 04 		;v3 CL
 
 // ------ Arrow
-.org ArrowCL		:: .db 0x01 	;CL
+.org ArrowCL		:: mov r0,01	;CL
 
 // ------ Shake
-.org ShakeCL		:: .db 0x01 	;CL
+.org ShakeCL		:: mov r0,01	;CL
 
 // ------ Guts Punches
-.org GutsPunchIW	:: .db 0x3C 	;IW
+.org GutsPunchIW	:: mov r0,60 	;IW
 
 // ------ Waves
-.org WaveCL			:: .db 0x0A 	;CL
+.org WaveCL			:: mov r0,10 	;CL
 
 // ------ Spice
-.org SpiceCL		:: .db 0x1E 	;CL
+//.org SpiceCL		:: mov r0,30 	;CL
 
 // ------ Geyser
-.org GeyserCL		:: .db 0x01 	;CL
+.org GeyserCL		:: mov r0,01 	;CL
 
 // ------ Pawn
-.org PawnEL			:: .db 0x3C 	;EL on swing
+.org PawnEL			:: mov r0,60 	;EL on swing
 
 // ------ Shake
-.org ShakeMoveVal	:: .db 0x0F 	;movement count
+.org ShakeMoveVal	:: mov r0,15 	;movement count
 
 // ------ Team1
-.org Team1AtkDelay	:: .db 0x06 	;attack delay
+.org Team1AtkDelay	:: mov r0,06 	;attack delay
 
-.org Team1KF1		:: .db 0x00 	;keyframe timers
+.org Team1KF1		:: .db 0x00 	;animation KeyFrame times
 .org Team1KF2		:: .db 0x00
 .org Team1KF3		:: .db 0x01
 .org Team1KF4		:: .db 0x01
@@ -334,81 +336,59 @@ backup of old values
 //-------------------- Flinch and Status changes
 
 
-// ------ ElecSword 	;stun
-.org ElecSwordFlinch :: .db 0x00 	;FL
-.org ElecSwordStun	:: .db 0x10 	;ST
+// ------ ElecSword 	//stun
+.org ElecSwordFlinch	:: .db 0x00 	;FL
+.org ElecSwordStun		:: .db 0x10 	;ST
 
-// ------ Bomb Throw
-.org BombThrowFlinch :: .db 0x01 	;FL
+// ------ Bomb Throw	//flinch
+.org BombThrowFlinch	:: mov r3,0x01 	;FL
 
-// ------ Needler 	;no flinch
-.org NeedlerFinch	:: .db 0x00 	;FL
+// ------ Needler 		//no flinch/flash
+.org NeedlerFinch		:: mov r3,0x00 	;FL
 
-// ------ Team 1 	;flinch
-.org Team1Flinch	:: .db 0x01 	;FL
+// ------ Team 1 		//flinch, no flash
+.org Team1Flinch		:: mov r3,0x01 	;FL
 
-// ------ Shake 	;flinch
-.org ShakeFlinch	:: .db 0x01 	;FL
+// ------ Shake 		//flinch, no flash
+.org ShakeFlinch		:: mov r3,0x01 	;FL
 
-// ------ Grab Banish
-.org GrabBanishFlinch :: .db 0x07 ;bigpush+flash
+// ------ Grab Banish	//bigpush+flash
+.org GrabBanishFlinch	:: mov r7,0x07	;FL
 
-// ------ AirSword
-.org 0x080D6703 :: .db 0x06 ;bigpush
+// ------ AirSword		//bigpush
+.org AirSwordFlinch		:: .db 0x06		;FL
 
-// ------ Guts Punch
-//.org 0x080B295B
-//	.db	0x67		//bigpush on hitbox table
+// ------ Guts Punch	//bigpush, does not affect command code
+.org GutsPunchFlinch	:: .db 0x06		;FL
 
-.org 0x080B2964
-	.db 0x06		//use flinch value for bigpush
-
-
-// ------ Guts Impact
-//.org 0x080B2963
-//	.db	0x67		//bigpush, applies for normal hit but not command code
-
-.org 0x080B296C
-	.db 0x06		//use flinch value for bigpush
+// ------ Guts Impact	//bigpush, does not affect command code
+.org GutsImpactFlinch	:: .db 0x06		;FL
 
 
 // ---------- Chip Changes
 
-// Rook HP 300
-.org RookHP		:: .dh 0x0c12
+// Rook HP 200
+.org RookHP		:: .dh 200
 
-// Random Meteor HP 210
-.org RandomMeteorHP	:: .db 0xD2
+// Random Meteor HP 200
+.org RandomMeteorHP	:: .db 200
 
-// Hole Meteor HP 210
-.org HoleMeteorHP	:: .db 0xD2
+// Hole Meteor HP 200
+.org HoleMeteorHP	:: .db 200
 
-// Shot Meteor HP 210
-.org ShotMeteorHP	:: .db 0xD2
+// Shot Meteor HP 200
+.org ShotMeteorHP	:: .db 200
 
 // Needlers' HP 150
-.org NeedlerV1HP	:: .db 0x96 	;v1
-.org NeedlerV2HP	:: .db 0x96 	;v2
-.org NeedlerV3HP	:: .db 0x96 	;v3
+.org NeedlerV1HP	:: .db 150 	;v1
+.org NeedlerV2HP	:: .db 150 	;v2
+.org NeedlerV3HP	:: .db 150 	;v3
 
 // Team1 HP 150
-.org Team1HP		:: .db 0x96
+.org Team1HP		:: mov r0,150
 
 // PoisonMask 40
-.org PoisonMaskHP	:: .db 0x28
-
-
-// Prism 500 HP
-.org 0x080DFC38
-	mov		r0,7Dh
-	lsl		r0,2h
-
-// prevent prism from resetting its HP to max every frame
-.org 0x080DFCAA
-	nop
-	nop
-
-//prism doesn't spread damage from the attack that destroys it
+.org PoisonMaskHP	:: mov r0,40
 
 
 .if IS_PVP
@@ -420,7 +400,6 @@ backup of old values
 .org 0x080E7818		//sensor series object duration
 	.dh		0x1A4
 
-.else
 .endif
 
 
@@ -430,7 +409,7 @@ backup of old values
 	
 	// Poltergeist
 	.org PoltergeistAtk
-		.db 0x46	//70 dmg
+		mov r6,70
 	
 	// Muramasa cap at 500
 	.org MuramasAtk1
@@ -487,15 +466,14 @@ backup of old values
 
 //-------- Chip Element Changes
 
-//actually change the hitbox element for magnums
-.org MagnumElem		:: .db 0x00
+// Magnum series Null
+.org MagnumElem		:: mov r0,0x00
 
 // Guardian Null
-.org GuardianElem	:: .db 0x00
+.org GuardianElem	:: mov r0,0x00
 
 // Sensor series Null
-.org 0x080E77D4
-	mov		r0,0h
+.org SensorElem		:: mov r0,0x00
 
 
 
@@ -564,26 +542,23 @@ backup of old values
 
 
 // ------ Rope
-//.org 0x08238B28 :: .db 0x 	;startup 1
-//.org 0x08238B3C :: .db 0x 	;startup 2
-.org RopeSL1		:: .db 0x04 	;pre attack 1
-.org RopeSL2		:: .db 0x06 	;pre attack 2
-//.org 0x08238B78 :: .db 0x 	;???
-.org RopeEL1		:: .db 0x04 	;endlag
-.org RopeEL2		:: .db 0x04 	;recoil 1
-.org RopeEL3		:: .db 0x04 	;recoil 2
-.org RopeCL			:: .db 0x14 	;CL
+.org RopeSL1	:: .db 0x04 	;pre attack 1
+.org RopeSL2	:: .db 0x06 	;pre attack 2
+.org RopeEL1	:: .db 0x04 	;endlag
+.org RopeEL2	:: .db 0x04 	;recoil 1
+.org RopeEL3	:: .db 0x04 	;recoil 2
+.org RopeCL		:: mov r0,20 	;CL
 
 
 // ------ Magnum
-.org MagnumV1Spd	:: .db 0x18 	;v1 cursor speed
-.org MagnumV2Spd	:: .db 0x18 	;v2 crsr spd
-.org MagnumV3Spd	:: .db 0x08 	;v3 crsr spd
-.org MagnumVisuals	:: .db 0x19 	;crsr sprite keyframe cycle
+.org MagnumV1Spd	:: .db 16 	;v1 cursor speed
+.org MagnumV2Spd	:: .db 16 	;v2 crsr spd
+.org MagnumV3Spd	:: .db 08 	;v3 crsr spd
+.org MagnumAnim		:: .db 16 	;crsr sprite keyframe cycle
 
 // ------ MetalMan
 
-.org MetalManIW		:: .db 0x3c 	;IW
+.org MetalManIW		:: mov r0,60 	;IW
 
 
 
@@ -600,32 +575,31 @@ backup of old values
 	nop
 //charge shot command (double hit)
 .org 0x080CA27C
-	mov		r6,32h	//first hit, weak
+	mov		r6,50	//first hit, weak
 	nop
 	nop
 	nop
 .org 0x080CA2D4
-	mov		r6,0h	//second hit, use normal atk val (boostable)
+	mov		r6,00	//second hit, use normal atk val (boostable)
 	nop
 
 //extra wheels from the highest tier command code
 .org 0x080CA34A
-	mov		r6,28h
+	mov		r6,40
 	nop
 	nop
 .org 0x080CA356
-	mov		r6,28h
+	mov		r6,40
 	nop
 	nop
 // B + Left command
 .org 0x080CA0D6
-	mov		r6,46h	//this damage is added to the normal atk value (boostable)
+	mov		r6,70	//this atk is added to the normal atk value (boostable)
 	nop
 
 
-
 //185 LavaStage 25
-.org LavaPanelAtk	:: .db 0x19
+.org LavaPanelAtk	:: add r1,25
 
 
 // Balance HP reduction
@@ -633,60 +607,64 @@ backup of old values
 	bl	BalanceHPReduction	
 
 // Shake: fix damage override exploit
-.org 0x080E7B34
+.org ShakeDmgAddr
 	ldrh	r6,[r5,2Ch]
 
 
-
 // Friendly Viruses
-;disable redistributing food
+//disable redistributing food
 	.org FVRedist1 :: .dh 0x0000
 	.org FVRedist2 :: .db 0x00
-;disable feeding virus
-	.org FVFeeding :: .db 0x00 ;max virus food
-;branch if max not reached, change to unconditional branch
-	.org FVBranch :: .dh 0xE00D 
-;value to increase FV atk by when feeding
-	.org FVAtkPlusVal :: .db 0x00 
+//disable feeding virus (always branch as if viruses are full)
+	.org FVBranch 
+		b	.+15*2
+//value to increase FV atk by when feeding
+	.org FVAtkPlusVal
+		mov r3,0
 
 
 
 ;change value check for skipping FV version
 .org LoadFVLogic
-cmp r2,1h
-bge 80CBD96h
+	cmp r2,1h
+	bge .+6*2
 
 //181 KillerEye
-	.org KllrEye4Dmg :: .db 0x00 	;omega 0
-	.org KllrEyeElem :: .db 0x00 	;elem actually be null
+	.org KllrEye4Dmg :: .db 00 	;omega 0
+	.org KllrEyeElem :: .db 00 	;elem actually be null
 //speed values
-	.org KllrEyeStartSpd :: .db 0x1E	;first cycle delay
-	.org KllrEyeCycleSpd :: .db 0x1E	;cycle speed
-	.org KllrEyeCursorSpd :: .db 0x1E ;laserdot timing
+	.org KllrEyeStartSpd	;first cycle delay
+		mov r0,30
+	.org KllrEyeCycleSpd	;cycle speed
+		mov r0,30	
+	.org KllrEyeCursorSpd	;laserdot timing
+		mov r0,30
 
 //182 Scuttle
 	.org ScuttleBeamDmg :: .db 100
 	.org ScuttleFireDmg :: .db 130
 	.org ScuttleIceDmg 	:: .db 130 
 	.org ScuttleElecDmg :: .db 100 
-	.org ScuttleVineDmg :: .db 0x00 ;vine
-	.org ScuttleOmegaDmg :: .db 0x00 ;omega
+	.org ScuttleVineDmg :: .db 00	;vine
+	.org ScuttleOmegaDmg :: .db 00	;omega
 //speed values
-	.org ScuttleCycleSpd :: .db 0x0C ;cycle speed
-	.org ScuttleStartSpd :: .db 0x0C ;stall speed at first
+	.org ScuttleCycleSpd	;cycle speed
+		mov r0,12 
+	.org ScuttleStartSpd	;stall speed at first
+		mov r0,12 
 
 
 
 // Custom Sword damage logic
 .org CustSwordAtkLogic1
-	b 		8010632h
+	b 		.+12*2
 
 .org CustSwordAtkLogic2
-	sub 	r1,0h
-	mov 	r0,4Bh
+	sub 	r1,0
+	mov 	r0,75
 
 .org CustSwordAtkLogic3
-	add 	r0,38h
+	add 	r0,56
 
 
 //	the rest of the Friendly Viruses
@@ -737,18 +715,17 @@ bge 80CBD96h
 //disabled because it affects longsword and probably isn't necessary anyways
 
 // ------ Meteor
-.org MeteorFlinch :: .db 0x01 	;FL
+.org MeteorFlinch :: mov r3,01 	;FL
 
 // ------ LavaStage
-.org LavaPanelFlinch :: .db 0x01 	;FL
+//.org LavaPanelFlinch :: mov r3,01 	;FL
 
 // ------ Guts Machinegun
 .org GutsMachGunFlinch		:: .db 0x00		;rapid hits
 .org GutsMachGunFinalFlinch :: .db 0x00		;final hit
+// vanilla values are used when breakbuster is active
 
 
-
-.else
 .endif
 
 
