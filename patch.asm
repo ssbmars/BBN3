@@ -539,12 +539,11 @@ bl 		EquipStoryNCPs
 .org 0x080B95C4
 	bne		80B95F6h
 
-.else
 .endif
 
 
 .org TimeFreezeFadeTime
-	mov r0,1Eh 	;reduced fade-in time on timefreeze
+//	mov r0,1Eh 	;reduced fade-in time on timefreeze
 
 .org CapcomScreenWaitTime	//logo boot start
 	mov	r0,6h
@@ -1416,6 +1415,18 @@ BurnerLvlCheck:
 	strb	r0,[r5,10h]
 	mov		r15,r14
 
+LavaCanLvlCheck:
+	mov		r0,61h
+	ldrb	r0,[r5,r0]
+	cmp		r0,2
+	bgt		@@slow
+	mov		r0,LavaCanSL	// startup frames for v1-3
+	b		@@exit
+	@@slow:
+	mov		r0,VolcanoSL	// volcano startup frames
+	@@exit:
+	strh	r0,[r5,0x22]
+	mov		r15,r14
 
 DragShoesCheck:
 	ldr		r3,[r7,4h]
