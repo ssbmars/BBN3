@@ -845,7 +845,24 @@ bl 		SetStyle
 	bl		BarrierRemoval
 	nop
 
+// Hook Aura chips to not count down in timefreeze
+// Aura
+.org 0x080ADA3E
+	ldr		r1,=AuraCountDown|1
+	bx		r1
+	.pool
 
+// LifeAura
+.org 0x080ADA6C
+	ldr		r1,=AuraCountDown|1
+	bx		r1
+	.pool
+
+// DarkAura
+.org 0x080ADA9E
+	ldr		r1,=AuraCountDown|1
+	bx		r1
+	.pool
 
 
 //hook the collision check to allow aura removal to pierce intangibility
@@ -951,6 +968,24 @@ Nothing that branches to any of this code uses hardcoded addresses, instead they
 // ====================================================
 // ========================================================== PUT NEW HOOKED CODE HERE
 
+AuraCountDown:
+	ldr		r1,=02006CA0h
+	ldrb	r1,[r1,0x2]
+	cmp		r1,0x4
+	bne		@@exit
+
+	ldrh	r0,[r7,0x16]
+	sub		r0,1
+	strh	r0,[r7,0x16]
+	beq		@@delete
+	@@exit:
+	mov		r15,r14
+
+	@@delete:
+	mov		r0,0
+	strb	r0,[r7,0x6]
+	mov		r15,r14
+	.pool
 
 
 CursorMove:
@@ -1401,8 +1436,6 @@ AirSwordHitboxChooser:
 	mov		r15,r14
 
 
-
-
 BurnerLvlCheck:
 	mov		r0,61h
 	ldrb	r0,[r5,r0]
@@ -1414,6 +1447,7 @@ BurnerLvlCheck:
 
 	strb	r0,[r5,10h]
 	mov		r15,r14
+
 
 LavaCanLvlCheck:
 	mov		r0,61h
