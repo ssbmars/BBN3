@@ -42,7 +42,7 @@ Color	the palette for the chip art
 
 set	Cannon
 
-	lim		3h
+	lim		3
 
 
 
@@ -50,7 +50,7 @@ set	Cannon
 
 set	Hicannon
 
-	lim		3h
+	lim		3
 
 	atk		100
 
@@ -60,7 +60,7 @@ set	Hicannon
 set	Mcannon
 	code1	codeSTAR,5
 	
-	lim		2h
+	lim		2
 
 	atk		180
 
@@ -69,7 +69,7 @@ set	Mcannon
 
 set	Airshot1
 
-	lim		3h
+	lim		3
 
 
 
@@ -78,7 +78,7 @@ set	Airshot1
 
 set	Airshot2
 
-	lim		3h
+	lim		3
 
 
 
@@ -87,7 +87,7 @@ set	Airshot2
 
 set	Airshot3
 
-	lim		3h
+	lim		3
 
 
 
@@ -96,7 +96,7 @@ set	Airshot3
 
 set	Lavacan1
 	code1	0FFh,4h
-	lim		3h
+	lim		3
 
 	atk		110
 
@@ -105,7 +105,7 @@ set	Lavacan1
 
 set	Lavacan2
 
-	lim		3h
+	lim		3
 
 	atk		140
 
@@ -114,7 +114,7 @@ set	Lavacan2
 
 set	Lavacan3
 
-	lim		2h
+	lim		2
 	mb		4
 	atk		170
 
@@ -123,7 +123,7 @@ set	Lavacan3
 
 set	ShotGun
 	code	1Ah,0FFh,0FFh,0FFh,0FFh,0FFh
-	lim		3h
+	lim		3
 
 
 
@@ -132,7 +132,7 @@ set	ShotGun
 
 set	VGun
 	code	1Ah,0FFh,0FFh,0FFh,0FFh,0FFh
-	lim		3h
+	lim		3
 
 
 
@@ -141,7 +141,7 @@ set	VGun
 
 set	SideGun
 	code	1Ah,0FFh,0FFh,0FFh,0FFh,0FFh
-	lim		3h
+	lim		3
 
 
 
@@ -150,7 +150,7 @@ set	SideGun
 
 set	Spreader
 	code	codeM,codeN,codeO,codeSTAR,codeNONE,codeNONE
-	lim		3h
+	lim		3
 
 
 
@@ -159,7 +159,7 @@ set	Spreader
 
 set	Bubbler
 	code	0h,2h,3h,4h,0Fh,0FFh
-	lim		3h
+	lim		3
 
 	atk		100
 
@@ -169,7 +169,7 @@ set	Bubbler
 
 set	BubV
 	code	3h,4h,5h,12h,0FFh,0FFh
-	lim		3h
+	lim		3
 
 	atk		100
 
@@ -180,7 +180,7 @@ set	BubV
 
 set	BublSide
 	code	1h,4h,5h,6h,11h,0FFh
-	lim		3h
+	lim		3
 
 	atk		100
 
@@ -189,7 +189,7 @@ set	BublSide
 
 set	Heatshot
 	code1	0FFh,5h
-	lim		3h
+	lim		3
 
 	atk		80
 
@@ -199,7 +199,7 @@ set	Heatshot
 set	HeatV
 	code1	0FFh,4h
 	code1	0FFh,5h
-	lim		3h
+	lim		3
 
 	atk		80
 
@@ -208,7 +208,7 @@ set	HeatV
 
 set	HeatSide
 	code1	0FFh,5h
-	lim		3h
+	lim		3
 
 	atk		80
 
@@ -217,7 +217,7 @@ set	HeatSide
 
 set	MiniBomb
 	code	1Ah,0FFh,0FFh,0FFh,0FFh,0FFh
-	lim		3h
+	lim		3
 
 
 
@@ -226,7 +226,7 @@ set	MiniBomb
 
 set	SnglBomb
 	code	1Ah,0FFh,0FFh,0FFh,0FFh,0FFh
-	lim		3h
+	lim		3
 
 	atk		150
 
@@ -235,7 +235,7 @@ set	SnglBomb
 
 set	DublBomb
 	code	1Ah,0FFh,0FFh,0FFh,0FFh,0FFh
-	lim		3h
+	lim		3
 
 	atk		100
 
@@ -244,7 +244,7 @@ set	DublBomb
 
 set	TrplBomb
 
-	lim		2h
+	lim		2
 
 	atk		80
 
@@ -253,7 +253,7 @@ set	TrplBomb
 
 set	CannBall
 	code	1Ah,0FFh,0FFh,0FFh,0FFh,0FFh
-	lim		2h
+	lim		2
 
 	atk		250
 
@@ -262,7 +262,7 @@ set	CannBall
 
 set	IceBall
 	code1	0FFh,5h
-	lim		2h
+	lim		2
 	atk		200
 
 
@@ -271,7 +271,7 @@ set	IceBall
 
 set	LavaBall
 	code1	0FFh,5h
-	lim		2h
+	lim		2
 	atk		180
 
 
@@ -280,7 +280,7 @@ set	LavaBall
 
 set	BlkBomb1
 
-	lim		3h
+	lim		3
 //	mb		7
 
 
@@ -289,7 +289,7 @@ set	BlkBomb1
 
 set	BlkBomb2
 	code1	codeR,3
-	lim		2h
+	lim		2
 //	mb		9
 	atk		160
 
@@ -298,7 +298,7 @@ set	BlkBomb2
 
 set	BlkBomb3
 
-	lim		1h
+	lim		1
 	mb		6
 	atk		200
 
@@ -307,7 +307,7 @@ set	BlkBomb3
 
 set	Sword
 
-	lim		3h
+	lim		3
 
 
 
@@ -316,7 +316,7 @@ set	Sword
 
 set	WideSwrd
 
-	lim		3h
+	lim		3
 
 
 
@@ -325,7 +325,7 @@ set	WideSwrd
 
 set	LongSwrd
 
-	lim		3h
+	lim		3
 
 
 
@@ -334,7 +334,7 @@ set	LongSwrd
 
 set	FireSwrd
 
-	lim		2h
+	lim		2
 	atk		140
 
 
@@ -343,7 +343,7 @@ set	FireSwrd
 
 set	AquaSwrd
 
-	lim		2h
+	lim		2
 	atk		180
 
 
@@ -352,7 +352,7 @@ set	AquaSwrd
 
 set	ElecSwrd
 	code1	14h,4h
-	lim		2h
+	lim		2
 	atk		140
 
 
@@ -361,7 +361,7 @@ set	ElecSwrd
 
 set	BambSwrd
 
-	lim		2h
+	lim		2
 	atk		150
 
 
@@ -370,7 +370,7 @@ set	BambSwrd
 
 set	CustSwrd
 	code1	0FFh,3h
-	lim		2h
+	lim		2
 
 
 
@@ -379,16 +379,15 @@ set	CustSwrd
 
 set	VarSwrd
 	code 	11h,0FFh,0FFh,0FFh,0FFh,0FFh
-	lim		0h
+	lim		0
 	mb		9
 	atk		100
-	//pos		200
-	//clss 	M
+
 
 
 set	StepSwrd
 
-	lim		3h
+	lim		3
 	atk		200
 
 
@@ -397,7 +396,7 @@ set	StepSwrd
 
 set	StepCros
 	code1	codeK,4
-	lim		3h
+	lim		3
 //	mb		9
 	atk		150
 
@@ -406,7 +405,7 @@ set	StepCros
 
 set	Panic
 	code	0FFh,0FFh,0FFh,0FFh,0FFh,0FFh
-	lim		3h
+	lim		3
 
 	pos 0
 
@@ -415,7 +414,7 @@ set	Panic
 
 set	AirSwrd
 	code	1Ah,0FFh,0FFh,0FFh,0FFh,0FFh
-	lim		3h
+	lim		3
 
 	atk		140
 
@@ -424,7 +423,7 @@ set	AirSwrd
 
 set	Slasher
 
-	lim		1h
+	lim		1
 
 
 
@@ -433,7 +432,7 @@ set	Slasher
 
 set	ShockWav
 
-	lim		3h
+	lim		3
 	sublv	3h
 
 
@@ -443,7 +442,7 @@ set	ShockWav
 set	SonicWav
 
 
-	lim		3h
+	lim		3
 	sublv	3h
 
 
@@ -451,7 +450,7 @@ set	SonicWav
 
 set	DynaWave
 	code1	0FFh,4h
-	lim		3h
+	lim		3
 	sublv	3h
 
 
@@ -460,7 +459,7 @@ set	DynaWave
 
 set	GutPunch
 
-	lim		3h
+	lim		3
 
 	atk		140
 
@@ -469,7 +468,7 @@ set	GutPunch
 
 set	GutStrgt
 
-	lim		2h
+	lim		2
 
 	atk		160
 
@@ -478,7 +477,7 @@ set	GutStrgt
 
 set	GutImpct
 
-	lim		1h
+	lim		1
 
 	atk		200
 .if IS_PVP
@@ -490,7 +489,7 @@ set	GutImpct
 
 set	AirStrm1
 
-	lim		2h
+	lim		2
 
 	atk		60
 
@@ -499,7 +498,7 @@ set	AirStrm1
 
 set	AirStrm2
 
-	lim		1h
+	lim		1
 
 	atk		80
 
@@ -508,7 +507,7 @@ set	AirStrm2
 
 set	AirStrm3
 	code1	14h,4h
-	lim		1h
+	lim		1
 	atk		100
 
 
@@ -517,7 +516,7 @@ set	AirStrm3
 
 set	DashAtk
 	code	1Ah,0FFh,0FFh,0FFh,0FFh,0FFh
-	lim		3h
+	lim		3
 
 
 
@@ -526,7 +525,7 @@ set	DashAtk
 
 set	Burner
 
-	lim		3h
+	lim		3
 
 	atk		250
 
@@ -535,7 +534,7 @@ set	Burner
 
 set	Totem1
 	code1	0FFh,4h
-	lim		2h
+	lim		2
 
 	atk		140
 
@@ -544,7 +543,7 @@ set	Totem1
 
 set	Totem2
 
-	lim		2h
+	lim		2
 
 	atk		160
 
@@ -553,7 +552,7 @@ set	Totem2
 
 set	Totem3
 
-	lim		1h
+	lim		1
 
 
 
@@ -562,7 +561,7 @@ set	Totem3
 
 set	Ratton1
 
-	lim		3h
+	lim		3
 
 	atk		110
 
@@ -571,7 +570,7 @@ set	Ratton1
 
 set	Ratton2
 
-	lim		3h
+	lim		3
 
 	atk		130
 
@@ -580,7 +579,7 @@ set	Ratton2
 
 set	Ratton3
 
-	lim		2h
+	lim		2
 
 	atk		150
 
@@ -589,7 +588,7 @@ set	Ratton3
 
 set	Wave
 
-	lim		3h
+	lim		3
 	mb		4
 	atk		100
 
@@ -598,7 +597,7 @@ set	Wave
 
 set	RedWave
 
-	lim		3h
+	lim		3
 	mb		4
 	atk		100
 
@@ -607,7 +606,7 @@ set	RedWave
 
 set	MudWave
 	code1	14h,3h
-	lim		2h
+	lim		2
 	mb		4
 
 
@@ -616,7 +615,7 @@ set	MudWave
 
 set	Hammer
 	code	1Ah,0FFh,0FFh,0FFh,0FFh,0FFh
-	lim		2h
+	lim		2
 
 	atk		220
 
@@ -625,7 +624,7 @@ set	Hammer
 
 set	Tornado
 
-	lim		2h
+	lim		2
 
 
 
@@ -636,7 +635,7 @@ set	Zapring1
 	code1	0xFF,5
 	code1	codeK,3
 
-	lim		3h
+	lim		3
 	atk		30
 
 
@@ -644,7 +643,7 @@ set	Zapring1
 
 set	Zapring2
 
-	lim		2h
+	lim		2
 
 	atk		40
 
@@ -653,7 +652,7 @@ set	Zapring2
 
 set	Zapring3
 
-	lim		1h
+	lim		1
 
 	atk		50
 
@@ -662,7 +661,7 @@ set	Zapring3
 
 set	YoYo1
 	code1	0FFh,5h
-	lim		3h
+	lim		3
 //	mb		9
 
 
@@ -671,7 +670,7 @@ set	YoYo1
 
 set	YoYo2
 
-	lim		2h
+	lim		2
 //	mb		9
 
 
@@ -680,7 +679,7 @@ set	YoYo2
 
 set	YoYo3
 
-	lim		1h
+	lim		1
 //	mb		9
 
 .if IS_PVP
@@ -694,7 +693,7 @@ set	YoYo3
 
 set	Spice1
 	code1	0FFh,5h
-	lim		3h
+	lim		3
 
 
 
@@ -703,7 +702,7 @@ set	Spice1
 
 set	Spice2
 
-	lim		2h
+	lim		2
 
 
 
@@ -712,7 +711,7 @@ set	Spice2
 
 set	Spice3
 
-	lim		1h
+	lim		1
 
 
 
@@ -721,7 +720,7 @@ set	Spice3
 
 set	Lance
 	code	1Ah,0FFh,0FFh,0FFh,0FFh,0FFh
-	lim		3h
+	lim		3
 
 
 
@@ -730,7 +729,7 @@ set	Lance
 
 set	Scuttlst
 	code	3h,0FFh,0FFh,0FFh,0FFh,0FFh
-	lim		1h
+	lim		1
 	mb		6
 
 
@@ -739,7 +738,7 @@ set	Scuttlst
 
 set	Momogra
 	code	06h,0FFh,0FFh,0FFh,0FFh,0FFh
-	lim		1h
+	lim		1
 
 
 
@@ -748,7 +747,7 @@ set	Momogra
 
 set	Rope1
 	code	1Ah,0FFh,0FFh,0FFh,0FFh,0FFh
-	lim		3h
+	lim		3
 
 	atk		100
 
@@ -757,7 +756,7 @@ set	Rope1
 
 set	Rope2
 
-	lim		3h
+	lim		3
 //	mb		6
 	atk		130
 
@@ -766,7 +765,7 @@ set	Rope2
 
 set	Rope3
 	code1	0FFh,4h
-	lim		2h
+	lim		2
 	mb		5
 	atk		160
 
@@ -775,7 +774,7 @@ set	Rope3
 
 set	Magnum1
 	code	0h,1h,2h,0Ch,12h,0FFh
-	lim		1h
+	lim		1
 	elem 	null
 	atk		100
 
@@ -784,7 +783,7 @@ set	Magnum1
 
 set	Magnum2
 
-	lim		1h
+	lim		1
 //	mb		6
 	elem 	null
 	atk		100
@@ -794,7 +793,7 @@ set	Magnum2
 
 set	Magnum3
 
-	lim		1h
+	lim		1
 //	mb		9
 	elem 	null
 
@@ -804,7 +803,7 @@ set	Magnum3
 
 set	Boomer1
 	code	1Ah,0FFh,0FFh,0FFh,0FFh,0FFh
-	lim		3h
+	lim		3
 
 	atk		90
 
@@ -814,7 +813,7 @@ set	Boomer1
 set	Boomer2
 	code1	5h,4h
 	code1	0FFh,5h
-	lim		2h
+	lim		2
 
 	atk		130
 
@@ -823,7 +822,7 @@ set	Boomer2
 
 set	Boomer3
 	code1	0FFh,4h
-	lim		1h
+	lim		1
 
 	atk		150
 
@@ -832,7 +831,7 @@ set	Boomer3
 
 set	RndmMetr
 	code1	14h,3h
-	lim		2h
+	lim		2
 
 	atk		50
 
@@ -841,7 +840,7 @@ set	RndmMetr
 
 set	HoleMetr
 
-	lim		2h
+	lim		2
 
 	atk		75
 
@@ -850,7 +849,7 @@ set	HoleMetr
 
 set	ShotMetr
 
-	lim		2h
+	lim		2
 
 
 
@@ -859,7 +858,7 @@ set	ShotMetr
 
 set	IceWave1
 	code	1Ah,0FFh,0FFh,0FFh,0FFh,0FFh
-	lim		3h
+	lim		3
 
 	atk		140
 
@@ -868,7 +867,7 @@ set	IceWave1
 
 set	IceWave2
 	code1	0FFh,5h
-	lim		3h
+	lim		3
 
 	atk		160
 
@@ -877,7 +876,7 @@ set	IceWave2
 
 set	IveWave3
 	code1	14h,4h
-	lim		2h
+	lim		2
 
 	atk		180
 
@@ -886,7 +885,7 @@ set	IveWave3
 
 set	Plasma1
 
-	lim		2h
+	lim		2
 
 	atk		100
 
@@ -895,7 +894,7 @@ set	Plasma1
 
 set	Plasma2
 
-	lim		2h
+	lim		2
 	atk		75
 
 
@@ -904,7 +903,7 @@ set	Plasma2
 
 set	Plasma3
 
-	lim		2h
+	lim		2
 
 	atk		50
 
@@ -913,7 +912,7 @@ set	Plasma3
 
 set	Arrow1
 	code	codeSTAR,0xFF,0xFF,0xFF,0xFF,0xFF
-	lim		3h
+	lim		3
 
 	atk		140
 
@@ -922,7 +921,7 @@ set	Arrow1
 
 set	Arrow2
 
-	lim		3h
+	lim		3
 //	mb		7
 	atk		160
 
@@ -931,7 +930,7 @@ set	Arrow2
 
 set	Arrow3
 
-	lim		2h
+	lim		2
 //	mb		9
 	atk		180
 
@@ -940,7 +939,7 @@ set	Arrow3
 
 set	TimeBomb
 
-	lim		2h
+	lim		2
 	atk		190
 
 
@@ -949,7 +948,7 @@ set	TimeBomb
 
 set	Mine
 	code1	0FFh,5h
-	lim		1h
+	lim		1
 
 	atk		200
 
@@ -958,7 +957,7 @@ set	Mine
 
 set	Sensor1
 //	code1	0FFh,4h
-	lim		2h
+	lim		2
 //	mb		8
 	atk		160
 	elem	null
@@ -967,7 +966,7 @@ set	Sensor1
 
 set	Sensor2
 //	code1	0FFh,3h
-	lim		2h
+	lim		2
 	mb		4
 	atk		160
 	elem	null
@@ -977,7 +976,7 @@ set	Sensor2
 
 set	Sensor3
 	code1	0FFh,4h
-	lim		1h
+	lim		1
 	mb		9
 	atk		100
 	elem	null
@@ -986,7 +985,7 @@ set	Sensor3
 
 set	CrsShld1
 	code	1Ah,0FFh,0FFh,0FFh,0FFh,0FFh
-	lim		3h
+	lim		3
 
 	atk		210
 
@@ -995,7 +994,7 @@ set	CrsShld1
 
 set	CrsShld2
 
-	lim		3h
+	lim		3
 
 	atk		230
 
@@ -1004,7 +1003,7 @@ set	CrsShld2
 
 set	CrsShld3
 
-	lim		2h
+	lim		2
 
 
 
@@ -1013,7 +1012,7 @@ set	CrsShld3
 
 set	Geyser
 
-	lim		2h
+	lim		2
 
 
 
@@ -1022,7 +1021,7 @@ set	Geyser
 
 set	PoisMask
 	code	1Ah,0FFh,0FFh,0FFh,0FFh,0FFh
-	lim		2h
+	lim		2
 
 
 
@@ -1032,7 +1031,7 @@ set	PoisMask
 set	PoisFace
 	code1	14h,3h
 	code1	0FFh,5h
-	lim		1h
+	lim		1
 
 
 
@@ -1041,7 +1040,7 @@ set	PoisFace
 
 set	Shake1
 
-	lim		3h
+	lim		3
 
 	atk		110
 
@@ -1050,7 +1049,7 @@ set	Shake1
 
 set	Shake2
 
-	lim		2h
+	lim		2
 
 	atk		40
 
@@ -1059,7 +1058,7 @@ set	Shake2
 
 set	Shake3
 
-	lim		2h
+	lim		2
 
 	atk		90
 
@@ -1068,7 +1067,7 @@ set	Shake3
 
 set	BigWave
 
-	lim		3h
+	lim		3
 	mb		9
 
 
@@ -1077,16 +1076,16 @@ set	BigWave
 
 set	Volcano
 
-	lim		1h
+	lim		1
 	mb		9
-	atk		120
+	atk		150
 
 
 
 
 set	Condor
 
-	lim		2h
+	lim		2
 	atk		210
 
 
@@ -1095,7 +1094,7 @@ set	Condor
 
 set	Burning
 
-	lim		2h
+	lim		2
 
 	atk		180
 
@@ -1104,7 +1103,7 @@ set	Burning
 
 set	FireRatn
 
-	lim		2h
+	lim		2
 
 
 
@@ -1113,7 +1112,7 @@ set	FireRatn
 
 set	Guard
 	code	1Ah,0FFh,0FFh,0FFh,0FFh,0FFh
-	lim		3h
+	lim		3
 
 
 
@@ -1122,7 +1121,7 @@ set	Guard
 
 set	PanlOut1
 	code	1Ah,0FFh,0FFh,0FFh,0FFh,0FFh
-	lim		3h
+	lim		3
 
 
 
@@ -1131,7 +1130,7 @@ set	PanlOut1
 
 set	PanlOut3
 	code	1Ah,0FFh,0FFh,0FFh,0FFh,0FFh
-	lim		3h
+	lim		3
 
 
 
@@ -1140,7 +1139,7 @@ set	PanlOut3
 
 set	Recov10
 	code	1Ah,0FFh,0FFh,0FFh,0FFh,0FFh
-	lim		3h
+	lim		3
 
 
 
@@ -1149,7 +1148,7 @@ set	Recov10
 
 set	Recov30
 	code	0FFh,0FFh,0FFh,0FFh,0FFh,0FFh
-	lim		3h
+	lim		3
 
 	pos		0
 
@@ -1158,7 +1157,7 @@ set	Recov30
 
 set	Recov50
 	code	0FFh,0FFh,0FFh,0FFh,0FFh,0FFh
-	lim		3h
+	lim		3
 
 	pos		0
 
@@ -1167,7 +1166,7 @@ set	Recov50
 
 set	Recov80
 	code	1Ah,0FFh,0FFh,0FFh,0FFh,0FFh
-	lim		3h
+	lim		3
 
 
 
@@ -1176,7 +1175,7 @@ set	Recov80
 
 set	Recov120
 	code	0FFh,0FFh,0FFh,0FFh,0FFh,0FFh
-	lim		3h
+	lim		3
 
 	pos		0
 
@@ -1185,7 +1184,7 @@ set	Recov120
 
 set	Recov150
 	code	0Dh,0Fh,11h,13h,0FFh,0FFh
-	lim		2h
+	lim		2
 
 
 
@@ -1194,7 +1193,7 @@ set	Recov150
 
 set	Recov200
 	code1	0FFh,3h
-	lim		1h
+	lim		1
 	mb		8
 
 
@@ -1204,7 +1203,7 @@ set	Recov200
 set	Recov300
 	code1	0FFh,2h
 	code1	0FFh,3h
-	lim		1h
+	lim		1
 	mb		9
 
 
@@ -1213,7 +1212,7 @@ set	Recov300
 
 set	PanlGrab
 	code	1Ah,0FFh,0FFh,0FFh,0FFh,0FFh
-	lim		3h
+	lim		3
 
 
 
@@ -1222,7 +1221,7 @@ set	PanlGrab
 
 set	AreaGrab
 	code	1Ah,0FFh,0FFh,0FFh,0FFh,0FFh
-	lim		2h
+	lim		2
 
 
 
@@ -1231,7 +1230,7 @@ set	AreaGrab
 
 set	Snake
 
-	lim		2h
+	lim		2
 	type	2h
 	atk		40
 
@@ -1240,7 +1239,7 @@ set	Snake
 
 set	Team1
 	code	1Ah,0FFh,0FFh,0FFh,0FFh,0FFh
-	lim		2h
+	lim		2
 
 	atk		60
 	clss	4h
@@ -1249,7 +1248,7 @@ set	Team1
 
 set	MetaGel1
 	code	6h,0Bh,0Eh,0Fh,0FFh,0FFh
-	lim		1h
+	lim		1
 	atk		60
 	clss	4h
 .if IS_PVP
@@ -1260,7 +1259,7 @@ set	MetaGel1
 
 set	MetaGel2
 	code	0FFh,0FFh,0FFh,0FFh,0FFh,0FFh
-	lim		0h
+	lim		0
 	fam		0
 	pos		0
 	color	black
@@ -1270,7 +1269,7 @@ set	MetaGel2
 
 set	MetaGel3
 	code	0FFh,0FFh,0FFh,0FFh,0FFh,0FFh
-	lim		0h
+	lim		0
 	fam		0
 	pos		0
 	color	black
@@ -1281,7 +1280,7 @@ set	MetaGel3
 set	GrabBack
 
 //	sublv	0Eh		//this gives it bigpush
-	lim		2h
+	lim		2
 	type	2h
 	atk		20
 
@@ -1289,7 +1288,7 @@ set	GrabBack
 
 
 set	GrabRvng
-	lim		1h
+	lim		1
 	type	2h
 	atk		40
 
@@ -1299,7 +1298,7 @@ set	GrabRvng
 
 set	Geddon1
 	code	1Ah,0FFh,0FFh,0FFh,0FFh,0FFh
-	lim		3h
+	lim		3
 
 
 
@@ -1308,7 +1307,7 @@ set	Geddon1
 
 set	Geddon2
 
-	lim		1h
+	lim		1
 
 
 
@@ -1317,7 +1316,7 @@ set	Geddon2
 
 set	Geddon3
 
-	lim		1h
+	lim		1
 	mb		9
 
 
@@ -1326,7 +1325,7 @@ set	Geddon3
 
 set	RockCube
 	code	1Ah,0FFh,0FFh,0FFh,0FFh,0FFh
-	lim		3h
+	lim		3
 
 //	pos		141
 
@@ -1335,17 +1334,15 @@ set	RockCube
 
 set	Prism
 //	code	0FFh,0FFh,0FFh,0FFh,0FFh,0FFh
-	lim		0h
-//	fam		0
-//	pos		0
-//	color	black
+	lim		0
+
 
 
 
 
 set	Wind
 	code	1Ah,0FFh,0FFh,0FFh,0FFh,0FFh
-	lim		3h
+	lim		3
 
 
 
@@ -1354,7 +1351,7 @@ set	Wind
 
 set	Fan
 	code	1Ah,0FFh,0FFh,0FFh,0FFh,0FFh
-	lim		3h
+	lim		3
 
 
 
@@ -1363,7 +1360,7 @@ set	Fan
 
 set	RockArm1
 	code	1Ah,0FFh,0FFh,0FFh,0FFh,0FFh
-	lim		3h
+	lim		3
 	atk		150
 
 
@@ -1373,7 +1370,7 @@ set	RockArm1
 set	RockArm2
 	code1	0FFh,4h
 	code1	0FFh,5h
-	lim		3h
+	lim		3
 	atk		200
 
 
@@ -1382,7 +1379,7 @@ set	RockArm2
 
 set	RockArm3
 
-	lim		2h
+	lim		2
 	atk		250
 
 
@@ -1391,7 +1388,7 @@ set	RockArm3
 
 set	NoBeam1
 
-	lim		2h
+	lim		2
 //	mb		9
 
 
@@ -1400,7 +1397,7 @@ set	NoBeam1
 
 set	NoBeam2
 
-	lim		1h
+	lim		1
 	mb		6
 
 
@@ -1409,7 +1406,7 @@ set	NoBeam2
 
 set	NoBeam3
 	code1	0FFh,2h
-	lim		1h
+	lim		1
 	mb		9
 
 
@@ -1418,7 +1415,7 @@ set	NoBeam3
 
 set	Pawn
 
-	lim		2h
+	lim		2
 
 	atk		90
 
@@ -1427,7 +1424,7 @@ set	Pawn
 
 set	Knight
 	code1	0FFh,4h
-	lim		2h
+	lim		2
 //	mb		8
 
 
@@ -1436,7 +1433,7 @@ set	Knight
 
 set	Rook
 	code	1Ah,0FFh,0FFh,0FFh,0FFh,0FFh
-	lim		1h
+	lim		1
 
 
 
@@ -1445,7 +1442,7 @@ set	Rook
 
 set	Needler1
 
-	lim		3h
+	lim		3
 
 	atk		50
 
@@ -1454,7 +1451,7 @@ set	Needler1
 
 set	Needler2
 	code1	0FFh,4h
-	lim		3h
+	lim		3
 //	mb		6
 	atk		40
 
@@ -1463,7 +1460,7 @@ set	Needler2
 
 set	Needler3
 
-	lim		2h
+	lim		2
 	mb		9
 	atk		30
 
@@ -1472,7 +1469,7 @@ set	Needler3
 
 set	SloGauge
 	code	1Ah,0FFh,0FFh,0FFh,0FFh,0FFh
-	lim		1h
+	lim		1
 
 
 
@@ -1481,7 +1478,7 @@ set	SloGauge
 
 set	FstGauge
 	code	1Ah,0FFh,0FFh,0FFh,0FFh,0FFh
-	lim		1h
+	lim		1
 
 
 
@@ -1490,7 +1487,7 @@ set	FstGauge
 
 set	Repair
 	code	1Ah,0FFh,0FFh,0FFh,0FFh,0FFh
-	lim		3h
+	lim		3
 
 
 
@@ -1499,7 +1496,7 @@ set	Repair
 
 set	Invis
 	code	1Ah,0FFh,0FFh,0FFh,0FFh,0FFh
-	lim		2h
+	lim		2
 
 
 
@@ -1508,7 +1505,7 @@ set	Invis
 
 set	Hole
 	code	1Ah,0FFh,0FFh,0FFh,0FFh,0FFh
-	lim		3h
+	lim		3
 	mb		6
 
 
@@ -1517,7 +1514,7 @@ set	Hole
 
 set	Mole1
 	code	6h,0Ch,0FFh,0FFh,0FFh,0FFh
-	lim		1h
+	lim		1
 //	fam		0
 //	pos		0
 //	color	black
@@ -1527,7 +1524,7 @@ set	Mole1
 
 set	Mole2
 	code	0FFh,0FFh,0FFh,0FFh,0FFh,0FFh
-	lim		0h
+	lim		0
 	fam		0
 	pos		0
 	color	black
@@ -1537,7 +1534,7 @@ set	Mole2
 
 set	Mole3
 	code	0FFh,0FFh,0FFh,0FFh,0FFh,0FFh
-	lim		0h
+	lim		0
 	fam		0
 //	mb 		60
 
@@ -1547,7 +1544,7 @@ set	Mole3
 
 set	Shadow
 	code	9h,0Dh,0FFh,0FFh,0FFh,0FFh
-	lim		1h
+	lim		1
 	mb		7
 
 
@@ -1556,7 +1553,7 @@ set	Shadow
 
 set	Mettaur
 	code	0Ch,0FFh,0FFh,0FFh,0FFh,0FFh
-	lim		1h
+	lim		1
 
 
 
@@ -1565,7 +1562,7 @@ set	Mettaur
 
 set	Bunny
 	code	1h,0FFh,0FFh,0FFh,0FFh,0FFh
-	lim		1h
+	lim		1
 
 
 
@@ -1574,7 +1571,7 @@ set	Bunny
 
 set	AirShoes
 	code	0h,0FFh,0FFh,0FFh,0FFh,0FFh
-	lim		0h
+	lim		0
 	mb		6
 
 
@@ -1583,7 +1580,7 @@ set	AirShoes
 
 set	Team2
 	code	0Dh,0Eh,10h,14h,18,19h
-	lim		0h
+	lim		0
 	clss	4h
 
 
@@ -1592,7 +1589,7 @@ set	Team2
 
 set	Fanfare
 	code	1Ah,0FFh,0FFh,0FFh,0FFh,0FFh
-	lim		1h
+	lim		1
 
 
 
@@ -1601,7 +1598,7 @@ set	Fanfare
 
 set	Discord
 	code	1Ah,0FFh,0FFh,0FFh,0FFh,0FFh
-	lim		3h
+	lim		3
 
 
 
@@ -1610,7 +1607,7 @@ set	Discord
 
 set	Timpani
 	code	1Ah,0FFh,0FFh,0FFh,0FFh,0FFh
-	lim		3h
+	lim		3
 
 
 
@@ -1619,7 +1616,7 @@ set	Timpani
 
 set	Barrier
 	code	1Ah,0FFh,0FFh,0FFh,0FFh,0FFh
-	lim		3h
+	lim		3
 
 
 
@@ -1628,7 +1625,7 @@ set	Barrier
 
 set	Barr100
 	code	2h,4h,0Bh,11h,12h,0FFh
-	lim		1h
+	lim		1
 
 
 
@@ -1637,7 +1634,7 @@ set	Barr100
 
 set	Barr200
 
-	lim		0h
+	lim		0
 
 
 
@@ -1646,7 +1643,7 @@ set	Barr200
 
 set	Aura
 	code	5h,8h,14h,0FFh,0FFh,0FFh
-	lim		0h
+	lim		0
 	atk		1600
 
 
@@ -1654,7 +1651,7 @@ set	Aura
 
 set	NrthWind
 	code	1Ah,0FFh,0FFh,0FFh,0FFh,0FFh
-	lim		3h
+	lim		3
 
 
 
@@ -1663,7 +1660,7 @@ set	NrthWind
 
 set	HolyPanl
 	code	1Ah,0FFh,0FFh,0FFh,0FFh,0FFh
-	lim		3h
+	lim		3
 
 
 
@@ -1672,7 +1669,7 @@ set	HolyPanl
 
 set	LavaStge
 	code	1Ah,0FFh,0FFh,0FFh,0FFh,0FFh
-	lim		1h
+	lim		1
 
 
 
@@ -1681,7 +1678,7 @@ set	LavaStge
 
 set	IceStage
 	code	1Ah,0FFh,0FFh,0FFh,0FFh,0FFh
-	lim		1h
+	lim		1
 
 
 
@@ -1690,7 +1687,7 @@ set	IceStage
 
 set	GrassStg
 	code	1Ah,0FFh,0FFh,0FFh,0FFh,0FFh
-	lim		1h
+	lim		1
 
 
 
@@ -1699,7 +1696,7 @@ set	GrassStg
 
 set	SandStge
 	code1	codeP,5h
-	lim		1h
+	lim		1
 
 
 
@@ -1708,7 +1705,7 @@ set	SandStge
 
 set	MetlStge
 	code	1Ah,0FFh,0FFh,0FFh,0FFh,0FFh
-	lim		1h
+	lim		1
 
 
 
@@ -1717,7 +1714,7 @@ set	MetlStge
 
 set	Snctuary
 	code	19h,0FFh,0FFh,0FFh,0FFh,0FFh
-	lim		0h
+	lim		0
 	mb		6
 	pos 	202
 	clss 	M
@@ -1726,7 +1723,7 @@ set	Snctuary
 
 set	Swordy
 	code	12h,0FFh,0FFh,0FFh,0FFh,0FFh
-	lim		1h
+	lim		1
 
 
 
@@ -1735,7 +1732,7 @@ set	Swordy
 
 set	Spikey
 	code	4h,0FFh,0FFh,0FFh,0FFh,0FFh
-	lim		1h
+	lim		1
 
 
 
@@ -1744,7 +1741,7 @@ set	Spikey
 
 set	Mushy
 	code	0Ch,0FFh,0FFh,0FFh,0FFh,0FFh
-	lim		1h
+	lim		1
 
 
 
@@ -1753,7 +1750,7 @@ set	Mushy
 
 set	Jelly
 	code	9h,0FFh,0FFh,0FFh,0FFh,0FFh
-	lim		1h
+	lim		1
 
 
 
@@ -1763,7 +1760,7 @@ set	Jelly
 set	KillrEye
 	code	0Ah,0FFh,0FFh,0FFh,0FFh,0FFh
 	elem	0
-	lim		1h
+	lim		1
 	mb		6
 
 
@@ -1772,7 +1769,7 @@ set	KillrEye
 
 set	AntiNavi
 	code1	0FFh,3h
-	lim		1h
+	lim		1
 	mb		7
 
 
@@ -1781,7 +1778,7 @@ set	AntiNavi
 
 set	AntiDmg
 
-	lim		2h
+	lim		2
 
 
 
@@ -1790,7 +1787,7 @@ set	AntiDmg
 
 set	AntiSwrd
 
-	lim		2h
+	lim		2
 	mb		9
 
 
@@ -1799,7 +1796,7 @@ set	AntiSwrd
 
 set	AntiRecv
 
-	lim		3h
+	lim		3
 	mb		9
 
 
@@ -1808,7 +1805,7 @@ set	AntiRecv
 
 set	CopyDmg
 	code	1Ah,0FFh,0FFh,0FFh,0FFh,0FFh
-	lim		3h
+	lim		3
 
 
 
@@ -1817,7 +1814,7 @@ set	CopyDmg
 
 set	Atkp10
 
-	lim		2h
+	lim		2
 
 
 
@@ -1826,7 +1823,7 @@ set	Atkp10
 
 set	Firep30
 
-	lim		0h
+	lim		0
 
 
 
@@ -1835,7 +1832,7 @@ set	Firep30
 
 set	Aquap30
 
-	lim		0h
+	lim		0
 
 
 
@@ -1844,7 +1841,7 @@ set	Aquap30
 
 set	Elecp30
 
-	lim		0h
+	lim		0
 
 
 
@@ -1853,7 +1850,7 @@ set	Elecp30
 
 set	Woodp30
 
-	lim		0h
+	lim		0
 
 
 
@@ -1862,7 +1859,7 @@ set	Woodp30
 
 set	Navip20
 	code	0FFh,0FFh,0FFh,0FFh,0FFh,0FFh
-	lim		0h
+	lim		0
 	fam		0
 	pos		0
 	color	black
@@ -1872,7 +1869,7 @@ set	Navip20
 
 set	LifeAura
 
-	lim		0h
+	lim		0
 	mb		9
 	atk		1600
 
@@ -1882,7 +1879,7 @@ set	LifeAura
 
 set	Muramasa
 
-	lim		0h
+	lim		0
 	mb		9
 
 
@@ -1891,7 +1888,7 @@ set	Muramasa
 
 set	Guardian
 
-	lim		0h
+	lim		0
 	mb		9
 
 
@@ -1900,7 +1897,7 @@ set	Guardian
 
 set	Anubis
 
-	lim		0h
+	lim		0
 	mb		9
 
 
@@ -1909,7 +1906,7 @@ set	Anubis
 
 set	Atkp30
 	code	0FFh,0FFh,0FFh,0FFh,0FFh,0FFh
-	lim		0h
+	lim		0
 	fam		0
 	pos		0
 	color	black
