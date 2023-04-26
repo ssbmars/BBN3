@@ -367,8 +367,11 @@ backup of old values
 
 // ---------- Chip Changes
 
-// Rook HP 200
-.org RookHP		:: .dh 200
+// Pawn HP 50
+.org PawnHP		:: .db 50
+
+// Rook HP 250
+.org RookHP		:: .dh 250
 
 // Random Meteor HP 200
 .org RandomMeteorHP	:: .db 200
@@ -387,8 +390,8 @@ backup of old values
 // Team1 HP 150
 .org Team1HP		:: mov r0,150
 
-// PoisonMask 40
-.org PoisonMaskHP	:: mov r0,40
+// PoisonMask 50
+.org PoisonMaskHP	:: mov r0,50
 
 
 .if IS_PVP

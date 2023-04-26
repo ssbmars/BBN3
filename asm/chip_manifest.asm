@@ -2036,7 +2036,7 @@ set	GaiaSwrd
 set	Roll
 
 	lim		0
-	atk		30
+	atk		40
 
 	icon	ico_roll
 
@@ -2045,7 +2045,7 @@ set	Roll
 set	RollV2
 
 	lim		0
-	atk		50
+	atk		60
 
 	icon	ico_roll
 
@@ -2064,7 +2064,7 @@ set	GutsmanV2
 
 	lim		0
 
-	atk		110
+	atk		140
 
 	icon	ico_gutsman
 
@@ -2082,7 +2082,7 @@ set	ProtomnV2
 
 	lim		0
 	mb		9
-	atk		180
+	atk		200
 
 	icon	ico_protoman
 
@@ -2136,7 +2136,7 @@ set	DesrtMnV2
 
 	lim		0
 	mb		6
-	atk		150
+	atk		180
 
 	icon	ico_desertman
 
@@ -2199,7 +2199,7 @@ set	Punk
 	code	codeP,0FFh,0FFh,0FFh,0FFh,0FFh
 	lim		0
 	mb		6
-	atk		150
+	atk		180
 
 	icon	ico_punk
 

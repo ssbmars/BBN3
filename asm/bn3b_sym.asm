@@ -230,6 +230,7 @@
 .org 0x080B2964 :: GutsPunchFlinch:
 .org 0x080B296C :: GutsImpactFlinch:
 
+.org 0x080E52AE :: PawnHP:
 .org 0x080E52BE :: RookHP:
 
 .org 0x080FBA28 :: RandomMeteorHP:
