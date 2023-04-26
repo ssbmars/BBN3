@@ -114,6 +114,12 @@ color	EQU		Palette
 .endmacro
 
 
+.macro MegaByte,val
+	SetChipOffset 0x0A
+	.db val
+.endmacro
+
+
 .macro Type,val			//ATK or Support, show or hide damage value
     SetChipOffset 0x0B
     .db val
@@ -178,10 +184,15 @@ color	EQU		Palette
 .endmacro
 
 
-//changes ONLY the MB value of chip
+//does NOT change Rarity value
 .macro Limit,val
-    SetChipOffset 0xA	//megabyte
-    .db (0x5 - val)
+    SetChipOffset 0x9	//rarity
+.endmacro
+
+
+//does NOT change MB value
+.macro MegaByte,val
+	SetChipOffset 0x0A
 .endmacro
 
 
@@ -235,12 +246,6 @@ color	EQU		Palette
 
 .macro Element,val
 	SetChipOffset 0x6
-	.db val
-.endmacro
-
-
-.macro MegaByte,val
-	SetChipOffset 0x0A
 	.db val
 .endmacro
 
