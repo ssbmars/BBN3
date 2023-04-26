@@ -225,6 +225,11 @@
 
 .org 0x080DD60C :: GrabBanishFlinch:
 
+.org 0x080D6703 :: AirSwordFlinch:
+
+.org 0x080B2964 :: GutsPunchFlinch:
+.org 0x080B296C :: GutsImpactFlinch:
+
 .org 0x080E52BE :: RookHP:
 
 .org 0x080FBA28 :: RandomMeteorHP:
@@ -248,6 +253,8 @@
 
 .org 0x080DC1A4 :: GuardianElem:
 
+.org 0x080E77D4 :: SensorElem:
+
 .org 0x080E24AC :: RopeStunTime:
 
 .org 0x08238B50 :: RopeSL1:
@@ -260,7 +267,7 @@
 .org 0x080C8028 :: MagnumV1Spd:
 .org 0x080C8029 :: MagnumV2Spd:
 .org 0x080C802A :: MagnumV3Spd:
-.org 0x082D1074 :: MagnumVisuals:
+.org 0x082D1074 :: MagnumAnim:
 
 .org 0x080BE4D6 :: MetalManIW:
 
@@ -268,9 +275,10 @@
 
 .org 0x080FDCBC :: BalanceHPMath:
 
+.org 0x080E7B34 :: ShakeDmgAddr:
+
 .org 0x08130E6A :: FVRedist1:
 .org 0x08130E6E :: FVRedist2:
-.org 0x081312C0 :: FVFeeding:
 .org 0x081312C2 :: FVBranch:
 .org 0x08131330 :: FVAtkPlusVal:
 .org 0x0802200E :: ContinueFromSaveHook:
