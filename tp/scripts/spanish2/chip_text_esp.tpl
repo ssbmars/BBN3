@@ -7,6 +7,22 @@
 @size 256
 
 
+script 44 mmbn3s {
+	"CrackWav"
+	end
+}
+script 45 mmbn3s {
+	"BreakWav"
+	end
+}
+script 46 mmbn3s {
+	"SwampWav"
+	end
+}
+script 113 mmbn3s {
+	"SandWave"
+	end
+}
 
 script 161 mmbn3s {
 	"DarkHole"
@@ -22,6 +38,64 @@ script 161 mmbn3s {
 
 @archive 7052F4
 @size 256
+
+
+// CrackWav
+script 44 mmbn3 {
+	textSpeed
+		delay = 0
+	msgOpenQuick
+	"""
+	Shock wav
+	cracks
+	panels
+	"""
+	keyWait
+	msgCloseQuick
+	end
+}
+// BreakWav
+script 45 mmbn3 {
+	textSpeed
+		delay = 0
+	msgOpenQuick
+	"""
+	Shock wav
+	breaks
+	panels
+	"""
+	keyWait
+	msgCloseQuick
+	end
+}
+// SwampWav
+script 46 mmbn3 {
+	textSpeed
+		delay = 0
+	msgOpenQuick
+	"""
+	Spreads
+	swamp
+	panels
+	"""
+	keyWait
+	msgCloseQuick
+	end
+}
+// SandWave
+script 113 mmbn3 {
+	textSpeed
+		delay = 0
+	msgOpenQuick
+	"""
+	Spreads
+	sand
+	panels
+	"""
+	keyWait
+	msgCloseQuick
+	end
+}
 
 // Use elemental icons for elem swords (needed to reduce space)
 
@@ -342,7 +416,7 @@ script 47 mmbn3 {
 	msgOpenQuick
 	"""
 	Restaura
-	7 Stndrd
+	8 Stndrd
 	chips!
 	"""
 	keyWait
