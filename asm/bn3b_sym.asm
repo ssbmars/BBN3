@@ -49,8 +49,9 @@
 .org 0x0803C9E8 :: Cust2Hook:
 
 .org 0x080AFA56 :: ObjectBreakHook:
-
 .org 0x080AFB1A :: ObjectBreakHook2:
+.org 0x080DA2D6 :: ObjectBreakHook3:
+
 
 .org 0x080B4C68 :: GuardButtonDefineCheck:
 
