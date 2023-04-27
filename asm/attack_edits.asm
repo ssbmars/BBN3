@@ -112,7 +112,24 @@
 
 
 
-
+// allow shockwave chips to spawn different panels by sublevel
+	.org 0x0800B586
+		nop
+		nop
+		bl	ShockwavePanel
+		b	.+ 6*2
+	
+	// define separate behavior for each sublevel
+	.org 0x080B1AF4
+		.db 0x01,0x02,0x03,0x04
+	
+	// make panel change happen later
+	.org 0x080D6B4E
+		bl	LateShock
+	// remove original branch to panel changing routine
+	.org 0x080D6A2C
+		nop
+		nop
 
 
 

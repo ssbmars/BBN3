@@ -592,13 +592,17 @@ bl 		EquipStoryNCPs
 
 // hook to replace object deletion with 10 extra dmg when hit by breaking
 .org ObjectBreakHook
-bl 		objectbreak
-strh 	r0,[r5,24h]
+	bl 	objectbreak
+	nop
 
 // do it again for Guardian
 .org ObjectBreakHook2
-bl 		objectbreak
-strh 	r0,[r5,24h]
+	bl 	objectbreak
+	nop
+
+// do it again for FireRatton
+.org ObjectBreakHook3
+	bl	objectbreak
 
 
 // --- bind shield input to Select
@@ -968,8 +972,88 @@ Nothing that branches to any of this code uses hardcoded addresses, instead they
 // ====================================================
 // ========================================================== PUT NEW HOOKED CODE HERE
 
+
+LateShock:
+	mov		r0,0x8
+	strb	r0,[r5,0x9]
+
+	ldr		r0,[r5,0x64]
+	tst		r0,r0
+	beq		@@nochange
+	ldrb	r0,[r5,0x12]
+	ldrb	r1,[r5,0x13]
+	bl		800B568h
+
+	@@nochange:
+	pop		r15
+
+
+ShockwavePanel:
+	mov		r3,0x64
+	ldrb	r3,[r5,r3]
+	cmp		r3,0x1
+	beq		@@crack
+
+	orr		r1,r2
+	ldr		r2,=23F0Fh
+	bic		r1,r2
+
+	cmp		r3,0x2
+	beq		@@hole
+	cmp		r3,0x3
+	beq		@@swamp
+	cmp		r3,0x4
+	beq		@@sand
+	b		@@exit
+
+	@@crack:
+	mov		r2,0x40
+	tst		r1,r2
+	bne		@@break
+	b		@@resume
+	@@break:
+	mov		r15,r14
+	@@resume:
+	orr		r1,r2
+	ldr		r2,=23F0Fh
+	bic		r1,r2
+	add		r1,0x3
+	str		r1,[r0,0x4]
+	mov		r2,0x3
+	strb	r2,[r0]
+	mov		r0,0x1
+	b		@@exit
+
+	@@hole:
+	add		r1,0x3
+	str		r1,[r0,0x4]
+	mov		r2,0x3
+	strb	r2,[r0]
+	mov		r15,r14
+
+	@@swamp:
+	add		r1,0x4
+	str		r1,[r0,0x4]
+	mov		r2,0x4
+	strb	r2,[r0]
+	mov		r0,0x1
+	b		@@exit
+
+	@@sand:
+	add		r1,0xA
+	str		r1,[r0,0x4]
+	mov		r2,0xA
+	strb	r2,[r0]
+	mov		r0,0x1
+	b		@@exit
+	
+	@@exit:
+	pop 	r15
+	.pool
+
+
 AuraCountDown:
-	ldr		r1,=02006CA0h
+	ldr		r1,=02006CA0h	// gamestate shows whether time is frozen
 	ldrb	r1,[r1,0x2]
 	cmp		r1,0x4
 	bne		@@exit
@@ -2027,7 +2111,7 @@ FolderBack:
 	mov		r0,1Eh
 	sub		r2,r0,r2	//make r2 = amount of remaining chips
 
-	mov		r6,7h		//max amount of chips to restore
+	mov		r6,8		//max amount of chips to restore
 	ldr		r4,=2034100h
 
 @@readnewchip:
@@ -2483,9 +2567,11 @@ objectbreak:
 	ldrh 	r0,[r5,24h]
 	sub 	r0,0Ah 		;dmg value here
 	bmi 	@@delete	;branch if the subtraction results in a negative val
+	strh 	r0,[r5,24h]
 	mov 	r15,r14
 @@delete:
 	mov 	r0,0h
+	strh 	r0,[r5,24h]
 	mov 	r15,r14
 @@nosub:
 	ldrh 	r0,[r5,24h]
