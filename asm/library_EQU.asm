@@ -15,7 +15,7 @@ pos		EQU		Position
 //				icon
 img		EQU		Image
 color	EQU		Palette
-
+abcd	EQU		NameSort
 
 
 .macro ChipProperties,ID
@@ -257,6 +257,11 @@ color	EQU		Palette
 .endmacro
 
 
+.macro NameSort,val
+	SetChipOffset 0x10
+	.dh	val
+	.org .-0x10
+.endmacro
 
 
 
