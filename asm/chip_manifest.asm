@@ -378,8 +378,8 @@ set	CustSwrd
 
 
 set	VarSwrd
-	code 	11h,0FFh,0FFh,0FFh,0FFh,0FFh
-	lim		0
+//	code 	11h,0FFh,0FFh,0FFh,0FFh,0FFh
+	lim		1
 	mb		9
 	atk		100
 
@@ -387,7 +387,7 @@ set	VarSwrd
 
 set	StepSwrd
 
-	lim		3
+	lim		2
 	atk		200
 
 
@@ -396,7 +396,7 @@ set	StepSwrd
 
 set	StepCros
 	code1	codeK,4
-	lim		3
+	lim		2
 //	mb		9
 	atk		150
 
@@ -430,29 +430,27 @@ set	Slasher
 
 
 
-set	ShockWav
+set	ShockWav	// CrackWav
 
-	lim		3
-	sublv	3h
-
-
-
-
-
-set	SonicWav
-
-
-	lim		3
-	sublv	3h
+	lim		2
+	atk		90
+	abcd	42h
 
 
 
+set	SonicWav	// BreakWav
 
-set	DynaWave
+
+	lim		0
+	atk		100
+	abcd	32h
+
+
+set	DynaWave	// SwampWav
 	code1	0FFh,4h
-	lim		3
-	sublv	3h
-
+	lim		1
+	atk		140
+	abcd	11Eh
 
 
 
@@ -731,7 +729,7 @@ set	Scuttlst
 	code	3h,0FFh,0FFh,0FFh,0FFh,0FFh
 	lim		1
 	mb		6
-
+	abcd	103h
 
 
 
@@ -1065,11 +1063,11 @@ set	Shake3
 
 
 
-set	BigWave
+set	BigWave		// SandWave 
 
-	lim		3
+	lim		1
 	mb		9
-
+	abcd	104h
 
 
 
@@ -1507,7 +1505,7 @@ set	Hole
 	code	1Ah,0FFh,0FFh,0FFh,0FFh,0FFh
 	lim		3
 	mb		6
-
+	abcd	47h
 
 
 
@@ -1890,8 +1888,8 @@ set	Guardian
 
 	lim		0
 	mb		9
-
-
+	clss	S
+	pos		123
 
 
 
@@ -1962,8 +1960,8 @@ set	OldWood
 set	FullCust
 
 	lim		0
-
-
+	clss	S
+	pos		202
 
 
 
@@ -2339,7 +2337,7 @@ set	DeltaRay
 
 	lim		0
 	mb		9
-	atk		170
+	atk		200
 
 
 
@@ -2366,7 +2364,7 @@ set	AlphArmO
 	code1	11h,0h
 	lim		0
 	mb		9
-	atk		400
+	atk		450
 
 
 
@@ -2375,7 +2373,7 @@ set	Bassp
 	code1	0Ah,0h
 	lim		0
 	mb		9
-	atk		480
+	atk		500
 
 
 
@@ -2417,7 +2415,7 @@ set	132h	//	Bass
 	lim		0
 	mb		9
 	type	44h
-	atk		70
+	atk		80
 	pos		299
 	icon	icon_Bass
 	img		img_Bass
@@ -2427,7 +2425,7 @@ set	132h	//	Bass
 set	133h	//	Serenade
 	lim		0
 	mb		9
-	atk		60
+	atk		80
 	pos		300
 	icon	icon_Serenade
 	img		img_Serenade
@@ -2585,11 +2583,14 @@ set	DesrtMnV5
 
 
 set	FlashMnV5
-
+	code	0FFh,0FFh,0FFh,0FFh,0FFh,0FFh
+	pos		0
+	fam		0
 	lim		0
-	mb		9
-	atk		120
-	pos		303
+	color	black
+//	mb		9
+//	atk		120
+//	pos		303
 	icon	ico_flashman
 //	img		img_sensorman
 //	color	pal_sensorman
@@ -2597,11 +2598,15 @@ set	FlashMnV5
 
 
 set	PlantMnV5
-
+	code	0FFh,0FFh,0FFh,0FFh,0FFh,0FFh
+	pos		0
+	fam		0
 	lim		0
-	mb		9
-	atk		40
-	pos		304
+	color	black
+//	lim		0
+//	mb		9
+//	atk		40
+//	pos		304
 	icon	ico_plantman
 
 
@@ -3165,21 +3170,19 @@ set	KingManV4
 
 
 set	Flashman
-	code	0FFh,0FFh,0FFh,0FFh,0FFh,0FFh
-	pos		0
-	fam		0
+	lim		0
+	mb		9
+	atk		30
 	icon	ico_flashman
-	color	black
 
 
 
 
 set	FlashmnV2
-	code	0FFh,0FFh,0FFh,0FFh,0FFh,0FFh
-	pos		0
-	fam		0
+	lim		0
+	mb		9
+	atk		40
 	icon	ico_flashman
-	color	black
 
 
 
@@ -3205,22 +3208,21 @@ set	FlashmnV4
 
 
 set	PlantMan
-	code	0FFh,0FFh,0FFh,0FFh,0FFh,0FFh
-	pos		0
-	fam		0
+	lim		0
+	mb		9
+	atk		10
 	icon	ico_plantman
-	color	black
+
 
 
 
 
 set	PlantMnV2
-	code	0FFh,0FFh,0FFh,0FFh,0FFh,0FFh
-	pos		0
-	fam		0
+	lim		0
+	mb		9
+	atk		20
 	icon	ico_plantman
-	color	black
-
+	
 
 
 
