@@ -7,7 +7,6 @@
 @size 256
 
 
-
 script 133 mmbn3s {
 	"MetaGel"
 	end
@@ -27,7 +26,6 @@ script 162 mmbn3s {
 
 @archive 7052F4
 @size 256
-
 
 
 //Snake
