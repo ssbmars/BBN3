@@ -153,7 +153,13 @@ bl Hitboxtable
 //new standard wind hitbox			(0x69)
 
 
+//plantman use new hitbox
+.org 0x080C2643
+	.db 0x6B
 
+//flashman use new hitbox
+.org 0x080B6A4F
+	.db 0x6C
 
 
 //modify northwind's hitbox so it pierces shields
