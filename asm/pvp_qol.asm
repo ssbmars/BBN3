@@ -27,6 +27,69 @@
 	bl		ChipDisplayFix
 
 
+// Modify pvp stages
+	PanelData EQU 0x0800BFDC
+	setpan EQU PanelConfig
+	.macro PanelConfig,offset
+	    .org PanelData + (offset * 0x18)
+	.endmacro
+	// 1 broken		2 normal	3 cracked
+	// 4 poison		5 metal		6 grass
+	// 7 ice		8 lava		9 holy		0xA sand
+/*
+default stage example
+
+.db		0,2,2,2, 2,2,2,0,\
+		0,2,2,2, 2,2,2,0,\
+		0,2,2,2, 2,2,2,0
+
+*/
+
+setpan 0x1
+.db		0,3,0xA,2, 2,0xA,3,0,\
+		0,0xA,2,0xA, 0xA,2,0xA,0,\
+		0,3,0xA,2, 2,0xA,3,0
+
+setpan 0x39
+.db		0,2,6,6, 8,8,2,0,\
+		0,2,6,8, 8,6,2,0,\
+		0,2,8,8, 6,6,2,0
+
+setpan 0x47
+.db		0,0,7,7, 7,7,7,0,\
+		0,7,2,2, 2,2,7,0,\
+		0,7,7,7, 7,7,0,0
+
+setpan 0x66
+.db		0,7,3,7, 7,3,7,0,\
+		0,7,3,7, 7,3,7,0,\
+		0,7,3,7, 7,3,7,0
+
+setpan 0x70
+.db		0,8,2,0, 0,2,8,0,\
+		0,2,2,2, 2,2,2,0,\
+		0,8,2,8, 8,2,8,0
+
+setpan 0x75
+.db		0,2,5,2, 2,5,2,0,\
+		0,5,9,5, 5,9,5,0,\
+		0,2,5,2, 2,5,2,0
+
+setpan 0x76
+.db		0,3,2,2, 2,2,3,0,\
+		0,0xA,0xA,0xA, 0xA,0xA,0xA,0,\
+		0,3,2,2, 2,2,3,0
+
+setpan 0x78
+.db		0,2,4,4, 4,4,2,0,\
+		0,2,2,9, 9,2,2,0,\
+		0,2,4,4, 4,4,2,0
+
+setpan 0x7A
+.db		0,2,0xA,9, 9,0xA,2,0,\
+		0,2,2,2, 2,2,2,0,\
+		0,2,0xA,2, 2,0xA,2,0
+
 
 
 // 			 run the modified openmode patch routines
