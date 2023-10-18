@@ -418,13 +418,15 @@ backup of old values
 
 
 .if IS_PVP
-//Nerf to Sensor series framedata
+// Nerf to Sensor framedata for V3
 
-.org 0x080E787E		//sensor wait time after being spawned
-	mov		r0,3Ch
+.org 0x080E787E		// wait time before attacking
+	ldr		r0,=SensorLvlCheck1|1
+	bx		r0
+	.pool
 
-.org 0x080E7818		//sensor series object duration
-	.dh		0x1A4
+.org 0x080E77E4		// obstacle duration
+	bl		SensorLvlCheck2
 
 .endif
 
