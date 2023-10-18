@@ -441,7 +441,7 @@ set	ShockWav	// CrackWav
 set	SonicWav	// BreakWav
 
 
-	lim		0
+	lim		1
 	atk		100
 	abcd	32h
 
@@ -3172,17 +3172,18 @@ set	KingManV4
 set	Flashman
 	lim		0
 	mb		9
-	atk		30
+	atk		50
 	icon	ico_flashman
 
 
 
 
 set	FlashmnV2
-	lim		0
-	mb		9
-	atk		40
+	code	0FFh,0FFh,0FFh,0FFh,0FFh,0FFh
+	pos		0
+	fam		0
 	icon	ico_flashman
+	color	black
 
 
 
@@ -3210,7 +3211,7 @@ set	FlashmnV4
 set	PlantMan
 	lim		0
 	mb		9
-	atk		10
+	atk		20
 	icon	ico_plantman
 
 
@@ -3218,10 +3219,11 @@ set	PlantMan
 
 
 set	PlantMnV2
-	lim		0
-	mb		9
-	atk		20
+	code	0FFh,0FFh,0FFh,0FFh,0FFh,0FFh
+	pos		0
+	fam		0
 	icon	ico_plantman
+	color	black
 	
 
 
