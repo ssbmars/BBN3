@@ -71,7 +71,7 @@ bl HubHP
 
 
 
-
+.if IS_PVP
 //	Reg+1 NCPs
 
 //add hardcoded value to mb (+1)
@@ -85,7 +85,7 @@ bl HubHP
 .org 0x0803CBB6
 	nop
 	mov		r1,3h		//max of +3MB
-
+.endif
 
 
 
