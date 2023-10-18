@@ -408,7 +408,7 @@ bl 		EquipStoryNCPs
 	.db 0x32, 0x32
 
 
-
+/*
 //pve-friendly MB (RegMem) value scaling
 .org 0x0802B18A
 	mov		r6,64h
@@ -422,7 +422,7 @@ bl 		EquipStoryNCPs
 	add		r0,2h
 	nop
 //max: 0A 0C 04
-
+*/
 
 //skip tutorial
 .org 0x080045EA
@@ -922,12 +922,18 @@ bl 		SetStyle
 	bl		DragShoesCheck
 
 
+//	make more conditions for when Restock can happen
+.org 0x080EEF36
+	bl		RestockCheck
 
+//	disable wind fields
+.org 0x08005BEC
+	bl		WindField
+	nop
 
-
-
-
-
+//	disable flag battles
+.org 0x08005BF6
+	bl		FlagField
 
 
 //[EXPERIMENTAL] try to maintain value in memory area so you can apply damage to just barriers beforehand
@@ -972,6 +978,80 @@ Nothing that branches to any of this code uses hardcoded addresses, instead they
 // ====================================================
 // ========================================================== PUT NEW HOOKED CODE HERE
 
+
+WindField:
+	// can use r4 and r0
+	mov		r4,0x19
+	ldrb	r0,[r5,r4]
+	cmp		r0,0x12		// allow wind if it's not a triple battle
+	bne		@@allow
+	pop		r15
+	@@allow:
+	ldrh	r4,[r6]
+	bl		0x080EEA9C
+	pop		r15
+
+FlagField:
+	mov		r2,0x19
+	ldrb	r1,[r5,r2]
+	cmp		r1,0x12		// allow flags if it's not a triple battle
+	bne		@@allow
+	pop		r15
+
+	@@allow:
+	// og code
+	ldrb	r1,[r6,0x1]
+	ldrb	r2,[r6,0x2]
+	mov		r15,r14
+
+RestockCheck:
+	ldrb	r0,[r5,0x4]
+	ldrb	r1,[r5,0x5]
+	cmp		r0,r1
+	beq		@@skip
+	//	run on turn 1
+	cmp		r0,0x1
+	beq		@@allow
+	//	run on turns 4,8,12 (decimal)
+	mov		r1,0x3
+	tst		r0,r1
+	beq		@@allow		
+
+	@@skip:
+	pop		r15
+	@@allow:
+	ldrb	r0,[r5,0x4]
+	ldrb	r1,[r5,0x5]
+	mov		r15,r14
+
+
+SensorLvlCheck1:
+	ldrb	r0,[r5,0x4]
+	cmp		r0,0x2
+	bne		@@notv3
+	mov		r0,3Ch		//sensor startup, nerfed
+	b		@@jump
+	@@notv3:
+	mov		r0,0x14		//sensor startup, normal
+	@@jump:
+	strh	r0,[r5,0x22]
+	mov		r0,0x14
+	strb	r0,[r5,0x9]
+	mov		r0,0x0
+	strh	r0,[r5,0xA]
+	pop		r15
+
+SensorLvlCheck2:
+	ldrb	r0,[r5,0x4]
+	cmp		r0,0x2
+	bne		@@notv3
+	ldr		r0,=0x1A4
+	b		@@jump
+	@@notv3:
+	ldr		r0,=0x258
+	@@jump:
+	strh	r0,[r5,0x20]
+	mov		r15,r14
 
 LateShock:
 	mov		r0,0x8
@@ -2241,7 +2321,7 @@ ShieldMissCheck:
 	ldr		r1,[r5,78h]		//byte set by shields when they block something
 	tst		r1,r1
 	bne		@@lowcooldown	//sets a low cooldown value if the shield has blocked something
-	mov		r0,16h
+	mov		r0,22			//cooldown amount of shield
 	b		@@exit
 
 @@lowcooldown:
@@ -2545,7 +2625,16 @@ LoadRarity:
 
 // Replace breaking hitbox object deletion with extra damage
 objectbreak:
-	// check whether the collision was with a body hitbox, branch if yes
+	// check whether the collision was with a body or flag hitbox, branch if yes
+	// flag check
+	// this may cause false positives
+	ldr		r1,=0x42000010
+	cmp		r0,r1
+	beq		@@delete
+	ldr		r1,=0x84000010
+	cmp		r0,r1
+	beq		@@delete
+	// body check
 	lsr		r0,18h
 	cmp		r0,20h
 	ble		@@delete
@@ -2576,6 +2665,7 @@ objectbreak:
 @@nosub:
 	ldrh 	r0,[r5,24h]
 	mov 	r15,r14
+	.pool
 
 // 11th chip glitch fix
 cust1:
