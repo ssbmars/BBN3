@@ -52,7 +52,7 @@
 	nop
 	nop
 
-
+/*
 //make Darkhole ignore the object limit
 
 	//branch to delete existing object (hole chip)
@@ -69,7 +69,7 @@
 	//Darkman's version
 	.org 0x080D2034
 		nop
-
+*/
 
 //allow darkhole to occupy panels alongside other entities
 /*
