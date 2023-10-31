@@ -1,10 +1,10 @@
-
+/*
 //modify internal ROM name
 .org 0x080471C8
 .area 0x0C,0x20
 	.ascii "BBN3 v0.5.1"
 .endarea
-
+*/
 
 
 //make Tamako's kiosk take you to Secret Area
