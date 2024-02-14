@@ -941,8 +941,14 @@ bl 		SetStyle
 	bl	KeepBarrierDmg
 
 
-
-
+//[EXPERIMENTAL] Smart Step
+.org 0x080B3890
+	RetryStep:
+.org 0x080B38F4
+	bl	StepCheck
+	b	RetryStep
+	nop
+	nop
 
 
 
@@ -977,6 +983,29 @@ Nothing that branches to any of this code uses hardcoded addresses, instead they
 // ==============================================
 // ====================================================
 // ========================================================== PUT NEW HOOKED CODE HERE
+
+
+StepCheck:
+	push	r14
+
+	bl		0x080010E0	//read orientation to r0
+	mov		r1,0x1
+	mul		r0,r1
+	ldrb	r1,[r5,0x12]
+	add		r0,r0,r1
+	ldrb	r1,[r5,0x13]
+	push	r0,r1
+	bl		0x0800BF06
+	tst		r0,r0
+	pop		r0,r1
+	beq		@@stay
+	pop		r15
+
+	@@stay:
+	ldrb	r0,[r5,0x12]
+	ldrb	r1,[r5,0x13]
+	pop		r15
+
 
 
 WindField:
@@ -1069,6 +1098,16 @@ LateShock:
 
 
 ShockwavePanel:
+	// check for shockwave routine, otherwise default behavior
+	push	r4
+	mov		r3,0x60
+	ldr		r3,[r5,r3]
+	lsr		r3,0x4
+	ldr		r4,=0x80D699
+	cmp		r3,r4
+	pop		r4
+	bne		@@crack
+	// check sublevel
 	mov		r3,0x64
 	ldrb	r3,[r5,r3]
 	cmp		r3,0x1
