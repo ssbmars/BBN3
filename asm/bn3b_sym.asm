@@ -349,7 +349,7 @@
 .org 0x08010632 :: CustSwordAtkLogic2:
 .org 0x0801063C :: CustSwordAtkLogic3:
 
-.org 0x080D6DC2 :: MeteorFlinch:
+.org 0x080D6DBC :: MeteorFlinch:
 
 .org 0x080AF376 :: LavaPanelFlinch:
 

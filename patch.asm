@@ -985,6 +985,28 @@ Nothing that branches to any of this code uses hardcoded addresses, instead they
 // ========================================================== PUT NEW HOOKED CODE HERE
 
 
+MeteorLvlCheck:
+	ldr		r7,[r5,0x60]
+	ldr		r1,=0x080D6CF8
+	cmp		r7,r1
+	bne		@@flashing
+	ldrb	r1,[r7,0x2]
+	cmp		r1,0x9
+	bne		@@flashing
+	ldrb	r2,[r7,0x3]
+	cmp		r2,0x0A
+	bne		@@flashing
+	mov		r3,0x1
+	mov 	r15,r14
+
+	@@flashing:
+	ldrb	r1,[r7,0x2]
+	ldrb	r2,[r7,0x3]
+	mov		r3,0x3
+	mov 	r15,r14
+
+
+
 StepCheck:
 	push	r14
 

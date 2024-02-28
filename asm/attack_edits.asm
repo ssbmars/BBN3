@@ -743,7 +743,11 @@ backup of old values
 //disabled because it affects longsword and probably isn't necessary anyways
 
 // ------ Meteor
-.org MeteorFlinch :: mov r3,01 	;FL
+.org MeteorFlinch ;FL
+	bl	MeteorLvlCheck
+	nop
+	nop
+
 
 // ------ LavaStage
 //.org LavaPanelFlinch :: mov r3,01 	;FL
