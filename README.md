@@ -13,5 +13,5 @@ The directory "\tp\scripts\spanish2\" contains additional translations for the m
 
 ## Tango Rollback
 BBN3 can be played with rollback netcode thanks to Tango.  
-https://tangobattle.com  
+https://tango.n1gp.net/
 
