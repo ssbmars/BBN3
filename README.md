@@ -1,7 +1,7 @@
 # BBN3
 https://bbn3.n1gp.dev  
 
-BBN3 is a balance patch for Megaman Battle Network 3 Blue. There are changes at every level, from individual chips to universal engine mechanics. Its goal is to make BN3 pvp accessible, fun, and interactive.  
+BBN3 is a balance patch for Megaman Battle Network 3 Blue. There are changes at every level, from individual chips to universal engine mechanics. Its goal is to make BN3 pvp accessible, fun, and interactive. The extensive list of changes are documented in the [changelog on the BBN3 website.](https://bbn3.n1gp.dev/changelog)
 
 There is a "pve" version designed for playing through singleplayer. This version does not aim to directly rebalance the singleplayer experience, but instead makes changes that improve the feel of the game. The effect on game balance is secondary to the main goal of making chips, navicust parts, and engine mechanics more fun to use and less annoying to deal with. There are several BBN3 changes that exist to make preparation for pvp faster and easier. Many of these changes are detrimental or nonsensical in the context of pve, so they are either not included or replaced with a version that makes sense for pve. You can always read the changelog to see exactly what is and isn't included in the pve version.  
 
