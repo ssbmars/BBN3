@@ -1,13 +1,21 @@
 # BBN3
 https://bbn3.n1gp.dev  
+**This patch is designed for pvp!**  
 
-Balanced Battle Network 3 is a balance patch for Megaman Battle Network 3 Blue. There are changes at every level, from individual chips to universal engine mechanics. Its goal is to make BN3 pvp accessible, fun, and interactive. The extensive list of changes are documented in the [changelog on the BBN3 website.](https://bbn3.n1gp.dev/changelog)
+Balanced Battle Network 3 is a balance patch for Megaman Battle Network 3 Blue. There are changes at every level, from individual chips to universal engine mechanics. Its goal is to make BN3 pvp accessible, fun, and interactive. The extensive list of changes are documented in the [changelog](https://bbn3.n1gp.dev/changelog)  on the BBN3 website.  
 
-There is a "pve" version designed for playing through singleplayer. This version does not aim to directly rebalance the singleplayer experience, but instead makes changes that improve the feel of the game. The effect on game balance is secondary to the main goal of making chips, navicust parts, and engine mechanics more fun to use and less annoying to deal with. There are several BBN3 changes that exist to make preparation for pvp faster and easier. Many of these changes are detrimental or nonsensical in the context of pve, so they are either not included or replaced with a version that makes sense for pve. You can always read the changelog to see exactly what is and isn't included in the pve version.  
+### Singleplayer
+There is a "pve" version designed for playing through singleplayer. This version does not aim to directly rebalance the singleplayer experience, but instead makes changes that improve the feel of the game. The effect on game balance is secondary to the main goal of making chips, navicust parts, and engine mechanics more fun to use and less annoying to deal with. BBN3 is marginally less difficult as a result, but a few chips are weaker due to reworked mechanics. Some of the exclusive content from BN3 White is made available (Groundstyle and Giga chips) but the exclusive chip codes from White are not included (but can still be obtained via trading). There are several BBN3 changes that exist to make preparation for pvp faster and easier. Many of these changes are detrimental or nonsensical in the context of pve, so they are either not included or replaced with a version that makes sense for pve. You can always read the changelog to see exactly what is and isn't included in the pve version.  
 
-This project is open source in the colloquial sense, but it was not published with the intention of democratizing the balance decisions in the official release. In other words, the balance decisions for this patch will always be the result of a single person's arbitrary opinions. There is no objectively correct way to fix the balance issues from vanilla BN3. For each problem, there are likely to be several valid and very different solutions. BBN3 explores just one narrow path in an infinitely branching tree of interesting ideas. If you disagree with the balance decisions of BBN3, or wish to see what it would be like if things were balanced a different way, you are highly encouraged to create the version that you want. Permission to do so has already been granted unconditionally, for everyone.  
+### Contributing
+This project is open source in the colloquial sense, but it was not published with the intention of democratizing the balance decisions in the official release. In other words, the balance decisions for this patch will always be the result of a single person's arbitrary opinions. There is no objectively correct way to fix the balance issues from vanilla BN3. For each problem, there are likely to be several valid and very different solutions. BBN3 explores just one narrow path in an infinitely branching tree of interesting ideas. If you disagree with the balance decisions of BBN3, or wish to see what it would be like if things were balanced a different way, you are highly encouraged to create the version that you want, separately. Permission to do so has already been granted unconditionally, for everyone.  
 
-Contributions to the real-world accessibility of BBN3 are very welcome and will be accepted into the official release. Translations for new languages are highly desirable.  
+Contributions to the real-world accessibility of BBN3 are very welcome and will be accepted into the official release.
+- Translations for new languages are highly desirable. These should include menu text, chips, navicust parts, and tutorial emails. There are usually technical hurdles to supporting new languages, so this will necessarily be a highly collaborative effort.
+- For pve, I would like to include the exclusive chip codes from BN3 White. The White Gigas could also be granted as rewards for story progression instead of being sold in shops. Currently I lack proper documentation about exclusive chip codes. This is a low priority wishlist item, so any external help could make it happen a lot quicker.
+
+
+
 
 
 ## Tango Rollback
