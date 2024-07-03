@@ -950,6 +950,30 @@ bl 		SetStyle
 	nop
 	nop
 
+// Separate Chip Lockout from Ability Lockout
+.org 0x080B47CE
+	bl	ReadChipLockout
+	mov		r1,0x10
+	tst		r6,r1
+	bne		AllowChip
+
+	bl	ReadAbilityLockout
+	b	AllowAbility
+	nop
+
+
+.org 0x080B47E0
+	AllowChip:
+.org 0x080B47F6
+	AllowAbility:
+
+
+// AntiDmg ability use new lockout
+.org 0x080B216E
+	bl	SetAbilityLockout
+
+.org 0x080B2354
+	bl	SetAbilityLockout
 
 
 // ============================== ================ ================================
@@ -983,6 +1007,77 @@ Nothing that branches to any of this code uses hardcoded addresses, instead they
 // ==============================================
 // ====================================================
 // ========================================================== PUT NEW HOOKED CODE HERE
+
+SetAbilityLockout:
+	//	use this routine by setting the desired lockout in r0
+	push	r5,r14
+	ldrb	r1,[r5,0x19]
+	cmp		r1,r0
+	bcs		@@exit
+	strb	r0,[r5,0x19]
+	@@exit:
+	pop		r5,r15
+
+
+
+ReadChipLockout:
+	// also iterate ability lockout since this part always runs
+	ldrb	r0,[r5,0x19]
+	sub		r0,0x1
+	bmi		@@skipwrite
+	strb	r0,[r5,0x19]
+	// the real chip part
+	@@skipwrite:
+	mov		r3,0x60
+	ldrb	r0,[r5,r3]
+	sub		r0,0x1
+	bmi		@@continue
+	strb	r0,[r5,r3]
+	pop		r15
+	@@continue:
+	mov		r15,r14
+
+
+ReadAbilityLockout:
+	ldrb	r0,[r5,0x19]
+	sub		r0,0x1
+	bmi		@@continue
+	pop		r15
+	@@continue:
+	mov		r15,r14
+
+
+/* original behavior
+mov		r3,0x60
+ldrb	r0,[r5,r3]
+sub		r0,0x1
+bmi		0x80B47DA
+strb	r0,[r5,r3]
+pop		r15
+*/
+/*
+LockoutCheck:
+	mov		r3,0x60
+	ldrb	r0,[r5,r3]
+	sub		r0,0x1
+	bmi		@@nolockout		//branch if no lockout
+	strb	r0,[r5,r3]
+	//read new address for Guard indicator
+	// 02037289 is [r5,0x19]
+	ldrb	r0,[r5,0x19]
+	tst		r0,r0
+	bne		@@continue
+	pop		r15
+	@@continue:
+	mov		r15,r14
+
+	@@nolockout:
+	mov		r0,0
+	strb	r0,[r5,0x19]
+	mov		r15,r14
+*/
+
+
 
 
 MeteorLvlCheck:
@@ -2310,40 +2405,41 @@ InvalidChipList:
 
 
 
+BlockCooldown:
+	push	r14
+	ldrb	r2,[r0,5h]
+	bic		r2,r1
+	strb	r2,[r0,5h]	//end of og code
+	mov		r0,22
+	bl		SetAbilityLockout
+	pop		r15
 
 
-
+/*
 BlockStartup:
 	ldrb	r2,[r0,5h]		//og code
 	orr		r2,r1			//og code
 	strb	r2,[r0,5h]		//og code
-
 	mov		r0,0h
 	str		r0,[r5,78h]
-
 	push	r7
 	ldr		r7,[r5,68h]
 
 	// make a record of current HP so it can be checked later
 	ldr		r0,[r7,50h]	
 	strh	r0,[r5,22h]
-
 	pop		r7
 	mov		r15,r14
-
 
 BlockCooldown:
 	push	r14,r0-r1,r7
 	ldrb	r2,[r0,5h]
 	bic		r2,r1
-	strb	r2,[r0,5h]
-
+	strb	r2,[r0,5h]		//end of og code
 
 	ldr		r7,[r5,68h]
-
 	ldrh	r0,[r5,22h]		//previous damage
 	ldr		r1,[r7,50h]		//current damage
-
 	cmp		r1,r0
 	bgt		@@lowcooldown
 
@@ -2354,50 +2450,34 @@ BlockCooldown:
 	strb	r0,[r5,6h]
 	mov		r0,8h
 	strb	r0,[r5,7h]
-
-
 	mov		r0,0Ah		//endlag duration
 	mov		r1,22h
 	strh	r0,[r5,r1]
-
 	ldr		r7,[r5,68h]	//fetch correct idle animation for style
 	ldrb	r0,[r7,7h]
 	strb	r0,[r5,10h]
-
 	b		@@exit
 
 @@lowcooldown:
 	mov		r14,r15
 	bl		80B4782h
-
-
 @@exit:	
 	pop		r15,r0-r1,r7
-
+*/
 
 
 //Read a byte to check whether the shield blocked anything while active
 ShieldMissCheck:
+	mov		r0,0x6
+	strh	r0,[r5,0x22]	//original endlag animation
 
+	mov		r0,22			//cooldown amount of shield
 	ldr		r1,[r5,78h]		//byte set by shields when they block something
 	tst		r1,r1
-	bne		@@lowcooldown	//sets a low cooldown value if the shield has blocked something
-	mov		r0,22			//cooldown amount of shield
-	b		@@exit
-
-@@lowcooldown:
-
-	mov		r0,4h
-
-	//new attempt at fixing Guard endlag
-	mov		r2,60h
-	ldrb	r1,[r5,r2]
-	cmp		r1,0h
-	beq		.+04h
-	strb	r0,[r5,r2]
-
-@@exit:
-	strh	r0,[r5,22h]
+	beq		@@exit			
+	mov		r0,4		//set a low cooldown value if the shield has blocked something
+	@@exit:
+	strb	r0,[r5,0x19]
 	mov		r15,r14
 
 

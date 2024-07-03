@@ -89,13 +89,26 @@ bl HubHP
 
 
 
+// Disable antidmg antispam tracker
+.org 0x080B5290
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	// this routine will no longer read/write to 0x02037289
+
+
 
 //antidamage (framedata applies to chip too)
 .org 0x080b2152 :: .db 0x1A 	;active time
 .org 0x080B216C :: .db 0x28 	;cooldown on miss
 .org 0x080B22FE :: .db 0x10 	;throw endlag
 .org 0x080B2352 :: .db 0x06 	;cooldown on hit
-.org 0x080B5295 :: .db 0xE0 	;disable antispam
+//.org 0x080B5295 :: .db 0xE0 	;disable antispam
 .org 0x08340958 :: .db 0x7D 	;plushie despawn time
 //animation frames
 .org 0x0823895C :: .db 0x00 	;standing in air, remove
@@ -136,22 +149,28 @@ bl HubHP
 
 //reflect / shield
 //.org 0x080B140E :: .db 0x1A	;active defense
-.org 0x080B1582 :: .db 0x01	;action state after endlag 1
+//.org 0x080B1582 :: .db 0x01	;action state after endlag 1
 //.org 0x080B1564 :: .db 0x12	;endlag 2 value
 
 .org 0x080B1564		//set cooldown based on whether you successfully blocked something
 	bl		ShieldMissCheck
 
 
+//	Block ability set lockout
+.org 0x080B1262
+	bl	BlockCooldown
+
+
+/*	this version of block endlag is no longer used
 //block
 .org 0x080B1248
 	bl	BlockStartup
 
-.org 0x080B1262
+//.org 0x080B1262
 	bl	BlockCooldown
 	nop
 	nop
-
+*/
 
 
 
