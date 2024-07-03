@@ -161,18 +161,6 @@ bl HubHP
 	bl	BlockCooldown
 
 
-/*	this version of block endlag is no longer used
-//block
-.org 0x080B1248
-	bl	BlockStartup
-
-//.org 0x080B1262
-	bl	BlockCooldown
-	nop
-	nop
-*/
-
-
 
 
 

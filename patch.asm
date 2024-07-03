@@ -2415,56 +2415,6 @@ BlockCooldown:
 	pop		r15
 
 
-/*
-BlockStartup:
-	ldrb	r2,[r0,5h]		//og code
-	orr		r2,r1			//og code
-	strb	r2,[r0,5h]		//og code
-	mov		r0,0h
-	str		r0,[r5,78h]
-	push	r7
-	ldr		r7,[r5,68h]
-
-	// make a record of current HP so it can be checked later
-	ldr		r0,[r7,50h]	
-	strh	r0,[r5,22h]
-	pop		r7
-	mov		r15,r14
-
-BlockCooldown:
-	push	r14,r0-r1,r7
-	ldrb	r2,[r0,5h]
-	bic		r2,r1
-	strb	r2,[r0,5h]		//end of og code
-
-	ldr		r7,[r5,68h]
-	ldrh	r0,[r5,22h]		//previous damage
-	ldr		r1,[r7,50h]		//current damage
-	cmp		r1,r0
-	bgt		@@lowcooldown
-
-	//set endlag state
-	mov		r0,1h
-	strb	r0,[r5,5h]
-	mov		r0,5h
-	strb	r0,[r5,6h]
-	mov		r0,8h
-	strb	r0,[r5,7h]
-	mov		r0,0Ah		//endlag duration
-	mov		r1,22h
-	strh	r0,[r5,r1]
-	ldr		r7,[r5,68h]	//fetch correct idle animation for style
-	ldrb	r0,[r7,7h]
-	strb	r0,[r5,10h]
-	b		@@exit
-
-@@lowcooldown:
-	mov		r14,r15
-	bl		80B4782h
-@@exit:	
-	pop		r15,r0-r1,r7
-*/
-
 
 //Read a byte to check whether the shield blocked anything while active
 ShieldMissCheck:
