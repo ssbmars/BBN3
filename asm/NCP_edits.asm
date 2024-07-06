@@ -105,9 +105,9 @@ bl HubHP
 
 //antidamage (framedata applies to chip too)
 .org 0x080b2152 :: .db 0x1A 	;active time
-.org 0x080B216C :: .db 0x28 	;cooldown on miss
+//.org 0x080B216C :: .db 0x28 	;cooldown on miss
 .org 0x080B22FE :: .db 0x10 	;throw endlag
-.org 0x080B2352 :: .db 0x06 	;cooldown on hit
+//.org 0x080B2352 :: .db 0x06 	;cooldown on hit
 //.org 0x080B5295 :: .db 0xE0 	;disable antispam
 .org 0x08340958 :: .db 0x7D 	;plushie despawn time
 //animation frames
@@ -161,7 +161,30 @@ bl HubHP
 	bl	BlockCooldown
 
 
+// Block ability grant LiteArmor
+.org 0x080B1240
+	bl	BlockArmor
 
+
+
+// Shield new endlag animation speed
+.org 0x082F17BC	::	.db 1
+.org 0x082F17D0	::	.db 0
+.org 0x082F17E4	::	.db 1
+.org 0x082F17F8	::	.db 1
+.org 0x082F180C	::	.db 1
+.org 0x082F1820	::	.db 0
+.org 0x082F1834	::	.db 1
+
+
+// Reflect new endlag animation speed
+.org 0x082F1870	::	.db	1
+.org 0x082F1884	::	.db	0
+.org 0x082F1898	::	.db	1
+.org 0x082F18AC	::	.db	1
+.org 0x082F18C0	::	.db	1
+.org 0x082F18D4	::	.db	0
+.org 0x082F18E8	::	.db	1
 
 
 //-------- Navi Customizer Changes

@@ -53,9 +53,9 @@
 .org 0x080DA2D6 :: ObjectBreakHook3:
 
 
-.org 0x080B4C68 :: GuardButtonDefineCheck:
+//.org 0x080B4C68 :: GuardButtonDefineCheck:
 
-.org 0x080B4802 :: GuardButtonComboCheck:
+//.org 0x080B4802 :: GuardButtonComboCheck:
 
 .org 0x080D6C76 :: PanelStealHook:
 

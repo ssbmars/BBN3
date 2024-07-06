@@ -605,6 +605,7 @@ bl 		EquipStoryNCPs
 	bl	objectbreak
 
 
+/*	depreciated by newer better code
 // --- bind shield input to Select
 .org GuardButtonDefineCheck
 nop
@@ -614,9 +615,11 @@ cmp 	r6,4h
 blt 	80B4C7Ch
 cmp 	r6,8h
 bge 	80B4C7Ch
+*/
+
 
 // --- disable B button combination check
-.org GuardButtonComboCheck :: nop
+//.org GuardButtonComboCheck :: nop
 
 
 // Make areasteal and metagel hook to the custom check
@@ -955,25 +958,43 @@ bl 		SetStyle
 	bl	ReadChipLockout
 	mov		r1,0x10
 	tst		r6,r1
-	bne		AllowChip
-
-	bl	ReadAbilityLockout
-	b	AllowAbility
+	bne		ChipCheck
+	b		AbilityCheck
+	nop
+	nop
 	nop
 
-
 .org 0x080B47E0
-	AllowChip:
+	ChipCheck:
+
 .org 0x080B47F6
-	AllowAbility:
+	AbilityCheck:
+	// r1 is required as an arg. If [cooldown-1] is =< r1, it will
+	// behave as if cooldown is zero
+	mov		r1,4
+	bl		ReadAbilityLockout
+	bl		ReadAbilityInput
+	// this routine is terminated from within either of the branches
+
 
 
 // AntiDmg ability use new lockout
-.org 0x080B216E
-	bl	SetAbilityLockout
+.org 0x080B216C
+	mov		r0,45
+	bl		SetAbilityLockout
 
-.org 0x080B2354
-	bl	SetAbilityLockout
+// amount of lockout if antidmg activates
+.org 0x080B2352
+	mov		r0,0x9
+	bl		SetAbilityLockout
+
+
+// hook the end of the final part of the megaman movement routine
+// currently used to add ability lockout after moving
+.org 0x080B0E4A
+	bl		EndOfMovement
+
+
 
 
 // ============================== ================ ================================
@@ -1008,6 +1029,51 @@ Nothing that branches to any of this code uses hardcoded addresses, instead they
 // ====================================================
 // ========================================================== PUT NEW HOOKED CODE HERE
 
+
+EndOfMovement:
+	mov		r0,0x0
+	strb	r0,[r5,0x4]
+	// set ability lockout after finishing movement
+	mov		r0,3
+	bl		SetAbilityLockout2
+	pop		r15
+	// the hook is right before the function pops r15, so the pop can be done here
+
+
+
+ReadAbilityInput:
+	ldr		r7,[r5,0x68]
+	ldrb	r0,[r7,0x10]
+	tst		r0,r0
+	beq		@@SingleInput
+	ldrb	r0,[r7,0x11]
+	tst		r0,r0
+	beq		@@SingleInput
+	@@success:
+	mov		r0,0x8
+	bl		80B575Eh
+	mov		r0,0x0
+	strh	r0,[r7,0x10]
+	@@popit:
+	pop		r15
+	@@SingleInput:
+	ldrh	r0,[r7,0x22]	//addr for initial button press
+	// tst for 0x4, the Select input
+	mov		r1,0x4
+	tst		r0,r1
+	beq		@@popit
+	mov		r1,0x0
+	bl		ReadAbilityLockout
+	// only accept input if not in movement
+	ldrb	r0,[r5,0x5]
+	mov		r1,0x1
+	tst		r0,r1
+	bne		@@success
+	pop		r15
+
+
+
+
 SetAbilityLockout:
 	//	use this routine by setting the desired lockout in r0
 	push	r5,r14
@@ -1018,6 +1084,14 @@ SetAbilityLockout:
 	@@exit:
 	pop		r5,r15
 
+SetAbilityLockout2:
+	//	same as the original but without the register popping
+	ldrb	r1,[r5,0x19]
+	cmp		r1,r0
+	bcs		@@exit
+	strb	r0,[r5,0x19]
+	@@exit:
+	mov		r15,r14
 
 
 ReadChipLockout:
@@ -1042,12 +1116,19 @@ ReadAbilityLockout:
 	ldrb	r0,[r5,0x19]
 	sub		r0,0x1
 	bmi		@@continue
+	// exit if specified range is zero
+	tst		r1,r1
+	beq		@@exit
+	// accept if within specified range
+	cmp		r0,r1
+	ble		@@continue
+	@@exit:
 	pop		r15
 	@@continue:
 	mov		r15,r14
 
 
-/* original behavior
+/* LockoutCheck original behavior
 mov		r3,0x60
 ldrb	r0,[r5,r3]
 sub		r0,0x1
@@ -1055,7 +1136,7 @@ bmi		0x80B47DA
 strb	r0,[r5,r3]
 pop		r15
 */
-/*
+/*	this version was for a single lockout tracker. not using this one because the lockout is now split with a separate tracker for chip/guard
 LockoutCheck:
 	mov		r3,0x60
 	ldrb	r0,[r5,r3]
@@ -2404,31 +2485,42 @@ InvalidChipList:
 .pool
 
 
+BlockArmor:
+	mov		r0,0xFF
+	strb	r0,[r5,0x11]
+	// add litearmor
+	mov		r0,0x80
+	ldrb	r1,[r7,0xF]
+	orr		r1,r0
+	strb	r1,[r7,0xF]
+	mov		r15,r14
+
 
 BlockCooldown:
 	push	r14
 	ldrb	r2,[r0,5h]
 	bic		r2,r1
 	strb	r2,[r0,5h]	//end of og code
-	mov		r0,22
-	bl		SetAbilityLockout
+	mov		r0,26
+	bl		SetAbilityLockout2
 	pop		r15
 
 
 
 //Read a byte to check whether the shield blocked anything while active
 ShieldMissCheck:
+	push	r14
 	mov		r0,0x6
 	strh	r0,[r5,0x22]	//original endlag animation
 
-	mov		r0,22			//cooldown amount of shield
+	mov		r0,27			//cooldown amount of shield
 	ldr		r1,[r5,78h]		//byte set by shields when they block something
 	tst		r1,r1
 	beq		@@exit			
-	mov		r0,4		//set a low cooldown value if the shield has blocked something
+	mov		r0,9		//set a low cooldown value if the shield has blocked something
 	@@exit:
-	strb	r0,[r5,0x19]
-	mov		r15,r14
+	bl		SetAbilityLockout2
+	pop		r15
 
 
 
