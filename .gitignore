@@ -1,6 +1,7 @@
 /.ignore/*
 /rom/backup/*
 /tp/scripts/spanish/*
+/snek/*
 *.exe
 *.dll
 *.gba
