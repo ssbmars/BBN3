@@ -995,6 +995,13 @@ bl 		SetStyle
 	bl		EndOfMovement
 
 
+// AntiSword delay start until idle
+.org 0x080B51FC
+	bl		AntiChipDelayStart
+	beq		0x080B526C
+	bl		AntiChipExtraSpace
+
+
 
 
 // ============================== ================ ================================
@@ -2012,7 +2019,7 @@ AntiDmgBarrierCheck:
 
 
 
-AntiDmgQueue:
+AntiChipDelayStart:
 	push	r14
 	ldrb	r0,[r5,5h]
 
@@ -2028,18 +2035,18 @@ AntiDmgQueue:
 	cmp		r0,2Ch		// poison mask/face
 	beq		@@activate
 
-// queue antidmg to fire later
+	// queue antidmg to fire later
 	mov		r0,0h
 	b		.+4h
 
-@@activate:
+	@@activate:
 	mov		r0,1h
 
 	tst		r0,r0
 	pop		r15
 
 
-AntiDmgExtraSpace:
+AntiChipExtraSpace:
 	mov		r0,0h
 	strh	r0,[r6,18h]
 	strh	r0,[r6,1Ah]

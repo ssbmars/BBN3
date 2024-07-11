@@ -130,9 +130,9 @@ bl HubHP
 
 //Make AntiDmg (chip) wait to fire until idle
 .org AntiDmgQueueHook
-	bl		AntiDmgQueue
+	bl		AntiChipDelayStart
 	beq		.+6Ch
-	bl		AntiDmgExtraSpace
+	bl		AntiChipExtraSpace
 
 
 .org AntiDmgChipBarrierCheckHook
