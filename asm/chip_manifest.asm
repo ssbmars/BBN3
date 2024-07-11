@@ -1642,7 +1642,7 @@ set	Barr200
 set	Aura
 	code	5h,8h,14h,0FFh,0FFh,0FFh
 	lim		0
-	atk		2000
+	atk		1600
 
 
 
@@ -1869,7 +1869,7 @@ set	LifeAura
 
 	lim		0
 	mb		9
-	atk		2000
+	atk		1600
 
 
 
@@ -2355,7 +2355,7 @@ set	DarkAura
 
 	lim		0
 	mb		9
-	atk		4000
+	atk		1600
 
 
 
