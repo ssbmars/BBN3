@@ -390,9 +390,9 @@
 
 .org 0x080B512E :: AntiDmgQueueHook:
 
-.org 0x080B5102 :: AntiDmgChipBarrierCheckHook:
+//.org 0x080B5102 :: AntiDmgChipBarrierCheckHook:
 
-.org 0x080B52AA :: AntiDmgNCPBarrierCheckHook:
+//.org 0x080B52AA :: AntiDmgNCPBarrierCheckHook:
 
 .org 0x080B52E8 :: AntiMagicRestoreTrapHook:
 

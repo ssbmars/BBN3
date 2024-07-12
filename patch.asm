@@ -1002,6 +1002,8 @@ bl 		SetStyle
 	bl		AntiChipExtraSpace
 
 
+.org 0x080B52D6
+	bl		AntiMagicBetterBarrierCheck
 
 
 // ============================== ================ ================================
@@ -1035,6 +1037,18 @@ Nothing that branches to any of this code uses hardcoded addresses, instead they
 // ==============================================
 // ====================================================
 // ========================================================== PUT NEW HOOKED CODE HERE
+
+
+AntiMagicBetterBarrierCheck:
+	mov		r0,0x40
+	tst		r0,r1
+	beq		@@exit
+	mov		r0,0x0
+	strb	r0,[r6,0x6]
+	@@exit:
+	mov		r0,0x0
+	strh	r0,[r6,0x18]
+	mov		r15,r14
 
 
 EndOfMovement:
@@ -1976,54 +1990,20 @@ ChipDisplayFix:
 
 
 
-AntiDmgBarrierCheck:
-
-	ldr		r1,[r7,54h]		//og code
-	orr		r1,r0			//
-	str		r1,[r7,54h]		//og code
-
-	mov		r2,40h
-	tst		r1,r2
-
-	beq		@@skip
-
-	mov		r0,24h			//check what type of barrier it is
-	ldrb	r1,[r6,6h]
-	sub		r1,r0,r1
-	mov		r0,1h			//set aura timer to 1f
-	cmp		r1,0Ch
-
-	ble		.+4h
-	mov		r0,0h			//set barr hp to 0
-	strh	r0,[r6,16h]
-
-	b		@@end
-
-@@skip:
-
-	//write here to apply damage to barriers, but probably only relevant for when antidmg blocks the hit
-/*
-	mov		r0,24h
-	ldrb	r1,[r6,6h]
-	sub		r1,r0,r1
-	mov		r0,1h
-	cmp		r1,0Ch
-*/
-	nop
-
-
-@@end:
-	mov		r15,r14
-
-
-
-
-
 AntiChipDelayStart:
 	push	r14
-	ldrb	r0,[r5,5h]
 
-	// activate on idle state and buster endlag (move cancel window)
+	// make sure it's not protecting a barrier from wind
+	// r1 is already loaded with the hitbox data to inspect
+	mov		r0,0x40
+	tst		r0,r1
+	beq		@@nowind
+	mov		r0,0x0
+	strb	r0,[r6,0x6]
+
+	@@nowind:
+	// activate on idle state and buster endlag 
+	ldrb	r0,[r5,5h]
 	mov		r1,3h
 	tst		r0,r1
 	bne		@@activate
@@ -2044,6 +2024,7 @@ AntiChipDelayStart:
 
 	tst		r0,r0
 	pop		r15
+	.pool
 
 
 AntiChipExtraSpace:

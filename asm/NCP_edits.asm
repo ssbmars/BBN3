@@ -135,16 +135,6 @@ bl HubHP
 	bl		AntiChipExtraSpace
 
 
-.org AntiDmgChipBarrierCheckHook
-	bl		AntiDmgBarrierCheck
-	nop
-
-.org AntiDmgNCPBarrierCheckHook
-	bl		AntiDmgBarrierCheck
-	nop
-
-
-
 
 
 //reflect / shield
