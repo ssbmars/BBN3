@@ -158,23 +158,24 @@ bl HubHP
 
 
 // Shield new endlag animation speed
+
+.org 0x082F17A8	::	.db 0
 .org 0x082F17BC	::	.db 1
 .org 0x082F17D0	::	.db 0
 .org 0x082F17E4	::	.db 1
 .org 0x082F17F8	::	.db 1
 .org 0x082F180C	::	.db 1
 .org 0x082F1820	::	.db 0
-.org 0x082F1834	::	.db 1
 
 
 // Reflect new endlag animation speed
+.org 0x082F185C	::	.db	0
 .org 0x082F1870	::	.db	1
 .org 0x082F1884	::	.db	0
 .org 0x082F1898	::	.db	1
 .org 0x082F18AC	::	.db	1
 .org 0x082F18C0	::	.db	1
 .org 0x082F18D4	::	.db	0
-.org 0x082F18E8	::	.db	1
 
 
 //-------- Navi Customizer Changes
