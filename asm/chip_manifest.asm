@@ -2355,7 +2355,7 @@ set	DarkAura
 
 	lim		0
 	mb		9
-	atk		1600
+	atk		2000	;1600
 
 
 
