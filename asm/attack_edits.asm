@@ -184,15 +184,18 @@ bl Hitboxtable
 	.db 0x66
 
 
-
 //give tornado the standard wind hitbox
 .org TornadoHitboxPointer
 	mov r1,69h
 
+// woodstyle cs with breakcharge, use hitbox for wind + break
+.org TornadoBreakChargeHitboxPointer
+	mov r1,0x6D
+
+
 //give airstorm's tornado the standard wind hitbox
 .org AirStormTornadoHitboxPointer
 	mov r1,69h
-
 
 
 //make airshot use wind-smallpush pointer
@@ -220,7 +223,6 @@ bl Hitboxtable
 //give Rush a hitbox that doesn't have sword property
 .org 0x080BF03C
 	mov		r1,22h
-
 
 
 

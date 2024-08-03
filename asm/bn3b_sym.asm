@@ -140,6 +140,7 @@
 .org 0x080DD627 :: GrabRevengeHitboxPointer:
 
 .org 0x080D7520 :: TornadoHitboxPointer:
+.org 0x080D7528 :: TornadoBreakChargeHitboxPointer:
 
 .org 0x080E137E :: AirStormTornadoHitboxPointer:
 
