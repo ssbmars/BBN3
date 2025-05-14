@@ -1006,6 +1006,19 @@ bl 		SetStyle
 	bl		AntiMagicBetterBarrierCheck
 
 
+.org 0x080B4EFA
+	bl		JealousyBehavior
+
+.org 0x080FB052
+	bl		JealousyCount
+
+.org 0x080FB092
+	bl		JealousyCountCleanup
+
+.org 0x080FB12E
+	bl		JealousyFirstHitCheck
+
+
 // ============================== ================ ================================
 // ============================                      ==============================
 // =========================    Free Space Routines    ============================
@@ -1037,6 +1050,70 @@ Nothing that branches to any of this code uses hardcoded addresses, instead they
 // ==============================================
 // ====================================================
 // ========================================================== PUT NEW HOOKED CODE HERE
+
+
+JealousyFirstHitCheck:
+	// this picks a different hitbox pointer based on how many times it's hit something.
+	// Currently it stops deleting chips after 1 hit
+	ldr		r0,[r5,0x14]
+	ldr		r4,[r5,0x18]
+	cmp		r0,r4
+	bne		@@nodelete
+	ldr		r4,=0x6E2E0901
+	b		@@exit
+	@@nodelete:
+	ldr		r4,=0x6F2E0901
+	@@exit:
+	mov		r0,0x0
+	mov		r15,r14
+	.pool
+
+JealousyCountCleanup:
+	// clear the data that gets stored by JealousyCount
+	mov		r0,0x8		// og code
+	strb	r0,[r5,0x1]
+	mov		r0,0x0		// clear the chip count copy
+	str		r0,[r5,0x18]
+	mov		r15,r14
+
+JealousyCount:	
+	// store a copy of the original chip count to compare against
+	// so we can count how many times we've already hit something
+	str		r0,[r5,0x14]
+	str		r0,[r5,0x18]
+	tst		r0,r0
+	mov		r15,r14
+
+JealousyBehavior:
+	// copy behavior to treat the current chip like it's just been used
+	// effectively deletes one chip
+	bic		r0,r1			// clear the jealousy hitflag from the collided hitbox data
+	str		r0,[r7,0x2C]	// (the hitbox tends to linger so it would keep applying)
+	ldrb	r0,[r5,0x1A]	// check if there are chips in hand
+	tst		r0,r0
+	beq		@@exit
+
+	ldrh	r0,[r7,0x1A]	// only apply if damage is being dealt	
+	ldrh	r1,[r7,0x1C]	
+	add		r0,r0,r1
+	ldrh	r1,[r7,0x20]
+	add		r0,r0,r1
+	ldrh	r1,[r7,0x22]
+	add		r0,r0,r1
+	tst		r0,r0
+	beq		@@exit
+
+	ldrb	r0,[r5,0x1A]	// reduce chip count
+	sub		r0,0x1			
+	strb	r0,[r5,0x1A]
+
+	ldr		r1,[r5,0x68]	// get addr for next chip and trap data
+	ldrb	r0,[r1,0x8]		// iterate "next chip" pointer
+	add		r0,0x2
+	strb	r0,[r1,0x8]
+	@@exit:
+	mov		r15,r14
+
 
 
 AntiMagicBetterBarrierCheck:

@@ -148,7 +148,7 @@ bl HubHP
 
 //	Block ability set lockout
 .org 0x080B1262
-	bl	BlockCooldown
+	bl	BlockCooldown	// lockout amount is defined within the routine
 
 
 // Block ability grant LiteArmor
