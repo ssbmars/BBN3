@@ -113,9 +113,15 @@
 
 
 // allow shockwave chips to spawn different panels by sublevel
-	.org 0x0800B586
-		nop
-		nop
+	.org 0x0800B57A
+		cmp		r7,0x1
+		bgt		0x0800B586
+		mov		r2,0x2
+		lsl		r2,r2,0x10
+		tst		r1,r2
+		bne		0x800B5B0
+		mov		r2,0x40
+		tst		r1,r2
 		bl	ShockwavePanel
 		b	.+ 6*2
 	

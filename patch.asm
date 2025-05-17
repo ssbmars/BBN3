@@ -1404,20 +1404,29 @@ ShockwavePanel:
 	pop		r4
 	bne		@@crack
 	// check sublevel
-	mov		r3,0x64
-	ldrb	r3,[r5,r3]
-	cmp		r3,0x1
+;	mov		r3,0x64		// this reads sublevel from memory, but it's already in r7
+;	ldrb	r3,[r5,r3]
+;	cmp		r3,0x1
+	cmp		r7,0x1
+	beq		@@crack
+	//	if over a metal panel, use crack behavior instead
+	mov		r2,0x2
+	lsl		r2,r2,0x10
+	tst		r1,r2
+	beq		@@endofmetalcheck
+	cmp		r7,0x2
 	beq		@@crack
 
+	@@endofmetalcheck:
 	orr		r1,r2
 	ldr		r2,=23F0Fh
 	bic		r1,r2
 
-	cmp		r3,0x2
+	cmp		r7,0x2
 	beq		@@hole
-	cmp		r3,0x3
+	cmp		r7,0x3
 	beq		@@swamp
-	cmp		r3,0x4
+	cmp		r7,0x4
 	beq		@@sand
 	b		@@exit
 
