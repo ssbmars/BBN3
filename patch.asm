@@ -995,6 +995,10 @@ bl 		SetStyle
 	bl		EndOfMovement
 
 
+// AntiSword activate through stun
+.org 0x080B51F6
+	bl		AntiChipSkipStun
+
 // AntiSword delay start until idle
 .org 0x080B51FC
 	bl		AntiChipDelayStart
@@ -2074,13 +2078,40 @@ ChipDisplayFix:
 	mov		r15,r14
 
 
-
+AntiChipSkipStun:
+	//	stun normally prevents antidmg/antisword code from running
+	//	so this check will make the code run, but the DelayStart
+	//	function also needs to make an exception to activate through stun
+	ldrb	r0,[r5,0x1E]
+	tst		r0,r0
+	beq		@@pass
+	//	r5 is 2037270 for p1
+	//	need to load 0203729F, 0x2F 
+	cmp		r0,4h
+	bne		@@fail
+	mov		r1,0x2F
+	ldrb	r0,[r5,r1]
+	cmp		r0,4h
+	beq		@@forcepass
+	cmp		r0,8h
+	beq		@@forcepass
+	@@fail:
+	ldrb	r0,[r5,0x1E]
+	tst		r0,r0
+	mov		r15,r14
+	@@forcepass:
+	mov		r0,0h
+	tst		r0,r0
+	@@pass:
+	mov		r15,r14
 
 AntiChipDelayStart:
 	push	r14
 
 	// make sure it's not protecting a barrier from wind
-	// r1 is already loaded with the hitbox data to inspect
+	// r1 was already loaded with the hitbox data to inspect
+	// but I needed r1 for SkipStun
+	ldr		r1,[r7,0x54]
 	mov		r0,0x40
 	tst		r0,r1
 	beq		@@nowind
@@ -2100,14 +2131,33 @@ AntiChipDelayStart:
 	beq		@@activate
 	cmp		r0,2Ch		// poison mask/face
 	beq		@@activate
+	// activate if stunned
+	ldrb	r0,[r5,0x1E]	// this value is 04 when stun/vine is active, but I don't know that other actions don't also set this value. So I haven't ruled out false positives
+	cmp		r0,4h
+	bne		@@fail
+	mov		r1,0x2F
+	ldrb	r0,[r5,r1]	// this is a sublevel for stun that changes the behavior between stun and vine. Checking for this should cut down on false positives since unrelated things are unlikely to set both addresses to these specific recognized values.
+	cmp		r0,4h
+	beq		@@clearstun
+	cmp		r0,8h
+	beq		@@clearstun
+	//	so far this "works" but creates a new bug
+	// pressing a direction every frame (not holding) will make mega move while still in the air from antidmg
+	// probably can fix it by wiping the stun flags
+	// maybe the plant damage timer should be reset too?
 
+	@@fail:
 	// queue antidmg to fire later
 	mov		r0,0h
-	b		.+4h
-
+	tst		r0,r0
+	pop		r15
+	@@clearstun:
+	mov		r0,0h
+	strb	r0,[r5,0x1E]
+	strb	r0,[r5,r1]
+	strh	r0,[r5,32h]
 	@@activate:
 	mov		r0,1h
-
 	tst		r0,r0
 	pop		r15
 	.pool

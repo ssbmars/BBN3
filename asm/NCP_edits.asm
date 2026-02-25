@@ -134,6 +134,8 @@ bl HubHP
 	beq		.+6Ch
 	bl		AntiChipExtraSpace
 
+.org 0x080B5128
+	bl		AntiChipSkipStun
 
 
 
